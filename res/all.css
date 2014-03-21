@@ -1,0 +1,258 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, 
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display:block;}
+body {line-height:1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes:none;}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content:'';
+	content:none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Images */
+img
+{
+    border-style:none;
+}
+
+/* Links */
+a {
+	text-decoration:underline;
+	color:#2aabde;
+}
+a:hover
+{
+    color:#42a747;
+}
+a:visited
+{
+    color:#18577e;
+}
+
+/* Frame up the body */
+body {
+	margin:0;
+	color:#5a5a5a;
+	font:12px/16px Arial, Helvetica, sans-serif;
+	background-color:#ededed;
+	/*min-width:1010px;*/
+}
+#main {
+    border-width:1px;
+    border-style:ridge;
+    border-radius:5px;
+    border-color:black;
+	background-color:white;
+    max-width:1000px;
+    margin:5px auto;
+	padding:5px;
+}
+
+/* General text formatting */
+p
+{
+    margin-bottom: 1em;
+}
+ul
+{
+    list-style:disc;
+    margin-left:30px;
+    margin-bottom: 1em;
+}
+ol
+{
+    list-style:decimal;
+    margin-left:30px;
+    margin-bottom: 1em;
+}
+b
+{
+    font-weight:bold;
+}
+
+/* Page or document Title */
+.title
+{
+    text-align:center;
+	font:bold 24px/28px Arial, Helvetica, sans-serif;
+	color:#18577e;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* Headings */
+h1 {
+	font:bold italic 24px/28px Arial, Helvetica, sans-serif;
+	color:#18577e;
+}
+h1 a,
+h2 a {color:#18577e;}
+h1 a:hover,
+h2 a:hover {color:#42a747;}
+h2 {
+	font:bold 16px/20px Arial, Helvetica, sans-serif; /*font:bold 18px/22px Arial, Helvetica, sans-serif;*/
+	color:#18577e;
+}
+h3 {
+	font:bold 14px/16px Arial, Helvetica, sans-serif; /*font:bold 16px/18px Arial, Helvetica, sans-serif;*/
+	color:#5a5a5a;
+}
+h4 {
+	font:bold 14px/16px Arial, Helvetica, sans-serif;
+	color:#5a5a5a;
+}
+h5,
+h6 {
+	font:bold 13px/15px Arial, Helvetica, sans-serif;
+	color:#5a5a5a;
+}
+
+/* Basics */
+strong
+{
+    font-weight:bold;
+}
+
+
+/* header */
+#header {
+	position:relative;
+	z-index:3;
+}
+
+/* top-nav */
+.top-nav {
+    list-style:none;
+    float:right;
+	font-weight:bold;
+}
+.top-nav li {
+	float:left;
+	padding:0 10px 0 15px;
+}
+.top-nav a
+{
+    color:#5a5a5a;
+    text-decoration:none;
+}
+.top-nav a:hover
+{
+    color:#49a64b;
+}
+.top-nav .active a
+{
+    color:#0684ac;
+}
+
+/* menu-bar */
+div.menu-bar-holder {
+    width:100%;
+    height:20px;
+    background-color:#3E3E3E;
+}
+.menu-bar {
+    list-style:none;
+	width:100%;
+	font-size:11px;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+.menu-bar li {
+	float:left;
+    padding:0 10px;
+	border-right:1px solid #8f9192;
+    background-color:#3E3E3E;
+    line-height:20px;
+    height:20px;
+}
+.menu-bar a
+{
+	float:left;
+	text-align:center;
+	color:#f1f1f1;
+	padding:0 0 1px;
+    text-decoration:none;
+}
+.menu-bar a:hover,
+.menu-bar li:hover a
+{
+    color:#43aeda;
+}
+.menu-bar li:hover
+{
+    position:relative;
+}
+.menu-bar li:hover .drop
+{
+    display:block;
+}
+/* menu-bar drop */
+.menu-bar .drop
+{
+	display:none;
+	position:absolute;
+	top:21px;
+	left:0px;
+	width:218px;
+    background-color:#3E3E3E;
+	padding:0;
+}
+.menu-bar ul
+{
+    list-style:none;
+	text-transform:none;
+	width:auto;
+	padding:5px 5px 2px 15px;
+	line-height:normal;
+}
+.menu-bar ul li
+{
+	float:none;
+	border:none;
+	margin:0;
+	padding:3px 0;
+    line-height:normal;
+    height:auto;
+}
+.menu-bar ul a ,
+.menu-bar li:hover ul a
+{
+	float:none;
+	color:#f1f1f1;
+    text-decoration:none;
+}
+.menu-bar ul a:hover ,
+.menu-bar li:hover ul a:hover
+{
+    color:#43aeda;
+}
+
