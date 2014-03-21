@@ -1,0 +1,29 @@
+---
+title: TemplatePage
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>{{ page.title }}</title>
+{% include head.html %}
+<style type="text/css">
+	<!-- additional styles here -->
+</style>
+</head>
+
+<body>
+
+<div id="main">
+	{% include header.html %}
+	
+	<div id="content">
+		<b>TemplatePage</b> sample content.
+	</div>
+	
+	{% include footer.html %}
+</div>
+
+</body>
+
+</html>

@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+---
+title: SmarterApp - Specifications
+---
+<!DOCTYPE html>
+<html>
 
 <head>
-<title>SmarterApp - Specifications</title>
-<link rel="stylesheet" type="text/css" media="all" href="./res/all.css">
-<link rel="shortcut icon" href="./res/favicon.ico">
-<script type="text/javascript" src="./res/bsi.js"></script>
+{% include head.html %}
 <style>
 th {
 	text-align: left;
@@ -17,11 +17,11 @@ td {
 </style>
 </head>
 
-<body onload="LoadHeaderFooter()">
+<body>
 
 <div id="main">
-	<div id="header">
-	</div>
+	{% include header.html %}
+
 	<div id="content" style="min-height: 400px;">
 		<div class="title">
 			Specifications and Related Documents</div>
@@ -45,7 +45,7 @@ td {
 				Item Format Brief (below). </td>
 			</tr>
 			<tr>
-				<td><a href="/documents/2014-02-28_itempackage.zip">Sample Assessment 
+				<td><a href="http://x.smarterapp.org/documents/2014-02-28_itempackage.zip">Sample Assessment 
 				Item Package</a></td>
 				<td>28 Feb 2014</td>
 				<td>Preview</td>
@@ -102,8 +102,8 @@ td {
 			</tr>
 		</table>
 	</div>
-	<div id="footer">
-	</div>
+	
+	{% include footer.html %}
 </div>
 
 </body>
