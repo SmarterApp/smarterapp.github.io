@@ -94,9 +94,13 @@ ol
     margin-left:30px;
     margin-bottom: 1em;
 }
-b
+em, b 
 {
     font-weight:bold;
+}
+blockquote
+{
+	margin-left:50px;
 }
 
 /* Page or document Title */

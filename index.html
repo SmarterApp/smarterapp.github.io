@@ -31,7 +31,7 @@ li {
 		<ul style="padding-right: 40px;">
 			{% for post in site.categories['news'] %}
 				<li>
-					<b>{{ post.date | date_to_long_string }}</b>
+					<b>{{ post.date | date_to_string }}</b>
 					{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
 				</li>
 			{% endfor %}
