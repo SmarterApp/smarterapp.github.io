@@ -1,7 +1,4 @@
----
-title: SmarterApp - Assessment Platform
----
-
+--- title: SmarterApp - Assessment Platform ---
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +16,6 @@ li {
 
 <div id="main">
 	{% include header.html %}
-
 	<div id="content" style="min-height: 400px;">
 		<br />
 		<p style="font-weight: bold;">SmarterApp is a community of organizations 
@@ -27,18 +23,26 @@ li {
 		assessment. </p>
 		<p>This site is a work in progress. Please excuse flaws and typos. See the
 		<a href="about.html">About page</a> for more detail.</p>
-		<h1>News</h1>
+		<table style="width: 100%; vertical-align:middle;">
+			<tr style="vertical-align:bottom;">
+				<td>
+				<h1>News
+				<a href="http://feeds.feedburner.com/smarterapp/news" rel="alternate" type="application/rss+xml">
+				<img src="http://www.feedburner.com/fb/images/pub/feed-icon32x32.png" alt="feed" style="vertical-align: middle; border: 0"></a></h1>
+				</td>
+				<td style="text-align: center; width: 280px; vertical-align:middle;">
+				<form style="border:1px solid #ccc;padding:3px;text-align:center;line-height:1.5;" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=smarterapp/news', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"><b>Subscribe to SmarterApp News</b><br/>Email address: <input type="text" style="width:140px" name="email"/><br/><input type="hidden" value="smarterapp/news" name="uri"/><input type="hidden" name="loc" value="en_US"/><input type="submit" value="Subscribe" /></form>
+				</td>
+			</tr>
+		</table>
 		<ul style="padding-right: 40px;">
 			{% for post in site.categories['news'] %}
-				<li>
-					<b>{{ post.date | date_to_string }}</b>
-					{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
-				</li>
+			<li><b>{{ post.date | date_to_string }}</b> {{ post.content }} </li>
 			{% endfor %}
 		</ul>
 	</div>
-
-	{% include footer.html %}
+	{% include footer.html %} </div>
+</table>
 </div>
 
 </body>
