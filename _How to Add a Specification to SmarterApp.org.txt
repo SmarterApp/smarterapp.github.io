@@ -1,0 +1,24 @@
+How To Add a Specification to SmarterApp.org
+============================================
+
+A. Do the following in a local copy of the smarterapp.github.io repository
+--------------------------------------------------------------------------
+
+   1. Copy the original document in it's editable format (typically MS Office) into the "_original_documents" folder of the repository.
+
+   2. Rename the document stripping any leading date and substituting underscores for spaces.
+
+   3. Export a copy of the document into .pdf format keeping the balance of the filename the same.
+
+   4. Put the .pdf version in the "documents" folder.
+
+   5. In the _posts folder of the repository create a description of the new document that will appear on the "Specifications" page. Use one of the other spec descriptions as a template. Each description is one text file using [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax). Make sure that the YAML header (the part at be beginning between the three-dash lines) includes layout, category, title, date, the URL of the document you just posted and the status. The balance of the description is a description of the document you just posted.
+
+   6. If the new specification is significant enough to merit mention in the SmarterApp.org news feed, create a news feed post in the _posts folder using one of the other news items as a template.
+
+B. Commit the updates
+---------------------
+
+   1. Commit the changes to your local repository.
+
+   2. Push the changes to GitHub.
