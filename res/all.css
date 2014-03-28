@@ -94,7 +94,11 @@ ol
     margin-left:30px;
     margin-bottom: 1em;
 }
-em, b 
+em,i
+{
+	font-style:italic;
+}
+strong, b 
 {
     font-weight:bold;
 }
