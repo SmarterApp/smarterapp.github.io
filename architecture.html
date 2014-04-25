@@ -2,8 +2,53 @@
 title: SmarterApp - Architecture
 layout: default
 ---
-<div class="title">Architecture</div>
-<p>Architecture documents have yet to be posted here. However, many can 
-be found on the
-<a href="http://www.smarterbalanced.org/smarter-balanced-assessments/technology/">
-Smarter Balanced Technology Page</a>. </p>
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>{{ page.title }}</title>
+{% include head.html %}
+<style>
+th {
+	text-align: left;
+	font-weight: bold;
+}
+td {
+	padding-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="main">
+	{% include header.html %}
+
+	<div id="content" style="min-height: 400px;">
+		<div class="title">Systems Architecture</div>
+		<p>The Smarter Balanced architecture was developed in 2012 in a collaborative effort between member states and technical experts. Ongoing oversight is provided by the Architectural Review Board (ARB).</p>
+		<table>
+			<tr style="border-bottom: solid;">
+				<th>Name</th>
+				<th style="width: 78px;">Approval Date</th>
+				<th style="width: 50px;">Status</th>
+				<th style="width: 50%">Description</th>
+			</tr>
+			{% for post in site.categories['arch'] %}
+			<tr>
+				<td>
+				<a href="{{ post.docurl }}">{{ post.title }}</a></td>
+				<td>{{ post.date | date_to_string }}</td>
+				<td><a href="{{ post.url }}" style="color:inherit; text-decoration: inherit;" >{{ post.status }}</a></td>
+				<td>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	
+	{% include footer.html %}
+</div>
+
+</body>
+
+</html>
