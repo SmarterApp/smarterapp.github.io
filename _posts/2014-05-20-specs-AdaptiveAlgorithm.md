@@ -3,7 +3,7 @@ layout: spec
 category: spec
 title: Smarter Balanced Adaptive Algorithm
 date: 2014-05-20
-docurl: /documentsAdaptiveAlgorithm-Preview-v3.pdf
+docurl: /documents/AdaptiveAlgorithm-Preview-v3.pdf
 status: Preview
 ---
 The Adaptive Algorithm describes how assessment items are selected to present to students during the administration of a Computer Adaptive Test. This preview release should be considered in conjunction with the [Smarter Balanced Test Blueprints](http://www.smarterbalanced.org/smarter-balanced-assessments/).
