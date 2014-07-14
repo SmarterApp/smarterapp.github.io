@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  version="SAAIF COMMONT 1.0"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+      SmarterApp Assessment Item Format Specification XSD SAAIF
+      SAAIF Common Types SAAIF COMMONT 1.0
+      Specification Version: 1.0.0
+      XSD Version: 1.0 v1p0
+      Status: Draft
+      Release Date: 2014-xx-xx
+      SAAIF Specification URL: http://www.smarterapp.org/specifications.html
+      XSD: http://www.smarterapp.org/xsd/saaif/v1p0/saaifcommontypes_v1p0.xsd
+      Location: http://www.smarterapp.org/xsd/saaif/v1p0/saaifcommontypes_v1p0.xsd
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+      Change Log
+      Date     Version  Changes
+      2014xxxx 1.0      Initial release
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+This is NOT a reference implementation.  If there are discrepencies between this XSD and the Specification, the Specification is authoratative.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+Common element types and definitions for use in all SAAIF XML document.  These types are for inclusion in other SAAIF XML schemata.  The schema is not namespaced and is unqualified.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+The complete license is included in the SAAIF specification, located at: http://www.smarterapp.org/specifications.html
+    </xsd:documentation>
+  </xsd:annotation>
+
+<!-- Import xHTML -->
+
+  <xsd:import namespace="http://www.w3.org/1999/xhtml"
+    schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"/>
+
+<!-- Define the Common Types -->
+
+<!-- Numeric Types -->
+
+  <xsd:simpleType name="positiveIntType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a positive integer type: 32 bit [1:2^31-1]
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="nonNegativeIntType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a non negative integer type: 32 bit [0:2^31-1]
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+<!-- Identifer and versioning types -->
+
+  <xsd:simpleType name="itemNumberType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define an item number type.
+    Used for the "id" attribute of items.
+    Extended from the specification version to include either string for a UUID or an integer
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:union>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+      <xsd:simpleType>
+        <xsd:restriction base="positiveIntType"/>
+      </xsd:simpleType>
+    </xsd:union>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="itemVersionType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define an item version type.
+    Can be further restricted to specify a version number pattern.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="uniqueIDType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a unique identifier type.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+<!-- File Types -->
+
+  <xsd:simpleType name="FileNameType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a file name type.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+<!-- Restricted Content Types -->
+
+  <xsd:complexType name="w3xHtmlType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the xhtml type to allow any xHTML elements to be used.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xhtml:Block">
+        <xsd:attributeGroup ref="xhtml:attrs"/>
+        <xsd:attribute name="onload" type="xhtml:Script"/>
+        <xsd:attribute name="onunload" type="xhtml:Script"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:simpleType name="IPAStringType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a string type International Phonetic Alphabet content.
+    IPA validation must be performed externally to schema validation.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="brailleTextStringType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a string type for Braille content.
+    Braille validation must be performed externally to schema validation.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="TeXType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a string type for TeX content.
+    TeX validation must be performed externally to schema validation.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="cssType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a string type for CSS content.
+    CSS validation must be performed externally to schema validation.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="stringType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a generic simple string type (contains no markup).
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+<!-- Shared Vocabulary Types -->
+
+  <xsd:simpleType name="itemFormatType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the itemFormat type.
+    List of all item format codes.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="EBSR"/>
+          <xsd:enumeration value="eq"/>
+          <xsd:enumeration value="er"/>
+          <xsd:enumeration value="gi"/>
+          <xsd:enumeration value="ht"/>
+          <xsd:enumeration value="mc"/>
+          <xsd:enumeration value="mi"/>
+          <xsd:enumeration value="ms"/>
+          <xsd:enumeration value="nl"/>
+          <xsd:enumeration value="pass"/>
+          <xsd:enumeration value="sa"/>
+          <xsd:enumeration value="SIM"/>
+          <xsd:enumeration value="ti"/>
+          <xsd:enumeration value="tut"/>
+          <xsd:enumeration value="wer"/>
+          <xsd:enumeration value="wordlist"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+
+</xsd:schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+  targetNamespace="http://www.smarterapp.org/xsd/saaif/v1p0/tutorial_v1p0.xsd"
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/tutorial_v1p0.xsd"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  version="SAAIF TUT 1.0"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+      SmarterApp Assessment Item Format Specification XSD SAAIF
+      Tutorial Document SAAIF TUT 1.0
+      Specification Version: 1.0.0
+      XSD Version: 1.0 v1p0
+      Status: Draft
+      Release Date: 2014-xx-xx
+      SAAIF Specification URL: http://www.smarterapp.org/specifications.html
+      XSD: http://www.smarterapp.org/xsd/saaif/v1p0/tutorial_v1p0.xsd
+      Location: http://www.smarterapp.org/xsd/saaif/v1p0/tutorial_v1p0.xsd
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+      Change Log
+      Date     Version  Changes
+      2014xxxx 1.0      Initial release
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+This is NOT a reference implementation.  If there are discrepencies between this XSD and the Specification, the Specification is authoratative.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+The Tutorial XML document schema.  It uses included types.  The schema is namespaced and is qualified.  It is for a standalone XML document: either a tutorial or an item release document for a tutorial.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+A Tutorial XML document holds the content for a tutorial that is presented to the student.  A tutorial is used with an assessment item and the Tutorial XML document is referenced from the tutorial element within the assessment item.
+
+A Tutorial XML document is modeled as an Assessment Item XML document where the value of the format attribute of the item element is tut.  Most features of an Assessment Item XML document may be used in a Tutorial XML document.  Additional conformance constraints apply to some of the elements.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+The complete license is included in the SAAIF specification, located at: http://www.smarterapp.org/specifications.html
+    </xsd:documentation>
+  </xsd:annotation>
+
+<!-- Include the tutorial types schema -->
+
+  <xsd:include schemaLocation="tutorialtypes_v1p0.xsd"/>
+
+<!-- Top level item and release elements -->
+
+  <xsd:element name="item" type="tutorialitemType"/>
+  <xsd:element name="itemrelease" type="tutorialreleaseType"/>
+
+</xsd:schema>
