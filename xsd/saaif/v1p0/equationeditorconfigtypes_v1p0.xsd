@@ -242,12 +242,24 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:choice>
   </xsd:group>
 
-<!-- NEED TO ADD THE INDEX ATTRIBUTE -->
-
- <xsd:simpleType name="OrderType">
+ <xsd:complexType name="OrderType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the Order type enuermation.
+    Define the Order type.
+    The description of one of the tabs.
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleContent>
+    <xsd:extension base="OrderListType">
+      <xsd:attribute name="index" type="positiveIntType"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+ </xsd:complexType>
+
+ <xsd:simpleType name="OrderListType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Order type name list enuermation.
     Tab order names.
     </xsd:documentation>
   </xsd:annotation>
@@ -311,13 +323,29 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:restriction>
   </xsd:simpleType>     
 
+  <xsd:simpleType name="itemsListType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the itemsList Type.
+    Vocabulary of names of an input key.
+    **** 
+    List not complete/
+    Type is not used.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="sin"/>
+      <xsd:enumeration value="Pi"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
   <xsd:complexType name="itemsType" mixed="true">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
     Define the items Type.
     Description of the individual input keys.
     ****
-    Made mixed to allow simple content.  
+    Made mixed to allow simple content and no subelements.  
     Cannot restict to content or elements.
     Thus all elements are optional.
     </xsd:documentation>
