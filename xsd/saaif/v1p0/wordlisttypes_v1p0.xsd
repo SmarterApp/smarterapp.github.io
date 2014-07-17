@@ -100,13 +100,17 @@ The complete license is included in the SAAIF specification, located at: http://
     Define the html type.
     The definition for the keyword.  
     The listType and listCode attributes define the type of definition.
+    Use the xHTML type as the base.
+    Alternatively
+    --  make the element be simpleContent.
+    --  use extension base xsd:string.
     </xsd:documentation>
   </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="html" type="w3xHtmlType"/>
-      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-    </xsd:sequence>
-    <xsd:attributeGroup ref="glossTypeAndCodeAttr"/>
+    <xsd:complexContent>
+      <xsd:extension base="w3xHtmlType">
+        <xsd:attributeGroup ref="glossTypeAndCodeAttr"/>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType> 
 
 <!-- Define the attribute groups -->

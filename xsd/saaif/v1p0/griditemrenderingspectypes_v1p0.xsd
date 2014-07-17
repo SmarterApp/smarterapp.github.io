@@ -514,7 +514,7 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:attribute name="stroke-dasharray" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:string">
-          <xsd:pattern value="(\d+,\d+(,\d+,\d+)*|\0)"/>
+          <xsd:pattern value="(\d+,\d+(,\d+,\d+)*)?"/>
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>

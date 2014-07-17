@@ -451,7 +451,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="attachment" type="attachmentType" minOccurs="0"/>
+      <xsd:element name="attachment" type="attachmentType" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
  </xsd:complexType>     
 
