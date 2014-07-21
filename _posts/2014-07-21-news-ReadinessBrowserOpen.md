@@ -1,7 +1,7 @@
 ---
 layout: default
 category: news
-title: New SmarterApp Documents: Technology Implementation Readiness, Secure Browser Specifications, and Open Source Test Administration
+title: Technology Implementation, Secure Browser, and Open Source
 date: 2014-07-21
 ---
 Three important new documents have been posted on SmarterApp.org:
