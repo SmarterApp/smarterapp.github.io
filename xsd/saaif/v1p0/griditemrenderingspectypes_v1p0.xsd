@@ -84,7 +84,6 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="Text" type="stringType" minOccurs="0"/>
       <xsd:element name="ObjectMenuIcons" type="ObjectMenuIconsType" minOccurs="0"/>
       <xsd:element name="ImageSpec" type="ImageSpecType" minOccurs="0" maxOccurs="unbounded"/>
-      <xsd:element name="SnapPoint" type="SnapPointType" minOccurs="0"/>
       <xsd:element name="HotSpots" type="HotSpotsType" minOccurs="0"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
@@ -102,8 +101,8 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="ShowButtons" type="ShowButtonsType"/>
       <xsd:element name="GridColor" type="GridColorType"/>
       <xsd:element name="GridSpacing" type="GridSpacingType"/>
-      <xsd:element name="CenterImage" type="CenterImageType"/>
-      <xsd:element name="ScaleImage" type="ScaleImageType"/>
+      <xsd:element name="CenterImage" type="CenterImageType" minOccurs="0"/>
+      <xsd:element name="ScaleImage" type="ScaleImageType" minOccurs="0"/>
       <xsd:element name="CanvasWidth" type="GridSizeType" minOccurs="0"/>
       <xsd:element name="CanvasHeight" type="GridSizeType" minOccurs="0"/>
       <xsd:element name="PaletteWidth" type="GridSizeType" minOccurs="0"/>
@@ -408,7 +407,6 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:sequence>
   </xsd:complexType> 
 
-<!-- RegionGroupObject Not Defined: using xsd:anyType until defined -->
   <xsd:complexType name="ObjectSetType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
@@ -417,7 +415,6 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="RegionGroupObject" type="xsd:anyType"/>
       <xsd:element name="AtomicObject" type="AtomicObjectType"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
@@ -434,7 +431,6 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:simpleContent>
       <xsd:extension base="xsd:string">
 <!--      <xsd:pattern value="\{.+\(\d+,\d+\)\}$"/> -->
-    <xsd:attribute name="region" type="regionNameType" use="required"/>
     </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>

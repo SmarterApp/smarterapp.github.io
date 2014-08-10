@@ -192,6 +192,7 @@ The complete license is included in the SAAIF specification, located at: http://
         <xsd:restriction base="xsd:token">
           <xsd:enumeration value="Equation"/>
           <xsd:enumeration value="Graphic"/>
+          <xsd:enumeration value="Table"/>
           <xsd:enumeration value="Text"/>
         </xsd:restriction>
       </xsd:simpleType>
@@ -199,6 +200,8 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:attribute name="subtype">
       <xsd:simpleType>
         <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="Data"/>
+          <xsd:enumeration value="Format"/>
           <xsd:enumeration value="Generic"/>
         </xsd:restriction>
       </xsd:simpleType>

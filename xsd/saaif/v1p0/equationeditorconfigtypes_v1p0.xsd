@@ -80,10 +80,10 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="id" type="positiveIntType" minOccurs="0"/>
       <xsd:element name="navigation" type="navigationType"/>
       <xsd:element name="mathML" type="MathMLType" maxOccurs="unbounded"/>
-      <xsd:element name="placeHold" type="TeXType"/>
+      <xsd:element name="placeHold" type="TeXType" minOccurs="0"/>
       <xsd:element name="TeXEntryMode" type="TeXEntryModeType"/>
       <xsd:element name="TeXEntryInit" type="TeXEntryInitType"/>
-      <xsd:element name="editmode" type="editModeType"/>
+      <xsd:element name="editmode" type="editModeType" minOccurs="0"/>
       <xsd:element name="fontSizePt" type="xsd:double" minOccurs="0"/>
       <xsd:element name="fontSizeHt" type="xsd:float" minOccurs="0"/>
       <xsd:element name="sanitizeTeXEnabled" type="sanitizeTeXEnabledType" minOccurs="0"/>
@@ -344,9 +344,8 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:documentation xml:lang="en-US">
     Define the items Type.
     Description of the individual input keys.
-    ****
-    Made mixed to allow simple content and no subelements.  
-    Cannot restict to content or elements.
+    Mixed type to allow simple content.  
+    Cannot restict to either content and no elements or no content and elements.
     Thus all elements are optional.
     </xsd:documentation>
   </xsd:annotation>
