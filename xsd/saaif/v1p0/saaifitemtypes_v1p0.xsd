@@ -118,7 +118,7 @@ The complete license is included in the SAAIF specification, located at: http://
   </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="name" type="stringType"/>
-      <xsd:element name="value" type="stringType"/>
+      <xsd:element name="val" type="stringType"/>
       <xsd:element name="desc" type="stringType"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
@@ -530,14 +530,14 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:attribute name="attid" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:token">
-          <xsd:enumeration value="itm_Answer Key"/>
-          <xsd:enumeration value="itm_Cloze Answers"/>
-          <xsd:enumeration value="itm_Grade"/>
-          <xsd:enumeration value="itm_Item Format"/>
-          <xsd:enumeration value="itm_Point"/>
-          <xsd:enumeration value="itm_Page Layout"/>
-          <xsd:enumeration value="itm_Response Type"/>
-          <xsd:enumeration value="itm_Strand"/>
+          <xsd:enumeration value="itm_att_Answer Key"/>
+          <xsd:enumeration value="itm_att_Cloze Answers"/>
+          <xsd:enumeration value="itm_att_Grade"/>
+          <xsd:enumeration value="itm_att_Item Format"/>
+          <xsd:enumeration value="itm_att_Point"/>
+          <xsd:enumeration value="itm_att_Page Layout"/>
+          <xsd:enumeration value="itm_att_Response Type"/>
+          <xsd:enumeration value="itm_att_Strand"/>
           <xsd:enumeration value="itm_FTUse"/>
           <xsd:enumeration value="itm_OPUs"/>
           <xsd:enumeration value="itm_item_desc"/>

@@ -93,7 +93,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="relatedElementInfo" type="relatedElementInfoType"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
-    <xsd:attribute name="identifer" type="uniqueIDType" use="required"/>
+    <xsd:attribute name="identifier" type="uniqueIDType" use="required"/>
  </xsd:complexType>     
 
   <xsd:complexType name="contentLinkInfoType">
@@ -159,7 +159,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="brailleTextString" type="brailleTextStringType"/>
+      <xsd:element name="brailleTextString" type="brailleTextStringType" minOccurs="0"/>
       <xsd:element name="brailleCode" type="brailleCodeType" minOccurs="0"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>

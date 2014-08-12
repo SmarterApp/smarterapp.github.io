@@ -76,12 +76,24 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="statistic" type="statisticType" minOccurs="0"/>
       <xsd:element name="MachineRubric" type="MachineRubricType" minOccurs="0"/>
       <xsd:element name="RendererSpec" type="RendererSpecType" minOccurs="0"/>
-      <xsd:element name="gridanswerspace" type="QuestionType" minOccurs="0"/>
+      <xsd:element name="gridanswerspace" type="GridType" minOccurs="0"/>
       <xsd:element name="content" type="itemcontentType" maxOccurs="unbounded"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
     <xsd:attributeGroup ref="itemAttr"/>
   </xsd:complexType>     
+
+  <xsd:complexType name="GridType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Grid type.
+    Container element for the Grid content.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Question" type="QuestionType"/>
+    </xsd:sequence>
+  </xsd:complexType> 
 
 <!-- Release document types -->
 

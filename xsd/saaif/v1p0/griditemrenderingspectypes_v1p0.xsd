@@ -59,6 +59,7 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:documentation xml:lang="en-US">
     Define the Question type.
     Rendering description for a graphic response item.
+    Version is optional; needed only on a standalone document.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
@@ -68,7 +69,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="positiveIntType"/>
-    <xsd:attribute name="version" type="itemVersionType" use="required"/>
+    <xsd:attribute name="version" type="itemVersionType"/>
     <xsd:attribute name="schemaversion" type="xsd:string"/>
   </xsd:complexType>     
 
@@ -118,7 +119,8 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:string">
-      <xsd:pattern value="(arrow|arrw2|circle|connect|dash|delete|move|point)(, (arrow|arrw2|circle|connect|dash|delete|move|point))*"/>
+<!--      <xsd:pattern value="(arrow|arrw2|circle|connect|dash|delete|move|point)(, (arrow|arrw2|circle|connect|dash|delete|move|point))*"/> -->
+      <xsd:pattern value="(,?arrow|,?arrw2|,?circle|,?connect|,?dash|,?delete|,?move|,?point)*"/>
     </xsd:restriction>
   </xsd:simpleType>
 
@@ -415,7 +417,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="AtomicObject" type="AtomicObjectType"/>
+      <xsd:element name="AtomicObject" type="AtomicObjectType" minOccurs="0" maxOccurs="unbounded"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
   </xsd:complexType> 
