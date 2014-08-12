@@ -527,7 +527,7 @@ The complete license is included in the SAAIF specification, located at: http://
     Attributes for an item.
     </xsd:documentation>
   </xsd:annotation>
-    <xsd:attribute name="listType" use="required">
+    <xsd:attribute name="attid" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:token">
           <xsd:enumeration value="itm_Answer Key"/>
@@ -555,7 +555,7 @@ The complete license is included in the SAAIF specification, located at: http://
     Attributes for a passage.
     </xsd:documentation>
   </xsd:annotation>
-    <xsd:attribute name="listType" use="required">
+    <xsd:attribute name="attid" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:token">
           <xsd:enumeration value="stm_pass_desc"/>

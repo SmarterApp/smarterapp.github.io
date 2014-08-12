@@ -60,16 +60,16 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="keywordlist" type="keywordlistType"/>
+      <xsd:element name="keywordList" type="keywordListType"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
     <xsd:attributeGroup ref="itemAttr"/>
   </xsd:complexType>     
 
-  <xsd:complexType name="keywordlistType">
+  <xsd:complexType name="keywordListType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the keywordlist type.
+    Define the keywordList type.
     The list of keywords in a Wordlist.
     </xsd:documentation>
   </xsd:annotation>

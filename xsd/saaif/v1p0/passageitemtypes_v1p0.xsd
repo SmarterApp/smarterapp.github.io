@@ -85,6 +85,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="passage" type="passageType"/>
     </xsd:sequence>
     <xsd:attribute name="version" type="xsd:string"/>
+    <xsd:attribute name="schemaversion" type="xsd:string"/>
   </xsd:complexType> 
 
 </xsd:schema>

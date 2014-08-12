@@ -89,7 +89,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="sanitizeTeXEnabled" type="sanitizeTeXEnabledType" minOccurs="0"/>
       <xsd:element name="defaultTextBoxPx" type="positiveIntType" minOccurs="0"/>
       <xsd:element name="isMobile" type="isMobileType" minOccurs="0"/>
-      <xsd:element name="magicDisabled" type="magicDisabledType" minOccurs="0"/>
+      <xsd:element name="MagicDisabled" type="MagicDisabledType" minOccurs="0"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
     <xsd:attribute name="schemaversion" type="xsd:string"/>
@@ -143,8 +143,8 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:token">
-      <xsd:enumeration value="allow"/>
-      <xsd:enumeration value="none"/>
+      <xsd:enumeration value="Allow"/>
+      <xsd:enumeration value="None"/>
     </xsd:restriction>
   </xsd:simpleType>     
 
@@ -196,10 +196,10 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:restriction base="xsd:boolean"/>
   </xsd:simpleType>   
 
-  <xsd:simpleType name="magicDisabledType">
+  <xsd:simpleType name="MagicDisabledType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the magicDisabled type.
+    Define the MagicDisabled type.
     Controls if the item will be optimized for display on a mobile device when rendered on a mobile device.
     </xsd:documentation>
   </xsd:annotation>
@@ -304,7 +304,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="title" type="stringType"/>
       <xsd:element name="type" type="typeType"/>
       <xsd:element name="cols" type="positiveIntType" minOccurs="0"/>
-      <xsd:element name="item" type="itemsType" maxOccurs="unbounded"/>
+      <xsd:element name="items" type="itemsType" maxOccurs="unbounded"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
     <xsd:attribute name="index" type="positiveIntType"/>
