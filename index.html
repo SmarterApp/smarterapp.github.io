@@ -38,7 +38,7 @@ li {
 			</tr>
 		</table>
 		<ul style="padding-right: 40px;">
-			{% for post in site.categories['news'] %}
+			{% for post in site.posts %}
 			<li><b>{{ post.date | date_to_string }}</b> {{ post.content }} </li>
 			{% endfor %}
 		</ul>

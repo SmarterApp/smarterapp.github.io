@@ -2,3 +2,25 @@ timezone: America/New_York
 encoding: utf-8
 markdown: kramdown
 domain: www.smarterapp.org
+collections:
+  specs:
+    output: true
+    permalink: "/specs/:path.:output_ext"
+    permalink: /specs/:path.html
+  arch:
+    output: true
+    permalink: "/arch/:path.:output_ext"
+    permalink: /arch/:path.html
+defaults:
+  -
+    scope:
+      path: ""
+      type: "specs"
+    values:
+      layout: "spec"
+  -
+    scope:
+      path: ""
+      type: "arch"
+    values:
+      layout: "spec"

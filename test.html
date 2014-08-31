@@ -1,0 +1,13 @@
+---
+title: SmarterApp - Test
+layout: default
+---
+
+<p>
+{% for collection in site.collections %}
+* {{ collection.label }}<br/>
+  {% for entry in collection %}
+** {{ entry.title }}<br/>
+  {% endfor %}
+{% endfor %}
+</p>

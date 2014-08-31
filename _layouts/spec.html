@@ -15,15 +15,19 @@
 		<table>
 			<tr>
 				<td style="font-weight:bold;">Date:</td>
-				<td>{{ page.date | date_to_long_string }}</td>
+				<td>{{ page.date }}</td>
+			</tr>
+			<tr>
+				<td style="font-weight:bold;">Document:</td>
+				<td><a href="{{ page.docurl }}">Click Here</a></td>
 			</tr>
 			<tr>
 				<td style="font-weight:bold;">Status:</td>
 				<td>{{ page.status }}</td>
 			</tr>
 			<tr>
-				<td style="font-weight:bold;">Document:</td>
-				<td><a href="{{ page.docurl }}">Click Here</a></td>
+				<td style="font-weight:bold;">Version:</td>
+				<td>{{ page.version }}</td>
 			</tr>
 			<tr>
 				<td style="font-weight:bold;">Abstract:</td>

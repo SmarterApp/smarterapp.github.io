@@ -13,7 +13,7 @@ layout: nil
    <name>SmarterApp</name>
  </author>
 
- {% for post in site.categories['news'] %}
+ {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="http://{{ site.domain }}{{ post.url }}"/>
