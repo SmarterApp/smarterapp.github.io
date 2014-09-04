@@ -125,6 +125,17 @@ The complete license is included in the SAAIF specification, located at: http://
 
 <!-- Restricted Content Types -->
 
+  <xsd:simpleType name="w3xHtmlType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the xhtml type to allow any xHTML elements to be used.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+<!--
+
   <xsd:complexType name="w3xHtmlType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
@@ -139,6 +150,8 @@ The complete license is included in the SAAIF specification, located at: http://
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
+
+-->
 
   <xsd:simpleType name="IPAStringType">
   <xsd:annotation>
