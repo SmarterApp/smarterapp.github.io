@@ -17,10 +17,10 @@ defaults:
       path: ""
       type: "specs"
     values:
-      layout: "spec"
+      layout: "abstract"
   -
     scope:
       path: ""
       type: "arch"
     values:
-      layout: "spec"
+      layout: "abstract"
