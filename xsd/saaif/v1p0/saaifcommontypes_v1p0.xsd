@@ -125,18 +125,9 @@ The complete license is included in the SAAIF specification, located at: http://
 
 <!-- Restricted Content Types -->
 
-  <xsd:simpleType name="w3xHtmlType">
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en-US">
-    Define the xhtml type to allow any xHTML elements to be used.
-    </xsd:documentation>
-  </xsd:annotation>
-    <xsd:restriction base="xsd:string"/>
-  </xsd:simpleType>
+<!-- Strict xHTML validation disabled -->
 
-<!--
-
-  <xsd:complexType name="w3xHtmlType">
+  <xsd:complexType name="x3xHtmlType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
     Define the xhtml type to allow any xHTML elements to be used.
@@ -151,7 +142,20 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:complexContent>
   </xsd:complexType>
 
--->
+<!-- Currently using to LAX xHTML validation -->
+
+  <xsd:complexType name="w3xHtmlType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the xhtml type to allow any xHTML elements to be used.
+    LAX -- allow any string.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
 
   <xsd:simpleType name="IPAStringType">
   <xsd:annotation>

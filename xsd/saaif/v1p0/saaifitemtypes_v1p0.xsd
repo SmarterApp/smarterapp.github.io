@@ -135,14 +135,15 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:complexContent>
       <xsd:extension base="xsd:anyType">
         <xsd:attribute name="id" type="itemNumberType" use="required"/>
+        <xsd:attribute name="bankkey" type="itemNumberType"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 
-  <xsd:complexType name="resourcelistType">
+  <xsd:complexType name="resourceslistType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the resourcelist type.
+    Define the resourceslist type.
     Additional resources for an item or passage.
     The resource is described in an XML document specific to the type of resource.
     </xsd:documentation>
@@ -236,7 +237,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:sequence>
     <xsd:attribute name="language" type="xsd:language" use="required"/>
     <xsd:attribute name="version" type="xsd:string" use="required"/>
-    <xsd:attribute name="approvedversion" type="xsd:string"/>
+    <xsd:attribute name="approvedVersion" type="xsd:string"/>
  </xsd:complexType>
 
   <xsd:complexType name="tutorialcontentType">
@@ -489,6 +490,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:attribute>
     <xsd:attribute name="id" type="itemNumberType" use="required"/>
     <xsd:attribute name="version" type="xsd:string" use="required"/>
+    <xsd:attribute name="bankkey" type="itemNumberType"/>
     <xsd:attribute name="schemaversion" type="xsd:string"/>
   </xsd:attributeGroup>
 
@@ -518,6 +520,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:attribute>
     <xsd:attribute name="id" type="itemNumberType" use="required"/>
     <xsd:attribute name="version" type="xsd:string" use="required"/>
+    <xsd:attribute name="bankkey" type="itemNumberType"/>
     <xsd:attribute name="schemaversion" type="xsd:string"/>
   </xsd:attributeGroup>
 
@@ -534,12 +537,12 @@ The complete license is included in the SAAIF specification, located at: http://
           <xsd:enumeration value="itm_att_Cloze Answers"/>
           <xsd:enumeration value="itm_att_Grade"/>
           <xsd:enumeration value="itm_att_Item Format"/>
-          <xsd:enumeration value="itm_att_Point"/>
+          <xsd:enumeration value="itm_att_Item Point"/>
           <xsd:enumeration value="itm_att_Page Layout"/>
           <xsd:enumeration value="itm_att_Response Type"/>
           <xsd:enumeration value="itm_att_Strand"/>
           <xsd:enumeration value="itm_FTUse"/>
-          <xsd:enumeration value="itm_OPUs"/>
+          <xsd:enumeration value="itm_OPUse"/>
           <xsd:enumeration value="itm_item_desc"/>
           <xsd:enumeration value="itm_item_id"/>
           <xsd:enumeration value="itm_item_subject"/>
@@ -582,6 +585,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:attribute>
     <xsd:attribute name="id" type="itemNumberType" use="required"/>
     <xsd:attribute name="index" type="positiveIntType" use="required"/>
+    <xsd:attribute name="bankkey" type="itemNumberType"/>
   </xsd:attributeGroup>
 
   <xsd:attributeGroup name="contentAttr">
@@ -593,7 +597,7 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:attribute name="language" type="xsd:language" use="required"/>
     <xsd:attribute name="version" type="xsd:string" use="required"/>
     <xsd:attribute name="format" type="itemFormatType"/>
-    <xsd:attribute name="approvedversion" type="xsd:string"/>
+    <xsd:attribute name="approvedVersion" type="xsd:string"/>
   </xsd:attributeGroup>
 
   <xsd:attributeGroup name="sampleAttr">
@@ -640,7 +644,7 @@ The complete license is included in the SAAIF specification, located at: http://
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
-    <xsd:attribute name="filename" type="xsd:string" use="required"/>
+    <xsd:attribute name="file" type="xsd:string" use="required"/>
     <xsd:attribute name="pass" type="xsd:boolean"/>
   </xsd:attributeGroup>
 

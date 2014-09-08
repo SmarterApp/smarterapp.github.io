@@ -69,7 +69,7 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:sequence>
       <xsd:element name="associatedpassage" type="associatedpassageType" minOccurs="0"/>
       <xsd:element name="attriblist" type="itemattriblistType" minOccurs="0"/>
-      <xsd:element name="resourcelist" type="resourcelistType" minOccurs="0"/>
+      <xsd:element name="resourceslist" type="resourceslistType" minOccurs="0"/>
       <xsd:element name="statistic" type="statisticType" minOccurs="0"/>
       <xsd:element name="MachineRubric" type="MachineRubricType" minOccurs="0"/>
       <xsd:element name="RendererSpec" type="RendererSpecType" minOccurs="0"/>
