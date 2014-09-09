@@ -125,19 +125,20 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:attribute name="format">
       <xsd:simpleType>
         <xsd:restriction base="xsd:token">
-          <xsd:enumeration value="wordlist"/>
+          <xsd:enumeration value="wordList"/>
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
     <xsd:attribute name="type">
       <xsd:simpleType>
         <xsd:restriction base="xsd:token">
-          <xsd:enumeration value="wordlist"/>
+          <xsd:enumeration value="wordList"/>
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
     <xsd:attribute name="id" type="itemNumberType" use="required"/>
     <xsd:attribute name="version" type="itemVersionType" use="required"/>
+    <xsd:attribute name="bankkey" type="itemNumberType"/>
     <xsd:attribute name="schemaversion" type="xsd:string"/>
   </xsd:attributeGroup>
 

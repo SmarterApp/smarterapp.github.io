@@ -484,7 +484,7 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:attribute name="type">
       <xsd:simpleType>
         <xsd:restriction base="xsd:token">
-          <xsd:enumeration value="wordlist"/>
+          <xsd:enumeration value="wordList"/>
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
@@ -579,7 +579,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:simpleType>
         <xsd:restriction base="xsd:token">
           <xsd:enumeration value="tutorial"/>
-          <xsd:enumeration value="wordlist"/>
+          <xsd:enumeration value="wordList"/>
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
