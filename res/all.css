@@ -61,11 +61,15 @@ a:visited
 /* Frame up the body */
 body {
 	margin:0;
-	color:#5a5a5a;
-	font:100% Arial, Helvetica, sans-serif;
+	color:#3a3a3a;
+	font-family:"Franklin Gothic Medium", "Arial Narrow", Arial, Helvetica, sans-serif;
+	font-size: 100%; /* For pages, we allow sensitivity to browser font size settings */
+	line-height:1.2;
 	background-color:#ededed;
-	/*min-width:1010px;*/
 }
+/* All other font sizes should be relative to the base (e.g. 1.5em or 150%) */
+
+/* Main content frame for pages */
 #main {
     border-width:1px;
     border-style:ridge;
@@ -75,6 +79,21 @@ body {
     max-width:80em;
     margin:5px auto;
 	padding:5px;
+}
+
+/* Body background for documents (which may be printed or PDFed) */
+#body-doc {
+	color: black;
+	font-size: 11pt; /* For print, we specify an exact size */
+	background-color:white;
+}
+
+/* Main content frame for documents (which may be printed or PDFed) */
+#main-doc {
+    border: none;
+	background-color:white;
+    max-width:6.5in; /* Means 1" margins when printed on 8.5" x 11" paper */
+    margin:10px auto;
 }
 
 /* General text formatting */
@@ -111,39 +130,64 @@ blockquote
 .title
 {
     text-align:center;
-	font:bold 24px/28px Arial, Helvetica, sans-serif;
-	color:#18577e;
+    font-size: 1.6em;
+	font-weight:bold;
+	color:#04384e;
     margin-top: 1em;
     margin-bottom: 1em;
 }
 
+.subtitle {
+    font-weight:bold;
+	font-size: 1.2em;
+	color:#8A1538;
+}
+
+
 /* Headings */
 h1 {
-	font:bold italic 1.5em Arial, Helvetica, sans-serif;
-	color:#18577e;
-	margin-bottom: 10px;
+	font-size:1.6em;
+	font-weight:bold;
+	color:#8A1538;
+	margin-top: 0.8em;
+	margin-bottom: 0.2em;
 }
-h1 a,
-h2 a {color:#18577e;}
-h1 a:hover,
-h2 a:hover {color:#42a747;}
+
 h2 {
-	font:bold 1.25em Arial, Helvetica, sans-serif;
-	color:#18577e;
-	border-bottom: 1px silver solid;
+	font-size:1.25em;
+	font-weight:bold;
+	color:#04384e;
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
 }
+
 h3 {
-	font:bold 1.1em Arial, Helvetica, sans-serif;
-	color:#5a5a5a;
+	font-size:1.1em;
+	font-weight:bold;
+	color:#63666A;
 }
+
 h4 {
-	font: 1.1em Arial, Helvetica, sans-serif;
-	color:#5a5a5a;
+	font-size:1.1em;
+	font-style:italic;
+	color:#63666A;
 }
+
 h5,
 h6 {
-	font: 1.1em Arial, Helvetica, sans-serif;
-	color:#5a5a5a;
+	font-size:1.1em;
+	color:#63666A;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 h:link,
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 h:visited
+{color:inherit;text-decoration:inherit;}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h5 a:hover
+{
+	color:#00B5E2;
+	text-decoration:underline;
 }
 
 /* code blocks */

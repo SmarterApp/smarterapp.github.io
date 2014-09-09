@@ -6,11 +6,19 @@
 {% include head.html %}
 </head>
 
-<body>
+<body id="body-doc">
 
-<div id="main">
-	{% include header.html %}
-	<div id="content" style="min-height: 400px;">
+<div id="main-doc">
+	<table style="width:100%;"><tr>
+		<td style="width:30%;"><a href="http://www.smarterapp.org/">
+		<img src="/res/SmarterApp_logo.png" alt="SmarterApp Logo" width="214" height="60"></a></td>
+		<td style="width:70%; vertical-align:top;">
+			<div class="title" style="text-align:right;margin:0;">{{ page.title }}</div>
+			<div class="subtitle" style="text-align:right;margin:0;">{{ page.date }} | {{ page.version }}</div>
+		</td>
+	</tr></table>
+	<hr/>
+	<div id="content" style="min-height: 40em;">
 		{{ content }}
 	</div>
 	{% include footer.html %}
