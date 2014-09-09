@@ -142,7 +142,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="textToSpeechPronunciation" type="IPAStringType"/>
+      <xsd:element name="textToSpeechPronunciation" type="IPAStringType" minOccurs="0"/>
       <xsd:element name="textToSpeechPronunciationAlternate" type="IPAStringType" minOccurs="0"/>
       <xsd:element name="audioText" type="IPAStringType" minOccurs="0"/>
       <xsd:element name="audioShortDesc" type="IPAStringType" minOccurs="0"/>
