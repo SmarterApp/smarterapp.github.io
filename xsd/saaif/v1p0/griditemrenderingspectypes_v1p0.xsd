@@ -69,7 +69,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="positiveIntType"/>
-    <xsd:attribute name="version" type="itemVersionType"/>
+    <xsd:attribute name="version" type="itemVersionType" use="required"/>
     <xsd:attribute name="schemaversion" type="xsd:string"/>
   </xsd:complexType>     
 

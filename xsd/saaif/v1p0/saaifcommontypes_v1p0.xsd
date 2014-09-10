@@ -220,7 +220,7 @@ The complete license is included in the SAAIF specification, located at: http://
           <xsd:enumeration value="eq"/>
           <xsd:enumeration value="er"/>
           <xsd:enumeration value="gi"/>
-          <xsd:enumeration value="ht"/>
+          <xsd:enumeration value="htq"/>
           <xsd:enumeration value="mc"/>
           <xsd:enumeration value="mi"/>
           <xsd:enumeration value="ms"/>
