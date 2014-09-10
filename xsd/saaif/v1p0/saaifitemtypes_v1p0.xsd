@@ -212,7 +212,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="illustration" type="illustrationType" minOccurs="0"/>
       <xsd:element name="stem" type="stemType"/>
       <xsd:element name="rubriclist" type="rubriclistType" minOccurs="0"/>
-      <xsd:element name="optionlistlist" type="optionlistType" minOccurs="0"/>
+      <xsd:element name="optionlist" type="optionlistType" minOccurs="0"/>
       <xsd:element name="attachmentlist" type="attachmentlistType" minOccurs="0"/>
       <xsd:element name="apipAccessibility" type="apipAccessibilityType" minOccurs="0"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
@@ -253,7 +253,7 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:element name="illustration" type="illustrationType" minOccurs="0"/>
       <xsd:element name="stem" type="stemType"/>
       <xsd:element name="rubriclist" type="tutorialrubriclistType" minOccurs="0"/>
-      <xsd:element name="optionlistlist" type="optionlistType" minOccurs="0"/>
+      <xsd:element name="optionlist" type="optionlistType" minOccurs="0"/>
       <xsd:element name="attachmentlist" type="attachmentlistType" minOccurs="0"/>
       <xsd:element name="apipAccessibility" type="apipAccessibilityType" minOccurs="0"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
