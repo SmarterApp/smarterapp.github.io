@@ -1,12 +1,35 @@
-<div>
-    <!-- logo -->
-    <a href="/"><img src="/res/SmarterApp_logo.png" alt="SmarterApp Logo" width="214" height="60"></a>
-    <!-- top-nav -->
-    <ul id="menu-top" class="top-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/TermsOfService.html">Terms of Service</a></li>
-    </ul>
-    </div>
+<!-- header bar -->    
+<div style="height:65;">
+
+	<!-- logo -->
+	<div style="float:left;">
+		    <a href="/"><img src="/res/SmarterApp_logo.png" alt="SmarterApp Logo" width="214" height="60"></a>
+	</div>
+		
+	<!-- top nav menu and search box -->	
+	<div style="text-align:right;">
+		<div class="top-nav">
+			<a href="./SmarterApp_files/SmarterApp.htm">Home</a>
+			&nbsp;&bull;&nbsp;
+			<a href="http://www.smarterapp.org/TermsOfService.html">Terms of Service</a>
+	    </div>
+
+		<!-- search box -->		    
+		<div><form action="javascript:on_search()">
+		    <input id="search_text" type="text" style="width:20em;height:1.6em;"/>
+		    <input type="submit" value="Search" style="height:1.6em;"/>
+		    <script type="text/javascript">
+function on_search()
+{
+	window.location.href = "http://www.google.com/search?q=" +
+		encodeURIComponent("site:www.smarterapp.org " + document.getElementById("search_text").value);
+}
+		    		
+		    </script>
+	    </form></div>
+	</div>
+</div>
+    
 <!-- Main Menu -->
 <div id="menu-main" class="menu-bar-holder">
     <ul class="menu-bar">
@@ -38,4 +61,3 @@
         -->
     </ul>
 </div>
-

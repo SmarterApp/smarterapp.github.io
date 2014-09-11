@@ -223,13 +223,8 @@ pre code {
 
 /* top-nav */
 .top-nav {
-    list-style:none;
-    float:right;
-	font-weight:bold;
-}
-.top-nav li {
-	float:left;
-	padding:0 0.5em 0 0.5em;
+	font-weight:normal;
+	margin-bottom:0.5em;
 }
 .top-nav a
 {
