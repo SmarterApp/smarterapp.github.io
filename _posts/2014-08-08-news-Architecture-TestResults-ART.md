@@ -10,4 +10,4 @@ Three new documents have been posted on [SmarterApp.org](http://www.smarterapp.o
 
 * The [Test Results Specification](http://www.smarterapp.org/specs/TestResultsData.html) describes the complete set of student test results in the form that will be transmitted from test delivery systems into the data warehouse. (Draft)
 
-* [Administration and Registration Tool - File Upload Formats](http://www.smarterapp.org/spec/ART-Upload.html) describes the bulk file upload formats that will be used for provisioning user accounts and registering students. (Draft)
+* [Administration and Registration Tool - File Upload Formats](http://www.smarterapp.org/specs/ART-Upload.html) describes the bulk file upload formats that will be used for provisioning user accounts and registering students. (Draft)
