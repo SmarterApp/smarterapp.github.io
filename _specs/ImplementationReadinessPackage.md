@@ -1,7 +1,7 @@
 ---
 title: SmarterApp Implementation Readiness Package
 date: 2014-09-16
-docurl:/documents/ImplementationReadinessPackage.pdf
+docurl: /documents/ImplementationReadinessPackage.pdf
 status: Draft
 ---
 
