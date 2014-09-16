@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  version="SAAIF GRT 1.0"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+      SmarterApp Assessment Item Format Specification XSD SAAIF
+      Grid Item Renderering Specification SAAIF GRT 1.0
+      Specification Version: 1.0.0
+      XSD Version: 1.0 v1p0
+      Status: Draft
+      Release Date: 2014-xx-xx
+      SAAIF Specification URL: http://www.smarterapp.org/specifications.html
+      XSD: http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspectypes_v1p0.xsd
+      Location: http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspectypes_v1p0.xsd
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+      Change Log
+      Date     Version  Changes
+      2014xxxx 1.0      Initial release
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+This is NOT a reference implementation.  If there are discrepencies between this XSD and the Specification, the Specification is authoratative.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+Element types and definitions for a Grid Item Rendering Specification XML document schema.  These types are for inclusion in other SAAIF XML schemata.  The schema is not namespaced and is unqualified.  Without the xsd:include of the common types, this schema will not validate.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+A Grid Item Rendering Specification XML document holds the rendering configuration settings for a grid type of assessment item.  The grid item rendering specification is a type of rendering specification.  The grid item rendering specification is referenced from the gridanswerspace element within a grid type of assessment item and is stored inline in the gridanswerspace element.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+The complete license is included in the SAAIF specification, located at: http://www.smarterapp.org/specifications.html
+    </xsd:documentation>
+  </xsd:annotation>
+
+<!-- Include the common types
+
+  These are needed to validate the schema but are duplicates when the schema is imported
+  <xsd:include schemaLocation="saaifcommontypes_v1p0.xsd"/>
+-->
+
+<!-- Define the basic types -->
+
+  <xsd:complexType name="QuestionType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Question type.
+    Rendering description for a graphic response item.
+    Version is optional; needed only on a standalone document.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Description" type="stringType"/>
+      <xsd:element name="QuestionPart" type="QuestionPartType"/>
+      <xsd:element name="PreSetAnswerPart" type="PreSetAnswerPartType" minOccurs="0"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="positiveIntType"/>
+    <xsd:attribute name="version" type="itemVersionType" use="required"/>
+    <xsd:attribute name="schemaversion" type="xsd:string"/>
+  </xsd:complexType>     
+
+  <xsd:complexType name="QuestionPartType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the questionPart type.
+    Rendering description for a graphic response item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Options" type="OptionsType"/>
+      <xsd:element name="Text" type="stringType" minOccurs="0"/>
+      <xsd:element name="ObjectMenuIcons" type="ObjectMenuIconsType" minOccurs="0"/>
+      <xsd:element name="ImageSpec" type="ImageSpecType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="HotSpots" type="HotSpotsType" minOccurs="0"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="positiveIntType"/>
+  </xsd:complexType>     
+
+  <xsd:complexType name="OptionsType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Options type.
+    Options that control grid item appearance.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="ShowButtons" type="ShowButtonsType"/>
+      <xsd:element name="GridColor" type="GridColorType"/>
+      <xsd:element name="GridSpacing" type="GridSpacingType"/>
+      <xsd:element name="CenterImage" type="CenterImageType" minOccurs="0"/>
+      <xsd:element name="ScaleImage" type="ScaleImageType" minOccurs="0"/>
+      <xsd:element name="CanvasWidth" type="GridSizeType" minOccurs="0"/>
+      <xsd:element name="CanvasHeight" type="GridSizeType" minOccurs="0"/>
+      <xsd:element name="PaletteWidth" type="GridSizeType" minOccurs="0"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+ </xsd:complexType> 
+
+  <xsd:simpleType name="ShowButtonsType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the ShowButtons type.
+    List of buttons to be displayed on the toolbar.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+<!--      <xsd:pattern value="(arrow|arrw2|circle|connect|dash|delete|move|point)(, (arrow|arrw2|circle|connect|dash|delete|move|point))*"/> -->
+      <xsd:pattern value="(,?arrow|,?arrw2|,?circle|,?connect|,?dash|,?delete|,?move|,?point)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="GridColorType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the GridColor type.
+    Color of grid lines.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="LightBlue"/>
+      <xsd:enumeration value="None"/>
+    </xsd:restriction>
+  </xsd:simpleType>      
+
+  <xsd:simpleType name="GridSpacingType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the GridSpacing type.
+    Spacing between grid lines, in pixels.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d+(,(Y|N))?"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+
+  <xsd:simpleType name="CenterImageType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the CenterImage type.
+    Controls centering of the icon images  on the palette .
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>      
+
+  <xsd:simpleType name="ScaleImageType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the ScaleImage type.
+    Controls scaling of the icon image to fit the palette.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>      
+
+  <xsd:simpleType name="GridSizeType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the GridSizeType type.
+    Controls the size of the canvas or palette
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="positiveIntType"/>
+  </xsd:simpleType>      
+
+  <xsd:complexType name="ObjectMenuIconsType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the ObjectMenuIcons type.
+    Icon images to appear on the palette.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="IconSpec" type="IconSpecType" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+  <xsd:complexType name="IconSpecType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the IconSpec type.
+    Image to be rendered on the palette.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="FileSpec" type="FileNameType"/>
+      <xsd:element name="Label" type="LabelType"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="index" type="positiveIntType"/>
+  </xsd:complexType> 
+
+  <xsd:complexType name="ImageSpecType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the ImageSpec type.
+    Background graphic to be rendered on the canvas.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="FileSpec" type="FileNameType"/>
+      <xsd:element name="Position" type="PositionType"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+  <xsd:simpleType name="PositionType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Position type.
+    Background image position on the canvas.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d+,\d+"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+
+  <xsd:simpleType name="SnapPointType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Position type.
+    Points on the display canvas that exhibit snap behavior.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d+@(\d+,\d+)(;\d+,\d+)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+
+  <xsd:complexType name="HotSpotsType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the HotSpot type.
+    Canvas areas that responds to mouse events.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Regions" type="RegionsType"/>
+      <xsd:element name="RegionGroups" type="RegionsGroupType"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+  <xsd:complexType name="RegionsType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Regions type.
+    A set of hotspot areas.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Region" type="RegionType" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+  <xsd:complexType name="RegionType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Region type.
+    Shape and position of a hotspot.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Event" type="EventType"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref="RegionAttr"/>
+  </xsd:complexType> 
+
+  <xsd:complexType name="EventType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Event Type.
+    Visual effects applied to the region when a specific mouse event occurs.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Styles" type="StylesType"/>
+      <xsd:element name="Image" type="ImageType"/>
+    </xsd:sequence>
+    <xsd:attribute name="name" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="select"/>
+          <xsd:enumeration value="unselect"/>
+          <xsd:enumeration value="hover"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType> 
+
+ <xsd:complexType name="StylesType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Styles type.
+    Display attributes applied to a region when an event occurs.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xsd:anyType">
+        <xsd:attributeGroup ref="StylesAttr"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+ <xsd:complexType name="ImageType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Image type.
+    Graphic displayed in the region when an event occurs.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xsd:anyType">
+        <xsd:attribute name="src" type="FileNameType" use="required"/>
+        <xsd:attribute name="filename" type="FileNameType" use="prohibited"/>
+        <xsd:attribute name="x" type="nonNegativeIntType" use="required"/>
+        <xsd:attribute name="y" type="nonNegativeIntType" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="RegionsGroupType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the RegionGroups type.
+    A set of groups of hotspot areas.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="RegionGroup" type="RegionGroupType" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+  <xsd:complexType name="RegionGroupType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the RegionGroups type.
+    Regions processed as a group. 
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Include" type="IncludeType" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="max" type="nonNegativeIntType" use="required"/>
+    <xsd:attribute name="min" type="nonNegativeIntType" use="required"/>
+    <xsd:attribute name="name" type="regionNameType" use="required"/>
+  </xsd:complexType> 
+
+ <xsd:complexType name="IncludeType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Include type.
+    A reference to a region included in the region group.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xsd:anyType">
+        <xsd:attribute name="region" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="PreSetAnswerPartType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the PreSetAnswerPart type.
+    Answer components included in the original question rendering.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="AnswerSet" type="AnswerSetType" minOccurs="0"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+  <xsd:complexType name="AnswerSetType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the AnswerSet type.
+    Response to an item included in the original question rendering.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="ObjectSet" type="ObjectSetType"/>
+      <xsd:element name="SnapPoint" type="SnapPointType"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+  <xsd:complexType name="ObjectSetType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the ObjectSet type.
+    Object on the canvas.  
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="AtomicObject" type="AtomicObjectType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+
+<!-- need to add the pattern -->
+ <xsd:complexType name="AtomicObjectType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the AtomicObject type.
+    An object on the canvas.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+<!--      <xsd:pattern value="\{.+\(\d+,\d+\)\}$"/> -->
+    </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+
+<!-- Define local reused types -->
+
+  <xsd:simpleType name="LabelType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a image label type.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="regionNameType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define a region name type.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+
+<!-- Define the attribute groups -->
+
+  <xsd:attributeGroup name="RegionAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for the Region element.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="name" type="regionNameType" use="required"/>
+    <xsd:attribute name="shape" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="rect"/>
+          <xsd:enumeration value="circle"/>
+          <xsd:enumeration value="poly"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="coords" type="xsd:string" use="required"/>
+  </xsd:attributeGroup>
+
+<!-- Pattern also needs to access CSS color codes -->
+
+  <xsd:attributeGroup name="StylesAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for the Styles element.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="fill" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="fill-opacity" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:float">
+          <xsd:minInclusive value="0"/>
+          <xsd:maxInclusive value="1"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="stroke" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="stroke-dasharray" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="(\d+,\d+(,\d+,\d+)*)?"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="stroke-opacity" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:float">
+          <xsd:minInclusive value="0"/>
+          <xsd:maxInclusive value="1"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="stroke-width" type="positiveIntType" use="required"/>
+  </xsd:attributeGroup>
+
+</xsd:schema>
