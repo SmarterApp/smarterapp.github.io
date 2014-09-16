@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>SmarterApp - Specifications</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="all" href="/res/all.css">
+<link rel="shortcut icon" href="/res/favicon.ico">
+
+<style>
+th {
+	text-align: left;
+	font-weight: bold;
+}
+td {
+	padding-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="main">
+	<!-- header bar -->    
+<div style="height:65;">
+
+	<!-- logo -->
+	<div style="float:left;">
+		    <a href="/"><img src="/res/SmarterApp_logo.png" alt="SmarterApp Logo" width="214" height="60"></a>
+	</div>
+		
+	<!-- top nav menu and search box -->	
+	<div style="text-align:right;">
+		<div class="top-nav">
+			<a href="./SmarterApp_files/SmarterApp.htm">Home</a>
+			&nbsp;&bull;&nbsp;
+			<a href="http://www.smarterapp.org/TermsOfService.html">Terms of Service</a>
+	    </div>
+
+		<!-- search box -->		    
+		<div><form action="javascript:on_search()">
+		    <input id="search_text" type="text" style="width:20em;height:1.6em;"/>
+		    <input type="submit" value="Search" style="height:1.6em;"/>
+		    <script type="text/javascript">
+function on_search()
+{
+	window.location.href = "http://www.google.com/search?q=" +
+		encodeURIComponent("site:www.smarterapp.org " + document.getElementById("search_text").value);
+}
+		    		
+		    </script>
+	    </form></div>
+	</div>
+</div>
+    
+<!-- Main Menu -->
+<div id="menu-main" class="menu-bar-holder">
+    <ul class="menu-bar">
+        <li>
+            <a href="/about.html">About</a>
+        </li>
+        <li>
+            <a href="/architecture.html">Architecture</a>
+        </li>
+        <li>
+            <a href="/specifications.html">Specifications</a>
+        </li>
+        <li>
+        	<a href="/source.html">Source Code</a>
+        </li>
+        <li>
+            <a href="/lab.html">lab</a>
+        </li>
+        <!--
+        <li>
+            <a href="about.htm">Sample Dropdown</a>
+            <div class="drop">
+                <ul class="sub-menu">
+                    <li><a href="about.htm">Sample 1</a></li>
+                    <li><a href="about.htm">Sample 2</a></li>
+                </ul>
+            </div>
+        </li>
+        -->
+    </ul>
+</div>
+
+
+	<div id="content" style="min-height: 400px;">
+
+
+
+
+		<div class="title">
+			Specifications and Related Documents</div>
+		<table>
+			<tr style="border-bottom: solid;">
+				<th>Name</th>
+				<th style="width: 6.5em;">Date</th>
+				<th style="width: 4.5em;">Status</th>
+				<th style="width: 4.5em;">Version</th>
+				<th style="width: 45%">Description</th>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="">SmarterApp Implementation Readiness Package</a><br/>
+				<a href="/specs/ImplementationReadinessPackage.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-09-16</td>
+				<td></td>
+				<td></td>
+				<td><p>A new document explaining the <a href="http://www.smarterapp.org/documents/ImplementationReadinessPackage.pdf">Smarter Balanced Assessment Delivery Implementation Readiness Package</a> has been posted.</p>
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/MachineScoringRubricMemo.html">Machine Scoring Rubric Memo</a><br/>
+				<a href="/specs/MachineScoringRubric.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-09-11</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>A short memo explaining the format to be used for machine scoring rubrics for items encoded in the SmarterApp Assessment Item Format.</p>
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/SmarterApp_Assessment_Item_Format_Specification.pdf">SmarterApp Assessment Item Format</a><br/>
+				<a href="/specs/AssessmentItemFormat.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-08-12</td>
+				<td>Draft</td>
+				<td>0.8</td>
+				<td><p>The encoding format for assessment items supported by the SmarterApp assessment suite. This version is the final draft and contains complete information about all Smarter Balanced assessment item types. <strong>Nevertheless, this draft has not yet been approved and remains subject to change.</strong> Note that this is one of two formats that will be exportable from the item bank. For details, see the Smarter Balanced Assessment Item Format Brief.</p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/TestResultsSpecification-Draft-2014-08-08.pdf">Test Results Transmission Format</a><br/>
+				<a href="/specs/TestResultsData.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-08-08</td>
+				<td>Draft</td>
+				<td></td>
+				<td><p>This is a draft of the format in which test results will be transmitted from the test delivery system to the data warehouse and reporting system. Data archives will be preserved in this format to enable future analytics and prevent data loss. </p>
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/ART_File_Upload_Spec-draft-2014-08-08.pdf">Administration and Registration Tool - File Upload Formats</a><br/>
+				<a href="/specs/ART-Upload.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-08-08</td>
+				<td>Draft</td>
+				<td></td>
+				<td><p>The Smarter Balanced Administration and Registration Tool (ART) will be used for registering users and students, for editing and verifying those registrations, for assigning privileges to users, and for administering test events. This document specifies the bulk upload formats that are used by the ART tool including provisioning user accounts and registering students.</p>
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/AssistiveTechAndSecureBrowsersBrief.pdf">Assistive Technology and Secure Browsers Brief</a><br/>
+				<a href="/specs/AssistiveTechSecureBrowsers.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-07-29</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>A short brief on how assistive technology should be used with SmarterApp secure browsers to support students with disabilities while preserving the security of exams.</p>
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Technology_Implementation_Readiness_v1-1.pdf">Smarter Balanced Technology Implementation Readiness</a><br/>
+				<a href="/specs/TechImplementationReadiness.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-07-21</td>
+				<td>Release</td>
+				<td></td>
+				<td><p><i>This brief supersedes “Application Deployment and Technology Certification.”</i> States are responsible for deploying and operating the assessment delivery system, which is the central component in the overall Smarter Balanced assessment platform. In many cases, states will contract for system services. This brief describes the entire Smarter Balanced assessment platform, the components for which states will be responsible, and the resources that will be made available to support deployment and readiness evaluation of each state’s assessment delivery system.</p>
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/SecureBrowserRequirementsSpecifications_0-3.pdf">Secure Browser Requirements and Specifications</a><br/>
+				<a href="/specs/SecureBrowserSpecification.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-07-18</td>
+				<td>Preview</td>
+				<td></td>
+				<td><p>Smarter Balanced relies on a Secure Browser to secure students’ testing devices during test administration. Smarter Balanced will supply secure browsers for prominent devices and operating systems in ready-to-install and open source forms. This document lists the requirements and specifications for secure browsers. Additional devices can be supported through the implementation of secure browsers according to these specifications. </p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Memo_OpenSourceProposition_2014-07-14.pdf">Memo - Open Source Test Administration</a><br/>
+				<a href="/specs/OpenSourceProposition.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-07-14</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>This memo from Smarter Balanced leadership summarizes the commitment of Smarter Balanced to the open source test delivery solution. </p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Training_Test_Item_Package_Summary.xlsx">Training Test Item Package Cross Reference</a><br/>
+				<a href="/specs/TrainingTestItemPackageCrossReference.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-05-20</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>A cross-reference between assessment items on the <a href="http://sbac.portal.airast.org/practice-test/">Smarter Balanced Training Test</a> and the corresponding encoded items in the Sample Assessment Item Package. Also includes a summary list of Smarter Balanced assessment item types.</p>
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/AdaptiveAlgorithm-Preview-v3.pdf">Smarter Balanced Adaptive Algorithm</a><br/>
+				<a href="/specs/AdaptiveAlgorithm.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-05-20</td>
+				<td>Preview</td>
+				<td></td>
+				<td><p>The Adaptive Algorithm describes how assessment items are selected to present to students during the administration of a Computer Adaptive Test. This preview release should be considered in conjunction with the <a href="http://www.smarterbalanced.org/smarter-balanced-assessments/">Smarter Balanced Test Blueprints</a>
+<br />
+<br />
+Among the details to be added before this document is finalized are rules that govern inclusion of blueprint-aligned items from up to two grade levels below or above grade level for substantially low- and high-performing students, respectively. The rules will still require the assessment to follow an on-grade blueprint, and will not increase overall test length.</p>
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Smarter_Balanced_Hosting_Requirements_V2.pdf">Smarter Balanced Test Delivery Hosting Requirements</a><br/>
+				<a href="/specs/TestDeliveryHostingRequirements.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-05-01</td>
+				<td>Release</td>
+				<td>v2</td>
+				<td><p>Requirements for hosting the Open Licensed version of the Smarter Balanced Test Delivery System. Updated May 2014.</p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Smarter_Balanced_Hosting_Requirements_Cost_Calculator.V2.xlsx">Smarter Balanced Test Delivery Hosting Cost Calculator</a><br/>
+				<a href="/specs/TestDeliveryHostingCostCalculator.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-05-01</td>
+				<td>Release</td>
+				<td>v2</td>
+				<td><p>A spreadsheet to accompany the hosting requirements document to assist in the estimation of hosting costs. Updated May 2014.</p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Questions_and_Answers_Regarding_Smarter_Balanced_Assessments.pdf">Questions and Answers Regarding Smarter Balanced Assessments</a><br/>
+				<a href="/specs/QuestionsAndAnswers.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-04-11</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>Contractors and states have been submitting questions to Smarter Balanced about deployment and certification of the Smarter Balanced assessment system. This document represents a collection of more than 80 questions and Smarter Balanced responses to those questions.</p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Source_Code_and_Content_Licenses_Memo.pdf">Source Code and Content Licenses Memo</a><br/>
+				<a href="/specs/SourceCodeAndContentLicenses.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-03-28</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>Describes the licenses under which Smarter Balanced and SmarterApp will distribute Source Code and Specifications.</p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/American_Institutes_for_Research_Open_Source_Software_License.pdf">AIR Open License</a><br/>
+				<a href="/specs/American_Institutes_for_Research_Open_Source_Software_License.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-03-28</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>This is the license under which source code to the Test Delivery System will be released. The Test Delivery System is a central component in the Smarter Balanced platform and is being built for Smarter Balanced by the American Institutes for Research (AIR).</p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Smarter_Balanced_Data_Format_Specification_Standards-v1.0.pdf">Smarter Balanced Data Format Specification Standards</a><br/>
+				<a href="/specs/DataFormatSpecificationStandards.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-03-24</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>Standards for the writing of specifications for data formats and data interchange protocols. All specifications being developed for Smarter Balanced should meet these requirements before they are approved.</p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="http://x.smarterapp.org/documents/2014-02-28_itempackage.zip">Sample Assessment Item Package</a><br/>
+				<a href="/specs/AssessmentItemPackage.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2014-02-28</td>
+				<td>Preview</td>
+				<td></td>
+				<td><p>A sample package of assessment items. This .zip file is organized according to the draft format for test packages and contains items encoded according to the SmarterApp Assessment Item Format. This is a complete set of items from the Smarter Balanced Training Test which may be accessed here. By comparing the encoded items with the corresponding items in the Training Test you can get an example of item rendering and student interaction. The package is approximately 140MB in size. A download manager may be useful for slower or less reliable connections. The file organization and data formats are subject to change. <strong>The metadata file format has already been revised since this package was created.</strong></p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Smarter_Balanced_Assessment_Item_Format_Brief.pdf">Smarter Balanced Assessment Item Format Brief</a><br/>
+				<a href="/specs/AssessmentItemFormatBrief.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2013-11-25</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>This brief explains the two assessment item formats that will be generated by the Smarter Balanced Assessment System.</p>
+
+</td>
+			</tr>
+			
+			
+			<tr>
+				<td>
+				<a href="/documents/Smarter_Balanced_Position_Regarding_Patent_8303309.pdf">Smarter Balanced Position Regarding Patent 8303309</a><br/>
+				<a href="/specs/PositionRegardingPatent8303309.html" style="font-size:smaller;" >(abstract)</a></td>
+				<td>2013-11-19</td>
+				<td>Release</td>
+				<td></td>
+				<td><p>The Smarter Balanced position regarding patent number 8303309 awarded to Measured Progress. Note that Measured Progress also offers a free RAND-Z license to qualified applications.</p>
+
+</td>
+			</tr>
+			
+		</table>
+
+	</div>
+	
+	﻿<div>
+    <hr />
+    <table style="width:500px; margin:auto;"><tr>
+        <td><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0; vertical-align:text-top" src="http://i.creativecommons.org/l/by/4.0/88x31.png"></img></a></td>
+        <td>
+            Unless stated otherwise, all content on <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">SmarterApp.org</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+        </td>
+    </tr></table>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-49279839-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</div>
+
+</div>
+
+</body>
+
+</html>

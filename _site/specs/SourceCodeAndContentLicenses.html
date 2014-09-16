@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<title>Source Code and Content Licenses Memo</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="all" href="/res/all.css">
+<link rel="shortcut icon" href="/res/favicon.ico">
+
+</head>
+
+<body>
+
+<div id="main">
+	<!-- header bar -->    
+<div style="height:65;">
+
+	<!-- logo -->
+	<div style="float:left;">
+		    <a href="/"><img src="/res/SmarterApp_logo.png" alt="SmarterApp Logo" width="214" height="60"></a>
+	</div>
+		
+	<!-- top nav menu and search box -->	
+	<div style="text-align:right;">
+		<div class="top-nav">
+			<a href="./SmarterApp_files/SmarterApp.htm">Home</a>
+			&nbsp;&bull;&nbsp;
+			<a href="http://www.smarterapp.org/TermsOfService.html">Terms of Service</a>
+	    </div>
+
+		<!-- search box -->		    
+		<div><form action="javascript:on_search()">
+		    <input id="search_text" type="text" style="width:20em;height:1.6em;"/>
+		    <input type="submit" value="Search" style="height:1.6em;"/>
+		    <script type="text/javascript">
+function on_search()
+{
+	window.location.href = "http://www.google.com/search?q=" +
+		encodeURIComponent("site:www.smarterapp.org " + document.getElementById("search_text").value);
+}
+		    		
+		    </script>
+	    </form></div>
+	</div>
+</div>
+    
+<!-- Main Menu -->
+<div id="menu-main" class="menu-bar-holder">
+    <ul class="menu-bar">
+        <li>
+            <a href="/about.html">About</a>
+        </li>
+        <li>
+            <a href="/architecture.html">Architecture</a>
+        </li>
+        <li>
+            <a href="/specifications.html">Specifications</a>
+        </li>
+        <li>
+        	<a href="/source.html">Source Code</a>
+        </li>
+        <li>
+            <a href="/lab.html">lab</a>
+        </li>
+        <!--
+        <li>
+            <a href="about.htm">Sample Dropdown</a>
+            <div class="drop">
+                <ul class="sub-menu">
+                    <li><a href="about.htm">Sample 1</a></li>
+                    <li><a href="about.htm">Sample 2</a></li>
+                </ul>
+            </div>
+        </li>
+        -->
+    </ul>
+</div>
+
+	<div id="content" style="min-height: 400px;">
+		<div class="title">Source Code and Content Licenses Memo</div>
+		<table>
+			<tr>
+				<td style="font-weight:bold;">Date:</td>
+				<td>2014-03-28</td>
+			</tr>
+			<tr>
+				<td style="font-weight:bold;">Document:</td>
+				<td><a href="/documents/Source_Code_and_Content_Licenses_Memo.pdf">Click Here</a></td>
+			</tr>
+			<tr>
+				<td style="font-weight:bold;">Status:</td>
+				<td>Release</td>
+			</tr>
+			<tr>
+				<td style="font-weight:bold;">Version:</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="font-weight:bold;">Abstract:</td>
+				<td><p>Describes the licenses under which Smarter Balanced and SmarterApp will distribute Source Code and Specifications.</p>
+
+</td>
+			</tr>
+		</table>
+	</div>
+	﻿<div>
+    <hr />
+    <table style="width:500px; margin:auto;"><tr>
+        <td><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0; vertical-align:text-top" src="http://i.creativecommons.org/l/by/4.0/88x31.png"></img></a></td>
+        <td>
+            Unless stated otherwise, all content on <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">SmarterApp.org</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+        </td>
+    </tr></table>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-49279839-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</div>
+
+</div>
+
+</body>
+
+</html>
