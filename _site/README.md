@@ -1,1 +1,0 @@
-Source to the www.SmarterApp.org website. Uses GitHub Pages and Jekyll.
