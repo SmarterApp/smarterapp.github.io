@@ -83,7 +83,7 @@ function on_search()
  <title></title>
  <link href="http://www.smarterapp.org/atom.xml" rel="self"/>
  <link href="http://www.smarterapp.org/"/>
- <updated>2014-09-16T20:54:21+01:00</updated>
+ <updated>2014-09-16T20:57:39+01:00</updated>
  <id>http://www.smarterapp.org/</id>
  <author>
    <name>SmarterApp</name>
@@ -95,7 +95,7 @@ function on_search()
    <link href="http://www.smarterapp.org/2014/09/16/ImplementationReadiness.html"/>
    <updated>2014-09-16T00:00:00+01:00</updated>
    <id>http://www.smarterapp.org/2014/09/16/ImplementationReadiness</id>
-   <content type="html">&lt;p&gt;A new document explaining the &lt;a href=&quot;http://www.smarterapp.org/specs/ImplementationReadinessPackage.html&quot;&gt;Smarter Balanced Assessment Delivery Implementation Readiness Package&lt;/a&gt; has been posted.&lt;/p&gt;
+   <content type="html">&lt;p&gt;A new document explaining the &lt;a href=&quot;http://www.smarterapp.org/documents/ImplementationReadinessPackage.pdf&quot;&gt;Smarter Balanced Assessment Delivery Implementation Readiness Package&lt;/a&gt; has been posted.&lt;/p&gt;
 </content>
  </entry>
  
