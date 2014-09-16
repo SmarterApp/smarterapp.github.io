@@ -1,5 +1,4 @@
 ---
-
 category: news
 title: SmarterApp Implementation Readiness Package
 date: 2014-09-16
