@@ -208,6 +208,9 @@ The complete license is included in the SAAIF specification, located at: http://
   </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="qti" type="qtiType" minOccurs="0"/>
+      <xsd:element name="concept" type="opencontentType" minOccurs="0"/>
+      <xsd:element name="es" type="opencontentType" minOccurs="0"/>
+      <xsd:element name="himi" type="opencontentType" minOccurs="0"/>
       <xsd:element name="rationaleoptlist" type="rationaleoptlistType" minOccurs="0"/>
       <xsd:element name="illustration" type="illustrationType" minOccurs="0"/>
       <xsd:element name="stem" type="stemType"/>
@@ -273,6 +276,19 @@ The complete license is included in the SAAIF specification, located at: http://
       <xsd:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
   </xsd:complexType>     
+
+  <xsd:complexType name="opencontentType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the open content type.
+    Content of a concept, es or himi element.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="stringType"/>
+      <xsd:element name="val" type="w3xHtmlType"/>
+    </xsd:sequence>
+ </xsd:complexType>     
 
   <xsd:complexType name="rationaleoptlistType">
   <xsd:annotation>
