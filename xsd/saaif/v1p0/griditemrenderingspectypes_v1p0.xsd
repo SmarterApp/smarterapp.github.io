@@ -9,11 +9,11 @@
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
       SmarterApp Assessment Item Format Specification XSD SAAIF
-      Grid Item Renderering Specification SAAIF GRT 1.0
+      Grid Item Renderering Specification Types SAAIF GRT 1.0
       Specification Version: 1.0.0
       XSD Version: 1.0 v1p0
       Status: Draft
-      Release Date: 2014-xx-xx
+      Release Date: 2014-09-30
       SAAIF Specification URL: http://www.smarterapp.org/specifications.html
       XSD: http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspectypes_v1p0.xsd
       Location: http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspectypes_v1p0.xsd
@@ -22,7 +22,7 @@
     <xsd:documentation xml:lang="en-US">
       Change Log
       Date     Version  Changes
-      2014xxxx 1.0      Initial release
+      20140930 1.0      Initial release
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -38,7 +38,7 @@ A Grid Item Rendering Specification XML document holds the rendering configurati
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
-Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+Copyright © 2014, The Regents of the University of California.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -233,18 +233,6 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:restriction>
   </xsd:simpleType>  
 
-  <xsd:simpleType name="SnapPointType">
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en-US">
-    Define the Position type.
-    Points on the display canvas that exhibit snap behavior.
-    </xsd:documentation>
-  </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:pattern value="\d+@(\d+,\d+)(;\d+,\d+)*"/>
-    </xsd:restriction>
-  </xsd:simpleType>  
-
   <xsd:complexType name="HotSpotsType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
@@ -404,7 +392,7 @@ The complete license is included in the SAAIF specification, located at: http://
   </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="ObjectSet" type="ObjectSetType"/>
-      <xsd:element name="SnapPoint" type="SnapPointType"/>
+      <xsd:element name="SnapPoint" type="SnapPointType" minOccurs="0"/>
       <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
   </xsd:complexType> 
@@ -436,6 +424,18 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>
+
+  <xsd:simpleType name="SnapPointType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the Position type.
+    Points on the display canvas that exhibit snap behavior.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d+@(\d+,\d+)(;\d+,\d+)*"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
 
 
 <!-- Define local reused types -->
