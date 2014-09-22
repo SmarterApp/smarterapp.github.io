@@ -1,5 +1,5 @@
 ---
-title: SmarterApp Implementation Readiness Package
+title: Smarter Balanced Implementation Readiness Package
 date: 2014-09-16
 docurl: /documents/ImplementationReadinessPackage.pdf
 status: Draft
