@@ -9,10 +9,10 @@
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
       SmarterApp Assessment Item Format Specification XSD SAAIF
-      Grid Item Renderering Specification Types SAAIF GRT 1.0
+      Grid Item Rendering Specification Types SAAIF GRT 1.0
       Specification Version: 1.0.0
       XSD Version: 1.0 v1p0
-      Status: Draft
+      Status: Public Release
       Release Date: 2014-09-30
       SAAIF Specification URL: http://www.smarterapp.org/specifications.html
       XSD: http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspectypes_v1p0.xsd
@@ -22,7 +22,7 @@
     <xsd:documentation xml:lang="en-US">
       Change Log
       Date     Version  Changes
-      20140930 1.0      Initial release
+      20140930 1.0      Public Release
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -48,7 +48,7 @@ The complete license is included in the SAAIF specification, located at: http://
 
 <!-- Include the common types
 
-  These are needed to validate the schema but are duplicates when the schema is imported
+  These are needed to validate the schema but are duplicates when the schema is imported.
   <xsd:include schemaLocation="saaifcommontypes_v1p0.xsd"/>
 -->
 
@@ -153,7 +153,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
     Define the CenterImage type.
-    Controls centering of the icon images  on the palette .
+    Controls centering of the icon images on the palette.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:boolean"/>
@@ -172,7 +172,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:simpleType name="GridSizeType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the GridSizeType type.
+    Define the GridSize type.
     Controls the size of the canvas or palette
     </xsd:documentation>
   </xsd:annotation>
@@ -236,7 +236,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="HotSpotsType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the HotSpot type.
+    Define the HotSpots type.
     Canvas areas that responds to mouse events.
     </xsd:documentation>
   </xsd:annotation>
@@ -277,7 +277,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="EventType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the Event Type.
+    Define the Event type.
     Visual effects applied to the region when a specific mouse event occurs.
     </xsd:documentation>
   </xsd:annotation>
@@ -330,7 +330,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="RegionsGroupType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the RegionGroups type.
+    Define the RegionsGroup type.
     A set of groups of hotspot areas.
     </xsd:documentation>
   </xsd:annotation>
@@ -428,7 +428,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:simpleType name="SnapPointType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the Position type.
+    Define the SnapPoint type.
     Points on the display canvas that exhibit snap behavior.
     </xsd:documentation>
   </xsd:annotation>
@@ -443,7 +443,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:simpleType name="LabelType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define a image label type.
+    Define a image Label type.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:string"/>
@@ -452,7 +452,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:simpleType name="regionNameType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define a region name type.
+    Define a regionName type.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:string"/>

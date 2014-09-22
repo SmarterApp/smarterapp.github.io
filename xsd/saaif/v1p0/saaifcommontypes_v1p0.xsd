@@ -12,8 +12,8 @@
       SAAIF Common Types SAAIF COMMONT 1.0
       Specification Version: 1.0.0
       XSD Version: 1.0 v1p0
-      Status: Draft
-      Release Date: 2014-xx-xx
+      Status: Public Release
+      Release Date: 2014-09-30
       SAAIF Specification URL: http://www.smarterapp.org/specifications.html
       XSD: http://www.smarterapp.org/xsd/saaif/v1p0/saaifcommontypes_v1p0.xsd
       Location: http://www.smarterapp.org/xsd/saaif/v1p0/saaifcommontypes_v1p0.xsd
@@ -22,7 +22,7 @@
     <xsd:documentation xml:lang="en-US">
       Change Log
       Date     Version  Changes
-      2014xxxx 1.0      Initial release
+      20140930 1.0      Public Release
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -30,11 +30,11 @@ This is NOT a reference implementation.  If there are discrepencies between this
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
-Common element types and definitions for use in all SAAIF XML document.  These types are for inclusion in other SAAIF XML schemata.  The schema is not namespaced and is unqualified.
+Common element types and definitions for use in all SAAIF XML documents.  These types are for inclusion in other SAAIF XML schemata.  The schema is not namespaced and is unqualified.
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
-Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+Copyright © 2014, The Regents of the University of California.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -42,10 +42,9 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
 
-<!-- Import xHTML -->
+<!-- Include Appropriate Strict/Lax Types -->
 
-  <xsd:import namespace="http://www.w3.org/1999/xhtml"
-    schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"/>
+  <xsd:include schemaLocation="saaifstrictorlaxtypes_v1p0.xsd"/>
 
 <!-- Define the Common Types -->
 
@@ -54,7 +53,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:simpleType name="positiveIntType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define a positive integer type: 32 bit [1:2^31-1]
+    Define a positive integer type: 32 bit [1:2^31-1].
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:int">
@@ -65,7 +64,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:simpleType name="nonNegativeIntType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define a non negative integer type: 32 bit [0:2^31-1]
+    Define a non negative integer type: 32 bit [0:2^31-1].
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:int">
@@ -80,7 +79,7 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:documentation xml:lang="en-US">
     Define an item number type.
     Used for the "id" attribute of items.
-    Extended from the specification version to include either string for a UUID or an integer
+    Extended from the specification version to include either string for a UUID or an integer.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:union>
@@ -124,38 +123,6 @@ The complete license is included in the SAAIF specification, located at: http://
   </xsd:simpleType>
 
 <!-- Restricted Content Types -->
-
-<!-- Strict xHTML validation disabled -->
-
-  <xsd:complexType name="x3xHtmlType">
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en-US">
-    Define the xhtml type to allow any xHTML elements to be used.
-    </xsd:documentation>
-  </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="xhtml:Block">
-        <xsd:attributeGroup ref="xhtml:attrs"/>
-        <xsd:attribute name="onload" type="xhtml:Script"/>
-        <xsd:attribute name="onunload" type="xhtml:Script"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-
-<!-- Currently using to LAX xHTML validation -->
-
-  <xsd:complexType name="w3xHtmlType">
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en-US">
-    Define the xhtml type to allow any xHTML elements to be used.
-    LAX -- allow any string.
-    </xsd:documentation>
-  </xsd:annotation>
-    <xsd:simpleContent>
-      <xsd:extension base="xsd:string">
-      </xsd:extension>
-    </xsd:simpleContent>
-  </xsd:complexType>
 
   <xsd:simpleType name="IPAStringType">
   <xsd:annotation>

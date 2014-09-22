@@ -12,8 +12,8 @@
       SAAIF Common Item Types SAAIF ITEMT 1.0
       Specification Version: 1.0.0
       XSD Version: 1.0 v1p0
-      Status: Draft
-      Release Date: 2014-xx-xx
+      Status: Public Release
+      Release Date: 2014-09-30
       SAAIF Specification URL: http://www.smarterapp.org/specifications.html
       XSD: http://www.smarterapp.org/xsd/saaif/v1p0/saaifitemtypes_v1p0.xsd
       Lcocation: http://www.smarterapp.org/xsd/saaif/v1p0/saaifitemtypes_v1p0.xsd
@@ -22,7 +22,7 @@
     <xsd:documentation xml:lang="en-US">
       Change Log
       Date     Version  Changes
-      2014xxxx 1.0      Initial release
+      20140930 1.0      Public Release
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -34,7 +34,7 @@ Common element types and definitions for any type of Assessment Item XML documen
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
-Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+Copyright © 2014, The Regents of the University of California.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -42,7 +42,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
 
-<!-- Include the common types 
+<!-- Include the common types: needed for standalone validation
 
   <xsd:include schemaLocation="saaifcommontypes_v1p0.xsd"/>
 -->
@@ -202,7 +202,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="itemcontentType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the item content type.
+    Define the itemcontent type.
     Content of an assessment item.
     </xsd:documentation>
   </xsd:annotation>
@@ -226,7 +226,7 @@ The complete license is included in the SAAIF specification, located at: http://
 <xsd:complexType name="passagecontentType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the passage content type.
+    Define the passagecontent type.
     Content of a passage item.
     </xsd:documentation>
   </xsd:annotation>
@@ -246,8 +246,9 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="tutorialcontentType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the tutorial item content type.
+    Define the tutorialcontent type.
     Content of an tutorial.
+    The open-content elements (concept, es, himi) are not included.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
@@ -264,7 +265,7 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:attributeGroup ref="contentAttr"/>
  </xsd:complexType>     
 
-<!-- Placeholder until external reference -->
+<!-- Placeholder until external QTI reference is specified. -->
  <xsd:complexType name="qtiType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
@@ -272,15 +273,18 @@ The complete license is included in the SAAIF specification, located at: http://
     The container for IMS QTI XML document elements describing an Assessment Item.
     </xsd:documentation>
   </xsd:annotation>
-    <xsd:sequence>
-      <xsd:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-    </xsd:sequence>
-  </xsd:complexType>     
+    <xsd:complexContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="spec" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
 
   <xsd:complexType name="opencontentType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the open content type.
+    Define the opencontent type.
     Content of a concept, es or himi element.
     </xsd:documentation>
   </xsd:annotation>
@@ -513,11 +517,11 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:attributeGroup name="passageAttr">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Attributes for the passage element
-    format is only pass
-    type left for future use
-    ID has been extended to permit an integer or a string
-    Schemaversion is included
+    Attributes for the passage element.
+    Format is only pass.
+    Type left for future use.
+    ID has been extended to permit an integer or a string.
+    Schemaversion is included.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:attribute name="format">
