@@ -273,13 +273,12 @@ The complete license is included in the SAAIF specification, located at: http://
     The container for IMS QTI XML document elements describing an Assessment Item.
     </xsd:documentation>
   </xsd:annotation>
-    <xsd:complexContent>
+    <xsd:simpleContent>
       <xsd:extension base="xsd:string">
         <xsd:attribute name="spec" type="xsd:string" use="required"/>
       </xsd:extension>
-    </xsd:complexContent>
+    </xsd:simpleContent>
   </xsd:complexType>
-
 
   <xsd:complexType name="opencontentType">
   <xsd:annotation>
