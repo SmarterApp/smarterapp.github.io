@@ -127,6 +127,8 @@ If you want to preview your additions to the SmarterApp website before posting t
 
 To install a copy of Jekyll on your local computer, [follow the instructions here.](https://help.github.com/articles/using-jekyll-with-pages)
 
+By default, Jekyll will render your site to the "_site" directory. This directory should *not* be checked into Git or GitHub so edit your ".gitignore" file to exclude it from Git's attention.
+
 To create a fork, read on...
 
 ## Forking SmarterApp.org
