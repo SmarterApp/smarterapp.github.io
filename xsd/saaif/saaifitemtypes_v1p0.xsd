@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  version="SAAIF ITEMT 1.0"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+      SmarterApp Assessment Item Format Specification XSD SAAIF
+      SAAIF Common Item Types SAAIF ITEMT 1.0
+      Specification Version: 1.0.0
+      XSD Version: 1.0 v1p0
+      Status: Public Release
+      Release Date: 2014-09-30
+      SAAIF Specification URL: http://www.smarterapp.org/specifications.html
+      XSD: http://www.smarterapp.org/xsd/saaif/v1p0/saaifitemtypes_v1p0.xsd
+      Lcocation: http://www.smarterapp.org/xsd/saaif/v1p0/saaifitemtypes_v1p0.xsd
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+      Change Log
+      Date     Version  Changes
+      20140930 1.0      Public Release
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+This is NOT a reference implementation.  If there are discrepencies between this XSD and the Specification, the Specification is authoratative.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+Common element types and definitions for any type of Assessment Item XML document (Assessment Item, Passage Item, Tutorial).  These types are for inclusion in other SAAIF XML schemata.  The schema is not namespaced and is unqualified.  Without the xsd:include of the common types, this schema will not validate.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+Copyright © 2014, The Regents of the University of California.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+The complete license is included in the SAAIF specification, located at: http://www.smarterapp.org/specifications.html
+    </xsd:documentation>
+  </xsd:annotation>
+
+<!-- Include the common types: needed for standalone validation
+
+  <xsd:include schemaLocation="saaifcommontypes_v1p0.xsd"/>
+-->
+
+<!-- Include the other document types 
+
+  <xsd:include schemaLocation="usagestatistictypes_v1p0.xsd"/>
+  <xsd:include schemaLocation="accessibilitytypes_v1p0.xsd"/>
+  <xsd:include schemaLocation="griditemrenderingspectypes_v1p0.xsd"/>
+-->
+
+<!-- Define the basic types -->
+
+ <xsd:simpleType name="associatedpassageType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the associatedpassage type.
+    Item number for the stimulus or passage for an item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:restriction base="itemNumberType"/>
+  </xsd:simpleType>
+
+  <xsd:complexType name="itemattriblistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the itemattributelist type.
+    Attributes of an item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="attrib" type="itemattribType" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+  <xsd:complexType name="passageattriblistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the passageattributelist type.
+    Attributes of a passage.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="attrib" type="passageattribType" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+
+ </xsd:complexType>     
+
+  <xsd:complexType name="itemattribType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the itemattrib type.
+    Attribute of an item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="stringType"/>
+      <xsd:element name="val" type="stringType"/>
+      <xsd:element name="desc" type="stringType"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref="itemattribAttr"/>
+ </xsd:complexType>     
+
+  <xsd:complexType name="passageattribType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the passageattrib type.
+    Attribute of a passage.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="stringType"/>
+      <xsd:element name="val" type="stringType"/>
+      <xsd:element name="desc" type="stringType"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref="passageattribAttr"/>
+ </xsd:complexType>     
+
+  <xsd:complexType name="tutorialType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the tutorial type.
+    Item number for the Tutorial for an item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xsd:anyType">
+        <xsd:attribute name="id" type="itemNumberType" use="required"/>
+        <xsd:attribute name="bankkey" type="itemNumberType"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="resourceslistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the resourceslist type.
+    Additional resources for an item or passage.
+    The resource is described in an XML document specific to the type of resource.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="resource" type="resourceType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+  <xsd:complexType name="resourceType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the resource type.
+    A resource for an item or passage.
+    The resource is described in an XML document type that is specific to the type of resource.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xsd:anyType">
+        <xsd:attributeGroup ref="resourceAttr"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="MachineRubricType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the MachineRubric type.
+    The file name for the rubric used to machine score the item.
+    The rubric format and structure is specific to the format of the Assessment Item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xsd:anyType">
+        <xsd:attribute name="filename" type="FileNameType" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="RendererSpecType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the RendererSpec type.
+    The file name for the rendering specification used to render the item on the test client device.
+    The rendering specification is specific to the format of the Assessment Item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xsd:anyType">
+        <xsd:attribute name="filename" type="FileNameType" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="itemcontentType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the itemcontent type.
+    Content of an assessment item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="qti" type="qtiType" minOccurs="0"/>
+      <xsd:element name="concept" type="opencontentType" minOccurs="0"/>
+      <xsd:element name="es" type="opencontentType" minOccurs="0"/>
+      <xsd:element name="himi" type="opencontentType" minOccurs="0"/>
+      <xsd:element name="rationaleoptlist" type="rationaleoptlistType" minOccurs="0"/>
+      <xsd:element name="illustration" type="illustrationType" minOccurs="0"/>
+      <xsd:element name="stem" type="stemType"/>
+      <xsd:element name="rubriclist" type="rubriclistType" minOccurs="0"/>
+      <xsd:element name="optionlist" type="optionlistType" minOccurs="0"/>
+      <xsd:element name="attachmentlist" type="attachmentlistType" minOccurs="0"/>
+      <xsd:element name="apipAccessibility" type="apipAccessibilityType" minOccurs="0"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref="contentAttr"/>
+ </xsd:complexType>     
+
+<xsd:complexType name="passagecontentType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the passagecontent type.
+    Content of a passage item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="title" type="titleType"/>
+      <xsd:element name="author" type="authorType" minOccurs="0"/>
+      <xsd:element name="stem" type="stemType"/>
+      <xsd:element name="attachmentlist" type="attachmentlistType" minOccurs="0"/>
+      <xsd:element name="apipAccessibility" type="apipAccessibilityType" minOccurs="0"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="language" type="xsd:language" use="required"/>
+    <xsd:attribute name="version" type="xsd:string" use="required"/>
+    <xsd:attribute name="approvedVersion" type="xsd:string"/>
+ </xsd:complexType>
+
+  <xsd:complexType name="tutorialcontentType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the tutorialcontent type.
+    Content of an tutorial.
+    The open-content elements (concept, es, himi) are not included.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="qti" type="qtiType" minOccurs="0"/>
+      <xsd:element name="rationaleoptlist" type="rationaleoptlistType" minOccurs="0"/>
+      <xsd:element name="illustration" type="illustrationType" minOccurs="0"/>
+      <xsd:element name="stem" type="stemType"/>
+      <xsd:element name="rubriclist" type="tutorialrubriclistType" minOccurs="0"/>
+      <xsd:element name="optionlist" type="optionlistType" minOccurs="0"/>
+      <xsd:element name="attachmentlist" type="attachmentlistType" minOccurs="0"/>
+      <xsd:element name="apipAccessibility" type="apipAccessibilityType" minOccurs="0"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref="contentAttr"/>
+ </xsd:complexType>     
+
+<!-- Placeholder until external QTI reference is specified. -->
+ <xsd:complexType name="qtiType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the qti type.
+    The container for IMS QTI XML document elements describing an Assessment Item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="spec" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="opencontentType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the opencontent type.
+    Content of a concept, es or himi element.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="stringType"/>
+      <xsd:element name="val" type="w3xHtmlType"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+  <xsd:complexType name="rationaleoptlistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the rationaleoptlist type.
+    Rationales for each response option.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="rationale" type="rationaleType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+  <xsd:complexType name="rationaleType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the rationale type.
+    Justification for a response.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="stringType"/>
+      <xsd:element name="val" type="w3xHtmlType"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+ <xsd:complexType name="titleType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the title type.
+    The description of the passage.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="w3xHtmlType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+ <xsd:complexType name="authorType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the author type.
+    The author of the passage.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="w3xHtmlType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+ <xsd:complexType name="illustrationType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the illustration type.
+    Illustration associated with an item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="w3xHtmlType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+ <xsd:complexType name="stemType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the stem type.
+    Directions to the student to provide a response to the item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="w3xHtmlType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="rubriclistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the rubriclist type.
+    Rubrics associated with the item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="rubric" type="rubricType" maxOccurs="unbounded"/>
+      <xsd:element name="samplelist" type="samplelistType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+  <xsd:complexType name="tutorialrubriclistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the tutorialrubriclist type.
+    Rubrics associated with a tutorial item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="rubric" type="rubricType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="samplelist" type="samplelistType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+  <xsd:complexType name="rubricType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the rubric type.
+    The scoring rubric.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="stringType"/>
+      <xsd:element name="val" type="w3xHtmlType"/>
+    </xsd:sequence>
+    <xsd:attribute name="scorepoint" type="xsd:string" use="required"/>
+    <xsd:attribute name="index" type="positiveIntType"/>
+ </xsd:complexType>     
+
+  <xsd:complexType name="samplelistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the samplelist type.
+    Example responses that deserve certain item point values. 
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="sample" type="sampleType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="minval" type="positiveIntType" use="required"/>
+    <xsd:attribute name="maxval" type="positiveIntType" use="required"/>
+    <xsd:attribute name="index" type="positiveIntType"/>
+ </xsd:complexType>     
+
+  <xsd:complexType name="sampleType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the sample type.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="stringType"/>
+      <xsd:element name="samplecontent" type="w3xHtmlType"/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref="sampleAttr"/>
+ </xsd:complexType>     
+
+  <xsd:complexType name="optionlistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the optionlist type.
+    Response choices associated with the item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="option" type="optionType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="minChoices" type="positiveIntType"/>
+    <xsd:attribute name="maxChoices" type="positiveIntType"/>
+ </xsd:complexType>     
+
+  <xsd:complexType name="optionType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the option type.
+    Response choice description.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="stringType"/>
+      <xsd:element name="val" type="w3xHtmlType"/>
+      <xsd:element name="feedback" type="w3xHtmlType" minOccurs="0"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+  <xsd:complexType name="attachmentlistType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the attachmentlist type.
+    Accessibility attachments associated with the item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="attachment" type="attachmentType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+ </xsd:complexType>     
+
+  <xsd:complexType name="attachmentType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the attachment type.
+    URI of an attachment included with an item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xsd:anyType">
+        <xsd:attributeGroup ref="attachmentAttr"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+<!-- Define the attribute groups -->
+
+  <xsd:attributeGroup name="itemAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for the item element.
+    ID has been extended to permit an integer or a string.
+    Schemaversion is included.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="format" type="itemFormatType"/>
+    <xsd:attribute name="type">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="wordList"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="id" type="itemNumberType" use="required"/>
+    <xsd:attribute name="version" type="xsd:string" use="required"/>
+    <xsd:attribute name="bankkey" type="itemNumberType"/>
+    <xsd:attribute name="schemaversion" type="xsd:string"/>
+  </xsd:attributeGroup>
+
+  <xsd:attributeGroup name="passageAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for the passage element.
+    Format is only pass.
+    Type left for future use.
+    ID has been extended to permit an integer or a string.
+    Schemaversion is included.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="format">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="pass"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="type" use="prohibited">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="pass"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="id" type="itemNumberType" use="required"/>
+    <xsd:attribute name="version" type="xsd:string" use="required"/>
+    <xsd:attribute name="bankkey" type="itemNumberType"/>
+    <xsd:attribute name="schemaversion" type="xsd:string"/>
+  </xsd:attributeGroup>
+
+  <xsd:attributeGroup name="itemattribAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for an item.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="attid" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="itm_att_Answer Key"/>
+          <xsd:enumeration value="itm_att_Cloze Answers"/>
+          <xsd:enumeration value="itm_att_Grade"/>
+          <xsd:enumeration value="itm_att_Item Format"/>
+          <xsd:enumeration value="itm_att_Item Point"/>
+          <xsd:enumeration value="itm_att_Page Layout"/>
+          <xsd:enumeration value="itm_att_Response Type"/>
+          <xsd:enumeration value="itm_att_Strand"/>
+          <xsd:enumeration value="itm_FTUse"/>
+          <xsd:enumeration value="itm_OPUse"/>
+          <xsd:enumeration value="itm_item_desc"/>
+          <xsd:enumeration value="itm_item_id"/>
+          <xsd:enumeration value="itm_item_subject"/>
+          <xsd:enumeration value="stm_pass_id"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+
+  <xsd:attributeGroup name="passageattribAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for a passage.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="attid" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="stm_pass_desc"/>
+          <xsd:enumeration value="stm_pass_id"/>
+          <xsd:enumeration value="stm_pass_subject"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+
+  <xsd:attributeGroup name="resourceAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for the resource element.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="type" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="tutorial"/>
+          <xsd:enumeration value="wordList"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="id" type="itemNumberType" use="required"/>
+    <xsd:attribute name="index" type="positiveIntType" use="required"/>
+    <xsd:attribute name="bankkey" type="itemNumberType"/>
+  </xsd:attributeGroup>
+
+  <xsd:attributeGroup name="contentAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for the content element.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="language" type="xsd:language" use="required"/>
+    <xsd:attribute name="version" type="xsd:string" use="required"/>
+    <xsd:attribute name="format" type="itemFormatType"/>
+    <xsd:attribute name="approvedVersion" type="xsd:string"/>
+  </xsd:attributeGroup>
+
+  <xsd:attributeGroup name="sampleAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for the sample element.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="purpose" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="Exemplar"/>
+          <xsd:enumeration value="OtherExemplar"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="scorepoint" type="xsd:string" use="required"/>
+  </xsd:attributeGroup>
+
+  <xsd:attributeGroup name="attachmentAttr">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Attributes for the attachment element.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:attribute name="id" type="xsd:string" use="required"/>
+    <xsd:attribute name="type" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="ASL"/>
+          <xsd:enumeration value="Braille"/>
+          <xsd:enumeration value="BRF"/>
+          <xsd:enumeration value="PRN"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="subtype">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="contracted"/>
+          <xsd:enumeration value="uncontracted"/>
+          <xsd:enumeration value="nemeth"/>
+          <xsd:enumeration value="STEM"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="file" type="xsd:string" use="required"/>
+    <xsd:attribute name="pass" type="xsd:boolean"/>
+  </xsd:attributeGroup>
+
+</xsd:schema>
