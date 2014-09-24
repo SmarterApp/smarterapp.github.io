@@ -1,3 +1,2 @@
 #Ignore these directories
-$ cat .gitignore
 /_site/*
