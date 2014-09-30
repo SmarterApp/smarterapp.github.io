@@ -9,11 +9,11 @@
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
       SmarterApp Assessment Item Format Specification XSD SAAIF
-      Passage Item Document SAAIF PI 1.0
+      Passage Item Document Types SAAIF PIT 1.0
       Specification Version: 1.0.0
       XSD Version: 1.0 v1p0
-      Status: Draft
-      Release Date: 2014-xx-xx
+      Status: Public Release
+      Release Date: 2014-09-30
       SAAIF Specification URL: http://www.smarterapp.org/specifications.html
       XSD: http://www.smarterapp.org/xsd/saaif/v1p0/passageitemtypes_v1p0.xsd
       Lcocation: http://www.smarterapp.org/xsd/saaif/v1p0/passageitemtypes_v1p0.xsd
@@ -22,7 +22,7 @@
     <xsd:documentation xml:lang="en-US">
       Change Log
       Date     Version  Changes
-      2014xxxx 1.0      Initial release
+      20140930 1.0      Public Release
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -38,7 +38,7 @@ A Passage Item XML document holds the content for a stimulus passage that is pre
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
-Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+Copyright © 2014, The Regents of the University of California.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -60,7 +60,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="passageType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the item type for a Passage Item
+    Define the item type for a Passage Item.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
@@ -77,8 +77,8 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="passagereleaseType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the itemrelease type.
-    Container element for the release of an Assessment Item.
+    Define the passage itemrelease type.
+    Container element for the release of a Passage Item.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>

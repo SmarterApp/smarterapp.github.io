@@ -70,6 +70,8 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:sequence>
     <xsd:attribute name="id" type="positiveIntType"/>
     <xsd:attribute name="version" type="itemVersionType" use="required"/>
+    <xsd:attribute name="ITSVer" type="positiveIntType"/>
+    <xsd:attribute name="ScoreEngineVer" type="positiveIntType"/>
     <xsd:attribute name="schemaversion" type="xsd:string"/>
   </xsd:complexType>     
 
@@ -119,8 +121,7 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:string">
-<!--      <xsd:pattern value="(arrow|arrw2|circle|connect|dash|delete|move|point)(, (arrow|arrw2|circle|connect|dash|delete|move|point))*"/> -->
-      <xsd:pattern value="(,?arrow|,?arrw2|,?circle|,?connect|,?dash|,?delete|,?move|,?point)*"/>
+     <xsd:pattern value="(arrow|arrw2|circle|connect|dash|delete|move|point)(,(arrow|arrw2|circle|connect|dash|delete|move|point))*"/>
     </xsd:restriction>
   </xsd:simpleType>
 
@@ -410,20 +411,17 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:sequence>
   </xsd:complexType> 
 
-<!-- need to add the pattern -->
- <xsd:complexType name="AtomicObjectType">
+ <xsd:simpleType name="AtomicObjectType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
     Define the AtomicObject type.
     An object on the canvas.
     </xsd:documentation>
   </xsd:annotation>
-    <xsd:simpleContent>
-      <xsd:extension base="xsd:string">
-<!--      <xsd:pattern value="\{.+\(\d+,\d+\)\}$"/> -->
-    </xsd:extension>
-    </xsd:simpleContent>
-  </xsd:complexType>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\w+\([-+]?\d+,[-+]?\d+\)"/>
+    </xsd:restriction>
+  </xsd:simpleType>
 
   <xsd:simpleType name="SnapPointType">
   <xsd:annotation>

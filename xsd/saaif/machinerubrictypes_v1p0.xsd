@@ -12,8 +12,8 @@
       Machine Rubric Document Types SAAIF MRT 1.0
       Specification Version: 1.0.0
       XSD Version: 1.0 v1p0
-      Status: Draft
-      Release Date: 2014-xx-xx
+      Status: Public Release
+      Release Date: 2014-09-30
       SAAIF Specification URL: http://www.smarterapp.org/specifications.html
       XSD: http://www.smarterapp.org/xsd/saaif/v1p0/machinerubrictypes_v1p0.xsd
       Location: http://www.smarterapp.org/xsd/saaif/v1p0/machinerubrictypes_v1p0.xsd
@@ -22,7 +22,7 @@
     <xsd:documentation xml:lang="en-US">
       Change Log
       Date     Version  Changes
-      2014xxxx 1.0      Initial release
+      20140930 1.0      Public Release
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -38,7 +38,7 @@ An Assessment Item Machine Rubric XML document contains the rubric rules for aut
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
-Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+Copyright © 2014, The Regents of the University of California.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -47,12 +47,12 @@ The complete license is included in the SAAIF specification, located at: http://
   </xsd:annotation>
 
 <!-- Define the basic types -->
-<!-- Placeholders until the Assessment Item Machine Rubric Document Format is define.-->
+<!-- Placeholders until the Assessment Item Machine Rubric Document Format is defined.-->
 
   <xsd:complexType name="conceptsType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the concepts.
+    Define the concepts type.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
@@ -95,7 +95,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="propositionsetType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the proposition set.
+    Define the propositionset type.
     Details are not specified.
     Any type of element is permitted.
     </xsd:documentation>
@@ -121,7 +121,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="certificationcasesType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the certification cases type.
+    Define the certificationcases type.
     Details are not specified.
     Any type of element is permitted.
     </xsd:documentation>

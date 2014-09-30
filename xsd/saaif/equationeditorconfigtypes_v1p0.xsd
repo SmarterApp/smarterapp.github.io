@@ -10,11 +10,11 @@
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
       SmarterApp Assessment Item Format Specification XSD SAAIF
-      Equation Editor Configuration Document SAAIF EE 1.0
+      Equation Editor Configuration Document Types SAAIF EET 1.0
       Specification Version: 1.0.0
       XSD Version: 1.0 v1p0
-      Status: Draft
-      Release Date: 2014-xx-xx
+      Status: Public Release
+      Release Date: 2014-09-30
       SAAIF Specification URL: http://www.smarterapp.org/specifications.html
       XSD: http://www.smarterapp.org/xsd/saaif/v1p0/equationeditorconfigtypes_v1p0.xsd
       Location: http://www.smarterapp.org/xsd/saaif/v1p0/equationeditorconfigtypes_v1p0.xsd
@@ -23,7 +23,7 @@
     <xsd:documentation xml:lang="en-US">
       Change Log
       Date     Version  Changes
-      2014xxxx 1.0      Initial release
+      20140930 1.0      Public Release
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -43,7 +43,7 @@ An Equation Editor Configuration XML document holds the configuration settings f
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
-Copyright © 2014, Copyright holder.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+Copyright © 2014, The Regents of the University of California.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -52,7 +52,7 @@ The complete license is included in the SAAIF specification, located at: http://
   </xsd:annotation>
 
 <!-- Import MathML -->
-<!-- Here instead of in the schema of all common types since it is a big import and not all other documents need MathML -->
+<!-- Import here instead of in the schema of all common types since it is a big import and not all other documents need MathML -->
 
   <xsd:import namespace="http://www.w3.org/1998/Math/MathML"
        schemaLocation="http://www.w3.org/Math/XMLSchema/mathml3/mathml3.xsd"/>
@@ -118,7 +118,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:simpleType name="TeXEntryEnabledType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the TexEntryEnabled type.
+    Define the TeXEntryEnabled type.
     Control of permitted TeX entry into the equation editor.
     </xsd:documentation>
   </xsd:annotation>
@@ -180,7 +180,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
     Define the sanitizeTeXEnabled type.
-    Control of ASCII math strings  typeset using TeX.
+    Control of ASCII math strings typeset using TeX.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:boolean"/>
@@ -200,7 +200,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
     Define the MagicDisabled type.
-    Controls if the item will be optimized for display on a mobile device when rendered on a mobile device.
+    Controls how the sequence of input keys is processed.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:restriction base="xsd:boolean"/>
@@ -209,7 +209,7 @@ The complete license is included in the SAAIF specification, located at: http://
   <xsd:complexType name="tabConfigType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the tabConfigType.
+    Define the tabConfig type.
     Layout of input keys for each input keys panel tab.
     </xsd:documentation>
   </xsd:annotation>
@@ -283,7 +283,7 @@ The complete license is included in the SAAIF specification, located at: http://
     <xsd:documentation xml:lang="en-US">
     Define the tab type.
     Specification of the specific tab layout if the default tab configuration is not used.
-    Used for all tab types: Basic, Algebra, SBAC3..SBAC11
+    Used for all tab types: Basic, Algebra, SBAC3..SBAC11.
     </xsd:documentation>
   </xsd:annotation>
     <xsd:sequence>
@@ -323,26 +323,10 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:restriction>
   </xsd:simpleType>     
 
-  <xsd:simpleType name="itemsListType">
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en-US">
-    Define the itemsList Type.
-    Vocabulary of names of an input key.
-    **** 
-    List not complete/
-    Type is not used.
-    </xsd:documentation>
-  </xsd:annotation>
-    <xsd:restriction base="xsd:token">
-      <xsd:enumeration value="sin"/>
-      <xsd:enumeration value="Pi"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-
   <xsd:complexType name="itemsType" mixed="true">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
-    Define the items Type.
+    Define the items type.
     Description of the individual input keys.
     Mixed type to allow simple content.  
     Cannot restict to either content and no elements or no content and elements.
@@ -373,6 +357,7 @@ The complete license is included in the SAAIF specification, located at: http://
 <!-- Define local reused types -->
 
 <!-- MathML is here instead of in the schema of all common types since the mml: namespace is a big import and not all other documents need MathML -->
+
   <xsd:complexType name="MathMLType">
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">

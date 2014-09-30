@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema 
-  targetNamespace="http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspec_v1p0.xsd"
-  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspec_v1p0.xsd"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
-  version="SAAIF GR 1.0"
-  elementFormDefault="qualified"
+  version="SAAIF STRICT 1.0"
+  elementFormDefault="unqualified"
   attributeFormDefault="unqualified">
 
   <xsd:annotation>
     <xsd:documentation xml:lang="en-US">
       SmarterApp Assessment Item Format Specification XSD SAAIF
-      Grid Item Rendering Specification SAAIF GR 1.0
+      SAAIF Strict Types SAAIF STRICT 1.0
       Specification Version: 1.0.0
       XSD Version: 1.0 v1p0
       Status: Public Release
       Release Date: 2014-09-30
       SAAIF Specification URL: http://www.smarterapp.org/specifications.html
-      XSD: http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspec_v1p0.xsd
-      Location: http://www.smarterapp.org/xsd/saaif/v1p0/griditemrenderingspec_v1p0.xsd
+      XSD: http://www.smarterapp.org/xsd/saaif/v1p0/saaifstricttypes_v1p0.xsd
+      Location: http://www.smarterapp.org/xsd/saaif/v1p0/saaifstricttypes_v1p0.xsd
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -31,12 +29,8 @@
 This is NOT a reference implementation.  If there are discrepencies between this XSD and the Specification, the Specification is authoratative.
     </xsd:documentation>
 
- <xsd:documentation xml:lang="en-US">
-The Grid Item Rendering Specification XML document schema.  It uses included types.  The schema is namespaced and is qualified.  It is for a standalone XML document.  Note: The SAAIF does NOT define a standalone usage statistics XML document.  This schema is provided for completeness but is not used.
-    </xsd:documentation>
-
     <xsd:documentation xml:lang="en-US">
-A Grid Item Rendering Specification XML document holds the rendering configuration settings for a grid type of assessment item.  The grid item rendering specification is a type of rendering specification.  The grid item rendering specification is referenced from the gridanswerspace element within a grid type of assessment item and is stored inline in the gridanswerspace element.
+Common element types and definitions for STRICT validation for use in all SAAIF XML documents.  These types are for inclusion in the SAAIF Common Types schemata.  The schema is not namespaced and is unqualified.
     </xsd:documentation>
 
     <xsd:documentation xml:lang="en-US">
@@ -48,13 +42,25 @@ The complete license is included in the SAAIF specification, located at: http://
     </xsd:documentation>
   </xsd:annotation>
 
-<!-- Include the griditemrenderingspec types schema -->
+<!-- Import xHTML -->
 
-  <xsd:include schemaLocation="saaifcommontypes_v1p0.xsd"/>
-  <xsd:include schemaLocation="griditemrenderingspectypes_v1p0.xsd"/>
+  <xsd:import namespace="http://www.w3.org/1999/xhtml"
+    schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"/>
 
-<!-- Top-level item element -->
-
-  <xsd:element name="Question" type="QuestionType"/>
+  <xsd:complexType name="w3xHtmlType">
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+    Define the xhtml type to allow any xHTML elements to be used.
+    Strict xhtml validation.
+    </xsd:documentation>
+  </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="xhtml:Block">
+        <xsd:attributeGroup ref="xhtml:attrs"/>
+        <xsd:attribute name="onload" type="xhtml:Script"/>
+        <xsd:attribute name="onunload" type="xhtml:Script"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
 
 </xsd:schema>
