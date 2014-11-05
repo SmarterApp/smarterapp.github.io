@@ -1,7 +1,7 @@
 timezone: America/New_York
 encoding: utf-8
 markdown: kramdown
-domain: www.smarterapp.org
+domain: mark-c-valderrama.github.io
 collections:
   specs:
     output: true
