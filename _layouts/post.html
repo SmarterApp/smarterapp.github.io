@@ -11,7 +11,8 @@
 <div id="main">
 	{% include header.html %}
 	<div id="content" style="min-height: 400px;">
-		{{ content }}
+		<div class="title">{{ page.title | escape }}</div>
+    {{ content }}
 	</div>
 	{% include footer.html %}
 </div>
