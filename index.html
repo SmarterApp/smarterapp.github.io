@@ -39,7 +39,7 @@ li {
 		</table>
 		<ul style="padding-right: 40px;">
 			{% for post in site.posts %}
-			<li><b>{{ post.date | date_to_string }}</b> {{ post.content }} </li>
+			<li><a href="{{ post.url }}"><b>{{ post.date | date_to_string }}: {{ post.title | escape }}</b></a> {{ post.content }} </li>
 			{% endfor %}
 		</ul>
 	</div>
