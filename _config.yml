@@ -5,11 +5,12 @@ domain: www.smarterapp.org
 collections:
   specs:
     output: true
-    permalink: "/specs/:path.:output_ext"
     permalink: /specs/:path.html
+  deployment:
+    output: true
+    permalink: /deployment/:path.html
   arch:
     output: true
-    permalink: "/arch/:path.:output_ext"
     permalink: /arch/:path.html
 defaults:
   -
@@ -22,6 +23,12 @@ defaults:
     scope:
       path: ""
       type: "specs"
+    values:
+      layout: "abstract"
+  -
+    scope:
+      path: ""
+      type: "deployment"
     values:
       layout: "abstract"
   -
