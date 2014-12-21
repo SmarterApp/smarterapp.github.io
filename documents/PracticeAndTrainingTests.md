@@ -14,7 +14,7 @@ The 19 December 2014 update also includes machine scoring rubrics for all machin
 
 Access is via anonymous FTP. These may be downloaded through a web browser but and FTP client like [FileZilla](https://filezilla-project.org/download.php?type=client) may make bulk downloads more convenient.
 
-URL: [ftp://ftps.smarterbalanced.org/~sbacpublic/Public/PracticeAndTrainingTests](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/PracticeAndTrainingTests)
-FTP Server: ftps.smarterbalanced.org
-Default Directory: /~sbacpublic/Public/PracticeAndTrainingTests
+* URL: [ftp://ftps.smarterbalanced.org/~sbacpublic/Public/PracticeAndTrainingTests](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/PracticeAndTrainingTests)
+* FTP Server: ftps.smarterbalanced.org
+* Default Directory: /~sbacpublic/Public/PracticeAndTrainingTests
 
