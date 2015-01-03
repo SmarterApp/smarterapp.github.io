@@ -37,11 +37,11 @@ li {
 				</td>
 			</tr>
 		</table>
-		<ul style="padding-right: 40px;">
-			{% for post in site.posts %}
-			<li><a href="{{ post.url }}"><b>{{ post.date | date_to_string }}: {{ post.title | escape }}</b></a> {{ post.content }} </li>
-			{% endfor %}
-		</ul>
+		{% for post in site.posts %}
+			<hr/>
+			<a href="{{ post.url }}"><b>{{ post.date | date_to_string }}: {{ post.title | escape }}</b></a><br/>
+			{{ post.content }}<br/>
+		{% endfor %}
 	</div>
 	{% include footer.html %}
 </div>
