@@ -6,6 +6,9 @@ layout: default
 
 [Smarter Balanced](http://www.smarterbalanced.org) has developed the SmarterApp assessment platform to support its own needs and to advance assessment technology worldwide. Each of the following components resides in its own source code repository. Please check the repository for the status of each.
 
+[Click Here for the full BitBucket Source Code Repository](https://bitbucket.org/sbacoss) (Test Authoring and Test Delivery Systems)
+[Click Here for the full GitHub Source Code Repository](https://github.com/SmarterApp) (All other components)
+
 ## Assessment Construction
 
 ### [Test Authoring](https://bitbucket.org/sbacoss/testauthoring_release)
@@ -25,6 +28,16 @@ The Test Item Bank component manages the importing and exporting of test (assess
 The Test Specification Bank (TSB) component is responsible for test (assessment) specification storage, searching, and initiation of packaging. The authenticated and authorized user can search for test specifications that were published from Test Authoring, view the actual specification XML, and initiate a packaging of that specification which will bundle the XML with all related Test Item data to be compressed and stored in a remote Secure FTP host location.
 
 ## Assessment Delivery
+
+### (new) [Test Integration System](https://bitbucket.org/sbacoss/testintegrationsystem_release)
+
+The Test Integration System is responsible for
+* Receiving a test result from TDS (Test Delivery System)
+* Sending it to THSS (Teacher HandScoring System) for hand scoring of items that require human scoring
+* Receiving item scores back from THSS
+* Inserting item scores into the file received from TDS
+* Scoring the test
+* Sending the scored test to downstream systems via SFT
 
 ### [Secure Browser](https://bitbucket.org/sbacoss/securebrowser6_release)
 The SmarterApp Secure Browser 6. This project takes the Mozilla FireFox source code and creates a secure browser that is used to deliver student assessments. The Secure Browser implements security features such as not permitting multiple tabs, browsing arbitrary URLs and enforcing a white list of applications.
