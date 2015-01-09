@@ -1,5 +1,5 @@
 ---
-title: Training Test Item Package Cross Reference
+title: Using the Smarter Balanced Secure FTP Site
 date: 2015-01-09
 docurl: /documents/UsingSmarterBalancedSecureFtp.html
 status: Release

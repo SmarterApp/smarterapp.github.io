@@ -1,5 +1,5 @@
 ---
-title: Using the Smarter Balanced Secure FTP
+title: Using the Smarter Balanced Secure FTP Site
 dateCreated: 2015-01-09
 date: 2015-01-09
 version: 1.0
@@ -15,27 +15,24 @@ Most contents on the Secure FTP site are sensitive. For member states, these con
 ## Welcome Email
 The contents on the Secure FTP site are divided into folders and access is granted on a per-folder basis. Each time you are granted access you will receive a welcome email similar to the following:
 
-````
-From: Brandt Redd [mailto:ftp@hostedftp.com] 
-Sent: Wednesday, January 7, 2015 1:12 AM
-To: Zog.Jones@farside.org
-Cc: Brandt Redd
-Subject: AssessmentTrainingAndOperations
-
-https://smarterbalanced.hostedftp.com/Xg48gdYRf2
-~ click to login ~
-
-Brandt Redd (sbac) gave you Read access to the folder 
-AssessmentTrainingAndOperations
-
-Smarter Balanced Assessment Consortium
-http://www.smarterbalanced.org
-
-Hosted~FTP~
-FTP in the Cloud
-www.hostedftp.com
-
-````
+    From: Brandt Redd [mailto:ftp@hostedftp.com] 
+    Sent: Wednesday, January 7, 2015 1:12 AM
+    To: Zog.Jones@farside.org
+    Cc: Brandt Redd
+    Subject: AssessmentTrainingAndOperations
+    
+    https://smarterbalanced.hostedftp.com/Xg48gdYRf2
+    ~ click to login ~
+    
+    Brandt Redd (sbac) gave you Read access to the folder 
+    AssessmentTrainingAndOperations
+    
+    Smarter Balanced Assessment Consortium
+    http://www.smarterbalanced.org
+    
+    Hosted~FTP~
+    FTP in the Cloud
+    www.hostedftp.com
 
 ## Setting a Password
 The first time you click on one of these links, you will be prompted to set a password. For future access, your username is your email address and your password is the one you set the first time you connect.
@@ -56,15 +53,13 @@ An FTP client is the better choice for reliability and performance when download
 
 Once you have installed an FTP client, you will need to configure the Smarter Balanced site. Here are the parameters:
 
-````
-Host (or server) Name:  ftps.smarterbalanced.org
-Protocol:               FTP (File Transfer Protocol)
-Encryption:             Explicit FTP over TLS
-Logon Type:             Normal
-User:                   <your email address>
-Password:               <your password, set using the website>
-Default Directory:      /
-````
+    Host (or server) Name:  ftps.smarterbalanced.org
+    Protocol:               FTP (File Transfer Protocol)
+    Encryption:             Explicit FTP over TLS
+    Logon Type:             Normal
+    User:                   <your email address>
+    Password:               <your password, set using the website>
+    Default Directory:      /
 
 ## Other Tips
 * Only the folders to which you have been granted access will appear regardless of whether you use a browser or an FTP client.
