@@ -62,7 +62,7 @@ a:visited
 body {
 	margin:0;
 	color:#3a3a3a;
-	font-family:"Franklin Gothic Medium", "Arial Narrow", Arial, Helvetica, sans-serif;
+	font-family:'Franklin Gothic', 'ITC Franklin Gothic', 'Arial', Helvetica, sans-serif;
 	font-size: 100%; /* For pages, we allow sensitivity to browser font size settings */
 	line-height:1.2;
 	background-color:#ededed;
