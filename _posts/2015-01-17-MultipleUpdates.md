@@ -1,6 +1,6 @@
 ---
 category: news
-title: 
+title: Three New Docs, One New Application, and Four Updates
 date: 2015-01-17
 ---
 Today Smarter Balanced has posted three new documents, added source code for a new application, and updated four specifications on [SmarterApp.org](http://www.smarterapp.org):
