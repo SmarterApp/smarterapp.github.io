@@ -9,6 +9,11 @@ layout: default
 [Click Here for the full BitBucket Source Code Repository](https://bitbucket.org/sbacoss) (Test Authoring and Test Delivery Systems)
 [Click Here for the full GitHub Source Code Repository](https://github.com/SmarterApp) (All other components)
 
+## Item Authoring
+
+### [Item Authoring and Item Pool](https://github.com/SmarterApp/ItemAuthoring)
+The Item Authoring and Item Pool facilitates the process of writing new assessment items, reviewing them, and adding accessibility features.
+
 ## Assessment Construction
 
 ### [Test Authoring](https://bitbucket.org/sbacoss/testauthoring_release)
