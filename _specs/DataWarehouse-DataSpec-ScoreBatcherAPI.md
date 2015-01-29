@@ -1,7 +1,7 @@
 ---
-title: Data Warehouse Data Specification - Score Batching 
+title: Data Warehouse Data Specification - Score Batcher API 
 date: 2015-01-23
-docurl: /documents/DataWarehouse-Spec-ScoreBatching.pdf
+docurl: /documents/DataWarehouse-Spec-ScoreBatcherAPI.pdf
 status: Release
 Version: Milestone 7, V1.0
 ---
