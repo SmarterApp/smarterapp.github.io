@@ -22,7 +22,7 @@ Smarter balanced has also licensed the following thesaurus:
 
 * Merriam-Webster's Collegiate® Thesaurus
 
-Please note that the thesaurus is written for a collegiate/adult audience and use should be in accordance with local policies. Merriam Webster has an intermediate thesaurus under development and we will notify states and their service providers as soon as it becomes available.
+*Please note that the current thesaurus is written for a collegiate/adult audience. Merriam Webster has an intermediate thesaurus geared towards younger students under development, which should be available Wednesday, February 11, 2015.*
 
 The API for accessing the Merriam-Webster dictionaries is documented at [http://www.dictionaryapi.com/products/index.htm](http://www.dictionaryapi.com/products/index.htm). Registering on that site will allow you to obtain your own license keys free of charge for development purposes.
 
