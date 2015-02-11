@@ -18,13 +18,13 @@ The following dictionaries should be used for the specified grades:
 
 The audio portion of these dictionaries should be made available along with the textual portion.
 
-Smarter balanced has also licensed the following thesaurus:
+Smarter balanced has also licensed the following thesauri:
 
+* Merriam-Webster's Intermediate Thesaurus
 * Merriam-Webster's Collegiate® Thesaurus
 
-*Please note that the current thesaurus is written for a collegiate/adult audience. Merriam Webster has an intermediate thesaurus geared towards younger students under development, which should be available Wednesday, February 11, 2015.*
+*Please note that the Collegiate Thesaurus is written for a collegiate/adult audience. Merriam Webster released the  intermediate thesaurus, geared towards younger students, on Tuesday, February 11, 2015.*
 
 The API for accessing the Merriam-Webster dictionaries is documented at [http://www.dictionaryapi.com/products/index.htm](http://www.dictionaryapi.com/products/index.htm). Registering on that site will allow you to obtain your own license keys free of charge for development purposes.
 
 License keys for Smarter Balanced operational tests are posted on the Smarter Balanced Secure FTP site in the TestPackages folder.
-   
