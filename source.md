@@ -44,8 +44,8 @@ The Test Integration System is responsible for
 * Scoring the test
 * Sending the scored test to downstream systems via SFT
 
-### [Secure Browser](https://bitbucket.org/sbacoss/securebrowser6_release)
-The SmarterApp Secure Browser 6. This project takes the Mozilla FireFox source code and creates a secure browser that is used to deliver student assessments. The Secure Browser implements security features such as not permitting multiple tabs, browsing arbitrary URLs and enforcing a white list of applications.
+### [Secure Browser](https://bitbucket.org/sbacoss/securebrowser7_release)
+The SmarterApp Secure Browser 7. This project takes the Mozilla FireFox source code and creates a secure browser that is used to deliver student assessments. The Secure Browser implements security features such as not permitting multiple tabs, browsing arbitrary URLs and enforcing a white list of applications.
 
 ### [Test Delivery System / Proctor](https://bitbucket.org/sbacoss/tds_release)
 Test Delivery System / Proctor includes the following functionality:
