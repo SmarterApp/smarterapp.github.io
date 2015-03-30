@@ -1,0 +1,62 @@
+---
+title: SmarterApp - Manuals
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>{{ page.title }}</title>
+{% include head.html %}
+<style>
+th {
+	text-align: left;
+	font-weight: bold;
+}
+td {
+	padding-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="main">
+	{% include header.html %}
+
+	<div id="content" style="min-height: 400px;">
+
+{% capture ulist %}{% for post in site.manuals %}{% unless forloop.first %}|{% endunless %}{{ post.date }}~{{ post.docurl }}~{{ post.url }}~{{ post.title }}~{{ post.status }}~{{ post.version }}~{{ post.content }}{% endfor %}{% endcapture %}
+{% assign slist = ulist | split: '|' | sort %}
+
+		<div class="title">
+			User Guides and Manuals</div>
+		<table>
+			<tr style="border-bottom: solid;">
+				<th>Name</th>
+				<th style="width: 6.5em;">Date</th>
+				<th style="width: 4.5em;">Status</th>
+				<th style="width: 4.5em;">Version</th>
+				<th style="width: 45%">Description</th>
+			</tr>
+			{% for entry in slist reversed %}
+			{% assign parts = entry | split: '~' %}
+			<tr>
+				<td>
+				<a href="{{ parts[1] }}">{{ parts[3] }}</a><br/>
+				<a href="{{ parts[2] }}" style="font-size:smaller;" >(abstract)</a></td>
+				<td>{{ parts[0] }}</td>
+				<td>{{ parts[4] }}</td>
+				<td>{{ parts[5] }}</td>
+				<td>{{ parts[6] }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+
+	</div>
+	
+	{% include footer.html %}
+</div>
+
+</body>
+
+</html>

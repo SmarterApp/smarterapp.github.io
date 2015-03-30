@@ -6,6 +6,9 @@ collections:
   specs:
     output: true
     permalink: /specs/:path.html
+  manuals:
+    output: true
+    permalink: /manuals/:path.html
   deployment:
     output: true
     permalink: /deployment/:path.html
@@ -23,6 +26,12 @@ defaults:
     scope:
       path: ""
       type: "specs"
+    values:
+      layout: "abstract"
+  -
+    scope:
+      path: ""
+      type: "manuals"
     values:
       layout: "abstract"
   -
