@@ -1,8 +1,8 @@
 ---
 title: Using the Smarter Balanced Secure FTP Site
 dateCreated: 2015-01-09
-date: 2015-01-09
-version: 1.0
+date: 2015-04-20
+version: 1.1
 layout: document
 author: Brandt Redd
 ---
@@ -15,16 +15,16 @@ Most contents on the Secure FTP site are sensitive. For member states, these con
 ## Welcome Email
 The contents on the Secure FTP site are divided into folders and access is granted on a per-folder basis. Each time you are granted access you will receive a welcome email similar to the following:
 
-    From: Brandt Redd [mailto:ftp@hostedftp.com] 
+    From: FTP-Admin [mailto:ftp@hostedftp.com] 
     Sent: Wednesday, January 7, 2015 1:12 AM
     To: Zog.Jones@farside.org
-    Cc: Brandt Redd
+    Cc: FTP-Admin
     Subject: AssessmentTrainingAndOperations
     
     https://smarterbalanced.hostedftp.com/Xg48gdYRf2
     ~ click to login ~
     
-    Brandt Redd (sbac) gave you Read access to the folder 
+    FTP-Admin (sbac) gave you Read access to the folder 
     AssessmentTrainingAndOperations
     
     Smarter Balanced Assessment Consortium
