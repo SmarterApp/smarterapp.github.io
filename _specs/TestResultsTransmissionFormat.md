@@ -1,6 +1,6 @@
 ---
 title: Test Results Transmission Format
-date: 2015-01-28
+date: 2015-06-17
 docurl: /documents/TestResultsTransmissionFormat.pdf
 status: Accepted, Updated
 Version: 1.3
@@ -12,3 +12,5 @@ Version 1.2 adds an updated XSD and a second sample document. These two parts ar
 <li><a href="/documents/TestResultsTransmissionFormat_Schema.xsd">Test Results Transmission Format Schema XSD</a></li>
 <li><a href="/documents/TestResultsTransmissionFormat_Sample.xml">Test Results Transmission Format Sample Result</a></li>
 </ul>
+<br/>
+Version 1.5 includes indicators of which fields should be removed when de-identifying data.

@@ -215,6 +215,40 @@ pre code {
 	padding: 0;
 }
 
+/* Tables */
+
+table
+{
+	border-collapse: collapse;
+	margin: 0 0 1em 0;
+}
+
+table th
+{
+  font-weight: bold;
+}
+
+table th, table td
+{
+  border: 1px solid black;
+  padding: 6px 13px;
+}
+
+/* Layout Tables (have no borders, padding, or margins) */
+
+table.layout
+{
+	margin: 0;
+}
+
+table.layout th, table.layout td
+{
+	border: 0px none white;
+	padding: 0;	
+}
+
+#
+
 /* header */
 #header {
 	position:relative;
