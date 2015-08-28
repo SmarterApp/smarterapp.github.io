@@ -1,6 +1,6 @@
 ---
 category: news
-title: Item Response Format Specification
+title: Test Results Data Model
 date: 2015-08-26
 ---
 Smarter Balanced has posted one new specification and two sets of sample data on [SmarterApp.org](http://www.smarterapp.org):
