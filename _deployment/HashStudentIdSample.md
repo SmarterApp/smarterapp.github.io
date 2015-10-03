@@ -8,6 +8,6 @@ Algorithm and sSample code to demonstrate how to hash a StudentID into an Altern
 
 * [Algorithm Description](/documents/HashStudentIdSample.html)
 * [Sample Code](https://github.com/SmarterApp/HashStudentIdSample)
-* [Non-Technical Explanation for Member States and Entities](/deployment/DeidentificationOfStudentIDs.pdf)
+* [Non-Technical Explanation for Member States and Entities](/documents/DeidentificationOfStudentIDs.pdf)
 
 Vendors are not required to use this method for generating the AlternateSSID but it is a recommended practice.
