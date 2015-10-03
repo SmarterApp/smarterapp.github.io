@@ -1,6 +1,6 @@
 ---
 title: Assessment Package Types
-date: 2015-01-17
+date: 2015-10-02
 docurl: /documents/AssessmentPackageTypes.html
 status: Release
 ---
