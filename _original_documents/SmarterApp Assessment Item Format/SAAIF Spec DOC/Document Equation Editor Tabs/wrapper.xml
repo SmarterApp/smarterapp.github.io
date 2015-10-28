@@ -1,0 +1,14 @@
+<!-- Minimal elements to validate a tab document -->
+
+  <configure>false</configure>
+  <tabs>true</tabs>
+  <TeXEntryEnabled>true</TeXEntryEnabled>
+  <TeX>\displaystyle {}</TeX>
+
+  <navigation>true</navigation>
+  <mathML>
+    <mml:math/>
+  </mathML>
+  <TeXEntryMode>None</TeXEntryMode>
+  <TeXEntryInit>None</TeXEntryInit>
+

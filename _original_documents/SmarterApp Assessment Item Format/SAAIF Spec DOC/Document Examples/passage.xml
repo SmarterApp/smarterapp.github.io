@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Example of a Passage XML document -->
+<passage
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/passageitem_v1p0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xsi:schemaLocation="http://www.smarterapp.org/xsd/saaif/v1p0/passageitem_v1p0 http://www.smarterapp.org/xsd/saaif/v1p0/passageitem_v1p0.xsd"
+  id="256031931"
+  version="1.0"
+  schemaversion="1.0">
+
+  <attriblist>
+    <attrib attid="stm_pass_desc">
+      <name>Stim: Description</name>
+      <val>A description</val>
+      <desc></desc>
+    </attrib>
+    <attrib attid="stm_pass_id">
+      <name>Stim: ITS ID</name>
+      <val>256031931</val>
+      <desc></desc>
+    </attrib>
+    <attrib attid="stm_pass_subject">
+      <name>Stim: Subject</name>
+      <val>ELA</val>
+      <desc></desc>
+    </attrib>
+  </attriblist>
+  <resourceslist>
+    <resource type="wordList" id="7962786560" index="1"/>
+  </resourceslist>
+  <content language="en-US" version="1.0" approvedVersion="1.0">
+    <title>
+      <xhtml:p>Title of the passage</xhtml:p>
+    </title>
+    <author>
+      <xhtml:p>Author of the passage</xhtml:p>
+    </author>
+    <stem>
+      <xhtml:p id="access_tag">Content of the passage</xhtml:p>
+    </stem>
+    <attachmentlist>
+      <attachment id="ASL content" type="ASL" subtype="STEM" file="ASL_file.mpeg" pass="true"/>
+      <attachment id="Braille content" type="BRF" subtype="nemeth" file="nemeth_file.prn"/>
+    </attachmentlist>
+    <apipAccessibility>
+      <accessibilityInfo>
+        <accessElement identifier="access 1">
+          <contentLinkInfo itsLinkIdentifierRef="access_tag" type="Text">
+            <objectLink>uri:scheme/path/path</objectLink>
+          </contentLinkInfo>
+          <relatedElementInfo>
+            <readAloud>
+              <textToSpeechPronunciation>Text to read aloud</textToSpeechPronunciation>
+            </readAloud>
+            <brailleText/>
+          </relatedElementInfo>
+        </accessElement>
+      </accessibilityInfo>
+    </apipAccessibility>
+  </content>
+</passage>

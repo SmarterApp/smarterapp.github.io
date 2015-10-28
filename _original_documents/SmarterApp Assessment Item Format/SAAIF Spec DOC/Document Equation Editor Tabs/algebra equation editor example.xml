@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Example of an Equation Editor Configuration XML document -->
+<editorconfig
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/equationeditorconfig_v1p0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.smarterapp.org/xsd/saaif/v1p0/equationeditorconfig_v1p0 http://www.smarterapp.org/xsd/saaif/v1p0/equationeditorconfig_v1p0"
+  schemaversion="1.0">
+  <configure>false</configure>
+  <tabs>true</tabs>
+  <TeXEntryEnabled>true</TeXEntryEnabled>
+  <TeX>\displaystyle {}</TeX>
+  <tabConfig>
+    <Order>Algebra</Order>
+    <Algebra>
+      <title>Algebra</title>
+      <rows>
+        <title>Numbers</title>
+        <type>grid</type>
+        <cols>3</cols>
+        <items>1</items>
+        <items>2</items>
+        <items>3</items>
+        <items>4</items>
+        <items>5</items>
+        <items>6</items>
+        <items>7</items>
+        <items>8</items>
+        <items>9</items>
+        <items>0</items>
+        <items>.</items>
+        <items>
+          <key>fraction</key>
+          <text>fraction</text>
+          <value>\frac{\PH}{\PH}</value>
+        </items>
+      </rows>
+      <rows>
+        <title>Variables</title>
+        <type>row</type>
+        <items>x</items>
+        <items>y</items>
+      </rows>
+      <rows>
+        <title>Operations After Grade 6</title>
+        <type>row</type>
+        <items>+</items>
+        <items>-</items>
+        <items>
+          <key>*</key>
+          <text>*</text>
+        </items>
+        <items>div</items>
+      </rows>
+      <rows>
+        <title>Signs</title>
+        <type>row</type>
+        <items>lt</items>
+        <items>le</items>
+        <items>=</items>
+        <items>ge</items>
+        <items>gt</items>
+      </rows>
+      <rows>
+        <title>Other</title>
+        <type>row</type>
+        <items>
+          <key>| |</key>
+          <value>|\PH|</value>
+        </items>
+        <items>
+          <key>( )</key>
+          <value>(\PH)</value>
+        </items>
+      </rows>
+    </Algebra>
+  </tabConfig>
+  <navigation>true</navigation>
+  <mathML>
+    <mml:math/>
+  </mathML>
+  <TeXEntryMode>None</TeXEntryMode>
+  <TeXEntryInit>None</TeXEntryInit>
+</editorconfig>

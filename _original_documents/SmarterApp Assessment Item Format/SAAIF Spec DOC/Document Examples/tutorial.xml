@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Example of a Tutorial XML document -->
+<item
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/tutorial_v1p0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xsi:schemaLocation="http://www.smarterapp.org/xsd/saaif/v1p0/tutorial_v1p0 http://www.smarterapp.org/xsd/saaif/v1p0/tutorial_v1p0.xsd"
+  format="tut"
+  id="902451852"
+  version="1.0"
+  schemaversion="1.0">
+
+  <attriblist>
+    <attrib attid="itm_item_id">
+      <name>Item: ITS ID</name>
+      <val>504890245</val>
+      <desc></desc>
+    </attrib>
+  </attriblist>
+  <content language="en-US" format="tut" version="1.0" approvedVersion="1.0">
+    <illustration>
+      <xhtml:p>Tutorial illustration content <xhtml:img src="tutorial_illustration.png" alt="Description"/></xhtml:p>
+    </illustration>
+    <stem>
+      <xhtml:p>Content of the tutorial</xhtml:p>
+    </stem>
+  </content>
+</item>

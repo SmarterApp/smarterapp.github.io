@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Example of a Wordlist XML document -->
+<item
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/wordlist_v1p0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xsi:schemaLocation="http://www.smarterapp.org/xsd/saaif/v1p0/wordlist_v1p0 http://www.smarterapp.org/xsd/saaif/v1p0/wordlist_v1p0.xsd"
+  format="wordList"
+  id="241852256"
+  version="1.0"
+  schemaversion="1.0">
+
+  <keywordList>
+    <keyword text="A term" index="1">
+      <html listType="glossary" listCode="TDS_WL_Glossary">
+        <xhtml:p>Text of "A term" Glossary Entry</xhtml:p>
+      </html>
+      <html listType="thesaurus" listCode="TDS_WL_THES">
+        <xhtml:p>Text of "A term" Thesaurus Entry</xhtml:p>
+      </html>
+    </keyword>
+    <keyword text="Another term" index="2">
+      <html listType="glossary" listCode="TDS_WL_Glossary">
+        <xhtml:p>Text of "Another term" Glossary Entry</xhtml:p>
+      </html>
+      <html listType="thesaurus" listCode="TDS_WL_THES">
+        <xhtml:p>Text of "Another term" Thesaurus Entry</xhtml:p>
+      </html>    
+    </keyword>
+  </keywordList>
+</item>

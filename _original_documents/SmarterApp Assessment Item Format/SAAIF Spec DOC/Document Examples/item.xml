@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Example of an Assessment Item XML document -->
+<item
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/assessmentitem_v1p0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xsi:schemaLocation="http://www.smarterapp.org/xsd/saaif/v1p0/assessmentitem_v1p0 http://www.smarterapp.org/xsd/saaif/v1p0/assessmentitem_v1p0.xsd"
+  format="nl"
+  id="504890245"
+  version="1.0"
+  schemaversion="1.0">
+
+  <associatedpassage>237047993</associatedpassage>
+  <attriblist>
+    <attrib attid="itm_item_desc">
+      <name>Item: Item Description</name>
+      <val>A description</val>
+      <desc></desc>
+    </attrib>
+    <attrib attid="itm_item_id">
+      <name>Item: ITS ID</name>
+      <val>504890245</val>
+      <desc></desc>
+    </attrib>
+    <attrib attid="itm_att_Item Format">
+      <name>Item:Item Format</name>
+      <val>nl</val>
+      <desc></desc>
+    </attrib>
+    <attrib attid="stm_pass_id">
+      <name>Stim: ITS ID</name>
+      <val>237047993</val>
+      <desc></desc>
+    </attrib>
+  </attriblist>
+  <tutorial id="670360095"/>
+  <resourceslist>
+    <resource type="wordList" id="1278" index="1"/>
+  </resourceslist>
+  <statistic />
+  <MachineRubric filename="rubric_file.nlx"/>
+  <content language="en-US" format="nl" version="1.0" approvedVersion="1.0">
+    <illustration>
+      <xhtml:p>Item illustration content <xhtml:img src="item_illustration.png" alt="Description"/></xhtml:p>
+    </illustration>
+    <stem>
+      <xhtml:p id="access_tag">Content of the item</xhtml:p>
+    </stem>
+    <rubriclist>
+      <rubric scorepoint="3" index="1">
+        <name>Rubric name</name>
+        <val>
+          <xhtml:p>Rubric value</xhtml:p>
+        </val>
+      </rubric>
+      <samplelist minval="1" maxval="1" index="1">
+        <sample purpose="Exemplar" scorepoint="1">
+          <name>Sample Name</name>
+          <samplecontent>
+            <xhtml:p>Sample Content</xhtml:p>
+          </samplecontent>
+        </sample>
+      </samplelist>
+    </rubriclist>
+    <attachmentlist>
+      <attachment id="ASL content" type="ASL" subtype="STEM" file="ASL_file.mpeg" pass="true"/>
+    </attachmentlist>
+    <apipAccessibility>
+      <accessibilityInfo>
+        <accessElement identifier="access 1">
+          <contentLinkInfo itsLinkIdentifierRef="access_tag" type="Text">
+            <objectLink>uri:scheme/path/path</objectLink>
+          </contentLinkInfo>
+          <relatedElementInfo>
+            <readAloud>
+              <textToSpeechPronunciation>Text to read aloud</textToSpeechPronunciation>
+            </readAloud>
+            <brailleText/>
+          </relatedElementInfo>
+        </accessElement>
+      </accessibilityInfo>
+    </apipAccessibility>
+  </content>
+</item>

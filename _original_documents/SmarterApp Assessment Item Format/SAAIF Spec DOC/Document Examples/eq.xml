@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Example of an Equation Editor Configuration XML document -->
+<editorconfig
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/equationeditorconfig_v1p0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:mml="http://www.w3.org/1998/Math/MathML
+  xsi:schemaLocation="http://www.smarterapp.org/xsd/saaif/v1p0/equationeditorconfig_v1p0 http://www.smarterapp.org/xsd/saaif/v1p0/equationeditorconfig_v1p0.xsd"
+  schemaversion="1.0">
+
+  <contentLabel>Label text</contentLabel>
+  <configure>false</configure>
+  <tabs>true</tabs>
+  <TeXEntryEnabled>true</TeXEntryEnabled>
+  <TeX>\displaystyle {}</TeX>
+  <tabConfig>
+    <Order>SBAC3</Order>
+    <SBAC3>
+      <title>SBAC3</title>
+      <rows>
+        <title>Numbers</title>
+        <type>grid</type>
+        <cols>3</cols>
+        <items>1</items>
+        <items>2</items>
+        <items>3</items>
+        <items>4</items>
+        <items>5</items>
+        <items>6</items>
+        <items>7</items>
+        <items>8</items>
+        <items>9</items>
+        <items>0</items>
+        <items>.</items>
+        <items>-</items>
+      </rows>
+    </SBAC3>
+  </tabConfig>
+  <navigation>true</navigation>
+  <mathML>
+    <mml:math/>
+  </mathML>
+  <TeXEntryMode>None</TeXEntryMode>
+  <TeXEntryInit>None</TeXEntryInit>
+  <sanitizeTeXEnabled>true</sanitizeTeXEnabled>
+  <defaultTextBoxPx>5</defaultTextBoxPx>
+  <isMobile>false</isMobile>
+  <MagicDisabled>false</MagicDisabled>
+</editorconfig>

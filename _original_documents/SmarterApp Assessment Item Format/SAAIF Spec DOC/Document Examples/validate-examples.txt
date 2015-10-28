@@ -1,0 +1,11 @@
+To validate the examples
+Using local schemas
+
+Load the schema into XML Spy
+Generate a sample document
+  (default for equation is mathml element -- pick root)
+Cut and paste body of content from example file into generated example
+  (beginning and ending elements have different namespaces)
+Add the xhtml schema info to the header
+
+Validate.

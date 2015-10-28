@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Example of an Item Release Document wrapping a Passage XML document -->
+<itemrelease
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/passageitem_v1p0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xsi:schemaLocation="http://www.smarterapp.org/xsd/saaif/v1p0/passageitem_v1p0 http://www.smarterapp.org/xsd/saaif/v1p0/passageitem_v1p0.xsd"
+  version="1.0"
+  schemaversion="1.0">
+
+  <passage
+    id="69509844"
+    version="1.0">
+    <content language="en-US" version="1.0" approvedVersion="1.0">
+      <title>
+        <xhtml:p>Title of the passage</xhtml:p>
+      </title>
+      <stem>
+        <xhtml:p>Content of the passage</xhtml:p>
+      </stem>
+    </content>
+  </passage>
+</itemrelease>

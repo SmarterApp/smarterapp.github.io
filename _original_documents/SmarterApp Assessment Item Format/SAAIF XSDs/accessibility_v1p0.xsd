@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+  targetNamespace="http://www.smarterapp.org/xsd/saaif/v1p0/accessibility_v1p0.xsd"
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/accessibility_v1p0.xsd"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  version="SAAIF APIP 1.0"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en-US">
+      SmarterApp Assessment Item Format Specification XSD SAAIF
+      Assessment Item Accessibility Document SAAIF APIP 1.0
+      Specification Version: 1.0.0
+      XSD Version: 1.0 v1p0
+      Status: Public Release
+      Release Date: 2014-09-30
+      SAAIF Specification URL: http://www.smarterapp.org/specifications.html
+      XSD: http://www.smarterapp.org/xsd/saaif/v1p0/accessibility_v1p0.xsd
+      Location: http://www.smarterapp.org/xsd/saaif/v1p0/accessibility_v1p0.xsd
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+      Change Log
+      Date     Version  Changes
+      20140930 1.0      Public Release
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+This is NOT a reference implementation.  If there are discrepencies between this XSD and the Specification, the Specification is authoratative.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+The Assessment Item Accessibility XML document schema.  It uses included types.  The schema is namespaced and is qualified.  It is for a standalone XML document.  Note: The SAAIF does NOT define a standalone accessibility XML document.  This schema is provided for completeness but is not used.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+An Assessment Item Accessibility XML document holds the description of accessibility content (e.g., Braille alternative content).  Accessibility content is associated with an assessment item (including a tutorial) or a passage item and is referenced from the apipAccessibility element within the assessment item or passage item.
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+Copyright © 2014, The Regents of the University of California.  This schema may be used under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) [http://creativecommons.org/licenses/by-sa/4.0/].
+    </xsd:documentation>
+
+    <xsd:documentation xml:lang="en-US">
+The complete license is included in the SAAIF specification, located at: http://www.smarterapp.org/specifications.html
+    </xsd:documentation>
+  </xsd:annotation>
+
+
+<!-- Include accessibility types schema -->
+
+  <xsd:include schemaLocation="saaifcommontypes_v1p0.xsd"/>
+  <xsd:include schemaLocation="accessibilitytypes_v1p0.xsd"/>
+
+<!-- Top-level item element -->
+
+  <xsd:element name="apipAccessibility" type="apipAccessibilityType"/>
+
+</xsd:schema>

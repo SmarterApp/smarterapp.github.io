@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Example of a Grid Rendering Specification in an Assessment Item XML document -->
+<item
+  xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/assessmentitem_v1p0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xsi:schemaLocation="http://www.smarterapp.org/xsd/saaif/v1p0/assessmentitem_v1p0 http://www.smarterapp.org/xsd/saaif/v1p0/assessmentitem_v1p0.xsd"
+  format="gi"
+  id="677871574"
+  version="1.0"
+  schemaversion="1.0">
+
+  <attriblist>
+    <attrib attid="itm_item_id">
+      <name>Item: ITS ID</name>
+      <val>677871574</val>
+      <desc></desc>
+    </attrib>
+    <attrib attid="itm_att_Item Format">
+      <name>Item:Item Format</name>
+      <val>gi</val>
+      <desc></desc>
+    </attrib>
+  </attriblist>
+  <gridanswerspace>
+    <Question id="677871574" version="1">
+      <Description></Description>
+      <QuestionPart id="1">
+        <Options>
+          <ShowButtons>arrow,circle,point</ShowButtons>
+          <GridColor>LightBlue</GridColor>
+          <GridSpacing>50</GridSpacing>
+          <CenterImage>true</CenterImage>
+          <ScaleImage>true</ScaleImage>
+        </Options>
+        <Text/>
+        <ObjectMenuIcons>
+          <IconSpec index="1">
+            <FileSpec>icon1_file.jpg</FileSpec>
+            <Label>icon1</Label>
+          </IconSpec>
+          <IconSpec index="2">
+            <FileSpec>icon2_file.jpg</FileSpec>
+            <Label>icon2</Label>
+          </IconSpec>
+        </ObjectMenuIcons>
+        <ImageSpec>
+            <FileSpec>backgroundimage_file.gif</FileSpec>
+            <Position>20,10</Position>
+        </ImageSpec>
+        <HotSpots>
+          <Regions>
+            <Region name="region1" shape="rect" coords="0,0,50,50">
+              <Event name="select">
+                <Styles fill="#000" fill-opacity=".5" stroke="#00F" stroke-dasharray="" 
+                  stroke-opacity="1.0" stroke-width="5"/>
+                <Image src="eventimage1_file.png" x="30" y="30"/>
+              </Event>
+            </Region>
+            <Region name="region2" shape="rect" coords="50,50,100,100">
+              <Event name="select">
+                <Styles fill="#000" fill-opacity=".5" stroke="#00F" stroke-dasharray="" 
+                  stroke-opacity="1.0" stroke-width="5"/>
+                <Image src="eventimage2_file.png" x="80" y="80"/>
+              </Event>
+            </Region>
+            <Region name="region3" shape="rect" coords="100,1000,150,150">
+              <Event name="select">
+                <Styles fill="#000" fill-opacity=".5" stroke="#00F" stroke-dasharray="" 
+                  stroke-opacity="1.0" stroke-width="5"/>
+                <Image src="eventimage3_file.png" x="130" y="130"/>
+              </Event>
+            </Region>
+            <Region name="region4" shape="rect" coords="150,150,200,200">
+              <Event name="select">
+                <Styles fill="#000" fill-opacity=".5" stroke="#00F" stroke-dasharray="" 
+                  stroke-opacity="1.0" stroke-width="5"/>
+                <Image src="eventimage4_file.png" x="180" y="180"/>
+              </Event>
+            </Region>
+          </Regions>
+          <RegionGroups>
+            <RegionGroup max="1" min="0" name="group1">
+              <Include region="region1"/>
+              <Include region="region2"/>
+            </RegionGroup>
+            <RegionGroup max="1" min="0" name="group2">
+              <Include region="region3"/>
+              <Include region="region4"/>
+            </RegionGroup>
+          </RegionGroups>
+        </HotSpots>
+      </QuestionPart>
+      <PreSetAnswerPart>
+        <AnswerSet>
+          <ObjectSet></ObjectSet>
+          <SnapPoint>10@50,50;50,200;200,50;200,200</SnapPoint>
+        </AnswerSet>
+      </PreSetAnswerPart>
+    </Question>
+  </gridanswerspace>
+  <content language="en-US" format="gi" version="1.0" approvedVersion="1.0">
+    <stem>
+      <xhtml:p id="access_tag">Content of the item</xhtml:p>
+    </stem>
+  </content>
+</item>

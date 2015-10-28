@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.smarterapp.org/xsd/saaif/v1p0/notation.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" targetNamespace="http://www.smarterapp.org/xsd/saaif/v1p0/notation.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" version="SAAIF 1.0">
+
+<!-- XSD used to generate the notation diagram in the SAAIF Specification -->
+
+  <xsd:complexType name="rootelementType_sequence">
+    <xsd:annotation>
+      <xsd:documentation>Root Element Type for Notation</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="requiredElememt_once" type="xsd:string"/>
+      <xsd:element name="requiredElement_may" type="xsd:string" maxOccurs="unbounded"/>
+      <xsd:element name="optionalElement_once" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="optionalElement_many" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="elementWith_subElements" type="subelementsType_choice"/>
+    </xsd:sequence>
+    <xsd:attribute name="requiredAttribute" type="xsd:string" use="required"/>
+    <xsd:attribute name="optionalAttribute" type="xsd:int"/>
+    <xsd:attribute name="prohibitedAttribute" type="xsd:boolean" use="prohibited"/>
+  </xsd:complexType>
+  <xsd:complexType name="subelementsType_choice">
+    <xsd:choice>
+      <xsd:element name="subSubElements_NotExpanded" type="partsSubType"/>
+      <xsd:element name="leafElement" type="partsSimpleType"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="partsSubType">
+    <xsd:sequence>
+      <xsd:element name="hidden" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="partsSimpleType">
+    <xsd:restriction base="xsd:token"/>
+  </xsd:simpleType>
+  <xsd:element name="documentRoot" type="rootelementType_sequence"/>
+</xsd:schema>
