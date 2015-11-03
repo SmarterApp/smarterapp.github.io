@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 	<xs:element name="TDSReport">
 		<xs:complexType>
@@ -23,9 +22,9 @@
             <!-- not expected to be used for open source, but may be needed for internal purposes -->
 						<xs:attribute name="handScoreProject" type="xs:unsignedInt" />
             <!-- new fields requested for open source -->
-            <xs:attribute name="assessmentType" />
-            <xs:attribute name="academicYear" type="xs:unsignedInt" />
-            <xs:attribute name="assessmentVersion" />
+            <xs:attribute name="assessmentType"  use="required" />
+            <xs:attribute name="academicYear" type="xs:unsignedInt"  use="required" />
+            <xs:attribute name="assessmentVersion"  use="required" />
           </xs:complexType>
 				</xs:element>
 				<xs:element name="Examinee" minOccurs="1" maxOccurs="1">
@@ -208,6 +207,8 @@
 						<xs:attribute name="sessionId" />
 						<xs:attribute name="windowId" use="required" />
 						<xs:attribute name="windowOpportunity" type="NullableUInt" />
+						<xs:attribute name="completeStatus" />
+						<xs:attribute name="administrationCondition" />
 						<xs:attribute name="dateForceCompleted" type="NullableDateTime" />
 						<xs:attribute name="qaLevel" />
             <!-- new field requested for open source -->

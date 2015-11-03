@@ -1,9 +1,9 @@
 ---
 title: Test Results Transmission Format
-date: 2015-06-17
+date: 2015-11-02
 docurl: /documents/TestResultsTransmissionFormat.pdf
 status: Accepted, Updated
-Version: 1.3
+Version: 1.6
 ---
 This is the format in which test results are transmitted from the test delivery system to the data warehouse and reporting system. It contains everything about a student's test event including questions presented, student responses, item scores, test scores, and accessibility features used. Data archives will be preserved in this format to enable future analytics and to preserve all information about a test event.<br/>
 <br/>
@@ -14,3 +14,6 @@ Version 1.2 adds an updated XSD and a second sample document. These two parts ar
 </ul>
 <br/>
 Version 1.5 includes indicators of which fields should be removed when de-identifying data.
+<br/>
+<br/>
+Version 1.6 includes updates to the XSD and XML sample files 
