@@ -1,7 +1,4 @@
-﻿/* http://meyerweb.com/eric/tools/css/reset/ 
-	v2.0 | 20110126
-	License: none (public domain)
-*/
+﻿/* Reset everything */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -14,7 +11,8 @@ table, caption, tbody, tfoot, thead, tr, th,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video
+{
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -22,20 +20,30 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {display:block;}
-body {line-height:1;}
-ol, ul {list-style: none;}
-blockquote, q {quotes:none;}
+footer, header, hgroup, menu, nav, section
+{
+	display:block;
+}
+body
+{
+	line-height:1;
+}
+ol, ul
+{
+	list-style: none;
+}
+blockquote, q
+{
+	quotes:none;
+}
 blockquote:before, blockquote:after,
-q:before, q:after {
+q:before, q:after
+{
 	content:'';
 	content:none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
 }
 
 /* Images */
@@ -45,7 +53,8 @@ img
 }
 
 /* Links */
-a {
+a
+{
 	text-decoration:underline;
 	color:#2aabde;
 }
@@ -59,7 +68,8 @@ a:visited
 }
 
 /* Frame up the body */
-body {
+body
+{
 	margin:0;
 	color:#3a3a3a;
 	font-family:'Franklin Gothic', 'ITC Franklin Gothic', 'Arial', Helvetica, sans-serif;
@@ -70,30 +80,16 @@ body {
 /* All other font sizes should be relative to the base (e.g. 1.5em or 150%) */
 
 /* Main content frame for pages */
-#main {
+#main
+{
     border-width:1px;
     border-style:ridge;
     border-radius:5px;
     border-color:black;
 	background-color:white;
     max-width:80em;
-    margin:5px auto;
+    margin:5px;
 	padding:5px;
-}
-
-/* Body background for documents (which may be printed or PDFed) */
-#body-doc {
-	color: black;
-	font-size: 11pt; /* For print, we specify an exact size */
-	background-color:white;
-}
-
-/* Main content frame for documents (which may be printed or PDFed) */
-#main-doc {
-    border: none;
-	background-color:white;
-    max-width:6.5in; /* Means 1" margins when printed on 8.5" x 11" paper */
-    margin:10px auto;
 }
 
 /* General text formatting */
@@ -113,7 +109,7 @@ ol
     margin-left:3em;
     margin-bottom: 1em;
 }
-em,i
+em, i
 {
 	font-style:italic;
 }
@@ -123,7 +119,8 @@ strong, b
 }
 blockquote
 {
-	margin-left:5e;
+	margin-left:5em;
+    margin-bottom: 1em;
 }
 
 /* Page or document Title */
@@ -137,15 +134,16 @@ blockquote
     margin-bottom: 1em;
 }
 
-.subtitle {
+.subtitle
+{
     font-weight:bold;
 	font-size: 1.2em;
 	color:#8A1538;
 }
 
-
 /* Headings */
-h1 {
+h1
+{
 	font-size:1.6em;
 	font-weight:bold;
 	color:#8A1538;
@@ -153,7 +151,8 @@ h1 {
 	margin-bottom: 0.2em;
 }
 
-h2 {
+h2
+{
 	font-size:1.25em;
 	font-weight:bold;
 	color:#04384e;
@@ -161,20 +160,23 @@ h2 {
 	margin-bottom: 0.2em;
 }
 
-h3 {
+h3
+{
 	font-size:1.1em;
 	font-weight:bold;
 	color:#63666A;
 }
 
-h4 {
+h4
+{
 	font-size:1.1em;
 	font-style:italic;
 	color:#63666A;
 }
 
 h5,
-h6 {
+h6
+{
 	font-size:1.1em;
 	color:#63666A;
 }
@@ -182,7 +184,10 @@ h6 {
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
 h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 h:link,
 h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 h:visited
-{color:inherit;text-decoration:inherit;}
+{
+	color:inherit;
+	text-decoration:inherit;
+}
 
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h5 a:hover
 {
@@ -191,14 +196,17 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h5 a:hover
 }
 
 /* code blocks */
-code {
-	font: 1em "Lucida Console", Monaco, monospace;
+code
+{
+	font: 0.9em "Lucida Console", Monaco, monospace;
 	color: black;
 	background-color: #E8E8E8;
 	padding: 0 3px 0 3px;
 }
-pre {
-	font: 0.8em "Lucida Console", Monaco, monospace;
+
+pre
+{
+	font: 0.9em "Lucida Console", Monaco, monospace;
 	color: black;
 	background-color: #E8E8E8;
 	padding: 8px;
@@ -208,6 +216,7 @@ pre {
     border-color:black;
     margin-bottom: 1em;
 }
+
 pre code {
 	font: inherit;
 	color: inherit;
@@ -220,6 +229,7 @@ pre code {
 table
 {
 	border-collapse: collapse;
+	border-spacing: 0;
 	margin: 0 0 1em 0;
 }
 
@@ -247,13 +257,26 @@ table.layout th, table.layout td
 	padding: 0;	
 }
 
-#
+/******************************************/
+/* Document Layout */
 
-/* header */
-#header {
-	position:relative;
-	z-index:3;
+/* Body background for documents (which may be printed or PDFed) */
+#body-doc {
+	color: black;
+	font-size: 11pt; /* For print, we specify an exact size */
+	background-color:white;
 }
+
+/* Main content frame for documents (which may be printed or PDFed) */
+#main-doc {
+    border: none;
+	background-color:white;
+    max-width:6.5in; /* Means 1" margins when printed on 8.5" x 11" paper */
+    margin:10px auto;
+}
+
+/******************************************/
+/* Top Navigation Menu */
 
 /* top-nav */
 .top-nav {
@@ -274,20 +297,26 @@ table.layout th, table.layout td
     color:#0684ac;
 }
 
+/******************************************/
+/* Main Menu Bar */
+
 /* menu-bar */
-div.menu-bar-holder {
+div.menu-bar-holder
+{
     width:100%;
     height:1.2em;
     background-color:#3E3E3E;
 }
-.menu-bar {
+.menu-bar
+{
     list-style:none;
 	width:100%;
 	font-size:1em;
 	font-weight:bold;
 	text-transform:uppercase;
 }
-.menu-bar li {
+.menu-bar li
+{
 	float:left;
     padding:0 10px;
 	border-right:1px solid #8f9192;
@@ -356,4 +385,3 @@ div.menu-bar-holder {
 {
     color:#43aeda;
 }
-
