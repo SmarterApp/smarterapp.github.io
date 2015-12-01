@@ -12,7 +12,8 @@ The following materials support training and test administration for the Spring 
 * [Accessibility Resources](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/AccessibilityResources/)
 * [Secure Browsers](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/SecureBrowsers/)
 * [Member Procedures Manual](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/Member_Procedures_Manual_10-30-2015.pdf)
-* [Practice And Training Test Packages](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/PracticeAndTrainingTests/)
+* [Practice And Training Tests](http://practice.smarterbalanced.org)
+* [Sample Items and Performance Tasks](http://www.smarterbalanced.org/sample-items-and-performance-tasks/)
 
 Sensitive materials, such as test packages, scoring materials and templates for state publications are available to authorized users on the [Smarter Balanced Secure FTP Site](http://ftps.smarterbalanced.org) at [ftps.smarterbalanced.org](http://ftps.smarterbalanced.org).
 
