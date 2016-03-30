@@ -1,8 +1,8 @@
 ---
 title: Reporting - User Guide
-date: 2015-02-28
+date: 2015-03-30
 docurl: /documents/Reporting-UserGuide.pdf
-version: 1.0
+version: 2.2
 status: Release
 ---
 User Guide for the Smarter Balanced Reporting System
