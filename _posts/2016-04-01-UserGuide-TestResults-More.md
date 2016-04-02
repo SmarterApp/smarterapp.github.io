@@ -1,7 +1,7 @@
 ---
 category: news
 title: Test Results Data Dictionary, ISAAP Codes, Reporting User Guide
-date: 2016-04-02
+date: 2016-04-01
 ---
 Smarter Balanced has posted several new and updated documents in the last few days.
 
