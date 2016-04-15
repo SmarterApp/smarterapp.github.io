@@ -1,6 +1,6 @@
 ---
 title: Administration and Registration Tool - File Upload Formats
-date: 2015-05-25
+date: 2016-04-15
 docurl: /documents/ART_File_Upload_Spec.pdf
 status: Accepted
 ---
