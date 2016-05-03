@@ -512,5 +512,79 @@ proctor.TestRegistrationApplicationUrl=http://52.32.59.74:8080/rest
 proctor.webapp.saml.metadata.filename=proctor_sp.xml
 ~~~~
 
+### Deploy Proctor Components
+
+#### Configure Tomcat
+* Stop the Tomcat server:
+  * `sudo service tomcat7 stop`
+
+{% include checklist/tomcat_java_opts.md %}
+
+* Example `JAVA_OPTS` for TDS application server:
+
+~~~~
+JAVA_OPTS="-Djava.awt.headless=true\
+ -XX:+UseConcMarkSweepGC\
+ -Xms1024m\
+ -Xmx4096m\
+ -XX:PermSize=512m\
+ -XX:MaxPermSize=1512m\
+ -DSB11_CONFIG_DIR=$CATALINA_BASE/resources\
+ -Dprogman.baseUri=http://52.34.140.123:8080/rest/\
+ -Dspring.profiles.active=mna.client.null,progman.client.impl.integration,server.singleinstance\
+ -Dprogman.locator=tds,Development"
+~~~~
+
+#### Create Proctor Log File Directories
+* Create directories for ART log files:
+  * `sudo mkdir -p /usr/share/tomcat7/logs/proctor`
+  * `sudo chown -R tomcat7:tomcat7 /usr/share/tomcat7/logs`
+* ***OPTIONAL:***  Create links in the Tomcat log directory to the REST and Web Application log files:
+  * `sudo ln -s /usr/share/tomcat7/logs/proctor/proctor.log /var/lib/tomcat7/logs/proctor.log`
+
+{% include checklist/tomcat_install_mysql_connector.md %}
+
+#### Download War Files
+* Download the latest `.war` file for the Proctor Component into the Tomcat server's `webapps` directory:
+  * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/testadmin-R01.00.74.war -O /var/lib/tomcat7/webapps/ROOT.war`
+
+{% include checklist/tomcat_pm_client_security_props.md %}
+
+* ***NOTE:*** The Proctor's version of `pm-client-security.properties` has additional properties that must be configured:
+  * `oauth.testreg.client.id=`[*The OAuth client name for the ART component; can use a "common" OAuth client name, e.g. one OAuth client for multiple components*{: style="color: red"}]
+  * `oauth.testreg.client=`[*The OAuth client name for the ART component; can use a "common" OAuth client name, e.g. one OAuth client for multiple components*{: style="color: red"}]
+  * `oauth.testreg.client.secret=`[*Password for OAuth client used for ART.  Starting value is sbac12345*{: style="color: red"}]
+  * `oauth.testreg.client.granttype=`password
+  * `oauth.testreg.username=`[*User account in OpenDJ, e.g. the Prime User account*{: style="color: red"}]
+  * `oauth.testreg.password=`[*Password for OpenDJ user account*{: style="color: red"}]
+  * `tds.iris.EncryptionKey=`[*The encryption key used by IRiS.  Must be at least 24 characters*{: style="color: red"}]
+
+* An example of the `pm-client-security.properties` file configured for the Proctor application:
+
+~~~~
+#security props
+oauth.access.url=https://sso-dev.sbtds.org/auth/oauth2/access_token?realm=/sbac
+pm.oauth.client.id=pm
+pm.oauth.client.secret=[redacted]
+pm.oauth.batch.account=prime.user@example.com
+pm.oauth.batch.password=[redacted]
+oauth.testreg.client.id=testreg
+# This line is in here because the readme for tds_release cites oauth.testreg.client.  On the other hand, the student_release
+# readme states oauth.testreg.client.id.
+# TODO:  Find out if oauth.testreg.client is really needed by tds_release or if it can use the same property as what's cited in the student_release readme
+oauth.testreg.client=testreg
+oauth.testreg.client.secret=[redacted]
+oauth.testreg.client.granttype=password
+oauth.testreg.username=prime.user@example.com
+oauth.testreg.password=[redacted]
+tds.iris.EncryptionKey=Thisisanincrediblylongkeythatiscertainlylongerthantwentyfourcharacters
+~~~~
+
+* Start Tomcat to expand the deployed `.war` files:
+  * `sudo service tomcat7 start`
+
+{% include checklist/saml_setup.md %}
+
+{% include checklist/saml_registration.md %}
 
 [back to Deployment Checklists](index.html)
