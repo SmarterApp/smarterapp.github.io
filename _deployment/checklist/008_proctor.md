@@ -10,7 +10,7 @@ categories: ["deployment", "checklist"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Provide interfaces for administering assessments |
-| Communicates With | ProgMan, ART, TestSpecBank |
+| Communicates With | OpenAM, ProgMan, ART, TestSpecBank |
 | Repository Location | [https://bitbucket.org/sbacoss/tds_release](https://bitbucket.org/sbacoss/tds_release |
 | Additional Documentation | [README.txt](https://bitbucket.org/fwsbac/tds_release/src/7c30cef1a499ff5cf027bede5268cd5f278e99e9/proctor/?at=default), [proctor-progman-config.txt](https://bitbucket.org/fwsbac/tds_release/src/7c30cef1a499ff5cf027bede5268cd5f278e99e9/proctor/docs/Installation/proctor-progman-config.txt?at=default) |
 
@@ -460,7 +460,7 @@ drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 tdsdll_release
 * `proctor.security.saml.alias=`[*The Service Provider name for the Proctor component*{: style="color: red"}]
 * `proctor.security.saml.keystore.cert=`[*The name of the private key that was added to the samlKeystore.jks*{: style="color: red"}]
 * `proctor.security.saml.keystore.pass=`[*The password for accessing the samlKeystore.jks*{: style="color: red"}]
-* `proctor.StateCode=`[*The name of the STATE-level Tenant*{: style="color: red"}]
+* `proctor.StateCode=`[*The name of the STATE-level Client in ProgMan*{: style="color: red"}]
 * `proctor.TestRegistrationApplicationUrl=`http://[*FQDN or IP address of Permissions component*{: style="color: red"}]/rest
 * `proctor.webapp.saml.metadata.filename=`[*Name of file that stores SAML data for ART Web Application.*{: style="color: red"}]
 
@@ -536,10 +536,10 @@ JAVA_OPTS="-Djava.awt.headless=true\
 ~~~~
 
 #### Create Proctor Log File Directories
-* Create directories for ART log files:
+* Create a directory for Proctor log file:
   * `sudo mkdir -p /usr/share/tomcat7/logs/proctor`
   * `sudo chown -R tomcat7:tomcat7 /usr/share/tomcat7/logs`
-* ***OPTIONAL:***  Create links in the Tomcat log directory to the REST and Web Application log files:
+* ***OPTIONAL:***  Create links in the Tomcat log directory to the Web Application log file:
   * `sudo ln -s /usr/share/tomcat7/logs/proctor/proctor.log /var/lib/tomcat7/logs/proctor.log`
 
 {% include checklist/tomcat_install_mysql_connector.md %}
@@ -549,36 +549,6 @@ JAVA_OPTS="-Djava.awt.headless=true\
   * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/testadmin-R01.00.74.war -O /var/lib/tomcat7/webapps/ROOT.war`
 
 {% include checklist/tomcat_pm_client_security_props.md %}
-
-* ***NOTE:*** The Proctor's version of `pm-client-security.properties` has additional properties that must be configured:
-  * `oauth.testreg.client.id=`[*The OAuth client name for the ART component; can use a "common" OAuth client name, e.g. one OAuth client for multiple components*{: style="color: red"}]
-  * `oauth.testreg.client=`[*The OAuth client name for the ART component; can use a "common" OAuth client name, e.g. one OAuth client for multiple components*{: style="color: red"}]
-  * `oauth.testreg.client.secret=`[*Password for OAuth client used for ART.  Starting value is sbac12345*{: style="color: red"}]
-  * `oauth.testreg.client.granttype=`password
-  * `oauth.testreg.username=`[*User account in OpenDJ, e.g. the Prime User account*{: style="color: red"}]
-  * `oauth.testreg.password=`[*Password for OpenDJ user account*{: style="color: red"}]
-  * `tds.iris.EncryptionKey=`[*The encryption key used by IRiS.  Must be at least 24 characters*{: style="color: red"}]
-
-* An example of the `pm-client-security.properties` file configured for the Proctor application:
-
-~~~~
-#security props
-oauth.access.url=https://sso-dev.sbtds.org/auth/oauth2/access_token?realm=/sbac
-pm.oauth.client.id=pm
-pm.oauth.client.secret=[redacted]
-pm.oauth.batch.account=prime.user@example.com
-pm.oauth.batch.password=[redacted]
-oauth.testreg.client.id=testreg
-# This line is in here because the readme for tds_release cites oauth.testreg.client.  On the other hand, the student_release
-# readme states oauth.testreg.client.id.
-# TODO:  Find out if oauth.testreg.client is really needed by tds_release or if it can use the same property as what's cited in the student_release readme
-oauth.testreg.client=testreg
-oauth.testreg.client.secret=[redacted]
-oauth.testreg.client.granttype=password
-oauth.testreg.username=prime.user@example.com
-oauth.testreg.password=[redacted]
-tds.iris.EncryptionKey=Thisisanincrediblylongkeythatiscertainlylongerthantwentyfourcharacters
-~~~~
 
 * Start Tomcat to expand the deployed `.war` files:
   * `sudo service tomcat7 start`
