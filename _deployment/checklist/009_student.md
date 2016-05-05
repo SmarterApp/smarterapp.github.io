@@ -14,7 +14,7 @@ categories: ["deployment", "checklist"]
 | Repository Location | [https://bitbucket.org/sbacoss/student_release](https://bitbucket.org/sbacoss/student_release |
 | Additional Documentation | [student-progman-config.txt](https://bitbucket.org/sbacoss/student_release/src/a5de012d932d58a2cf1e29c06fd8047fcbce1a00/Documents/Installation/student-progman-config.txt?at=default) |
 
-***NOTE:*** The Student and Proctor applications are commonly deployed to the same server.  That is, a single AWS instance will host the Student and Proctor applications.
+***NOTE:***{: style="color: #f00"} *The Student and Proctor applications are deployed to the same server.  That is, a single AWS instance will host the Student and Proctor applications.*{: style="color: #04384e"}
 
 # Instructions - Deploy Student to AWS Instance That Already Hosts Proctor
 

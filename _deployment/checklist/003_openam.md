@@ -19,6 +19,7 @@ categories: ["deployment", "checklist"]
 ### Create AWS Instance
 * Create server instance to host OpenAM software
   * AWS instance type must be at least **t2.medium**
+  * Select an image with the **Ubuntu 14.04 LTS 64-bit**{: style="color: #04384e"} operating system
 * Create an AWS security group with the following ports for inbound TCP traffic (can be done during instance creation):
   * 22
   * 1689

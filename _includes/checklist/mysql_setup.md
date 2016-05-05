@@ -1,5 +1,6 @@
 ## Create AWS MySQL Instance
-* Create server instance to host the MySQL instance that will support ProgMan
+* Create server instance to host the MySQL instance that will support the component being deployed
+  * Select an image with the **Ubuntu 14.04 LTS 64-bit**{: style="color: #04384e"} operating system
 * Create or choose an AWS security group with the following ports for inbount TCP traffic (can be done during instance creation):
   * 22
   * 3306

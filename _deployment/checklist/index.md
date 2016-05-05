@@ -1,7 +1,7 @@
 ---
 title:  TDS Deployment Checklist
 permalink: "/deployment/checklist/index.html"
-categories: ["deployment", "checklist"]
+categories: ["deployment"]
 layout: post
 ---
 
@@ -22,7 +22,7 @@ The following conventions are used throughout the checklist:
 The following assumptions are made:
 
 * The TDS will be deployed to server instances hosted on AWS
-* The server instances will use the Ubuntu 14.04 LTS 64-bit operating system
+* The server instances will use the **Ubuntu 14.04 LTS 64-bit**{: style="color: #04384e"} operating system
 
 # Deployment Checklists
 <ul id="dc_toc" style="list-style: none">

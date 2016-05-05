@@ -108,6 +108,7 @@ drwxrwxr-x 13 ubuntu ubuntu 4.0K Apr 11 04:16 tds-build
 
 ## Create AWS Web Application Instance
 * Create server instance to host the Permissions component
+  * Select an image with the **Ubuntu 14.04 LTS 64-bit**{: style="color: #04384e"} operating system
 * Create or choose an AWS security group with the following ports for inbound TCP traffic (can be done during instance creation):
   * 22
   * 80
