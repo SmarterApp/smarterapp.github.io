@@ -26,6 +26,86 @@ categories: ["deployment", "checklist"]
   * 4444
   * 4989
   * 8989
+* Add a record set to AWS [Route 53](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html?console_help=true):
+    * Choose a meaningful name
+    * Type: CNAME
+    * TTL: 300 seconds (default value)
+    * Value: [*DNS Name of the AWS instance*{: style="color: #f00;"}]
+    * Routing Policy: Simple
+
+### Configure SFTP Server for ART -> OpenDJ Integration on AWS Instance
+* Verify the `openssh-sftp-server` is installed:
+  * `sudo dpkg --get-selections | grep openssh-sftp-server`
+  * Example output:
+
+~~~~
+ubuntu@opendj-deploy:/home/art_userftp$ sudo dpkg --get-selections | grep openssh-sftp-server
+openssh-sftp-server       install
+~~~~
+
+  * If no result was returned, install the `openssh-server` using the following steps:
+    * `sudo apt-get update`
+    * `sudo apt-get install -y openssh-server`
+* Create a new user group for SFTP users:
+  * `sudo groupadd `[*meaningful name of group, e.g. **filetransfer** or **sftpusers***{: style="color: #f00;"}]
+    * Example: `sudo groupadd sftpusers`
+* Configure the SFTP server by editing `/etc/ssh/sshd_config`:
+  * Add the following lines to the end of the file, taking care to preserve the indentation (i.e. add the lines *exactly* as they appear)
+
+~~~~
+Match group [name of user group added previously]
+    ChrootDirectory %h
+    X11Forwarding no
+    AllowTcpForwarding no
+    ForceCommand internal-sftp
+    PasswordAuthentication yes
+~~~~
+
+  * Update the `Match group` line, replacing `filetransfer` with the name of the group used when executing the `sudo groupadd` command
+
+  * Example of lines to add to `/etc/ssh/sshd_config` using a group name of `filetransfer`:
+
+~~~~
+Match group filetransfer
+    ChrootDirectory %h
+    X11Forwarding no
+    AllowTcpForwarding no
+    ForceCommand internal-sftp
+    PasswordAuthentication yes
+~~~~
+
+  * Example of lines to add to `/etc/ssh/sshd_config` using a different group name (`sftpusers` instead of `filetransfer`):
+
+~~~~
+Match group sftpusers
+    ChrootDirectory %h
+    X11Forwarding no
+    AllowTcpForwarding no
+    ForceCommand internal-sftp
+    PasswordAuthentication yes
+~~~~
+
+* Restart the OpenSSH server:
+  * `sudo service ssh restart`
+
+#### Create SFTP User Account
+* Create `dropbox` user account and home directory:
+  * `sudo adduser dropbox`
+* Add the `dropbox` user to the group created earlier:
+  * `sudo usermod -G `[*The name of the group created earlier*{: style="color: #f00;"}]` dropbox`
+    * Example:  `sudo usermod -G sftpusers dropbox`
+* Change ownership of the `dropbox` user's home directory:
+  * `sudo chown root:root /home/dropbox`
+* Update permissions on the `dropbox` user's home directory:
+  * `sudo chmod 0755 /home/dropbox`
+* Create a directory where files will be put:
+  * `sudo mkdir /home/dropbox/`[*A meaningful directory name*{: style="color: #f00;"}]
+    * Example: `sudo mkdir /home/dropbox/sftpfiles`
+* Update ownership on the directory and contents created above:
+  * `sudo chown dropbox:dropbox /home/dropbox/*`
+* ***OPTIONAL:*** Create a link to the directory where ART user XML files should be written to:
+  * `sudo ln -s /home/drobox/`[*Directory name*{: style="color: #f00;"}]` `[*Logical path where SFTP files should be written*{: style="color: #f00;"}]
+    * Example:  `sudo ln -s /home/dropbox/sftpfiles /opt/dropbox/sftp_root`
 
 ### Install OpenDJ on AWS Instance
 * Update package manager:
@@ -39,10 +119,8 @@ categories: ["deployment", "checklist"]
   * `sudo apt-get install -y oracle-java6-installer`
 * Install Perl modules to satisfy dependencies:
   * `sudo cpanm Net::LDAP Net::SMTP File::Copy LWP::UserAgent HTTP::Request`
-* Create `dropbox` user account and home directory:
-  * `sudo useradd -d [path to where user XML files are uploaded] -m dropbox -p [choose a password] -s /bin/bash`
 * Clone the `opendj_release` repository from the Smarter Balanced BitBucket to this server:
-  * `hg clone https://[your BitBucket user or team name]/sbacoss/opendj_release`
+  * `hg clone https://`[*your BitBucket user or team name*{: style="color: #f00;"}]`/sbacoss/opendj_release`
   * Example:
     * `hg clone https://jjohnson-fw@bitbucket.org/sbacoss/opendj_release`
 * Copy SBAC OpenDJ installer and content to the /opt directory:
@@ -55,14 +133,25 @@ categories: ["deployment", "checklist"]
   * `sudo ./create-rc-script -f /etc/init.d/opendj -u opendj`
   * `cd /etc/init.d/`
   * `sudo update-rc.d opendj defaults`
+
+### Update Perl Scripts That Process User Data
+
+#### Update sbacWatchXMLFolder.pl
 * Update `/opt/scripts/sbacWatchXMLFolder.pl` to monitor the correct dropbox user directory:
-  * `my $inputXMLFileDir    = "`[*path to where user XML files are uploaded*{: style="color: red;"}]`";`
+  * `my $inputXMLFileDir    =  "`[*path to where user XML files are uploaded.  This is the **dropbox** user's directory or the link to that directory created earlier*{: style="color: red;"}]`";`
+* Example of configured `/opt/scripts/sbacWatchXMLFolder.pl`:
+
+~~~~
+my $inputXMLFileDir    = "/opt/dropbox/sftp_root";
+~~~~
+
+#### Update sbacProcessXML.pl
 * Update `/opt/scripts/sbacProcessXML.pl` with appropriate configuration values:
-  * `my $inputXMLFileDir   = "`[*path to where user XML files are uploaded*{: style="color: red;"}]`";`
+  * `my $inputXMLFileDir   = "`[*path to where user XML files are uploaded.  This is the **dropbox** user's directory or the link to that directory created earlier*{: style="color: red;"}]`";`
   * `my $processedFileDir  = "`[*path where user XML files are stored after they are processed*{: style="color: red;"}]`";`
   * `my $httpResponseServer = "`[*HTTP server for a callback response, does not need to be set*{: style="color: red;"}]`";`
   * `my $ldapHost           = "`[*Name of the OpenDJ server.  Can be set to **localhost***{: style="color: red;"}]`";`
-  * `my $ldapPort           = "`[*Port the OpenDJ server listens on.  The standard port is **1389***{: style="color: red;"}]`";`                           # port number of the OpenDJ server
+  * `my $ldapPort           = "`[*Port the OpenDJ server listens on.  The standard port for this installtation is **1389***{: style="color: red;"}]`";`                           # port number of the OpenDJ server
   * `my $ldapBindDN        = "`[*OpenDJ service account or rootDN with sufficient permission, valid value after OpenDJ installation: **cn=SBAC Admin** (be sure to include the **cn=** as part of the value; see example below)*{: style="color: red;"}]`";`
   * `my $ldapBindPass      = "`[*password for OpenDJ service account or rootDN, valid value after OpenDJ installation: **cangetin***{: style="color: red;"}]`";`
   * `my $fromAddress       = '`[*email address that user notification messages should be from*{: style="color: red;"}]`';`
@@ -72,7 +161,7 @@ categories: ["deployment", "checklist"]
   * `my $emailServer       = "`[*name of email server*{: style="color: red;"}]`";`
   * `my $defaultPassword   = "`[*desired default password for test users*{: style="color: red;"}]`";`
 
-* Example of configured `/opt/scripts/sbacWatchXMLFolder.pl`:
+* Example of configured `/opt/scripts/sbacProcessXML.pl`:
 
 ~~~~
 my $inputXMLFileDir    = "/opt/dropbox";         # folder where the XML files are uploaded
@@ -103,10 +192,10 @@ my $defaultPassword   = "password123";                       # default password 
   * `sudo vi sbac-userwatch.sh`
   * Copy the following code into `/etc/init.d/sbac-userwatch.sh`:
 
-    ~~~~ shell
-    #!/bin/sh
-    su -c "perl /opt/scripts/sbacWatchXMLFolder.pl" opendj &
-    ~~~~
+~~~~ shell
+#!/bin/sh
+su -c "perl /opt/scripts/sbacWatchXMLFolder.pl" opendj &
+~~~~
 
   * Make the script executable:
     * `sudo chmod +x /etc/init.d/sbac-userwatch.sh`
@@ -124,7 +213,17 @@ my $defaultPassword   = "password123";                       # default password 
 * Connect to the OpenDJ instance with any client (e.g. [Apache Directory Studio](https://directory.apache.org/studio/))
 
 ### Create Prime User Account
-* Create an XML file named `prime_user_testfile_.xml` with the following contents:
+* Create an XML file named `prime_user_testfile_.xml` with the content shown below.  Replace the following:
+  * `CREATE-UNIQUE_UUID_HERE` should be a unique identifier (e.g. a GUID from an [Online GUID Generator](https://www.guidgenerator.com/))
+  * `CHOOSE-FIRST_NAME` should be a meaningful first name
+  * `CHOOSE-LAST_NAME` should be a meaningful last name
+  * `CHOOSE-EMAIL` should be replaced with an easy to remember email adddress
+  * `CHOOSE-CLIENT_IDENTIFIER_NUMBER` should be replaced with a meaningful Client ID.
+    * This can be a string value, but is typically a number
+  * `CHOOSE-UNIQUE_CLIENT_NAME` should be replaced with a meaningful
+    * This can be a string value and can be the same as the value chosen for `CHOOSE-CLIENT_IDENTIFIER_NUMBER`
+
+* The content of the `prime_user_testfile_.xml`:
 
 ~~~~ xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -133,7 +232,7 @@ my $defaultPassword   = "password123";                       # default password 
   <UUID>CREATE-UNIQUE_UUID_HERE</UUID>
   <FirstName>CHOOSE-FIRST_NAME</FirstName>
   <LastName>CHOOSE-LAST_NAME</LastName>
-  <Email>temp-bootstrap@example.com</Email>
+  <Email>CHOOSE-EMAIL</Email>
   <Phone/>
   <Role>
     <RoleID></RoleID>
@@ -158,7 +257,7 @@ my $defaultPassword   = "password123";                       # default password 
 </Users>
 ~~~~
 
-An example of the `prime_user_testfile_.xml` file:
+An example of the `prime_user_testfile_.xml` file with placeholders replaced by example values:
 
 ~~~~ xml
 <?xml version='1.0' encoding='UTF-8'?>

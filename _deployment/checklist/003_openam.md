@@ -26,32 +26,38 @@ categories: ["deployment", "checklist"]
   * 4444
   * 8005
   * 8080
+* Add a record set to AWS [Route 53](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html?console_help=true):
+    * Choose a meaningful name
+    * Type: CNAME
+    * TTL: 300 seconds (default value)
+    * Value: [*DNS Name of the AWS instance*{: style="color: #f00;"}]
+    * Routing Policy: Simple
 
-### Create Load Balancer (***OPTIONAL***)
+### Create Load Balancer
 * Create a load balancer (additional information [here](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-getting-started.html?icmpid=docs_elb_console)) for the server instance that will host OpenAM:
   * Choose a meaningful name
   * Choose the appropriate VPC ([Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html))
     * For any environment besides Production, "My Default VPC" should be sufficient.  For a Production environment, consult your system administrator(s)
   * Leave "Create an internal load balancer" unchecked
   * Leave "Enable advanced VPC configuration" unchecked
-    * HTTP: forward port 80 to port 8080
-    * HTTPS: forward port 443 to port 8080
+    * HTTP: forward port 80 to HTTP on port 8080
+    * HTTPS: forward port 443 to HTTP on port 8080
   * Listener configuration:
   * Create a security group for the load balancer:
     * Choose a meaningful name
-    * Inbound: 443 from anywhere (0.0.0.0/0)
+    * Inbound: HTTPS on port 443 from anywhere (0.0.0.0/0)
   * Health check:
     * Ping protocol: HTTP
-    * Ping port: 80
+    * Ping port: 8080
     * Ping path: `/auth/isAlive.jsp`
     * Advanced Details can be left unchanged
-  * Instance: [{: color=red}choose instance that was created during the first step]
+  * Instance: [*choose instance that was created during the first step*{: style="color: #f00"}]
   * ***OPTIONAL:***  Add tags to describe this load balancer
   * Add a record set to AWS [Route 53](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html?console_help=true):
     * Choose a meaningful name
     * Type: CNAME
     * TTL: 300 seconds (default value)
-    * Value: [DNS Name of the load balancer]
+    * Value: [*DNS Name of the load balancer*{: style="color: #f00;"}]
     * Routing Policy: Simple
 
 ### Install OpenAM on AWS Instance
@@ -73,10 +79,15 @@ categories: ["deployment", "checklist"]
 * Run the OpenAM installer:
   * `cd /opt`
   * `sudo ./installOpenAM.sh`
+* ***IMPORTANT:*** The installation process will prompt you for several pieces of information.  In some cases, the information being asked for is not always clear.  Below are two prompts that can be confusing:
+  * `Enter the load balancer URL:` For this prompt be sure to follow the example *preciesly*:  `https://`[*FQDN or IP address of the load balancer for OpenAM*{: style="color: #f00;"}]`:443/auth`
+    * Example: `https://sso-dev.example.com:443/auth`
+  * `Enter LDAP load balancer FQDN or IP address`: For this prompt, provide the FQDN or IP address of the OpenDJ instance that was installed earlier.
+    * Example:  `opendj-dev.example.com`
 * Verify only one instance of OpenAM is running:
   * `ps -ef | grep openam`
 * If more than one process is returned by the previous command, kill them and restart OpenAM:
-  * `sudo kill -9 [all process ids for openam]`
+  * `sudo kill -9 `[*all process ids for openam*{: style="color: #f00;"}]
     * Example: `sudo kill -9 31980 30502`
   * Restart OpenAM:
     * `sudo su`
@@ -84,17 +95,23 @@ categories: ["deployment", "checklist"]
     * `exit`
 
 #### Update OpenDJ Configuration
+* Log into OpenAM by navigating to `https://`[*FQDN or IP address of OpenAM server or load balancer*{: style="color: #f00;"}]`/auth/console?realm=/`
+  * Example:  `https://sso-dev.example.org/auth/console?realm=/`
+* Log in with valid credentials
+  * Default user name is **amadmin**, password is whatever was chosen during installation
 * Navigate to *Access Control* -> click on the **sbac** link -> *Authentication* tab -> click on **LDAP** link
 * Remove the existing value from the LDAP server:
   * Highlight value in list of LDAP servers and click **Remove**
-* Add the correct OpenDJ LDAP server (that was set up previously) in the **New Value** field and click **Add**
+* Add the correct OpenDJ LDAP server (that was set up previously) *with port number; default OpenDJ port is **1389*** in the **New Value** field and click **Add**
+  * Example of value to add in **New Value** field:  `opendj-deployment.sbtds.org:1389`
 * Update the **LDAP Bind Password** to use the correct OpenDJ password for the value specified in **LDAP Bind DN**
   * Starting value of **LDAP Bind DN** is `cn=SBAC Admin`
 * Click **Back to Authentication** button
 * Click the *Data Stores* tab -> click on **OpenDJ** link
 * Remove the existing value from the LDAP server:
   * Highlight value in list of LDAP servers and click **Remove**
-* Add the correct OpenDJ LDAP server (that was set up previously) in the **New Value** field and click **Add**
+* Add the correct OpenDJ LDAP server (that was set up previously) *with port number; default OpenDJ port is **1389*** in the **New Value** field and click **Add**
+  * Example of value to add in **New Value** field:  `opendj-deployment.sbtds.org:1389`
 * Update the **LDAP Bind Password** to use the correct OpenDJ password for the value specified in **LDAP Bind DN**
   * Starting value of **LDAP Bind DN** is `cn=SBAC Admin`
 * Click **Back to Data Stores**
@@ -102,11 +119,16 @@ categories: ["deployment", "checklist"]
 * Navigate to *Configuration* -> click on **LDAP** link
 * Remove the existing value from the LDAP server:
   * Highlight value in list of LDAP servers and click **Remove**
-* Add the correct OpenDJ LDAP server (that was set up previously)
+* Add the correct OpenDJ LDAP server (that was set up previously) *with port number; default OpenDJ port is **1389***
+  * Example of value to add in **New Value** field:  `opendj-deployment.sbtds.org:1389`
 * Update the **LDAP Bind Password** to use the correct OpenDJ password for the value specified in **LDAP Bind DN**
   * Starting value of **LDAP Bind DN** is `cn=SBAC Admin`
 
 ### Change OAuth Client Agent Configuration
+* If not already logged in to OpenAM, log in by navigating to `https://`[*FQDN or IP address of OpenAM server or load balancer*{: style="color: #f00;"}]`/auth/console?realm=/`
+  * Example:  `https://sso-dev.example.org/auth/console?realm=/`
+* Log in with valid credentials
+  * Default user name is **amadmin**, password is whatever was chosen during installation
 * Navigate to *Access Control* -> click on **sbac** link -> click on *Agents* tab -> click on *OAuth 2.0/OpenID Connect Client* tab
 * Click the link of the agent to edit
 * Change the value in the **Client Password** field to the desired password
@@ -123,8 +145,8 @@ categories: ["deployment", "checklist"]
 ### Verify OpenAM Installation
 
 #### Log Into Admin Console
-* Navigate to https://[FQDN or IP address of OpenAM server or load balancer]/auth/console?realm=/
-  * Example:  https://sso-dev.sbtds.org/auth/console?realm=/
+* Navigate to `https://`[*FQDN or IP address of OpenAM server or load balancer*{: style="color: #f00;"}]`/auth/console?realm=/`
+  * Example:  `https://sso-dev.sbtds.org/auth/console?realm=/`
 * Log in with valid credentials
   * Default user name is **amadmin**, password is whatever was chosen during installation
 
@@ -141,10 +163,10 @@ categories: ["deployment", "checklist"]
 curl -i -X POST \
    -H "Content-Type:application/x-www-form-urlencoded" \
    -d "grant_type=password" \
-   -d "username=[Email address of user account that exists in OpenDJ]" \
-   -d "password=[Password for user account that exists in OpenDJ]" \
-   -d "client_id=[OAuth Client ID from OpenAM]" \
-   -d "client_secret=[Client ID secret from OpenAM]" \
+   -d "username=[Email address of user account that exists in OpenDJ, e.g. the email address for the Prime User account]" \
+   -d "password=[Password for user account that exists in OpenDJ, e.g. the password for the Prime User account]" \
+   -d "client_id=[OAuth Client ID from OpenAM, OAuth Client IDs found in Access Control -> click on sbac link -> click on Agents tab -> click on OAuth 2.0/OpenID Connect Client tab]" \
+   -d "client_secret=[Client ID secret from OpenAM, if client secret was not changed, value will be sbac12345]" \
  'https://[FQDN or IP address of OpenAM server]/auth/oauth2/access_token?realm=%2Fsbac'
 ~~~~
 
