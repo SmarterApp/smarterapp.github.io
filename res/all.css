@@ -7,9 +7,9 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, 
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+table, caption, tbody, tfoot, thead, tr, th,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video
 {
@@ -22,7 +22,7 @@ time, mark, audio, video
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section
 {
 	display:block;
@@ -113,7 +113,7 @@ em, i
 {
 	font-style:italic;
 }
-strong, b 
+strong, b
 {
     font-weight:bold;
 }
@@ -254,7 +254,7 @@ table.layout
 table.layout th, table.layout td
 {
 	border: 0px none white;
-	padding: 0;	
+	padding: 0;
 }
 
 /******************************************/
@@ -382,4 +382,11 @@ div.menu-bar-holder
 .menu-bar li:hover ul a:hover
 {
     color:#43aeda;
+}
+
+/* Checklist <code> class */
+.placeholder {
+    background-color: #fff !important;
+    color: #f00 !important;
+    font-style: oblique;
 }

@@ -2,7 +2,7 @@
 
 ### Configure Automatic Metadata Generation
 * Open `securityContext.xml` file in an editor for the deployed component
-  * **NOTE:** The `securityContext.xml` file can be found in `[Tomcat web application directory]/[component]/WEB-INF/classes/security`
+  * **NOTE:** The `securityContext.xml` file can be found in [*Tomcat web application directory*{: style="color: #f00;"}]`/`[*component*{: style="color: #f00;"}]`/WEB-INF/classes/security`
     * Example: `/var/lib/tomcat7/webapps/ROOT/WEB-INF/classes/security/securityContext.xml`
   * **NOTE:** When editing the `securityContext.xml` file, elevated privileges (i.e. `sudo`) may by required
 * Add the following line within a `<security:http>` element:

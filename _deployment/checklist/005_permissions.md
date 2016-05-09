@@ -22,10 +22,10 @@ categories: ["deployment", "checklist"]
 * Install git and mercurial:
   * `sudo apt-get install -y git mercurial`
 * Clone the permissions_release repository:
-  * `hg clone https://[your bitbucket user name]@bitbucket.org/sbacoss/permissions_release`
+  * `hg clone https://`[*your bitbucket user name*{: style="color: #f00;"}]`@bitbucket.org/sbacoss/permissions_release`
     * Example:  `hg clone https://jjohnson-fwtech@bitbucket.org/sbacoss/permissions_release`
 * Clone the Fairway `tds-build` repository:
-  * `git clone https://[your bitbucket username]@bitbucket.org/fwsbac/tds-build.git`
+  * `git clone https://`[*your bitbucket username*{: style="color: #f00;"}]`@bitbucket.org/fwsbac/tds-build.git`
     * Example:  `git clone https://jjohnson-fwtech@bitbucket.org/fwsbac/tds-build.git`
 * ***NOTE:*** When cloning the repositories above, they should be "siblings" at the same level.  For example, if both
 repositories are cloned in the `ubuntu` user's home directory, the directory will look like this:
@@ -49,8 +49,8 @@ drwxrwxr-x 13 ubuntu ubuntu 4.0K Apr 11 04:16 tds-build
 * Navigate to the `tds-build` directory:
   * `cd tds-build`
 * Update the `db-perm-schema-setup` script to use the correct user name and password (lines 20 and 21):
-  * `USER=[a valid MySQL user name that can create databases]`
-  * `PW=[the MySQL user's password]`
+  * `USER=`[*A valid MySQL user name that can create databases*{: style="color: #f00;"}]
+  * `PW=`[*The MySQL user's password*{: style="color: #f00;"}]
 * If necessary, update the port and hostame (lines 18 and 19)
 * Make the `db-perm-schema-setup.sh` executable:
   * `sudo chmod u+x db-perm-schema-setup.sh`
@@ -222,21 +222,9 @@ JAVA_OPTS="-Djava.awt.headless=true\
 
 {% include checklist/tomcat_install_mysql_connector.md %}
 
-#### Build Permissions Component
-* On a suitable build machine, get the latest source code for Permissions
-* Build the permissions_release repository (which builds the Web Application component):
-  * `mvn -q clean install -DskipTests -DXmx2048m -DXX:MaxPermSize=1024m -f [path/to/pom.xml]`
-  * Example:
-    * `mvn -q clean install -DskipTests -DXmx2048m -DXX:MaxPermSize=1024m -f /Users/jjohnson/dev/ucla/sbac/sbrepo/repositories/permissions_release/pom.xml`
-  * After Maven finishes the build, the desired `.war` file will be in the `target` directory
-
-#### Deploy Permissions Component
-* From the build machine, copy the Permissions component (the `.war` file) to the AWS instance:
-  * `scp -i [path/to/key] [path/to/permissions.war] ubuntu@[fqdn or ip address of AWS isntance]:~/ROOT.war`
-  * Example:
-    * `scp -i ~/.ssh/tds/ssh-dev.pem permissions-1.0.1-BUILD-SNAPSHOT.war ubuntu@54.213.111.234:~/ROOT.war`
-* On the AWS instance, move the `ROOT.war` into the Tomcat server's `webapps` directory:
-  * `sudo mv ~/ROOT.war /var/lib/tomcat7/webapps`
+#### Download War File
+* Download the latest `.war` file for the Permissions Component into the Tomcat server's `webapps` directory:
+  * `sudo wget https://bitbucket.org/fwsbac/permissions_release/downloads/permissions-R01.00.38.war -O /var/lib/tomcat7/webapps/ROOT.war`
 
 {% include checklist/tomcat_pm_client_security_props.md %}
 
@@ -247,5 +235,9 @@ JAVA_OPTS="-Djava.awt.headless=true\
 
 {% include checklist/saml_registration.md %}
 
+## Update ProgMan Properties Configuration
+* Log into the ProgMan server
+* Update the `/var/lib/tomcat7/resources/progman/progman-bootstrap.properties` to point to the Permissions instance:
+  * `permission.uri=http://`[*FQDN or IP address of Permissions application*{: style="color: #f00;"}]`/rest`
 
 [back to Deployment Checklists](index.html)

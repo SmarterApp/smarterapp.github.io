@@ -296,4 +296,8 @@ An example of the `prime_user_testfile_.xml` file with placeholders replaced by 
   * **NOTE:** If the `prime_user_testfile_.xml` is created in the dropbox directory, run `touch /opt/dropbox/prime_user_testfile_.xml` to update the timestamp on the file.
 * Connect to OpenDJ with any client (e.g. [Apache Directory Studio](https://directory.apache.org/studio/)) and verify the Prime User account was created
 
+###  Verify SFTP Connectivity
+* Connect to the SFTP server using an FTP client (e.g. [Cyberduck](https://cyberduck.io/) or [FileZilla](https://filezilla-project.org/)) using the user account created while following this checklist
+* Verify the user can write a file to the desired directory
+
 [back to Deployment Checklists](index.html)

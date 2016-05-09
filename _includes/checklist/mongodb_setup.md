@@ -125,14 +125,16 @@ noauth = true
   * `sudo service mongodb restart`
 * Add an administrative-level user to MongoDB:
 
-~~~~ javascript
-$ mongo admin
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>$ mongo admin
 db.addUser({
     user:"mongo_admin",
-    pwd:"[choose a suitable password]",
+    pwd:"[<span class="placeholder">choose a suitable password</span>]",
     roles:["dbAdminAnyDatabase","userAdminAnyDatabase","clusterAdmin","readWrite"]
-});
-~~~~
+});</code>
+</pre>
+</div>
 
 * Update `/etc/mongodb.conf` to enable authentication:
   * Comment out the `noauth = true` line
@@ -148,17 +150,19 @@ auth = true
 * Restart MongoDB:
   * `sudo service mongodb restart`
 * Connect to MongoDB in the admin database:
-  * `mongo admin -u mongo_admin -p [password for the mongo_admin user] --authenticationDatabase admin`
+  * `mongo admin -u mongo_admin -p `[*password for the mongo_admin user*{: style="color: #f00;"}]` --authenticationDatabase admin`
 * Add a user for the comonent:
 
-~~~~
-use [name of database];
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>use [<span class="placeholder">name of database</span>];
 db.addUser({
-    user:"[name of user]",
-    pwd:"[password for user]",
+    user:"[<span class="placeholder">name of user</span>]",
+    pwd:"[<span class="placeholder">password for user</span>]",
     roles:["readWrite"]
-});
-~~~~
+});</code>
+</pre>
+</div>
 
 * Example:
 
@@ -173,8 +177,8 @@ db.addUser({
 
 ### Verify User Can Authenticate to MongoDB
 * On the AWS instance hosting MongoDB, run the following commands:
-  * `mongo admin -u mongo_admin -p '[the password for the mongo_admin user]' --authenticationDatabase admin`
-  * `mongo [component database name] -u [component user] -p '[the password for the component user]'`
+  * `mongo admin -u mongo_admin -p '`[*The password for the mongo_admin user*{: style="color: #f00;"}]`' --authenticationDatabase admin`
+  * `mongo [component database name] -u `[*Component user*{: style="color: #f00;"}] `-p '`[*The password for the component user*{: style="color: #f00;"}]`'`
 * If successful, the prompt should appear as follows:
 
 ~~~~

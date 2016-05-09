@@ -1,13 +1,15 @@
 * Create a `pm-client-security.properties` file in `/var/lib/tomcat7/resources/progman`
 * Copy the following into `/var/lib/tomcat7/resources/progman/pm-client-security.properties`:
 
-~~~~
-oauth.access.url=https://[FQDN or IP address of OpenAM server]/auth/oauth2/access_token?realm=/sbac
-pm.oauth.client.id=[OAuth client id from OpenAM]
-pm.oauth.client.secret=[OAuth client secret from OpenAM]
-pm.oauth.batch.account=[User account in OpenDJ]
-pm.oauth.batch.password=[Password for OpenDJ user account]
-~~~~
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>oauth.access.url=https://[<span class="placeholder">FQDN or IP address of OpenAM server</span>]/auth/oauth2/access_token?realm=/sbac
+pm.oauth.client.id=[<span class="placeholder">OAuth client id from OpenAM</span>]
+pm.oauth.client.secret=[<span class="placeholder">OAuth client secret from OpenAM</span>]
+pm.oauth.batch.account=[<span class="placeholder">User account in OpenDJ</span>]
+pm.oauth.batch.password=[<span class="placeholder">Password for OpenDJ user account</span>]</code>
+</pre>
+</div>
 
 * Example:
 

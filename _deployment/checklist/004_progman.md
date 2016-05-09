@@ -70,33 +70,22 @@ JAVA_OPTS="-Djava.awt.headless=true\
   * `sudo ln -s /usr/share/tomcat7/logs/prog-mgmnt.webapp/prog-mgmnt.webapp.log /var/lib/tomcat7/logs/webapp.log`
   * `sudo ln -s /usr/share/tomcat7/logs/prog-mgmnt.rest/prog-mgmnt.rest.log /var/lib/tomcat7/logs/rest.log`
 
-#### Build ProgMan Components
-* On a suitable build machine, get the latest source code for ProgMan
-* Build the programmanagement_release repository (which builds the REST and Web Application components):
-  * `mvn -q clean install -DskipTests -DXmx2048m -DXX:MaxPermSize=1024m -f [path/to/pom.xml]`
-  * Example:
-    * `mvn -q clean install -DskipTests -DXmx2048m -DXX:MaxPermSize=1024m -f /Users/jjohnson/dev/ucla/sbac/sbrepo/repositories/programmanagement_release/pom.xml`
-  * After Maven finishes the build, the desired `.war` files will be in their respective `target` directories
-
-#### Deploy ProgMan REST Component
-* From the build machine, copy the ProgMan REST component (the `.war` file) to the AWS instance:
-  * `scp -i [path/to/key] [path/to/progman-rest.war] ubuntu@[fqdn or ip address of AWS isntance]:~/rest.war`
-  * Example:
-    * `scp -i ~/.ssh/tds/ssh-dev.pem prog-mgmnt.rest-0.0.3-SNAPSHOT.war ubuntu@54.213.81.243:~/rest.war`
-* On the AWS instance, move the `rest.war` into the Tomcat server's `webapps` directory:
-  * `sudo mv ~/rest.war /var/lib/tomcat7/webapps`
+#### Download REST Component War File
+* Download the latest `.war` file for the ProgMan REST Component into the Tomcat server's `webapps` directory:
+  * `sudo wget https://bitbucket.org/fwsbac/programmanagement_release/downloads/prog-mgmnt.rest-R01.00.38.war -O /var/lib/tomcat7/webapps/rest.war`
 * Create a `rest-endpoints.properties` file in `/var/lib/tomcat7/resources/progman`
 * Copy the following into `/var/lib/tomcat7/resources/progman/rest-endpoints.properties`:
 
 ***TODO:  Is this file even in use?***
 
-~~~~
-#base URLs for REST endpoints, replace with URLs that work for the server this is being run on
-pm.rest.service.endpoint=http://[FQDN or IP Address of ProgMan REST component, defeault port is 8080]/rest
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>#base URLs for REST endpoints, replace with URLs that work for the server this is being run on
+pm.rest.service.endpoint=http://[<span class="placeholder">FQDN or IP Address of ProgMan REST component, defeault port is 8080</span>]/rest
 pm.rest.context.root=/rest/
-pm.minJs=false
-~~~~
-
+pm.minJs=false</code>
+</pre>
+</div>
 An example of a configured `rest-endpoints.properties`:
 
 ~~~~
@@ -106,54 +95,52 @@ pm.rest.context.root=/rest/
 pm.minJs=false
 ~~~~
 
-#### Deploy ProgMan Web Application Component
-* From the build machine, copy the ProgMan REST component (the `.war` file) to the AWS instance:
-  * `scp -i [path/to/key] [path/to/progman-rest.war] ubuntu@[fqdn or ip address of AWS isntance]:~/ROOT.war`
-  * Example:
-    * `scp -i ~/.ssh/tds/ssh-dev.pem prog-mgmnt.webapp-0.0.3-SNAPSHOT.war ubuntu@54.213.81.243:~/ROOT.war`
-* On the AWS instance, move the `ROOT.war` into the Tomcat server's `webapps` directory:
-  * `sudo mv ~/ROOT.war /var/lib/tomcat7/webapps`
+#### Download ProgMan Web Application Component
+* Download the latest `.war` file for the ProgMan Web Application Component into the Tomcat server's `webapps` directory:
+  * `sudo wget https://bitbucket.org/fwsbac/programmanagement_release/downloads/prog-mgmnt.webapp-R01.00.38.war -O /var/lib/tomcat7/webapps/ROOT.war`
 * Create a `progman-bootstrap.properties` file in `/var/lib/tomcat7/resources/progman`
 * Copy the following into `/var/lib/tomcat7/resources/progman/progman-bootstrap.properties`:
 
-~~~~
+<pre class="highlight">
+<code>
 #mna.properties
-progman.mna.description="The Program Management Component (environment name)"
+progman.mna.description="The Program Management Component ([<span class="placeholder">environment name</span>])"
 #mna.mnaUrl=https://your.mna.server/rest
 #mna.logger.level=INFO
 #mna.oauth.batch.account=mna-client-email-address
 #mna.oauth.batch.password=mna-client-password
 #mongo.properties
 #placeholder for mongo settings - note: do not check in real credentials
-pm.mongo.hostname=[FQDN or IP address of MongoDB server]
-pm.mongo.port=[port that MongoDB listens on, default is 27017]
-pm.mongo.user=[mongo user name, mongo_admin if following this checklist]
-pm.mongo.password=[password for mongo_admin user account]
+pm.mongo.hostname=[<span class="placeholder">FQDN or IP address of MongoDB server</span>]
+pm.mongo.port=[<span class="placeholder">port that MongoDB listens on, default is 27017</span>]
+pm.mongo.user=[<span class="placeholder">mongo user name, mongo_admin if following this checklist</span>]
+pm.mongo.password=[<span class="placeholder">password for mongo_admin user account</span>]
 pm.mongo.dbname=progman
 #pbe.properties
 pm.pbe.pass=password123
 #pm.pbe.pass=secret-salt
 #rest-endpoints.properties
 #base URLs for REST endpoints, replace with URLs that work for the server this is being run on
-pm.rest.service.endpoint=http://[FQDN or IP address of AWS instance hosting ProgMan REST component, default port is 8080]/rest
+pm.rest.service.endpoint=http://[<span class="placeholder">FQDN or IP address of AWS instance hosting ProgMan REST component, default port is 8080</span>]/rest
 pm.minJs=false
 pm.rest.context.root=/rest/
 ###########################
 # pm-security.properties
 ###########################
 #security props
-pm.security.saml.keystore.user=[alias of private key stored in samlKeystore.jks]
-pm.security.saml.keystore.pass=[password for samlKeystore.jks]
-pm.security.dir=file:///[path to samlKeystore.jks, use /var/lib/tomcat7/resources/security if following this checklist]
-pm.rest.saml.metadata.filename=[name of SAML metadata file for REST component]
-pm.webapp.saml.metadata.filename=[name of SAML metadata file for web application component]
+pm.security.saml.keystore.user=[<span class="placeholder">alias of private key stored in samlKeystore.jks</span>]
+pm.security.saml.keystore.pass=[<span class="placeholder">password for samlKeystore.jks</span>]
+pm.security.dir=file:///[<span class="placeholder">path to samlKeystore.jks, use <strong>/var/lib/tomcat7/resources/security</strong> if following this checklist</span>]
+pm.rest.saml.metadata.filename=[<span class="placeholder">name of SAML metadata file for REST component</span>]
+pm.webapp.saml.metadata.filename=[<span class="placeholder">name of SAML metadata file for web application component</span>]
 component.name=ProgramManagement
-pm.oauth.checktoken.endpoint=https://[load balancer for OpenAM]/auth/oauth2/tokeninfo?realm=/sbac
-pm.security.idp=https://[load balancer for OpenAM]/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac
-permission.uri=http://[FQDN or IP address of Permissions application]/rest
+pm.oauth.checktoken.endpoint=https://[<span class="placeholder">load balancer for OpenAM</span>]/auth/oauth2/tokeninfo?realm=/sbac
+pm.security.idp=https://[<span class="placeholder">load balancer for OpenAM</span>]/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac
+permission.uri=http://[<span class="placeholder">FQDN or IP address of Permissions application. <strong>NOTE: </strong> the Permissions program has not been installed yet.  This can be configured after Permissions has been deployed; ProgMan should still start up</span>]/rest
 
 logfile.path=/var/log/tomcat7/
-~~~~
+</code>
+</pre>
 
 An example of a configured `progman-bootstrap.properties`:
 

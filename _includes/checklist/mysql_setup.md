@@ -163,7 +163,7 @@ key_buffer      = 16M
 * Log into MySQL:
   * `mysql -uroot -p`
 * Execute the following commands:
-  * `CREATE USER 'remoteuser'@'localhost' IDENTIFIED BY '[choose a password]';`
-  * `CREATE USER 'remoteuser'@'%' IDENTIFIED BY '[the same password]';`
+  * `CREATE USER 'remoteuser'@'localhost' IDENTIFIED BY '`[*Choose a password*{: style="color:#f00;"}]`';`
+  * `CREATE USER 'remoteuser'@'%' IDENTIFIED BY '`[*The same password*{: style="color: #f00;"}]`';`
   * `GRANT ALL ON *.* TO 'remoteuser'@'localhost';`
   * `GRANT ALL ON *.* TO 'remoteuser'@'%';`
