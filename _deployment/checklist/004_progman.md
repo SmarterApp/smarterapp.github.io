@@ -183,17 +183,17 @@ permission.uri=http://52.32.19.35:8080/rest
 logfile.path=/var/log/tomcat7/
 ~~~~
 
-**NOTE:** Conduct the SAML Setup and Configuration for the REST component and Web Application Component.  After completing the SAML Setup and Configuration steps, there should be two metadata files:
+**NOTE:** Conduct the **SAML Setup and Configuration** for the REST component *and* Web Application Component.  After completing the SAML Setup and Configuration steps, there should be two metadata files:
 
-* A SAML XML metadata file for the REST component (e.g. `/var/lib/tomcat7/resources/security/rest_metadata.xml`)
-* A SAML XML metadata file for the web application component (e.g. `/var/lib/tomcat7/resources/security/web_metadata.xml`)
+* A SAML XML metadata file for the REST component, located where-ever the file name/path is configured for `pm.security.dir` and `pm.rest.saml.metadata.filename` (e.g. `/var/lib/tomcat7/resources/security/rest_metadata.xml`)
+* A SAML XML metadata file for the web application component located where-ever the file name/path is configured for `pm.security.dir` and `pm.webapp.saml.metadata.filename` (e.g. `/var/lib/tomcat7/resources/security/web_metadata.xml`)
 
 {% include checklist/saml_setup.md %}
 
 ### Update ProgMan Bootstrap Properties
 * Update the following lines of the `progman-bootstrap.properties` to use the correct SAML metadata files:
-  * pm.rest.saml.metadata.filename=[name of the SAML metadata file for the REST component]
-  * pm.webappt.saml.metadata.filename=[name of the SAML metadata file for the web application component]
+  * `pm.rest.saml.metadata.filename=`[*name of the SAML metadata file for the REST component*{: style="color: #f00;"}]
+  * `pm.webappt.saml.metadata.filename=`[*name of the SAML metadata file for the web application component*{: style="color: #f00;"}]
 
 {% include checklist/saml_registration.md %}
 

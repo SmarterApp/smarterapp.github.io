@@ -52,14 +52,16 @@ openssh-sftp-server       install
 * Configure the SFTP server by editing `/etc/ssh/sshd_config`:
   * Add the following lines to the end of the file, taking care to preserve the indentation (i.e. add the lines *exactly* as they appear)
 
-~~~~
-Match group [name of user group added previously]
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>Match group [<span class="placeholder">name of user group added previously</span>]
     ChrootDirectory %h
     X11Forwarding no
     AllowTcpForwarding no
     ForceCommand internal-sftp
-    PasswordAuthentication yes
-~~~~
+    PasswordAuthentication yes</code>
+</pre>
+</div>
 
   * Update the `Match group` line, replacing `filetransfer` with the name of the group used when executing the `sudo groupadd` command
 

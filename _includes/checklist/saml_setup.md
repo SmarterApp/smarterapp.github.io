@@ -1,6 +1,14 @@
 ## SAML (Security Assertion Markup Language) Setup and Configuration
 
 ### Configure Automatic Metadata Generation
+
+#### Create SAML Metadata File For the Component
+* Use the following command to generate a SAML metadata file for use with the automatic generation process:
+  * `sudo wget https://`[*FQDN or IP address of OpenAM server*{: style="color: #f00;"}]`/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac -O /var/lib/tomcat7/resources/security/`[*Name of the saml.metadata.filename as configured in ProgMan*{: style="color: #f00;"}]
+    * Example:  `sudo wget https://sso-dev.sbtds.org/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac -O /var/lib/tomcat7/resources/security/saml_metadata.xml`
+    * **NOTE:**  When configuring ProgMan (and *only* ProgMan), the file name will be in the `/var/lib/tomcat7/resources/progman/progman-bootstrap.properties` file.
+
+#### Update the securityContext.xml File for Automatic Metadata Generation
 * Open `securityContext.xml` file in an editor for the deployed component
   * **NOTE:** The `securityContext.xml` file can be found in [*Tomcat web application directory*{: style="color: #f00;"}]`/`[*component*{: style="color: #f00;"}]`/WEB-INF/classes/security`
     * Example: `/var/lib/tomcat7/webapps/ROOT/WEB-INF/classes/security/securityContext.xml`
@@ -70,7 +78,7 @@
       * `<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="http://54.213.81.243:8080/rest/saml/SSO" index="0" isDefault="true"/>`
 
 ### SAML Pre-Configured Metadata Configuration
-* Save the output of `/saml/metadata` endpoint to `/var/lib/tomcat/resources/security/`
+* Save the output of `/saml/metadata` endpoint to `/var/lib/tomcat/resources/security/`[*Name of the saml.metadata.filename as configured in ProgMan*{: style="color: #f00;"}]
   * Example: save the `54.213.81.243:8080/saml/metadata` output to `/var/lib/tomcat/resources/security/saml_metadata.xml`
 * Disable (by removing or commenting out) the `<security:custom-filter before="FIRST" ref="metadataGeneratorFilter" />` from the `securityContext.xml` file to disable the autoamtic generation of SAML metadata
   * The automatic generation of SAML metadata is only needed once to generate the metadata file.  After the metadata file is generated, there is no further need for automatically generating SAML metadata.

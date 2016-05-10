@@ -71,7 +71,7 @@ categories: ["deployment", "checklist"]
   * `sudo apt-get update`
   * `sudo apt-get install -y oracle-java7-installer`
 * Clone the openam12_release repository from Smarter Balanced BitBucket to the server:
-  * `hg clone https://[your BitBucket user or team name]/sbacoss/openam12_release`
+  * `hg clone https://`[*Your BitBucket user or team name*{: style="color: #f00;"}]`/sbacoss/openam12_release`
 * Copy SBAC OpenAM installer and content to the /opt directory:
   * `sudo cp -R openam12_release/sbacInstaller/* /opt`
 * Update the `/opt/installOpenAM.sh` script to use the correct Java version:
@@ -159,16 +159,18 @@ categories: ["deployment", "checklist"]
 #### Verify OAuth Access Token Retrieval
 * Run the following `cURL` command:
 
-~~~~
-curl -i -X POST \
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>curl -i -X POST \
    -H "Content-Type:application/x-www-form-urlencoded" \
    -d "grant_type=password" \
-   -d "username=[Email address of user account that exists in OpenDJ, e.g. the email address for the Prime User account]" \
-   -d "password=[Password for user account that exists in OpenDJ, e.g. the password for the Prime User account]" \
-   -d "client_id=[OAuth Client ID from OpenAM, OAuth Client IDs found in Access Control -> click on sbac link -> click on Agents tab -> click on OAuth 2.0/OpenID Connect Client tab]" \
-   -d "client_secret=[Client ID secret from OpenAM, if client secret was not changed, value will be sbac12345]" \
- 'https://[FQDN or IP address of OpenAM server]/auth/oauth2/access_token?realm=%2Fsbac'
-~~~~
+   -d "username=[<span class="placeholder">Email address of user account that exists in OpenDJ, e.g. the email address for the Prime User account</span>]" \
+   -d "password=[<span class="placeholder">Password for user account that exists in OpenDJ, e.g. the password for the Prime User account</span>]" \
+   -d "client_id=[<span class="placeholder">OAuth Client ID from OpenAM, OAuth Client IDs found in Access Control -> click on sbac link -> click on Agents tab -> click on OAuth 2.0/OpenID Connect Client tab</span>]" \
+   -d "client_secret=[<span class="placeholder">Client ID secret from OpenAM, if client secret was not changed, value will be sbac12345</span>]" \
+ 'https://[<span class="placeholder">FQDN or IP address of OpenAM server</span>]/auth/oauth2/access_token?realm=%2Fsbac'</code>
+</pre>
+</div>
 
 * Example:
 
