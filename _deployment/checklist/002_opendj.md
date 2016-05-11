@@ -227,37 +227,38 @@ su -c "perl /opt/scripts/sbacWatchXMLFolder.pl" opendj &
 
 * The content of the `prime_user_testfile_.xml`:
 
-~~~~ xml
-<?xml version='1.0' encoding='UTF-8'?>
-<Users>
-<User Action="ADD">
-  <UUID>CREATE-UNIQUE_UUID_HERE</UUID>
-  <FirstName>CHOOSE-FIRST_NAME</FirstName>
-  <LastName>CHOOSE-LAST_NAME</LastName>
-  <Email>CHOOSE-EMAIL</Email>
-  <Phone/>
-  <Role>
-    <RoleID></RoleID>
-    <Name>Administrator</Name>
-    <Level>CLIENT</Level>
-    <ClientID>CHOOSE-CLIENT_IDENTIFIER_NUMBER</ClientID>
-    <Client>CHOOSE-UNIQUE_CLIENT_NAME</Client>
-    <GroupOfStatesID/>
-    <GroupOfStates/>
-    <StateID/>
-    <State/>
-    <GroupOfDistrictsID/>
-    <GroupOfDistricts/>
-    <DistrictID/>
-    <District/>
-    <GroupOfInstitutionsID/>
-    <GroupOfInstitutions/>
-    <InstitutionID/>
-    <Institution/>
-  </Role>
-</User>
-</Users>
-~~~~
+<div class="highlighter-rouge">
+<pre class="highlight"><code><span class="cp">&lt;?xml version='1.0' encoding='UTF-8'?&gt;</span>
+<span class="nt">&lt;Users&gt;</span>
+<span class="nt">&lt;User</span> <span class="na">Action=</span><span class="s">"ADD"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;UUID&gt;</span>[<span class="placeholder">CREATE-UNIQUE_UUID_HERE</span>]<span class="nt">&lt;/UUID&gt;</span>
+  <span class="nt">&lt;FirstName&gt;</span>[<span class="placeholder">CHOOSE-FIRST_NAME</span>]<span class="nt">&lt;/FirstName&gt;</span>
+  <span class="nt">&lt;LastName&gt;</span>[<span class="placeholder">CHOOSE-LAST_NAME</span>]<span class="nt">&lt;/LastName&gt;</span>
+  <span class="nt">&lt;Email&gt;</span>[<span class="placeholder">CHOOSE-EMAIL</span>]<span class="nt">&lt;/Email&gt;</span>
+  <span class="nt">&lt;Phone/&gt;</span>
+  <span class="nt">&lt;Role&gt;</span>
+    <span class="nt">&lt;RoleID&gt;&lt;/RoleID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Administrator<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Level&gt;</span>CLIENT<span class="nt">&lt;/Level&gt;</span>
+    <span class="nt">&lt;ClientID&gt;</span>[<span class="placeholder">CHOOSE-CLIENT_IDENTIFIER_NUMBER</span>]<span class="nt">&lt;/ClientID&gt;</span>
+    <span class="nt">&lt;Client&gt;</span>[<span class="placeholder">CHOOSE-UNIQUE_CLIENT_NAME</span>]<span class="nt">&lt;/Client&gt;</span>
+    <span class="nt">&lt;GroupOfStatesID/&gt;</span>
+    <span class="nt">&lt;GroupOfStates/&gt;</span>
+    <span class="nt">&lt;StateID/&gt;</span>
+    <span class="nt">&lt;State/&gt;</span>
+    <span class="nt">&lt;GroupOfDistrictsID/&gt;</span>
+    <span class="nt">&lt;GroupOfDistricts/&gt;</span>
+    <span class="nt">&lt;DistrictID/&gt;</span>
+    <span class="nt">&lt;District/&gt;</span>
+    <span class="nt">&lt;GroupOfInstitutionsID/&gt;</span>
+    <span class="nt">&lt;GroupOfInstitutions/&gt;</span>
+    <span class="nt">&lt;InstitutionID/&gt;</span>
+    <span class="nt">&lt;Institution/&gt;</span>
+  <span class="nt">&lt;/Role&gt;</span>
+<span class="nt">&lt;/User&gt;</span>
+<span class="nt">&lt;/Users&gt;</span></code>
+</pre>
+</div>
 
 An example of the `prime_user_testfile_.xml` file with placeholders replaced by example values:
 
