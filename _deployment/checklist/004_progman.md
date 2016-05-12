@@ -197,9 +197,41 @@ logfile.path=/var/log/tomcat7/
 
 {% include checklist/saml_registration.md %}
 
+### Load Seed Data into ProgMan
+***IMPORTANT:*** MongoDB must be installed on whatever computer runs the script to load the ProgMan seed data.
+
+* Unless already done, clone the `tds-build` repository from BitBucket:
+  * `git clone https://`[*Your BitBucket account or team name*{: style="color: #f00;"}]`/fwsbac/tds-build.git`
+  * Example:
+    * `git clone https://jjohnson-fwtech@bitbucket.org/fwsbac/tds-build.git`
+* Navigate to the directory where the seed data script is located:
+  * `cd `[*Path to where the `tds-build` repository was cloned*{: style="color: #f00;"}]`/database/mongodb/progman`
+  * Example:
+    * `cd ~/dev/ucla/sbac/sbrepo/tds-build/database/mongodb/progman`
+* Edit the `load-seed-data.sh` script to configure the following:
+  * `HOST=`[*The FQDN or IP address of the MongoDB server hosting the ProgMan database*{: style="color: #f00;"}]
+  * `PORT=`[*The port on which MongoDB is listening*{: style="color: #f00;"}]
+  * `USER=`[*The user account with "readWrite" privileges in the ProgMan database*{: style="color: #f00;"}]
+  * `PW=`[*The password for the user account*{: style="color: #f00;"}]
+  * `DB=`[*The name of the database containing ProgMan's data*{: style="color: #f00;"}]
+* Example:
+
+~~~~
+HOST=54.201.173.209     # The FQDN or IP address of the MongoDB server hosting the ProgMan database
+PORT=27017              # The port on which MongoDB is listening
+USER=admin              # The user account with "readWrite" privileges in the ProgMan database
+PW=[redacted]          # The password for the user account
+DB=progman              # The name of the database containing ProgMan's data
+~~~~
+
+* Execute the `load-seed-data.sh` script:
+  * `./load-seed-data.sh`
+
 ## Verification
 * Log into ProgMan with the Prime User account created during the OpenDJ Verification process
   * **NOTE:** If this is the first time using the Prime User account, you may be prompted to change the password and set up the security questions
 * Verify the home page of ProgMan appears
+* Click on the **Manage Components** link in navigation menu on the left rail
+* Verify records are displayed
 
 [back to Deployment Checklists](index.html)
