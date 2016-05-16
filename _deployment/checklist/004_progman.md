@@ -183,7 +183,7 @@ permission.uri=http://52.32.19.35:8080/rest
 logfile.path=/var/log/tomcat7/
 ~~~~
 
-**NOTE:** Conduct the **SAML Setup and Configuration** for the REST component *and* Web Application Component.  After completing the SAML Setup and Configuration steps, there should be two metadata files:
+***IMPORTANT:***{: style="color: #f00;"} <span style="background-color: #ff0;">Conduct the **SAML Setup and Configuration** for the REST component *and* Web Application Component.  After completing the SAML Setup and Configuration steps, there should be two metadata files</span>:
 
 * A SAML XML metadata file for the REST component, located where-ever the file name/path is configured for `pm.security.dir` and `pm.rest.saml.metadata.filename` (e.g. `/var/lib/tomcat7/resources/security/rest_metadata.xml`)
 * A SAML XML metadata file for the web application component located where-ever the file name/path is configured for `pm.security.dir` and `pm.webapp.saml.metadata.filename` (e.g. `/var/lib/tomcat7/resources/security/web_metadata.xml`)
