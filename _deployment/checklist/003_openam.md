@@ -81,14 +81,14 @@ categories: ["deployment", "checklist"]
   * `sudo ./installOpenAM.sh`
 * ***IMPORTANT:*** The installation process will prompt you for several pieces of information.  In some cases, the information being asked for is not always clear.  Below are two prompts that can be confusing:
   * `Enter the load balancer URL:` For this prompt be sure to follow the example *preciesly*:  `https://`[*FQDN or IP address of the load balancer for OpenAM*{: style="color: #f00;"}]`:443/auth`
-    * Example: `https://sso-dev.example.com:443/auth`
+    * Example: `https://`<span class="placeholder-example">sso-dev.example.com</span>`:443/auth`
   * `Enter LDAP load balancer FQDN or IP address`: For this prompt, provide the FQDN or IP address of the OpenDJ instance that was installed earlier.
-    * Example:  `opendj-dev.example.com`
+    * Example:  <span class="placeholder-example">opendj-dev.example.com</span>
 * Verify only one instance of OpenAM is running:
   * `ps -ef | grep openam`
 * If more than one process is returned by the previous command, kill them and restart OpenAM:
   * `sudo kill -9 `[*all process ids for openam*{: style="color: #f00;"}]
-    * Example: `sudo kill -9 31980 30502`
+    * Example: `sudo kill -9 `<span class="placeholder-example">31980</span>` `<span class="placeholder-example">30502</span>
   * Restart OpenAM:
     * `sudo su`
     * `su - openam -c /opt/tomcat/bin/startup.sh`
@@ -96,14 +96,14 @@ categories: ["deployment", "checklist"]
 
 #### Update OpenDJ Configuration
 * Log into OpenAM by navigating to `https://`[*FQDN or IP address of OpenAM server or load balancer*{: style="color: #f00;"}]`/auth/console?realm=/`
-  * Example:  `https://sso-dev.example.org/auth/console?realm=/`
+  * Example:  `https://`<span class="placeholder-example">sso-dev.example.org</span>`/auth/console?realm=/`
 * Log in with valid credentials
   * Default user name is **amadmin**, password is whatever was chosen during installation
 * Navigate to *Access Control* -> click on the **sbac** link -> *Authentication* tab -> click on **LDAP** link
 * Remove the existing value from the LDAP server:
   * Highlight value in list of LDAP servers and click **Remove**
 * Add the correct OpenDJ LDAP server (that was set up previously) *with port number; default OpenDJ port is **1389*** in the **New Value** field and click **Add**
-  * Example of value to add in **New Value** field:  `opendj-deployment.sbtds.org:1389`
+  * Example of value to add in **New Value** field:  <span class="placeholder-example">opendj-deployment.sbtds.org:1389</span>
 * Update the **LDAP Bind Password** to use the correct OpenDJ password for the value specified in **LDAP Bind DN**
   * Starting value of **LDAP Bind DN** is `cn=SBAC Admin`
 * Click **Back to Authentication** button
@@ -111,7 +111,7 @@ categories: ["deployment", "checklist"]
 * Remove the existing value from the LDAP server:
   * Highlight value in list of LDAP servers and click **Remove**
 * Add the correct OpenDJ LDAP server (that was set up previously) *with port number; default OpenDJ port is **1389*** in the **New Value** field and click **Add**
-  * Example of value to add in **New Value** field:  `opendj-deployment.sbtds.org:1389`
+  * Example of value to add in **New Value** field:  <span class="placeholder-example">opendj-deployment.sbtds.org:1389</span>
 * Update the **LDAP Bind Password** to use the correct OpenDJ password for the value specified in **LDAP Bind DN**
   * Starting value of **LDAP Bind DN** is `cn=SBAC Admin`
 * Click **Back to Data Stores**
@@ -120,13 +120,13 @@ categories: ["deployment", "checklist"]
 * Remove the existing value from the LDAP server:
   * Highlight value in list of LDAP servers and click **Remove**
 * Add the correct OpenDJ LDAP server (that was set up previously) *with port number; default OpenDJ port is **1389***
-  * Example of value to add in **New Value** field:  `opendj-deployment.sbtds.org:1389`
+  * Example of value to add in **New Value** field:  <span class="placeholder-example">opendj-deployment.sbtds.org:1389</span>
 * Update the **LDAP Bind Password** to use the correct OpenDJ password for the value specified in **LDAP Bind DN**
   * Starting value of **LDAP Bind DN** is `cn=SBAC Admin`
 
 ### Change OAuth Client Agent Configuration
 * If not already logged in to OpenAM, log in by navigating to `https://`[*FQDN or IP address of OpenAM server or load balancer*{: style="color: #f00;"}]`/auth/console?realm=/`
-  * Example:  `https://sso-dev.example.org/auth/console?realm=/`
+  * Example:  `https://`<span class="placeholder-example">sso-dev.example.org</span>`/auth/console?realm=/`
 * Log in with valid credentials
   * Default user name is **amadmin**, password is whatever was chosen during installation
 * Navigate to *Access Control* -> click on **sbac** link -> click on *Agents* tab -> click on *OAuth 2.0/OpenID Connect Client* tab
@@ -146,7 +146,7 @@ categories: ["deployment", "checklist"]
 
 #### Log Into Admin Console
 * Navigate to `https://`[*FQDN or IP address of OpenAM server or load balancer*{: style="color: #f00;"}]`/auth/console?realm=/`
-  * Example:  `https://sso-dev.sbtds.org/auth/console?realm=/`
+  * Example:  `https://`<span class="placeholder-example">sso-dev.sbtds.org</span>`/auth/console?realm=/`
 * Log in with valid credentials
   * Default user name is **amadmin**, password is whatever was chosen during installation
 
@@ -174,16 +174,18 @@ categories: ["deployment", "checklist"]
 
 * Example:
 
-~~~~
-curl -i -X POST \
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>curl -i -X POST \
    -H "Content-Type:application/x-www-form-urlencoded" \
    -d "grant_type=password" \
-   -d "username=prime.user@example.com" \
-   -d "password=[redacted]" \
-   -d "client_id=pm" \
-   -d "client_secret=[redacted]" \
- 'https://sso-deployment-oauth-test.sbtds.org/auth/oauth2/access_token?realm=%2Fsbac'
-~~~~
+   -d "username=<span class="placeholder-example">prime.user@example.com</span>" \
+   -d "password=<span class="placeholder-example">[redacted]</span>" \
+   -d "client_id=<span class="placeholder-example">pm</span>" \
+   -d "client_secret=<span class="placeholder-example">[redacted]</span>" \
+ '<span class="placeholder-example">https://sso-deployment-oauth-test.sbtds.org</span>/auth/oauth2/access_token?realm=%2Fsbac'</code>
+ </pre>
+ </div>
 
 * Example response:
 
@@ -205,8 +207,9 @@ curl -i -X POST \
 * Click **Export Configuration** button to view the profile's details (including password)
   * Example:
 
-~~~~
-com.forgerock.openam.oauth2provider.clientType=Confidential
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>com.forgerock.openam.oauth2provider.clientType=Confidential
 com.forgerock.openam.oauth2provider.contacts[0]=
 com.forgerock.openam.oauth2provider.description[0]=
 com.forgerock.openam.oauth2provider.name[0]=
@@ -218,8 +221,9 @@ com.forgerock.openam.oauth2provider.responseTypes[3]=code token
 com.forgerock.openam.oauth2provider.responseTypes[4]=token id_token
 com.forgerock.openam.oauth2provider.responseTypes[5]=code id_token
 com.forgerock.openam.oauth2provider.responseTypes[6]=code token id_token
-userpassword=[redacted]
-~~~~
+userpassword=<span class="placeholder-example">[redacted]</span></code>
+</pre>
+</div>
 
 #### Turn on Debugging in OpenAM
 * Navigate to *Configuration* -> *Sites and Servers*
@@ -238,7 +242,7 @@ userpassword=[redacted]
 #### OAuth 2.0 Authentication Failure
 * If the `cURL` command to test the OAuth configuration returns a 400 - Bad Request error with an "invalid_client" message in the response, run the following commands (while SSH'd into the AWS instance):
   * `cd /opt/openamtools/auth/bin`
-  * `sudo ./ssoadm update-agent -e /sbac -b [name of agent] -a com.forgerock.openam.oauth2provider.clientType=Confidential -u amadmin -f ../../pwd.txt`
-    * Example:  `sudo ./ssoadm update-agent -e /sbac -b pm -a com.forgerock.openam.oauth2provider.clientType=Confidential -u amadmin -f ../../pwd.txt`
+  * `sudo ./ssoadm update-agent -e /sbac -b `[*name of agent*{: style="color: #f00;"}]` -a com.forgerock.openam.oauth2provider.clientType=Confidential -u amadmin -f ../../pwd.txt`
+    * Example:  `sudo ./ssoadm update-agent -e /sbac -b `<span class="placeholder-example">pm</span>` -a com.forgerock.openam.oauth2provider.clientType=Confidential -u amadmin -f ../../pwd.txt`
 
 [back to Deployment Checklists](index.html)

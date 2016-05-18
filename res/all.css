@@ -391,3 +391,11 @@ div.menu-bar-holder
     font-style: oblique;
     font-family: sans-serif !important;
 }
+
+.placeholder-example {
+    background-color: #ff9 !important;
+    color: #b00 !important;
+    font-style: oblique;
+    font-weight: bold;
+    font-family: sans-serif !important;
+}

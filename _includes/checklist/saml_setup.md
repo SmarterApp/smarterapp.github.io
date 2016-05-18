@@ -84,7 +84,7 @@
       * `<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="http://54.213.81.243:8080/rest/saml/SSO" index="0" isDefault="true"/>`
 
 ### SAML Pre-Configured Metadata Configuration
-* Use `wget` to save the output of `/saml/metadata` endpoint to `/var/lib/tomcat7/resources/security/`[*Name of the saml.metadata.filename as configured in ProgMan*{: style="color: #f00;"}]
+* Use `wget` to save the output of `/saml/metadata` endpoint to `/var/lib/tomcat7/resources/security/`[*Name of the **saml.metadata.filename** as configured in ProgMan*{: style="color: #f00;"}]
   * Example: save the `sudo wget http://54.213.81.243:8080/saml/metadata -O /var/lib/tomcat7/resources/security/saml_metadata.xml`
 * Disable (by removing or commenting out) the `<security:custom-filter before="FIRST" ref="metadataGeneratorFilter" />` from the `securityContext.xml` file to disable the autoamtic generation of SAML metadata
   * The automatic generation of SAML metadata is only needed once to generate the metadata file.  After the metadata file is generated, there is no further need for automatically generating SAML metadata.

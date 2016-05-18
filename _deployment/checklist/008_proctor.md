@@ -503,7 +503,7 @@ proctor.ClientName=SBAC_PT
 proctor.oauth.checktoken.endpoint=https://sso-dev.sbtds.org/auth/oauth2/tokeninfo?realm=/sbac
 proctor.oauth.resource.client.id=pm
 proctor.oauth.resource.client.secret=[redacted]
-proctor.security.dir=file:////opt/sbtds/proctor/resources/security
+proctor.security.dir=file:////var/lib/tomcat7/resources/security
 proctor.security.idp=https://sso-dev.sbtds.org/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac
 proctor.security.saml.alias=proctorlocal
 proctor.security.saml.keystore.cert=proctor-saml-sp

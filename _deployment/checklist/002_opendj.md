@@ -48,7 +48,7 @@ openssh-sftp-server       install
     * `sudo apt-get install -y openssh-server`
 * Create a new user group for SFTP users:
   * `sudo groupadd `[*meaningful name of group, e.g. **filetransfer** or **sftpusers***{: style="color: #f00;"}]
-    * Example: `sudo groupadd sftpusers`
+    * Example: `sudo groupadd `<span class="placeholder-example">sftpusers</span>
 * Configure the SFTP server by editing `/etc/ssh/sshd_config`:
   * Add the following lines to the end of the file, taking care to preserve the indentation (i.e. add the lines *exactly* as they appear)
 
@@ -67,25 +67,29 @@ openssh-sftp-server       install
 
   * Example of lines to add to `/etc/ssh/sshd_config` using a group name of `filetransfer`:
 
-~~~~
-Match group filetransfer
+<div class="highlighter-rouge">
+<pre class="highlight">
+Match group <span class="placeholder-example">filetransfer</span>
     ChrootDirectory %h
     X11Forwarding no
     AllowTcpForwarding no
     ForceCommand internal-sftp
     PasswordAuthentication yes
-~~~~
+</pre>
+</div>
 
   * Example of lines to add to `/etc/ssh/sshd_config` using a different group name (`sftpusers` instead of `filetransfer`):
 
-~~~~
-Match group sftpusers
+<div class="highlighter-rouge">
+<pre class="highlight">
+Match group <span class="placeholder-example">sftpusers</span>
     ChrootDirectory %h
     X11Forwarding no
     AllowTcpForwarding no
     ForceCommand internal-sftp
     PasswordAuthentication yes
-~~~~
+</pre>
+</div>
 
 * Restart the OpenSSH server:
   * `sudo service ssh restart`
@@ -95,19 +99,19 @@ Match group sftpusers
   * `sudo adduser dropbox`
 * Add the `dropbox` user to the group created earlier:
   * `sudo usermod -G `[*The name of the group created earlier*{: style="color: #f00;"}]` dropbox`
-    * Example:  `sudo usermod -G sftpusers dropbox`
+    * Example:  `sudo usermod -G `<span class="placeholder-example">sftpusers</span>` dropbox`
 * Change ownership of the `dropbox` user's home directory:
   * `sudo chown root:root /home/dropbox`
 * Update permissions on the `dropbox` user's home directory:
-  * `sudo chmod 0755 /home/dropbox`
+  * `sudo chmod 0755 `<span class="placeholder-example">/home/dropbox</span>
 * Create a directory where files will be put:
   * `sudo mkdir /home/dropbox/`[*A meaningful directory name*{: style="color: #f00;"}]
-    * Example: `sudo mkdir /home/dropbox/sftpfiles`
+    * Example: `sudo mkdir `<span class="placeholder-example">/home/dropbox/sftpfiles</span>
 * Update ownership on the directory and contents created above:
   * `sudo chown dropbox:dropbox /home/dropbox/*`
 * ***OPTIONAL:*** Create a link to the directory where ART user XML files should be written to:
   * `sudo ln -s /home/drobox/`[*Directory name*{: style="color: #f00;"}]` `[*Logical path where SFTP files should be written*{: style="color: #f00;"}]
-    * Example:  `sudo ln -s /home/dropbox/sftpfiles /opt/dropbox/sftp_root`
+    * Example:  `sudo ln -s `<span class="placeholder-example">/home/dropbox/sftpfiles</span>` `<span class="placeholder-example">/opt/dropbox/sftp_root</span>
 
 ### Install OpenDJ on AWS Instance
 * Update package manager:
@@ -124,7 +128,7 @@ Match group sftpusers
 * Clone the `opendj_release` repository from the Smarter Balanced BitBucket to this server:
   * `hg clone https://`[*your BitBucket user or team name*{: style="color: #f00;"}]`/sbacoss/opendj_release`
   * Example:
-    * `hg clone https://jjohnson-fw@bitbucket.org/sbacoss/opendj_release`
+    * `hg clone https://`<span class="placeholder-example">jjohnson-fw@bitbucket.org</span>`/sbacoss/opendj_release`
 * Copy SBAC OpenDJ installer and content to the /opt directory:
   * `sudo cp -R opendj_release/sbacInstaller/* /opt`
 * Execute the SBAC OpenDJ installer:
@@ -143,9 +147,11 @@ Match group sftpusers
   * `my $inputXMLFileDir    =  "`[*path to where user XML files are uploaded.  This is the **dropbox** user's directory or the link to that directory created earlier*{: style="color: red;"}]`";`
 * Example of configured `/opt/scripts/sbacWatchXMLFolder.pl`:
 
-~~~~
-my $inputXMLFileDir    = "/opt/dropbox/sftp_root";
-~~~~
+<div class="highlighter-rouge">
+<pre class="highlight">
+my $inputXMLFileDir    = "<span class="placeholder-example">/opt/dropbox/sftp_root</span>";
+</pre>
+</div>
 
 #### Update sbacProcessXML.pl
 * Update `/opt/scripts/sbacProcessXML.pl` with appropriate configuration values:
@@ -165,27 +171,29 @@ my $inputXMLFileDir    = "/opt/dropbox/sftp_root";
 
 * Example of configured `/opt/scripts/sbacProcessXML.pl`:
 
-~~~~
-my $inputXMLFileDir    = "/opt/dropbox";         # folder where the XML files are uploaded
-my $processedFileDir   = "/opt/scripts/sbacXMLFiles";      # folder where the XML files are stored after processing
-my $httpResponseServer = "https://www.example.com/callback/";   # HTTP server for callback response
-my $ldapHost           = "localhost";                      # host name of the OpenDJ server
-my $ldapPort           = "1389";                           # port number of the OpenDJ server
-my $ldapBindDN         = "cn=SBAC Admin";                  # replace with the bindDN of a service account or rootDN with permissions
-my $ldapBindPass       = "cangetin";                  # replace with password of the OpenDJ service account
+<div class="highlighter-rouge">
+<pre class="highlight">
+my $inputXMLFileDir    = "<span class="placeholder-example">/opt/dropbox</span>";         # folder where the XML files are uploaded
+my $processedFileDir   = "<span class="placeholder-example">/opt/scripts/sbacXMLFiles</span>";      # folder where the XML files are stored after processing
+my $httpResponseServer = "<span class="placeholder-example">https://www.example.com/callback/</span>";   # HTTP server for callback response
+my $ldapHost           = "<span class="placeholder-example">localhost</span>";                      # host name of the OpenDJ server
+my $ldapPort           = "<span class="placeholder-example">1389</span>";                           # port number of the OpenDJ server
+my $ldapBindDN         = "<span class="placeholder-example">cn=SBAC Admin</span>";                  # replace with the bindDN of a service account or rootDN with permissions
+my $ldapBindPass       = "<span class="placeholder-example">cangetin</span>";                  # replace with password of the OpenDJ service account
 
-my $ldapBaseDN         = "ou=People,dc=smarterbalanced,dc=org";   # location where the users may be found
-my $ldapTimeout        = "10";                             # how long to wait for a connection to the LDAP server before timing out
+my $ldapBaseDN         = "<span class="placeholder-example">ou=People,dc=smarterbalanced,dc=org</span>";   # location where the users may be found
+my $ldapTimeout        = "<span class="placeholder-example">10</span>";                             # how long to wait for a connection to the LDAP server before timing out
 
 # Email Variables - these variables are specific to subroutines which generate emails
 
-my $fromAddress       = 'Smarter-DoNotReply@example.com';  # all email will come from this email address
-my $fromPerson        = 'Smarter-DoNotReply';              # the name of the person sending the email
-my $emailAddrOverride = 'bill.nelson@identityfusion.com';  # when $emailOverride flag is set, send recipient's email to this addr
-my $adminEmail        = 'bill.nelson@identityfusion.com';  # email address of user who is monitoring script results
-my $emailServer       = "mail.example.com";                # replace with your email server
-my $defaultPassword   = "password123";                       # default password for test users
-~~~~
+my $fromAddress       = '<span class="placeholder-example">Smarter-DoNotReply@example.com</span>';  # all email will come from this email address
+my $fromPerson        = '<span class="placeholder-example">Smarter-DoNotReply</span>';              # the name of the person sending the email
+my $emailAddrOverride = '<span class="placeholder-example">bill.nelson@identityfusion.com</span>';  # when $emailOverride flag is set, send recipient's email to this addr
+my $adminEmail        = '<span class="placeholder-example">bill.nelson@identityfusion.com</span>';  # email address of user who is monitoring script results
+my $emailServer       = "<span class="placeholder-example">mail.example.com</span>";                # replace with your email server
+my $defaultPassword   = "<span class="placeholder-example">password123</span>";                       # default password for test users
+</pre>
+</div>
 
 * Start `/opt/scripts/sbacWatchXMLFolder.pl` as a background process:
   * `sudo perl sbacWatchXMLFolder.pl &`
@@ -204,12 +212,6 @@ su -c "perl /opt/scripts/sbacWatchXMLFolder.pl" opendj &
 * Set the `sbac-userwatch.sh` script to run when the server starts up:
   * `cd /etc/init.d`
   * `sudo update-rc.d sbac-userwatch.sh defaults`
-
-### Install/Configure SFTP Server
-* `sudo apt-get install -y openssh-server`
-* Add an SFTP access group:
-  * `sudo addgroup sftpusers`
-
 
 ## Verification
 * Connect to the OpenDJ instance with any client (e.g. [Apache Directory Studio](https://directory.apache.org/studio/))
@@ -262,41 +264,44 @@ su -c "perl /opt/scripts/sbacWatchXMLFolder.pl" opendj &
 
 An example of the `prime_user_testfile_.xml` file with placeholders replaced by example values:
 
-~~~~ xml
-<?xml version='1.0' encoding='UTF-8'?>
-<Users>
-<User Action="ADD">
-  <UUID>2503a564-fde8-11e5-86aa-5e5517507c66</UUID>
-  <FirstName>Prime</FirstName>
-  <LastName>User</LastName>
-  <Email>prime.user@example.com</Email>
-  <Phone/>
-  <Role>
-    <RoleID></RoleID>
-    <Name>Administrator</Name>
-    <Level>CLIENT</Level>
-    <ClientID>98765</ClientID>
-    <Client>PRIME_USER_CLIENT</Client>
-    <GroupOfStatesID/>
-    <GroupOfStates/>
-    <StateID/>
-    <State/>
-    <GroupOfDistrictsID/>
-    <GroupOfDistricts/>
-    <DistrictID/>
-    <District/>
-    <GroupOfInstitutionsID/>
-    <GroupOfInstitutions/>
-    <InstitutionID/>
-    <Institution/>
-  </Role>
-</User>
-</Users>
-~~~~
+<div class="highlighter-rouge">
+<pre class="highlight">
+&lt;?xml version='1.0' encoding='UTF-8'?>
+&lt;Users&gt;
+&lt;User Action="ADD"&gt;
+  &lt;UUID&gt;<span class="placeholder-example">2503a564-fde8-11e5-86aa-5e5517507c66</span>&lt;/UUID&gt;
+  &lt;FirstName&gt;<span class="placeholder-example">Prime</span>&lt;/FirstName&gt;
+  &lt;LastName&gt;<span class="placeholder-example">User</span>&lt;/LastName&gt;
+  &lt;Email&gt;<span class="placeholder-example">prime.user@example.com</span>&lt;/Email&gt;
+  &lt;Phone/&gt;
+  &lt;Role&gt;
+    &lt;RoleID&gt;&lt;/RoleID&gt;
+    &lt;Name&gt;Administrator&lt;/Name&gt;
+    &lt;Level&gt;CLIENT&lt;/Level&gt;
+    &lt;ClientID&gt;<span class="placeholder-example">98765</span>&lt;/ClientID&gt;
+    &lt;Client&gt;<span class="placeholder-example">PRIME_USER_CLIENT</span>&lt;/Client&gt;
+    &lt;GroupOfStatesID/&gt;
+    &lt;GroupOfStates/&gt;
+    &lt;StateID/&gt;
+    &lt;State/&gt;
+    &lt;GroupOfDistrictsID/&gt;
+    &lt;GroupOfDistricts/&gt;
+    &lt;DistrictID/&gt;
+    &lt;District/&gt;
+    &lt;GroupOfInstitutionsID/&gt;
+    &lt;GroupOfInstitutions/&gt;
+    &lt;InstitutionID/&gt;
+    &lt;Institution/&gt;
+  &lt;/Role&gt;
+&lt;/User&gt;
+&lt;/Users&gt;
+</pre>
+</div>
 
 * Copy or move the `prime_user_testfile_.xml` file to the dropbox directory that is monitored by the `/opt/scripts/sbacWatchXMLFolder.pl` script
   * **NOTE:** The `opendj` user (or whatever account is running the `sbacWatchXMLFolder.pl` script) must be able to read the `prime_user_testfile_.xml` file
-  * **NOTE:** If the `prime_user_testfile_.xml` is created in the dropbox directory, run `touch /opt/dropbox/prime_user_testfile_.xml` to update the timestamp on the file.
+  * **NOTE:** If the `prime_user_testfile_.xml` is created in the `dropbox` directory, run `touch `[*path to dropbox directory*{: style="color: #f00;"}]`/prime_user_testfile_.xml` to update the timestamp on the file.
+    * Example: `touch `<span class="placeholder-example">/opt/dropbox</span>`/prime_user_testfile_.xml`
 * Connect to OpenDJ with any client (e.g. [Apache Directory Studio](https://directory.apache.org/studio/)) and verify the Prime User account was created
 
 ###  Verify SFTP Connectivity
