@@ -1,8 +1,8 @@
 ---
-title: Test Delivery System - Proctor Installation Checklist
+title: Proctor Installation Checklist
 permalink: "deployment/checklist/proctor.html"
 layout: "document"
-categories: ["deployment", "checklist"]
+categories: ["deployment", "checklist", "tds"]
 ---
 
 # Overview
@@ -464,18 +464,23 @@ drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 tdsdll_release
 * `proctor.StateCode=`[*The name of the STATE-level Client in ProgMan*{: style="color: red"}]
 * `proctor.TestRegistrationApplicationUrl=`http://[*FQDN or IP address of Permissions component*{: style="color: red"}]/rest
 * `proctor.webapp.saml.metadata.filename=`[*Name of file that stores SAML data for ART Web Application.*{: style="color: red"}]
+* `proctor.SessionType=`[*The type of Session; should always be set to **0***{: style="#f00;"}]
+* `proctor.TDSArchiveDBName=`[*The name of the TDS Archive database on the MySQL server; should be set to **archive***{: style="color: #f00;"}]
+* `proctor.TDSConfigsDBName=`[*The name of the TDS Configuration database on the MySQL server; should be set to **configs***{: style="color: #f00;"}]
+* `proctor.TDSSessionDBName=`[*The name of the TDS Session database on the MySQL server; should be set to **session***{: style="color: #f00;"}]
 
 * Example ProgMan properties for Proctor:
 
-~~~~
-component.name=Proctor
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>component.name=Proctor
 datasource.maxPoolSize=20
 datasource.minPoolSize=5
-datasource.password=[redacted]
-datasource.url=jdbc:mysql://52.33.126.67/session
-datasource.username=remoteuser
+datasource.password=<span class="placeholder-example">[redacted]</span>
+datasource.url=jdbc:mysql://<span class="placeholder-example">52.33.126.67</span>/session
+datasource.username=<span class="placeholder-example">remoteuser</span>
 EncryptionKey=Thisisanincrediblylongkeythatiscertainlylongerthantwentyfourcharacters
-iris.ContentPath=/usr/local/tomcat/content/
+iris.ContentPath=<span class="placeholder-example">/usr/local/tomcat/content/</span>
 itemScoring.callbackUrl=http://localhost:8080/student/ItemScoringCallback.axd
 itemscoring.qti.sympyMaxTries=3
 itemscoring.qti.sympyServiceUrl=http://localhost:8084/
@@ -483,35 +488,41 @@ itemscoring.qti.sympyTimeoutMillis=10000
 logLatencyInterval=55
 logLatencyMaxTime=30000
 mna.logger.level=ERROR
-mna.mnaUrl=http://<mna-context-url>/mna-rest/
+mna.mnaUrl=http://&lt;mna-context-url&gt;/mna-rest/
 mna.oauth.client.id=mna
-mna.oauth.client.secret=[redacted]
+mna.oauth.client.secret=<span class="placeholder-example">[redacted]</span>
 mnaNodeName=dev
 mnaServerName=proctor_dev
-oauth.access.url=https://sso-dev.sbtds.org/auth/oauth2/access_token?realm=/sbac
+oauth.access.url=https://<span class="placeholder-example">sso-dev.sbtds.org</span>/auth/oauth2/access_token?realm=/sbac
 oauth.testreg.client.granttype=password
-oauth.testreg.client.secret=[redacted]
-oauth.testreg.client=pm
-oauth.testreg.client.id=pm
-oauth.testreg.password=[redacted]
-oauth.testreg.username=primeuser@fairwaytech.com
-oauth.tsb.client.secret=[redacted]
-oauth.tsb.client=tsb
-permission.security.profile=dev
-permission.uri=http://52.32.19.35:8080/rest
-proctor.ClientName=SBAC_PT
-proctor.oauth.checktoken.endpoint=https://sso-dev.sbtds.org/auth/oauth2/tokeninfo?realm=/sbac
-proctor.oauth.resource.client.id=pm
-proctor.oauth.resource.client.secret=[redacted]
+oauth.testreg.client.secret=<span class="placeholder-example">[redacted]</span>
+oauth.testreg.client=<span class="placeholder-example">pm</span>
+oauth.testreg.client.id=<span class="placeholder-example">pm</span>
+oauth.testreg.password=<span class="placeholder-example">[redacted]</span>
+oauth.testreg.username=<span class="placeholder-example">primeuser@fairwaytech.com</span>
+oauth.tsb.client.secret=<span class="placeholder-example">[redacted]</span>
+oauth.tsb.client=<span class="placeholder-example">tsb</span>
+permission.security.profile=<span class="placeholder-example">dev</span>
+permission.uri=http://<span class="placeholder-example">52.32.19.35:8080</span>/rest
+proctor.ClientName=SBAC
+proctor.oauth.checktoken.endpoint=https://<span class="placeholder-example">sso-dev.sbtds.org</span>/auth/oauth2/tokeninfo?realm=/sbac
+proctor.oauth.resource.client.id=<span class="placeholder-example">pm</span>
+proctor.oauth.resource.client.secret=<span class="placeholder-example">[redacted]</span>
 proctor.security.dir=file:////var/lib/tomcat7/resources/security
-proctor.security.idp=https://sso-dev.sbtds.org/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac
-proctor.security.saml.alias=proctorlocal
-proctor.security.saml.keystore.cert=proctor-saml-sp
-proctor.security.saml.keystore.pass=[redacted]
-proctor.StateCode=OR
-proctor.TestRegistrationApplicationUrl=http://52.32.59.74:8080/rest
-proctor.webapp.saml.metadata.filename=proctor_sp.xml
-~~~~
+proctor.security.idp=https://<span class="placeholder-example">sso-dev.sbtds.org</span>/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac
+proctor.security.saml.alias=<span class="placeholder-example">proctorlocal</span>
+proctor.security.saml.keystore.cert=<span class="placeholder-example">proctor-saml-sp</span>
+proctor.security.saml.keystore.pass=<span class="placeholder-example">[redacted]</span>
+proctor.StateCode=<span class="placeholder-example">OR</span>
+proctor.TestRegistrationApplicationUrl=http://<span class="placeholder-example">52.32.59.74:8080</span>/rest
+proctor.webapp.saml.metadata.filename=<span class="placeholder-example">proctor_sp.xml</span>
+proctor.sessionType=0
+proctor.TDSArchiveDBName=<span class="placeholder-example">archive</span>
+proctor.TDSConfigsDBName=<span class="placeholder-example">configs</span>
+proctor.TDSSessionDBName=<span class="placeholder-example">session</span>
+</code>
+</pre>
+</div>
 
 ### Deploy Proctor Components
 
@@ -547,7 +558,7 @@ JAVA_OPTS="-Djava.awt.headless=true\
 
 #### Download War Files
 * Download the latest `.war` file for the Proctor Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/testadmin-R01.00.74.war -O /var/lib/tomcat7/webapps/ROOT.war`
+  * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/testadmin-1.0.0-BUILD-SNAPSHOT.war -O /var/lib/tomcat7/webapps/ROOT.war`
 
 {% include checklist/tomcat_pm_client_security_props.md %}
 

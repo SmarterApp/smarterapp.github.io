@@ -6,7 +6,7 @@
   * Select the **/sbac** realm
   * Verify the **URL** option button is checked/selected
   * Enter the `/saml/metadata` endpoint for the desired component in the **URL** field
-    * Example:  enter `http://54.213.81.243:8080/saml/metadata` in the **URL** field
+    * Example:  enter `http://`<span class="placeholder-example">54.213.81.243:8080</span>`/saml/metadata` in the **URL** field
   * Under the **Circle of Trust**
     * Verify the **Add to existing** option button is checked/selected
     * Verify **sbac** is the selected value for the **Existing Circle of Trust** dropdown list

@@ -2,7 +2,7 @@
 title: Test Delivery System - Maintenance Application Installation Checklist
 permalink: "deployment/checklist/tdsmaint.html"
 layout: "document"
-categories: ["deployment", "checklist"]
+categories: ["deployment", "checklist", "tds"]
 ---
 
 | Item | Description |

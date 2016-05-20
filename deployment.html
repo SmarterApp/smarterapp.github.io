@@ -36,6 +36,8 @@ td {
 					{% comment %} Do not display any pages that are categorized as "checklist" pages. {% endcomment %}
 					{% if page.categories contains "checklist" %}
 						{% continue %}
+					{% elsif page.categories contains "checklist_index" %}
+						{% continue %}
 					{% endif %}
 					<tr>
 						<td>

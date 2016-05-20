@@ -1,8 +1,8 @@
 ---
-title: Test Delivery System - Student Installation Checklist
+title: Student Installation Checklist
 permalink: "deployment/checklist/student.html"
 layout: "document"
-categories: ["deployment", "checklist"]
+categories: ["deployment", "checklist", "tds"]
 ---
 
 # Overview
@@ -58,21 +58,25 @@ categories: ["deployment", "checklist"]
 
 * An example of the `pm-client-security.properties` file configured for the Student and Proctor application:
 
-~~~~
-#security props
-oauth.access.url=https://sso-dev.sbtds.org/auth/oauth2/access_token?realm=/sbac
-pm.oauth.client.id=pm
-pm.oauth.client.secret=[redacted]
-pm.oauth.batch.account=prime.user@example.com
-pm.oauth.batch.password=[redacted]
-oauth.testreg.client.id=testreg
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>#security props
+oauth.access.url=https://<span class="placeholder-example">sso-dev.sbtds.org</span>/auth/oauth2/access_token?realm=/sbac
+pm.oauth.client.id=<span class="placeholder-example">pm</span>
+pm.oauth.client.secret=<span class="placeholder-example">[redacted]</span>
+pm.oauth.batch.account=<span class="placeholder-example">prime.user@example.com</span>
+pm.oauth.batch.password=<span class="placeholder-example">[redacted]</span>
+oauth.testreg.client.id=<span class="placeholder-example">testreg</span>
 # This line is in here because the readme for tds_release cites oauth.testreg.client.  On the other hand, the student_release
 # readme states oauth.testreg.client.id.
 # TODO:  Find out if oauth.testreg.client is really needed by tds_release or if it can use the same property as what's cited in the student_release readme
-oauth.testreg.client=testreg
-oauth.testreg.client.secret=[redacted]
-oauth.testreg.client.granttype=password
-oauth.testreg.username=prime.user@example.com
-oauth.testreg.password=[redacted]
-tds.iris.EncryptionKey=Thisisanincrediblylongkeythatiscertainlylongerthantwentyfourcharacters
-~~~~
+oauth.testreg.client=<span class="placeholder-example">testreg</span>
+oauth.testreg.client.secret=<span class="placeholder-example">[redacted]</span>
+oauth.testreg.client.granttype=<span class="placeholder-example">password</span>
+oauth.testreg.username=<span class="placeholder-example">prime.user@example.com</span>
+oauth.testreg.password=<span class="placeholder-example">[redacted]</span>
+tds.iris.EncryptionKey=Thisisanincrediblylongkeythatiscertainlylongerthantwentyfourcharacters</code>
+</pre>
+</div>
+
+[back to Deployment Checklists](index.html)

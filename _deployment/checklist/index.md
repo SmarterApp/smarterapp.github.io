@@ -1,7 +1,7 @@
 ---
 title:  TDS Deployment Checklist
 permalink: "/deployment/checklist/index.html"
-categories: ["deployment"]
+categories: ["deployment", "checklist_index"]
 layout: post
 ---
 
@@ -23,17 +23,28 @@ The following conventions are used throughout the checklist:
 ## Assumptions
 The following assumptions are made:
 
-* The TDS will be deployed to server instances hosted on AWS
+* The Shared Services and Test Delivery System components will be deployed to server instances hosted on AWS
 * The Linux server instances will use the **Ubuntu 14.04 LTS 64-bit**{: style="color: #04384e"} operating system
-* The Windows server instances will use the **Microsoft Windows Server 2012 R2 Base**{: style="color: #04384e"} operating system
+* The Windows server instances will use the **Microsoft Windows Server 2012 R2 Base**{: style="color: #04384e"} 64-bit operating system
 
 ## Disclaimer
-The intent of these checklists are to install/deploy the Test Delivery System with minimal effort.  This document does not account for security considerations or network topology/layout.  System administrators, network administrators, database administrators and or developers involved in deploying the Test Delivery System are left to their own recognizance for identifying and following their own practices/standards for creating and securing their AWS environment.  <span style="background-color: #ff0;">**TODO:** Brant et al might want to build on this statement; we don't want to assume any liability for security risks if people follow these instructions exactly</span>
+The intent of these checklists are to install/deploy the Shared Services and Test Delivery System with minimal effort.  This document does not account for security considerations or network topology/layout of servers.  System administrators, network administrators, database administrators and/or developers involved in deploying the Shared Services and Test Delivery System are left to their own recognizance for identifying and following their own practices/standards for creating and securing their environment.  <span style="background-color: #ff0;">**TODO:** Brant et al might want to build on this statement; we don't want to assume any liability for security risks if people follow these instructions exactly</span>
 
 # Deployment Checklists
+
+## Shared Services
 <ul id="dc_toc" style="list-style: none">
     {% for p in site.deployment %}
-        {% if p.categories contains "checklist" %}
+        {% if p.categories contains "shared_services" %}
+            <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+## Test Delivery System
+<ul id="dc_toc" style="list-style: none">
+    {% for p in site.deployment %}
+        {% if p.categories contains "tds" %}
             <li><a href="{{ p.url }}">{{ p.title }}</a></li>
         {% endif %}
     {% endfor %}

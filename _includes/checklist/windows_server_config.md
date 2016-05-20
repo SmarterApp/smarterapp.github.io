@@ -36,3 +36,34 @@
   ![Install selected features](/res/images/checklist/add-roles-features-07-install.png){: width="80%" }
 
 * After the features have been installed, click **Close** to exit the wizard
+
+### Configure IIS Permissions for the Log Directory
+***IMPORTANT:***{: style="color: #f00;"} *Repeat the steps below for each log file directory.  If you want applications to write to different log file directories, the **IIS_IUSRS** must be able to write to the desired directory/directories.*{: style="background-color: #ff0;"}
+
+* Launch the **File Explorer**
+* Navigate to the directory where the application(s) is/are configured to write log entires
+  * Refer to the `LogFilePath value` in the `web.config`
+  * Example: <span class="placeholder-example">C:\inetpub\logs</span>
+* Right-click on the directory and choose **Properties**
+* Click on the **Security** tab
+
+![Edit log file directory security](/res/images/checklist/file_explorer_01_security_tab.png){: width="100%"}
+
+* Click the **Edit** button
+* Click the **Add...** button
+* Enter **IIS_IUSRS** in the **Enter object names to select** field and click **Check Names**
+  * The **IIS_IUSRS** should be updated to include the server name, indicating the user group was found.
+* An example of the result after the **Check Names** button is clicked:
+
+![Add IIS_IUSRS](/res/images/checklist/file_explorer_02_check_names.png){: width="100%"}
+
+* Click **OK**
+* Give the **IIS_IUSRS** **Write** permission to the log directory:
+  * Scroll down in the list of available permissions
+  * Check the box next to **Write**
+* An example of granting **Write** permission to the **IIS_IUSRS** group:
+
+![Add IIS_IUSRS](/res/images/checklist/file_explorer_03_add_write_perms.png){: width="75%"}
+
+* Click **OK**
+* Click **OK**

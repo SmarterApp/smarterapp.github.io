@@ -1,0 +1,37 @@
+permission.uri=http://52.32.19.35:8080/rest
+component.name=TestSpecBank
+tsb.mna.description=The Test Spec Bank Component
+mna.mnaUrl=http://name.of.mna.server/rest
+mna.logger.level=DEBUG
+mna.clean.days=30
+mna.clean.cron=0 0 0 * * ?
+mna.oauth.batch.account=mna-client-username
+mna.oauth.batch.password=mna-client-password
+tsb.mongo.hostname=172.31.24.48
+tsb.mongo.port=27017
+tsb.mongo.username=mongo_admin
+tsb.mongo.password=[redacted]
+tsb.mongo.dbname=tsb
+tsb.dtd.url=http://name.of.test.authoring.server/rest/resources/dtd/testpackage_v_9_19_2013.dtd
+tsb.rest.context.root=/rest/
+tsb.minJs=false
+tib.tibUrl=http://name.of.test.item.bank.server/
+tsb.sftp.host=
+tsb.sftp.port=22
+tsb.sftp.user=
+tsb.sftp.pass=
+tsb.sftp.dir=
+tsb.tib.sftp.host=
+tsb.tib.sftp.port=22
+tsb.tib.sftp.user=
+tsb.tib.sftp.pass=
+tsb.download.directory=
+tsb.export.cron.trigger=0,30 * * * * ?
+tsb.security.idp=https://sso-dev.sbtds.org/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac
+tsb.security.dir=file:////var/lib/tomcat7/resources/security
+tsb.security.saml.keystore.pass=[redacted]
+tsb.security.saml.keystore.user=tsb-saml-sp
+tsb.oauth.checktoken.endpoint=https://sso-dev.sbtds.org/auth/oauth2/tokeninfo?realm=/sbac
+tsb.oauth.resource.client.id=pm
+tsb.oauth.resource.client.secret=[redacted]
+tsb.webapp.saml.metadata.filename=tsb_saml_sp.xml

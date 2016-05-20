@@ -2,7 +2,7 @@
 title: Permissions Installation Checklist
 permalink: "deployment/checklist/permissions.html"
 layout: "document"
-categories: ["deployment", "checklist"]
+categories: ["deployment", "checklist", "shared_services"]
 ---
 
 # Overview

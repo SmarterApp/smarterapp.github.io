@@ -151,7 +151,7 @@ auth = true
   * `sudo service mongodb restart`
 * Connect to MongoDB in the admin database:
   * `mongo admin -u mongo_admin -p `[*password for the mongo_admin user*{: style="color: #f00;"}]` --authenticationDatabase admin`
-* Add a user for the comonent:
+* Add a user for the component:
 
 <div class="highlighter-rouge">
 <pre class="highlight">
@@ -166,19 +166,21 @@ db.addUser({
 
 * Example:
 
-~~~~
-use progman;
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>use <span class="placeholder-example">progman</span>;
 db.addUser({
-    user:"progman",
-    pwd:"change*me",
+    user:"<span class="placeholder-example">progman</span>",
+    pwd:"<span class="placeholder-example">[redacted]</span>",
     roles:["readWrite"]
-});
-~~~~
+});</code>
+</pre>
+</div>
 
 ### Verify User Can Authenticate to MongoDB
 * On the AWS instance hosting MongoDB, run the following commands:
   * `mongo admin -u mongo_admin -p '`[*The password for the mongo_admin user*{: style="color: #f00;"}]`' --authenticationDatabase admin`
-  * `mongo [component database name] -u `[*Component user*{: style="color: #f00;"}] `-p '`[*The password for the component user*{: style="color: #f00;"}]`'`
+  * `mongo [`*component database name*{: style="color: #f00;"}`] -u `[*Component user*{: style="color: #f00;"}] `-p '`[*The password for the component user*{: style="color: #f00;"}]`'`
 * If successful, the prompt should appear as follows:
 
 ~~~~

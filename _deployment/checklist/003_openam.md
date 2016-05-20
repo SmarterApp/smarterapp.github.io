@@ -2,7 +2,7 @@
 title: OpenAM Installation Checklist
 permalink: "deployment/checklist/openam.html"
 layout: "document"
-categories: ["deployment", "checklist"]
+categories: ["deployment", "checklist", "shared_services"]
 ---
 
 ## Overview

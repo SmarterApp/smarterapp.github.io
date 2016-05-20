@@ -2,7 +2,7 @@
 title: OpenDJ Installation Checklist
 permalink: "/deployment/checklist/opendj.html"
 layout: "document"
-categories: ["deployment", "checklist"]
+categories: ["deployment", "checklist", "shared_services"]
 ---
 
 ## Overview

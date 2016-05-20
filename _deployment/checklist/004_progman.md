@@ -2,7 +2,7 @@
 title: Program Management (ProgMan) Installation Checklist
 permalink: "deployment/checklist/progman.html"
 layout: "document"
-categories: ["deployment", "checklist"]
+categories: ["deployment", "checklist", "shared_services"]
 ---
 
 # Overview
@@ -121,7 +121,7 @@ pm.mongo.hostname=[<span class="placeholder">FQDN or IP address of MongoDB serve
 pm.mongo.port=[<span class="placeholder">port that MongoDB listens on, default is 27017</span>]
 pm.mongo.user=[<span class="placeholder">mongo user name, mongo_admin if following this checklist</span>]
 pm.mongo.password=[<span class="placeholder">password for mongo_admin user account</span>]
-pm.mongo.dbname=progman
+pm.mongo.dbname=[<span class="placeholder">Name of database created for ProgMan in MongoDB</span>]
 #pbe.properties
 pm.pbe.pass=password123
 #pm.pbe.pass=secret-salt
