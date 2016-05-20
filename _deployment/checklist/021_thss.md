@@ -10,7 +10,7 @@ categories: ["deployment", "checklist", "tds"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Provide interface for teachers to hand-score assessment items |
-| Communicates With | OpenAM, ART |
+| Communicates With | TIS |
 | Repository Location | [https://bitbucket.org/sbacoss/testintegrationsystem_release](https://bitbucket.org/sbacoss/testintegrationsystem_release) |
 | Additional Documentation | [TIS REST API](https://bitbucket.org/sbacoss/testintegrationsystem_release/src/a4efcfaad21c7dd154b8ab04bf452e0899c9aa13/TISServices/Documentation/TIS%20REST%20API.txt?at=default&fileviewer=file-view-default) |
 

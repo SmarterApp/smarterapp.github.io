@@ -1,3 +1,6 @@
+
+#### Configure the Web Server Components
+
 * Connect to the Windows server via Remote Desktop
   * [Instructions for connecting to an AWS Windows server](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.html)
 * Click on **Server Manager** (in toolbar next to **Start Button**)
@@ -37,7 +40,7 @@
 
 * After the features have been installed, click **Close** to exit the wizard
 
-### Configure IIS Permissions for the Log Directory
+#### Configure IIS Permissions for the Log Directory
 ***IMPORTANT:***{: style="color: #f00;"} *Repeat the steps below for each log file directory.  If you want applications to write to different log file directories, the **IIS_IUSRS** must be able to write to the desired directory/directories.*{: style="background-color: #ff0;"}
 
 * Launch the **File Explorer**
@@ -67,3 +70,28 @@
 
 * Click **OK**
 * Click **OK**
+
+#### Add Inbound and Outbound Firewall Rules to Allow Communicating with SQL Server
+* Launch the **Windows Firewall with Advanced Security** pane
+* While viewing the **Inbound Rules**, click on **New Rule...**
+* Set the **Rule Type** to **Port**:
+
+  ![Install selected features](/res/images/checklist/win_fw_01_new_rule.png){: width="80%" }
+
+* Choose **TCP** and provide the port number (MSSQL Server default port is **1433**)
+
+  ![Install selected features](/res/images/checklist/win_fw_02_define_port.png){: width="80%" }
+
+* Leave **Allow the Connection** selected:
+
+  ![Install selected features](/res/images/checklist/win_fw_03_allow.png){: width="80%" }
+
+* Leave all checkboxes checked on the **Apply Rule** screen:
+
+  ![Install selected features](/res/images/checklist/win_fw_04_apply_rule.png){: width="80%" }
+
+* Provide a name for the rule and click the **Finish** button:
+
+  ![Install selected features](/res/images/checklist/win_fw_05_name_rule.png){: width="80%" }
+
+* Repeat the steps above, creating an **Outbound Rule** for the same port.
