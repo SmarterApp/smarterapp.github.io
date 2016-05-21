@@ -22,7 +22,7 @@
 * Pin the version of MongoDB so `apt-get` will not upgrade it:
   * `echo "mongodb-10gen hold" | sudo dpkg --set-selections`
 * Configure MongoDB by copying the following into `/etc/mongodb.conf`:
-* ***IMPORTANT:*** The config file below has `noauth=true` set.  This is a temporary configuration to allow for adding MongoDB user accounts.  This setting will be changed later in the checklist.
+* ***IMPORTANT:***{: style="color: #f00;"} *The config file below has `noauth=true` set.  This is a temporary configuration to allow for adding MongoDB user accounts.  This setting will be changed later in the checklist.*{: style="background-color: #ff0;"}
 
 ~~~~
 # mongodb.conf

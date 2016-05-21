@@ -154,7 +154,7 @@ key_buffer      = 16M
   * `sudo service mysql restart`
 
 ### Create Remote User Account
-***NOTE:*** This is definitely not secure and should *not* be done for a production system!
+***IMPORTANT:***{: style="color: #f00;"} *This is definitely not secure and should **not** be done for a production system!*{: style="background-color: #ff0;"}
 
 * Edit the `/etc/mysql/my.cnf` file:
   * Update the `bind-address = 127.0.0.1` to `bind-address = 0.0.0.0` and un-comment the line (if necessary)
@@ -163,7 +163,13 @@ key_buffer      = 16M
 * Log into MySQL:
   * `mysql -uroot -p`
 * Execute the following commands:
-  * `CREATE USER 'remoteuser'@'localhost' IDENTIFIED BY '`[*Choose a password*{: style="color:#f00;"}]`';`
-  * `CREATE USER 'remoteuser'@'%' IDENTIFIED BY '`[*The same password*{: style="color: #f00;"}]`';`
-  * `GRANT ALL ON *.* TO 'remoteuser'@'localhost';`
-  * `GRANT ALL ON *.* TO 'remoteuser'@'%';`
+  * `CREATE USER '`[*Choose a user name*{: style="color: #f00;"}]`'@'localhost' IDENTIFIED BY '`[*Choose a password*{: style="color:#f00;"}]`';`
+  * `CREATE USER '`[*Choose a user name*{: style="color: #f00;"}]`'@'%' IDENTIFIED BY '`[*The same password*{: style="color: #f00;"}]`';`
+  * `GRANT ALL ON *.* TO '`[*Choose a user name*{: style="color: #f00;"}]`'@'localhost';`
+  * `GRANT ALL ON *.* TO '`[*Choose a user name*{: style="color: #f00;"}]`'@'%';`
+
+* Example commands:
+  * `CREATE USER '`<span class="placeholder-example">remoteuser</span>`'@'localhost' IDENTIFIED BY '`<span class="placeholder-example">[redacted]</span>`';`
+  * `CREATE USER '`<span class="placeholder-example">remoteuser</span>`'@'%' IDENTIFIED BY '`<span class="placeholder-example">[redacted]</span>`';`
+  * `GRANT ALL ON *.* TO '`<span class="placeholder-example">remoteuser</span>`'@'localhost';`
+  * `GRANT ALL ON *.* TO '`<span class="placeholder-example">remoteuser</span>`'@'%';`

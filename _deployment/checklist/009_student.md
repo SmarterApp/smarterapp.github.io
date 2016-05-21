@@ -44,7 +44,9 @@ categories: ["deployment", "checklist", "tds"]
 
 #### Download War Files
 * Download the latest `.war` file for the Student Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/testadmin-R01.00.74.war -O /var/lib/tomcat7/webapps/student.war`
+  * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/`[*Latest .war file*{: style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/student.war`
+  * Exmaple:
+    * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/`<span class="placeholder-example">student-1.0.1-BUILD-SNAPSHOT.war</span>` -O /var/lib/tomcat7/webapps/student.war`
 
 #### Update the pm-client-security.properties File
 * Add the following properties to the Proctor's `pm-client-security.properties`:

@@ -163,10 +163,11 @@ drwxrwxr-x 13 ubuntu ubuntu 4.0K Apr 11 04:16 tds-build
 
 * Example ProgMan properties for Permissions:
 
-~~~~
-datasource.url=jdbc:mysql://54.191.75.254:3306/permissions_db
-datasource.username=remoteuser
-datasource.password=[redacted]
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>datasource.url=jdbc:mysql://<span class="placeholder-example">54.191.75.254:3306</span>/permissions_db
+datasource.username=<span class="placeholder-example">remoteuser</span>
+datasource.password=<span class="placeholder-example">[redacted]</span>
 datasource.driverClassName=com.mysql.jdbc.Driver
 datasource.minPoolSize=5
 datasource.acquireIncrement=5
@@ -174,22 +175,23 @@ datasource.maxPoolSize=20
 datasource.checkoutTimeout=60000
 datasource.maxConnectionAge=0
 datasource.acquireRetryAttempts=5
-permission.uri=http://54.213.111.234:8080/rest
-permission.security.profile=Development
+permission.uri=<span class="placeholder-example">http://54.213.111.234:8080</span>/rest
+permission.security.profile=<span class="placeholder-example">Development</span>
 component.name=Permissions
-permission.security.idp=https://sso-deployment.sbtds.org/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac
-permission.webapp.saml.metadata.filename=perm-saml-sp.xml
-permission.security.saml.keystore.pass=[redacted]
+permission.security.idp=https://<span class="placeholder-example">sso-deployment.sbtds.org</span>/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac
+permission.webapp.saml.metadata.filename=<span class="placeholder-example">perm-saml-sp.xml</span>
+permission.security.saml.keystore.pass=<span class="placeholder-example">[redacted]</span>
 permission.security.dir=file:////var/lib/tomcat7/resources/security
-permission.security.saml.keystore.cert=perm-saml-sp
-permission.security.saml.alias=permissions_web
-oauth.tsb.client=tsb
-oauth.access.url=https://sso-deployment.sbtds.org/auth/oauth2/access_token?realm=/sbac
-oauth.tsb.client.secret=[redacted]
-permission.oauth.resource.client.secret=[redacted]
-permission.oauth.resource.client.id=pm
-permission.oauth.checktoken.endpoint=https://sso-deployment.sbtds.org/auth/oauth2/tokeninfo?realm=/sbac
-~~~~
+permission.security.saml.keystore.cert=<span class="placeholder-example">perm-saml-sp</span>
+permission.security.saml.alias=<span class="placeholder-example">permissions_web</span>
+oauth.tsb.client=<span class="placeholder-example">tsb</span>
+oauth.access.url=https://<span class="placeholder-example">sso-deployment.sbtds.org/auth/oauth2/access_token?realm=/sbac</span>
+oauth.tsb.client.secret=<span class="placeholder-example">[redacted]</span>
+permission.oauth.resource.client.secret=<span class="placeholder-example">[redacted]</span>
+permission.oauth.resource.client.id=<span class="placeholder-example">pm</span>
+permission.oauth.checktoken.endpoint=https://<span class="placeholder-example">sso-deployment.sbtds.org</span>/auth/oauth2/tokeninfo?realm=/sbac</code>
+</pre>
+</div>
 
 ### Deploy Permissions Components
 
@@ -201,18 +203,20 @@ permission.oauth.checktoken.endpoint=https://sso-deployment.sbtds.org/auth/oauth
 
 * Example:
 
-~~~~
-JAVA_OPTS="-Djava.awt.headless=true\
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>JAVA_OPTS="-Djava.awt.headless=true\
  -XX:+UseConcMarkSweepGC\
- -Xms512m\
- -Xmx1024m\
- -XX:PermSize=512m\
- -XX:MaxPermSize=512m\
- -DSB11_CONFIG_DIR=$CATALINA_BASE/resources\
+ -Xms<span class="placeholder-example">512m</span>\
+ -Xmx<span class="placeholder-example">1024m</span>\
+ -XX:PermSize=<span class="placeholder-example">512m</span>\
+ -XX:MaxPermSize=5<span class="placeholder-example">12m</span>\
+ -DSB11_CONFIG_DIR=$CATALINA_BASE/resources</code>\
  -Dspring.profiles.active=progman.client.impl.integration,mna.client.null\
- -Dprogman.baseUri=http://52.34.140.123:8080/rest/\
- -Dprogman.locator=permissions,Development"
-~~~~
+ -Dprogman.baseUri=<span class="placeholder-example">http://52.34.140.123:8080</span>/rest/\
+ -Dprogman.locator=<span class="placeholder-example">permissions</span>,<span class="placeholder-example">Development</span>"</code>
+</pre>
+</div>
 
 * Create a directory for the Permissions log files:
   * `sudo mkdir -p /usr/share/tomcat7/logs/permission`
@@ -224,7 +228,9 @@ JAVA_OPTS="-Djava.awt.headless=true\
 
 #### Download War File
 * Download the latest `.war` file for the Permissions Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/permissions_release/downloads/permissions-R01.00.38.war -O /var/lib/tomcat7/webapps/ROOT.war`
+  * `sudo wget https://bitbucket.org/fwsbac/permissions_release/downloads/`[*Name of latest .war file*{: style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/ROOT.war`
+  * Example:
+    * `sudo wget https://bitbucket.org/fwsbac/permissions_release/downloads/`<span class="placeholder-example">permissions-R01.00.38.war</span>` -O /var/lib/tomcat7/webapps/ROOT.war`
 
 {% include checklist/tomcat_pm_client_security_props.md %}
 

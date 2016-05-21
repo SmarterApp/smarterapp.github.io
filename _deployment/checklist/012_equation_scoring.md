@@ -64,8 +64,12 @@ Python 2.7.6
     * `cd CherryPy-3.6.0 && sudo python setup.py install`
 
 ### Deploy the Equation Scoring Service
-* Copy the `EqScoringWebService.py` to the desired deployment directory (created earlier)
+* Clone the `itemscoring_release` repository:
+  * `hg clone https://`[*BitBucket user or team name*{: style="color: #f00;"}]`/fwsbac/itemscoring_release`
   * Example:
+    * `hg clone https://`<span class="placeholder-example">jjohnson-fwtech@bitbucket.org</span>`/fwsbac/itemscoring_release`
+* Copy the [*/path/to/itemscoring/repo*{: style="color: #f00;"}]`/sympy-scripts/EqScoringWebService.py` to the desired deployment directory (created earlier)
+  * Example (assuming the `hg clone` was run on a machine other than the AWS instance):
     * `scp -i `<span class="placeholder-example">~/.ssh/tds/ssh-dev.pem</span>` `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/repositories</span>`/itemscoring_release/sympy-scripts/EqScoringWebService.py ubuntu@`<span class="placeholder-example">54.186.182.136</span>`:`<span class="placeholder-example">/opt/sbtds/eqsvc</span>
 
 ### Start the Equation Scoring Service

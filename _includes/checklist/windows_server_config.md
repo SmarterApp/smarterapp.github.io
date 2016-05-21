@@ -18,7 +18,6 @@
   * A dialog will appear (shown to the right in the screenshot) to confirm adding the feature.  Click **Add Features** to confirm
   * Check the **Application Developmen** checkbox beneath the **Web Server (IIS)** role
   * Choose to install **ASP.NET 4.5**
-  * <span style="background-color: #ff0;">Get New SCREENSHOT</span>
 
   ![Choose Web Server Role](/res/images/checklist/add-roles-features-03-web-server-role.png){: width="85%" }
 

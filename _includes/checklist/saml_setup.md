@@ -20,14 +20,17 @@
   * **NOTE:** Typically a `<security:http>` element can be found around line 31 of the `securityContext.xml` file
   * Example:
 
-~~~~
-<security:http entry-point-ref="delegatingAuthenticationEntryPoint" use-expressions="true">
-    <security:custom-filter before="FIRST" ref="metadataGeneratorFilter" />
-    <security:custom-filter ref="oauth2ProviderFilter" before="PRE_AUTH_FILTER" />
-    <security:custom-filter after="BASIC_AUTH_FILTER" ref="samlFilter"/>
-    <security:intercept-url pattern="/**" access="isFullyAuthenticated()"/>
-</security:http>
-~~~~
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>&lt;security:http entry-point-ref="delegatingAuthenticationEntryPoint" use-expressions="true"&gt;
+    <span class="placeholder-example">&lt;security:custom-filter before="FIRST" ref="metadataGeneratorFilter" /&gt;</span>
+    &lt;security:custom-filter ref="oauth2ProviderFilter" before="PRE_AUTH_FILTER" /&gt;
+    &lt;security:custom-filter after="BASIC_AUTH_FILTER" ref="samlFilter"/&gt;
+    &lt;security:intercept-url pattern="/**" access="isFullyAuthenticated()"/&gt;
+&lt;/security:http&gt;</code>
+</pre>
+</div>
+
 
 * Add configuration for the SAML metadata generator to `securityContext.xml`:
   * Add the following `<bean>` definitions to `securityContext.xml`, immediately after the closing `</security:http>` tag:

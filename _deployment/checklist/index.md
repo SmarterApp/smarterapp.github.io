@@ -28,7 +28,7 @@ The following assumptions are made:
 * The Windows server instances will use the **Microsoft Windows Server 2012 R2 Base**{: style="color: #04384e"} 64-bit operating system
 
 ## Disclaimer
-The intent of these checklists are to install/deploy the Shared Services and Test Delivery System with minimal effort.  This document does not account for security considerations or network topology/layout of servers.  System administrators, network administrators, database administrators and/or developers involved in deploying the Shared Services and Test Delivery System are left to their own recognizance for identifying and following their own practices/standards for creating and securing their environment.  <span style="background-color: #ff0;">**TODO:** Brant et al might want to build on this statement; we don't want to assume any liability for security risks if people follow these instructions exactly</span>
+The intent of these checklists are to install/deploy the Shared Services and Test Delivery System with minimal effort.  This document does not account for security considerations or network topology/layout of servers.  System administrators, network administrators, database administrators and/or developers involved in deploying the Shared Services and Test Delivery System are left to their own recognizance for identifying and following their own practices/standards for creating and securing their environment.
 
 # Deployment Checklists
 

@@ -25,8 +25,8 @@ categories: ["deployment", "checklist", "tds"]
   * `hg clone https://[your bitbucket user name]@bitbucket.org/sbacoss/tdsdll_release`
     * Example:  `hg clone https://jjohnson-fwtech@bitbucket.org/sbacoss/tdsdll_release`
 * Clone the Fairway `tds-build` repository:
-  * `git clone https://[your bitbucket username]@bitbucket.org/fwsbac/tds-build.git`
-    * Example:  `git clone https://jjohnson-fwtech@bitbucket.org/fwsbac/tds-build.git`
+  * `git clone https://`[*your bitbucket username*{: style="color: #f00;"}]`@bitbucket.org/fwsbac/tds-build.git`
+    * Example:  `git clone https://`<span class="placeholder-example">jjohnson-fwtech@bitbucket.org</span>`/fwsbac/tds-build.git`
 * ***NOTE:*** When cloning the repositories above, they should be "siblings" at the same level.  For example, if both
 repositories are cloned in the `ubuntu` user's home directory, the directory will look like this:
 
@@ -519,8 +519,7 @@ proctor.webapp.saml.metadata.filename=<span class="placeholder-example">proctor_
 proctor.sessionType=0
 proctor.TDSArchiveDBName=<span class="placeholder-example">archive</span>
 proctor.TDSConfigsDBName=<span class="placeholder-example">configs</span>
-proctor.TDSSessionDBName=<span class="placeholder-example">session</span>
-</code>
+proctor.TDSSessionDBName=<span class="placeholder-example">session</span></code>
 </pre>
 </div>
 
@@ -534,18 +533,20 @@ proctor.TDSSessionDBName=<span class="placeholder-example">session</span>
 
 * Example `JAVA_OPTS` for TDS application server:
 
-~~~~
-JAVA_OPTS="-Djava.awt.headless=true\
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>JAVA_OPTS="-Djava.awt.headless=true\
  -XX:+UseConcMarkSweepGC\
- -Xms1024m\
- -Xmx4096m\
- -XX:PermSize=512m\
- -XX:MaxPermSize=1512m\
+ -Xms<span class="placeholder-example">1024m</span>\
+ -Xmx<span class="placeholder-example">4096m</span>\
+ -XX:PermSize=<span class="placeholder-example">512m</span>\
+ -XX:MaxPermSize=<span class="placeholder-example">1512m</span>\
  -DSB11_CONFIG_DIR=$CATALINA_BASE/resources\
- -Dprogman.baseUri=http://52.34.140.123:8080/rest/\
+ -Dprogman.baseUri=<span class="placeholder-example">http://52.34.140.123:8080</span>/rest/\
  -Dspring.profiles.active=mna.client.null,progman.client.impl.integration,server.singleinstance\
- -Dprogman.locator=tds,Development"
-~~~~
+ -Dprogman.locator=<span class="placeholder-example">tds</span>,<span class="placeholder-example">Development</span>"</code>
+</pre>
+</div>
 
 #### Create Proctor Log File Directories
 * Create a directory for Proctor log file:
@@ -558,7 +559,9 @@ JAVA_OPTS="-Djava.awt.headless=true\
 
 #### Download War Files
 * Download the latest `.war` file for the Proctor Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/testadmin-1.0.0-BUILD-SNAPSHOT.war -O /var/lib/tomcat7/webapps/ROOT.war`
+  * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/`[*Latest .war file*{: style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/ROOT.war`
+  * Example:
+    * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/`<span class="placeholder-example">testadmin-1.0.0-BUILD-SNAPSHOT.war</span>` -O /var/lib/tomcat7/webapps/ROOT.war`
 
 {% include checklist/tomcat_pm_client_security_props.md %}
 
