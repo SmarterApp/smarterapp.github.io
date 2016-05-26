@@ -1,6 +1,6 @@
 ---
 title: Item Metadata Specification
-date: 2014-11-25
+date: 2016-05-26
 docurl: /documents/Item_Metadata_Specification.pdf
 status: Acceptance Candidate
 ---
