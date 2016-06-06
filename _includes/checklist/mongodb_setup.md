@@ -24,9 +24,7 @@
 * Configure MongoDB by copying the following into `/etc/mongodb.conf`:
 * ***IMPORTANT:***{: style="color: #f00;"} *The config file below has `noauth=true` set.  This is a temporary configuration to allow for adding MongoDB user accounts.  This setting will be changed later in the checklist.*{: style="background-color: #ff0;"}
 
-<div class="highlighter-rouge" style="display: inline-flex;">
-<pre class="highlight">
-<code>
+~~~~
 # mongodb.conf
 
 # Where to store the data.
@@ -121,9 +119,7 @@ noauth = true
 #oplogSize = <MB>
 # Size limit for in-memory storage of op ids.
 #opIdMem = <bytes>
-</code>
-</pre>
-</div>
+~~~~
 
 * Restart MongoDB:
   * `sudo service mongodb restart`
