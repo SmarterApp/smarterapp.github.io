@@ -18,7 +18,9 @@
   * `sudo chown mysql:mysql /var/tmp/mysql`
 * Update `/etc/mysql/my.cnf` to appear as follows:
 
-~~~~
+<div class="highlighter-rouge" style="display: inline-flex;">
+<pre class="highlight">
+<code>
 #
 # The MySQL database server configuration file.
 #
@@ -148,7 +150,9 @@ key_buffer      = 16M
 #   The files must end with '.cnf', otherwise they'll be ignored.
 #
 !includedir /etc/mysql/conf.d/
-~~~~
+</code>
+</pre>
+</div>
 
 * Restart MySQL:
   * `sudo service mysql restart`

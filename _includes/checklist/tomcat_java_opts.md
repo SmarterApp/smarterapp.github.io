@@ -1,6 +1,6 @@
 * Edit the `/etc/default/tomcat` file, updating the `JAVA_OPTS` value to what's shown below:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>JAVA_OPTS="-Djava.awt.headless=true\
  -XX:+UseConcMarkSweepGC\

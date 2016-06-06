@@ -27,7 +27,7 @@
   * Provide the password to the keystore created previously.
   * Answer the prompts.  Example of the command and prompts shown below:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>sudo keytool -genkey -alias progman-saml-sp -keyalg RSA -keystore ./resources/security/samlKeystore.jks  -keysize 2048
 Enter keystore password:
@@ -54,7 +54,7 @@ Is CN=ProgMan Component, OU=sbac, O=SBAC, L=San Diego, ST=California, C=US corre
     * Example:  `sudo keytool -list -keystore `<span class="placeholder-example">/var/lib/tomcat7/resources/security</span>`/samlKeystore.jks`
   * Output will be similar to the following (after providing the correct password):
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>Enter keystore password:
 

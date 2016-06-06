@@ -38,10 +38,15 @@ categories: ["deployment", "checklist", "shared_services"]
   * `sudo dpkg --get-selections | grep openssh-sftp-server`
   * Example output:
 
-~~~~
+<div class="highlighter-rouge" style="display: inline-flex;">
+<pre class="highlight">
+<code>
 ubuntu@opendj-deploy:/home/art_userftp$ sudo dpkg --get-selections | grep openssh-sftp-server
 openssh-sftp-server       install
-~~~~
+</code>
+</pre>
+</div>
+
 
   * If no result was returned, install the `openssh-server` using the following steps:
     * `sudo apt-get update`
@@ -171,7 +176,7 @@ my $inputXMLFileDir    = "<span class="placeholder-example">/opt/dropbox/sftp_ro
 
 * Example of configured `/opt/scripts/sbacProcessXML.pl`:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display:inline-flex;">
 <pre class="highlight">
 my $inputXMLFileDir    = "<span class="placeholder-example">/opt/dropbox</span>";         # folder where the XML files are uploaded
 my $processedFileDir   = "<span class="placeholder-example">/opt/scripts/sbacXMLFiles</span>";      # folder where the XML files are stored after processing

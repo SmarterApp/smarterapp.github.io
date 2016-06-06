@@ -52,7 +52,7 @@ categories: ["deployment", "checklist", "shared_services"]
 
 * Example:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>JAVA_OPTS="-Djava.awt.headless=true\
  -XX:+UseConcMarkSweepGC\
@@ -83,7 +83,7 @@ categories: ["deployment", "checklist", "shared_services"]
 * Create a `rest-endpoints.properties` file in `/var/lib/tomcat7/resources/progman`
 * Copy the following into `/var/lib/tomcat7/resources/progman/rest-endpoints.properties`:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>#base URLs for REST endpoints, replace with URLs that work for the server this is being run on
 pm.rest.service.endpoint=http://[<span class="placeholder">FQDN or IP Address of ProgMan REST component, defeault port is 8080</span>]/rest
@@ -93,7 +93,7 @@ pm.minJs=false</code>
 </div>
 An example of a configured `rest-endpoints.properties`:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>#base URLs for REST endpoints, replace with URLs that work for the server this is being run on
 pm.rest.service.endpoint=http://<span class="placeholder-example">52.32.255.241:8080</span>/rest
@@ -110,7 +110,7 @@ pm.minJs=false</code>
 * Create a `progman-bootstrap.properties` file in `/var/lib/tomcat7/resources/progman`
 * Copy the following into `/var/lib/tomcat7/resources/progman/progman-bootstrap.properties`:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>#mna.properties
 progman.mna.description="The Program Management Component ([<span class="placeholder">environment name</span>])"
@@ -153,7 +153,7 @@ logfile.path=/var/log/tomcat7/</code>
 
 An example of a configured `progman-bootstrap.properties`:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>#mna.properties
 progman.mna.description="The Program Management Component (<span class="placeholder-example">Development</span>)"
@@ -227,7 +227,7 @@ logfile.path=/var/log/tomcat7/</code>
   * `DB=`[*The name of the database containing ProgMan's data*{: style="color: #f00;"}]
 * Example:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>HOST=<span class="placeholder-example">54.201.173.209</span>     # The FQDN or IP address of the MongoDB server hosting the ProgMan database
 PORT=<span class="placeholder-example">27017</span>              # The port on which MongoDB is listening

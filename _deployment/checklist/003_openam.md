@@ -159,7 +159,7 @@ categories: ["deployment", "checklist", "shared_services"]
 #### Verify OAuth Access Token Retrieval
 * Run the following `cURL` command:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>curl -i -X POST \
    -H "Content-Type:application/x-www-form-urlencoded" \

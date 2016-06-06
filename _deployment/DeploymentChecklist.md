@@ -1,6 +1,6 @@
 ---
 title: Deployment Checklist
-date: 2016-03-30
+date: 2016-06-06
 docurl: /deployment/checklist/index.html
 status: Release
 categories: ["deployment"]

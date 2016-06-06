@@ -1,7 +1,7 @@
 * Create a `pm-client-security.properties` file in `/var/lib/tomcat7/resources/progman`
 * Copy the following into `/var/lib/tomcat7/resources/progman/pm-client-security.properties`:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>oauth.access.url=https://[<span class="placeholder">FQDN or IP address of OpenAM server</span>]/auth/oauth2/access_token?realm=/sbac
 pm.oauth.client.id=[<span class="placeholder">OAuth client id from OpenAM</span>]

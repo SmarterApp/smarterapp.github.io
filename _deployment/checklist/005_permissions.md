@@ -163,7 +163,7 @@ drwxrwxr-x 13 ubuntu ubuntu 4.0K Apr 11 04:16 tds-build
 
 * Example ProgMan properties for Permissions:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>datasource.url=jdbc:mysql://<span class="placeholder-example">54.191.75.254:3306</span>/permissions_db
 datasource.username=<span class="placeholder-example">remoteuser</span>
@@ -203,7 +203,7 @@ permission.oauth.checktoken.endpoint=https://<span class="placeholder-example">s
 
 * Example:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>JAVA_OPTS="-Djava.awt.headless=true\
  -XX:+UseConcMarkSweepGC\

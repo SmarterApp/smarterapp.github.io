@@ -20,7 +20,7 @@
   * **NOTE:** Typically a `<security:http>` element can be found around line 31 of the `securityContext.xml` file
   * Example:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>&lt;security:http entry-point-ref="delegatingAuthenticationEntryPoint" use-expressions="true"&gt;
     <span class="placeholder-example">&lt;security:custom-filter before="FIRST" ref="metadataGeneratorFilter" /&gt;</span>
@@ -35,7 +35,7 @@
 * Add configuration for the SAML metadata generator to `securityContext.xml`:
   * Add the following `<bean>` definitions to `securityContext.xml`, immediately after the closing `</security:http>` tag:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>&lt;bean id="metadataGeneratorFilter" class="org.springframework.security.saml.metadata.MetadataGeneratorFilter"&gt;
     &lt;constructor-arg ref="metadataGenerator"/&gt;
@@ -57,7 +57,7 @@
 
 * Example of a `metadataGenerator` configured with an `entityId` of <span class="placeholder-example">progman_rest</span>:
 
-<div class="highlighter-rouge">
+<div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
 <code>&lt;bean id="metadataGeneratorFilter" class="org.springframework.security.saml.metadata.MetadataGeneratorFilter"&gt;
     &lt;constructor-arg ref="metadataGenerator"/&gt;
