@@ -1,6 +1,6 @@
 ---
 title: Smarter Balanced Test Delivery Hosting Requirements
-date: 2014-06-06
+date: 2016-06-06
 docurl: /documents/Smarter_Balanced_Hosting_Requirements_V3.pdf
 status: Release
 version: v3
