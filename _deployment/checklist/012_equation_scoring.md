@@ -11,8 +11,8 @@ categories: ["deployment", "checklist", "tds"]
 |:-----|:------------|
 | Purpose | Python service for scoring some math equations |
 | Communicates With | Student |
-| Repository Location | [https://bitbucket.org/sbacoss/itemscoring_release/sympy-scripts](https://bitbucket.org/sbacoss/itemscoring_release/src/50919ffcdb29d6f5bb42b65433de90971a0b8c7f/sympy-scripts/?at=default) |
-| Additional Documentation | [student-progman-config.txt](https://bitbucket.org/sbacoss/student_release/src/a5de012d932d58a2cf1e29c06fd8047fcbce1a00/Documents/Installation/student-progman-config.txt?at=default) |
+| Repository Location | [https://github.com/SmarterApp/TDS_ItemScoring/tree/master/sympy-scripts](https://github.com/SmarterApp/TDS_ItemScoring/tree/master/sympy-scripts){:target="_blank"} |
+| Additional Documentation | [student-progman-config.txt](https://github.com/SmarterApp/TDS_Student/blob/master/Documents/Installation/student-progman-config.txt){:target="_blank"} |
 
 ***NOTE:***{: style="color: #f00"} *The Equation Scoring Service is typically deployed to the same application server that hosts the Student and Proctor applications.  That is, a single AWS instance will host the Student and Proctor applications in addition to the Equation Scoring Service.*{: style="color: #04384e"}
 
@@ -64,13 +64,13 @@ Python 2.7.6
     * `cd CherryPy-3.6.0 && sudo python setup.py install`
 
 ### Deploy the Equation Scoring Service
-* Clone the `itemscoring_release` repository:
-  * `hg clone https://`[*BitBucket user or team name*{: style="color: #f00;"}]`/fwsbac/itemscoring_release`
-  * Example:
-    * `hg clone https://`<span class="placeholder-example">jjohnson-fwtech@bitbucket.org</span>`/fwsbac/itemscoring_release`
+* Clone the `TDS_ItemScoring`repository from Smarter Balanced GitHub to the server:
+  * `git clone https://github.com/`[*Your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/TDS_ItemScoring.git`
+  <br>Example:
+    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/TDS_ItemScoring.git`
 * Copy the [*/path/to/itemscoring/repo*{: style="color: #f00;"}]`/sympy-scripts/EqScoringWebService.py` to the desired deployment directory (created earlier)
-  * Example (assuming the `hg clone` was run on a machine other than the AWS instance):
-    * `scp -i `<span class="placeholder-example">~/.ssh/tds/ssh-dev.pem</span>` `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/repositories</span>`/itemscoring_release/sympy-scripts/EqScoringWebService.py ubuntu@`<span class="placeholder-example">54.186.182.136</span>`:`<span class="placeholder-example">/opt/sbtds/eqsvc</span>
+  * Example (assuming the `git clone` was run on a machine other than the AWS instance):
+    * `scp -i `<span class="placeholder-example">~/.ssh/tds/ssh-dev.pem</span>` `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/repositories</span>`/TDS_ItemScoring/sympy-scripts/EqScoringWebService.py ubuntu@`<span class="placeholder-example">54.186.182.136</span>`:`<span class="placeholder-example">/opt/sbtds/eqsvc</span>
 
 ### Start the Equation Scoring Service
 * Run the following command to start the Equation Scoring Service as a background process:

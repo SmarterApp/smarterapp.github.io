@@ -10,9 +10,9 @@ categories: ["deployment", "checklist", "tds"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Scores test items |
-| Communicates With | Student, TIS |
-| Repository Location | [https://bitbucket.org/sbacoss/itemscoring_release](https://bitbucket.org/sbacoss/itemscoring_release) |
-| Additional Documentation | [README](https://bitbucket.org/sbacoss/itemscoring_release/src/50919ffcdb29d6f5bb42b65433de90971a0b8c7f/README.md?fileviewer=file-view-default), [Running Item Scoring Engine](https://bitbucket.org/sbacoss/itemscoring_release/src/50919ffcdb29d6f5bb42b65433de90971a0b8c7f/docs/?at=default) |
+| Communicates With | Student<br>TIS |
+| Repository Location | [https://github.com/SmarterApp/TDS_ItemScoring](https://github.com/SmarterApp/TDS_ItemScoring){:target="_blank"} |
+| Additional Documentation | [README](https://github.com/SmarterApp/TDS_ItemScoring/blob/master/README.md){:target="_blank"}<br>[Running Item Scoring Engine](https://github.com/SmarterApp/TDS_ItemScoring/blob/master/docs/Running%20Item%20Scoring%20Engine.docx){:target="_blank"} |
 
 ***NOTE:***{: style="color: #f00;"} *The Item Scoring component is typically deployed to the same application server that hosts the Student and Proctor applications.  That is, a single AWS instance will host the Student and Proctor applications.*{: style="color: #04384e;"}
 

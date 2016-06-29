@@ -18,4 +18,4 @@
 
   * When satisifed with all settings, click **Publish**
 
-![Choose Publish](/res/images/checklist/vs_06_preview_thenpublish.png){: width="100%"}
+![Choose Publish](/res/images/checklist/vs_06_preview_then_publish.png){: width="100%"}

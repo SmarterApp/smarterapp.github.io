@@ -10,9 +10,9 @@ categories: ["deployment", "checklist", "tds"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Provide interface for teachers to hand-score assessment items |
-| Communicates With | OpenAM, Permissions, ART, TIS |
-| Repository Location | [https://bitbucket.org/sbacoss/testintegrationsystem_release](https://bitbucket.org/sbacoss/testintegrationsystem_release) |
-| Additional Documentation | [README](https://bitbucket.org/fwsbac/teacherhandscoresys_release), [reportxml_os.xsd](https://bitbucket.org/fwsbac/teacherhandscoresys_release/src/9208d85c5fc1281ff2bb11ba7bad7e07df5fcf23/Docs/reportxml_os.xsd?at=default&fileviewer=file-view-default), [SAML Templates](https://bitbucket.org/fwsbac/teacherhandscoresys_release/src/9208d85c5fc1281ff2bb11ba7bad7e07df5fcf23/Docs/SAML/?at=default) |
+| Communicates With | OpenAM<br>Permissions<br>ART<br>TIS |
+| Repository Location | [https://github.com/SmarterApp/TDS_TestIntegrationSystem](https://github.com/SmarterApp/TDS_TestIntegrationSystem){:target="_blank"} |
+| Additional Documentation | [README](https://github.com/SmarterApp/TDS_TeacherHandScoringSystem/blob/master/README.md)<br>[reportxml_os.xsd](https://github.com/SmarterApp/TDS_TeacherHandScoringSystem/blob/master/Docs/reportxml_os.xsd){:target="_blank"}<br>[SAML Templates](https://github.com/SmarterApp/TDS_TeacherHandScoringSystem/tree/master/Docs/SAML){:target="_blank"} |
 
 ***NOTE:***{: style="color: #f00"} *The THSS database can reside on the same MSSQL Server that hosts the TIS databases.*{: style="color: #04384e"}
 
@@ -59,10 +59,10 @@ categories: ["deployment", "checklist", "tds"]
 ## Deploy the Teacher Hand Scoring System
 
 ### Build the Test Hand Scoring System
-* Clone the THSS repository to a machine that can build .NET applications:
-  * `hg clone https://`[*your BitBucket user or team name*{: style="color: #f00;"}]`/sbacoss/testintegrationsystem_release`
-  * Example:
-    * `hg clone https://`<span class="placeholder-example">jjohnson-fw@bitbucket.org</span>`/sbacoss/testintegrationsystem_release`
+* Clone the TDS_TeacherHandScoringSystem repository to a machine that can build .NET applications:
+  * `git clone https://github.com/`[*Your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/TDS_TestIntegrationSystem.git`
+  <br>Example:
+    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/TDS_TestIntegrationSystem.git`
 * Launch Visual Studio
 * Open the `Src/TSS.sln`
 
