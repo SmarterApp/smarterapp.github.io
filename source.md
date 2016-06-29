@@ -4,165 +4,252 @@ layout: default
 ---
 # Source Code
 
-[Smarter Balanced](http://www.smarterbalanced.org) has developed the SmarterApp assessment platform to support its own needs and to advance assessment technology worldwide. Each of the following components resides in its own source code repository. Please check the repository for the status of each.
+[Smarter Balanced](http://www.smarterbalanced.org){: target="_blank"} has developed the SmarterApp assessment platform to support its own needs and to advance assessment technology worldwide. Each of the following components contains one or more source code repositories located in the SmarterApp organization on [GitHub](https://github.com/SmarterApp){: target="_blank"}.
 
-[Click Here for the full BitBucket Source Code Repository](https://bitbucket.org/sbacoss) (Test Authoring and Test Delivery Systems)
+## [Developer Quickstart Guide](https://github.com/SmarterApp/Home/wiki/Developer-Quickstart-Guide){: target="_blank"}
+ 
+ Visit the [quickstart guide](https://github.com/SmarterApp/Home/wiki/Developer-Quickstart-Guide){: target="_blank"} to view the requirements for participating in the development of Smarter Balanced software.  
+Included in this guide are the best practices for:
 
-[Click Here for the June 2016 updates to the BitBucket Source Code Repositories](https://bitbucket.org/account/user/fwsbac/projects/TDS) (Test Delivery Systems)
+ * Repository branching
+ * Version numbering
 
-[Click Here for the full GitHub Source Code Repository](https://github.com/SmarterApp) (All other components)
+## Components
+
+- [TDS – Test Delivery System](https://github.com/SmarterApp?utf8=%E2%9C%93&query=TDS_){: target="_blank"}
+- [RDW – Reporting and Data Warehouse](https://github.com/SmarterApp?utf8=%E2%9C%93&query=RDW_){: target="_blank"}
+- [DL – Digital Library](https://github.com/SmarterApp?utf8=%E2%9C%93&query=DL_){: target="_blank"}
+- [SB – Secure Browsers](https://github.com/SmarterApp?utf8=%E2%9C%93&query=SB_){: target="_blank"}
+- [AP – Assessment Production](https://github.com/SmarterApp?utf8=%E2%9C%93&query=AP_){:target="_blank"}
+- [IM – Identity Management](https://github.com/SmarterApp?utf8=%E2%9C%93&query=IM_){: target="_blank"}
+- [SS – Shared Services](https://github.com/SmarterApp?utf8=%E2%9C%93&query=SS_){: target="_blank"}
+
+---
+
+## [TDS - Test Delivery System](https://github.com/SmarterApp?utf8=%E2%9C%93&query=TDS_){: target="_blank"}
 
 
-## Item Authoring
-
-### [Item Authoring and Item Pool](https://github.com/SmarterApp/ItemAuthoring)
-The Item Authoring and Item Pool facilitates the process of writing new assessment items, reviewing them, and adding accessibility features.
-
-## Assessment Construction
-
-### [Test Authoring](https://bitbucket.org/sbacoss/testauthoring_release)
-The Test Authoring Component is responsible for test (assessment) design, construction, and publishing.
-
-The authenticated and authorized user can define subjects, computation rules (scoring functions), item selection algorithms, and build publication relationships, all of which are then used to author tests (assessments).
-
-Authoring of a test involves construction and configuration of segments, blueprints, test item import, forms, scoring rules, performance levels, reporting measures, and finally going through an approval workflow from users with appropriate authorization to perform approvals. The result is a test specification that can be published to Test Specification Bank (TSB) and made available further downstream for Administration and Registration Tools (ART) and Test Delivery (TDS).
-
-### [Test Item Bank](https://bitbucket.org/sbacoss/testitembank_release)
-The Test Item Bank component manages the importing and exporting of test (assessment) items. Major features include:
-
-* OAuth-based security
-* RESTful API
-* Multi-tenant support
-
-### [Test Specification Bank](https://bitbucket.org/sbacoss/testspecbank_release)
-The Test Specification Bank (TSB) component is responsible for test (assessment) specification storage, searching, and initiation of packaging. The authenticated and authorized user can search for test specifications that were published from Test Authoring, view the actual specification XML, and initiate a packaging of that specification which will bundle the XML with all related Test Item data to be compressed and stored in a remote Secure FTP host location.
-
-## Assessment Delivery
-
-### [Test Integration System](https://bitbucket.org/fwsbac/testintegrationsystem_release)
-
-The Test Integration System is responsible for
-
-* Receiving a test result from TDS (Test Delivery System)
-* Sending it to THSS (Teacher HandScoring System) for hand scoring of items that require human scoring
-* Receiving item scores back from THSS
-* Inserting item scores into the file received from TDS
-* Scoring the test
-* Sending the scored test to downstream systems via SFT
-
-### [Secure Browser](https://bitbucket.org/sbacoss/securebrowser7_release)
-The SmarterApp Secure Browser 7. This project takes the Mozilla FireFox source code and creates a secure browser that is used to deliver student assessments. The Secure Browser implements security features such as not permitting multiple tabs, browsing arbitrary URLs and enforcing a white list of applications.
-
-### [Test Delivery System / Proctor](https://bitbucket.org/fwsbac/tds_release)
-Test Delivery System / Proctor includes the following functionality:
-
-* Create /Pause or Stop Test Session
-* Approve or Reject Student Test Request
-
-### [Student Application](https://bitbucket.org/fwsbac/student_release)
-The Student application allows users to take tests either as a guest student or using the session ID generated by a Proctor. A student may also log in using a Guest session. If using an actual session ID, a request goes to the Proctor for approval (via the Proctor app). Once the Proctor approves the request, the student can begin the test.
-
-### [Test Delivery System Router](https://bitbucket.org/fwsbac/tds-router)
-The Test Delivery System Router is to be used for large installations that need to route Proctors and Students to segmented installations for scalability.
-
-### [Item Renderer](https://bitbucket.org/fwsbac/itemrenderer_release)
-The ItemRenderer project is a group of modules that can be used for rendering assessment items during the student tests.
-
-### [Content Uploader](https://bitbucket.org/sbacoss/contentuploader_release)
-The ContentUploader allows the following functions:
-
-* Upload the test packages to the server file system.
-* Publish the content to the Server in appropriate file structure as configured in the itembank db.
-* Update the content size.
-* Delete the Extraction folder or zip file.
-
-### [Item Selection Shell](https://bitbucket.org/sbacoss/itemselectionshell_release)
-The ItemSelectionShell project is group of modules which can be used for item selection in the Student tests.
-
-### [Item Scoring](https://bitbucket.org/sbacoss/itemscoring_release)
-The ItemScoring project is a group of modules that can be used for scoring student responses for different item types.
-
-### [TDS Maintenance](https://bitbucket.org/sbacoss/tdsmaintenance_release)
-The Test Delivery System Maintenance component runs daily using cron job. It looks for testopportunities that are not marked completed, their status is not in ("completed", "submitted", "scored", "expired", "reported", 'invalidated') and their expire timestamp is older than the configured number of hours.
-
-### [Administration and Registration Tools](https://bitbucket.org/fwsbac/adminandregtools_release)
-The Administration and Registration Tools (ART) component enables users to upload and maintain various data pertinent to the SmarterApp system including:
-
+>##### [Administration and Registration Tools (ART)](https://github.com/SmarterApp/TDS_AdministrationAndRegistrationTools){: target="_blank"}
+>Administration and Registration Tools (ART) component enables users to upload and maintain various data pertinent to the SmarterApp system including:
+>
 * Organizational hierarchy
 * Students
 * Accommodations
 * Administrators and Proctors
 * Assessments
 * Eligibility
-Other functionality includes importing assessments from Test Spec Bank, user provisioning and administration, and integration with Test Delivery, Single Sign On (SSO), and the Data Warehouse.
+* Other functionality including
+	* importing of assessments from Test Spec Bank
+	* user provisioning and administration
+	* integration with Test Delivery, Single Sign On (SSO), and the Data Warehouse
 
-### [Regression Test](https://github.com/SmarterApp/TestDeliverySystemRegressionTest)
-The Test Delivery System Regression Test contains a suite of regression tests for testing various tools, accommodations and features in the Test Delivery System (TDS).  The test suite uses the JUnit test framework in conjunction with Spring to load and run the tests.  All tests are written in Selenium, as web browser automation test framework.  By default, the regression test framework is built to utilize the Firefox WebDriver for all web interactions.
+>##### [Administrative](https://github.com/SmarterApp/TDS_Administrative){: target="_blank"}
+>The SmarterApp Administrative repository contains administrative scripts for the configuration, installation, maintenance of the SmarterApp system.
 
-### [Load Test](https://github.com/SmarterApp/TestDeliverySystemLoadTest)
-The Test Delivery System Load Test contains a jMeter test plan used to profile the performance of the Test Delivery System (TDS).  The load tests also contain Java code for generating response data for test questions, which is used by the load test, as well as python scripts for generating test seed data.
+>##### [CATSimulator](https://github.com/SmarterApp/TDS_CATsimulator){: target="_blank"}
+>The Computer Adaptive Test (CAT) simulator allows authorized users to configure and simulate tests for a specified number of times for a specified number of opportunities. This software provides a web interface to configure and manage simulations and run simulations asynchronously by spawning worker threads.
 
+>##### [Content Uploader](https://github.com/SmarterApp/TDS_ContentUploader){: target="_blank"}
+>Content Uploader allows the following functions:
+>
+* Upload the test packages to the server file system
+* Publish the content to the Server in appropriate file structure as configured in the itembank db
+* Update the content size
+* Delete the Extraction folder or zip file
 
-## Shared Services
+>##### [Dictionary](https://github.com/SmarterApp/TDS_Dictionary){: target="_blank"}
+>Dictionary is the integration of the Test Delivery System (TDS) with the Merriam-Webster dictionary.
 
-### [Portal](https://bitbucket.org/sbacoss/portal_release)
-The SmarterApp Portal has two basic functions. For non-logged-in users, it provides generic information regarding Smarter Balanced assessments, including links to download the Secure Browser. For logged-in users, the portal provides links to only the components for which the logged-in user has permissions, in the private pages. Some links may also be available on public-facing pages - but those are left to the discretion of the deploying entities. Portal's main features include:
-* SSO Integration
-* Private and Public pages
-* Built on the popular Wordpress platform
+>##### [Equation Scorer](https://github.com/SmarterApp/TDS_EquationScorer){: target="_blank"}
+>Application for evaluating answers to mathematics tests.
 
-### [Permissions](https://bitbucket.org/sbacoss/permissions_release)
-Permissions enables users to create Components, Permissions and Roles, and map component permissions to roles. It includes the following functionalities:
-* Manage Components (create, view and edit components)
-* Manage Component Permissions (create, view and edit component permissions)
-* Manage Roles (create, view, and edit roles, their allowable hierarchy levels and their restricted role status)
-* Map Roles to Component Permissions (create and manage mappings between roles and component permissions)
+>##### [Item Renderer](https://github.com/SmarterApp/TDS_ItemRenderer){: target="_blank"}
+>Item Renderer is a group of modules that can be used for rendering assessment items during the student tests.
 
-### [Program Management](https://bitbucket.org/sbacoss/programmanagement_release)
-The Program Management Component is responsible for configuration management and UI custom branding.
+>##### [Item Scoring](https://github.com/SmarterApp/TDS_ItemScoring){: target="_blank"}
+>Item Scoring is a group of modules that can be used for scoring student responses for different item types.
 
-### [Program Management Client](https://bitbucket.org/sbacoss/programmanagementclient_release)
-The Program Management Component is responsible for configuration management and UI custom branding. The Program Management Client allows other applications to interface with the Program Management Component in order to retrieve bootstrap initialization parameters and to interrogate tenancy-related information.
+>##### [Item Selection Shell](https://github.com/SmarterApp/TDS_ItemSelectionShell){: target="_blank"}
+>Item Selection Shell is group of modules which can be used for item selection in the Student tests.
 
-### [Core Standards](https://bitbucket.org/sbacoss/corestandards_release)
-CoreStandards enables users to serve standards publications. The UI includes the following functionalities:
+>##### [Proctor](https://github.com/SmarterApp/TDS_Proctor){: target="_blank"}
+>Proctor includes the following functionality:
+>
+* Create, Pause or Stop a test session
+* Approve or Reject a Student test request
 
+>##### [Student](https://github.com/SmarterApp/TDS_Student){: target="_blank"}
+>Student application allows users to take tests either as a guest student or using the session ID generated by a Proctor. A student may also log in using a Guest session. If using an actual session ID, a request goes to the Proctor for approval (via the Proctor app). Once the Proctor approves the request, the student can begin the test.
+
+>##### [Student Report Processor](https://github.com/SmarterApp/TDS_StudentReportProcessor){: target="_blank"}
+>Student Report Processor is a JAR which generates student XML reports and submits them to Test Integration System (TIS). It should be set up to run as a background process. It processes records in its queue one by one. The XML reports associated with the test opportunities for those records are sent to TIS and then deleted.
+
+>##### [Teacher Hand Scoring System](https://github.com/SmarterApp/TDS_TeacherHandScoringSystem){: target="_blank"}
+>Teacher Hand Scoring System was designed to be used by Teachers and Proctors of interim tests. It allows for the scoring of student responses and the reassigning of student responses to other proctors or teachers. 
+
+>##### [Test Delivery System Administration](https://github.com/SmarterApp/TDS_TestDeliverySystemAdministrationTool){: target="_blank"}
+>Test Delivery System Administration allows authorized users to manage students’ test opportunities. This software provides a web interface that allows for the selection of opportunities by SSID and/or Session ID, and apply a variety of functions to those opportunities. These functions include:
+>
+* Extend grace period
+* Extend expiration date
+* Reopen, Restore, Reset, Invalidate, and Change segment permeability of test opportunities
+
+>##### [Test Delivery System Data Access](https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess){: target="_blank"}
+>Test Delivery System Data Access is group of shared modules which can be used by other projects to access and manipulate databases. Test Delivery System Data Access contains business level logic of database reads and updates, most commonly perfomed by stored procedures.
+
+>##### [Test Delivery System Load Test](https://github.com/SmarterApp/TDS_TestDeliverySystemLoadTest){: target="_blank"}
+>Test Delivery System Load Test contains a jMeter test plan used to profile the performance of the Test Delivery System (TDS).  The load tests also contain Java code for generating response data for test questions, which is used by the load test, as well as python scripts for generating test seed data.
+
+>##### [Test Delivery System Maintenance](https://github.com/SmarterApp/TDS_TestDeliverySystemMaintenance){: target="_blank"}
+>Test Delivery System Maintenance component runs daily using cron job. It looks for test opportunities that are not marked completed, their status is not in ("completed", "submitted", "scored", "expired", "reported", 'invalidated') and their expire timestamp is older than the configured number of hours.
+
+>##### [Test Delivery System Regression Test](https://github.com/SmarterApp/TDS_TestDeliverySystemRegressionTest){: target="_blank"}
+>Test Delivery System Regression Test contains a suite of regression tests for testing various tools, accommodations and features in the Test Delivery System (TDS).  The test suite uses the JUnit test framework in conjunction with Spring to load and run the tests.  All tests are written in Selenium, as a web browser automation test framework.  By default, the regression test framework is built to utilize the Firefox WebDriver for all web interactions.
+
+>##### [Test Delivery System Router](https://github.com/SmarterApp/TDS_TestDeliverySystemRouter){: target="_blank"}
+>Test Delivery System Router is to be used for large installations that need to route Proctors and Students to segmented installations for scalability.
+
+>##### [Test Integration System](https://github.com/SmarterApp/TDS_TestIntegrationSystem){: target="_blank"}
+>Test Integration System is responsible for:
+>
+* Receiving a test result from TDS
+* Sending it to THSS (Teacher HandScoring System) for hand scoring of items that require human scoring
+* Receiving item scores back from THSS
+* Inserting item scores into the file received from TDS
+* Scoring the test
+* Sending the scored test to downstream systems via SFT
+
+---
+
+## [RDW - Reporting and Data Warehouse](https://github.com/SmarterApp?utf8=%E2%9C%93&query=RDW_){: target="_blank"}
+
+>##### [Reporting Data Warehouse](https://github.com/SmarterApp/RDW_DataWarehouse){: target="_blank"}
+>Reporting and Data Warehouse offers a secure and scalable multi-tenant system that houses student assessment and student registration data and provides tools for data access in HTML, CSV, and PDF formats.
+
+>##### [Reporting and Data Warehouse Deployment](https://github.com/SmarterApp/RDW_srl-devops){: target="_blank"}
+>Reporting and Data Warehouse deployment information and documentation.
+
+---
+
+## [DL - Digital Library](https://github.com/SmarterApp?utf8=%E2%9C%93&query=DL_){: target="_blank"}
+
+>##### [Digital Library](https://github.com/SmarterApp/DL_DigitalLibrary){: target="_blank"}
+>Information and configuration for the Digital Library site.
+
+---
+
+## [SB - Secure Browsers](https://github.com/SmarterApp?utf8=%E2%9C%93&query=SB_){: target="_blank"}
+
+>##### [Secure Browser 6.5](https://github.com/SmarterApp/SB_SecureBrowser65){: target="_blank"}
+Secure Browser 6.5 builds upon the Mozilla Firefox source code and creates a secure browser that is used to deliver student assessments. The Secure Browser implements security features such as not permitting multiple tabs, browsing arbitrary URLs and enforcing a white list of applications.
+
+>##### [Secure Browser 7](https://github.com/SmarterApp/SB_SecureBrowser7){: target="_blank"}
+>Secure Browser 7 builds upon the Mozilla FireFox source code and creates a secure browser that is used to deliver student assessments. The Secure Browser implements security features such as not permitting multiple tabs, browsing arbitrary URLs and enforcing a white list of applications.
+
+>##### [Mobile Secure Browser - Android](https://github.com/SmarterApp/SB_MobileSecureBrowser-Android){: target="_blank"}
+>Mobile Secure Browser for Android ensures a common, secure online testing experience by preventing users from switching to other applications and from performing certain hardware actions such as taking screenshots.
+
+>##### [Mobile Secure Browser - Chrome](https://github.com/SmarterApp/SB_MobileSecureBrowser-Chrome){: target="_blank"}
+>Mobile Secure Browser for ChromeOS ensures a common, secure online testing experience by preventing users from switching to other applications and from performing certain hardware actions such as taking screenshots.
+
+>##### [Mobile Secure Browser - iOS](https://github.com/SmarterApp/SB_MobileSecureBrowser-iOS){: target="_blank"}
+>Mobile Secure Browser for iOS ensures a common, secure online testing experience by preventing users from switching to other applications and from performing certain hardware actions such as taking screenshots.
+
+---
+
+## [AP - Assessment Production](https://github.com/SmarterApp?utf8=%E2%9C%93&query=AP_){: target="_blank"}
+
+>##### [Item Authoring and Item Pool](https://github.com/SmarterApp/AP_ItemAuthoring){: target="_blank"}
+>Item Authoring and Item Pool facilitates the process of writing new assessment items, reviewing them, and adding accessibility features.
+
+>##### [Test Authoring](https://github.com/SmarterApp/AP_TestAuthoring){: target="_blank"}
+>The Test Authoring Component is responsible for test (assessment) design, construction, and publishing.
+
+>The authenticated and authorized user can define subjects, computation rules (scoring functions), item selection algorithms, and build publication relationships, all of which are then used to author tests (assessments).
+
+>Authoring of a test involves construction and configuration of segments, blueprints, test item import, forms, scoring rules, performance levels, reporting measures, and finally going through an approval workflow from users with appropriate authorization to perform approvals. The result is a test specification that can be published to Test Specification Bank (TSB) and made available further downstream for Administration and Registration Tools (ART) and Test Delivery (TDS).
+
+>##### [Test Item Bank](https://github.com/SmarterApp/AP_TestItemBank){: target="_blank"}
+>The Test Item Bank component manages the importing and exporting of test (assessment) items. Major features include:
+>
+* OAuth-based security
+* RESTful API
+* Multi-tenant support
+
+---
+
+## [IM - Identity Management](https://github.com/SmarterApp?utf8=%E2%9C%93&query=IM_){: target="_blank"}
+
+>##### [OpenAM](https://github.com/SmarterApp/IM_OpenAM){: target="_blank"}
+>Contains ForgeRock OpenAM source code and any scripts necessary to create an OpenAM Single Sign On system.
+
+>##### [OpenDJ](https://github.com/SmarterApp/IM_OpenDJ){: target="_blank"}
+>Contains ForgeRock OpenDJ source code and any scripts necessary to create an OpenDL identity repository.
+
+---
+
+## [SS - Shared Services](https://github.com/SmarterApp?utf8=%E2%9C%93&query=SS_){: target="_blank"}
+
+>##### [Core Standards](https://github.com/SmarterApp/SS_CoreStandards){: target="_blank"}
+>CoreStandards enables users to serve standards publications. The UI includes the following functionalities:
+>
 * Create Publication From Spreadsheet
 * View Existing Publication
 * Download Publication Spreadsheet Instructions
 * Download Sample Publication Spreadsheet
 
-The API grants programmatic access to standards. Smarter Balanced loads its instance of Core Standards with the [Common Core State Standards](http://corestandards.org) and with the [Smarter Balanced Test Blueprints](http://www.smarterbalanced.org/smarter-balanced-assessments/).
+>The API grants programmatic access to standards. Smarter Balanced loads its instance of Core Standards with the [Common Core State Standards](http://corestandards.org){: target="_blank"} and with the [Smarter Balanced Test Blueprints](http://www.smarterbalanced.org/smarter-balanced-assessments/){: target="_blank"}.
 
-### [Monitoring and Alerting](https://bitbucket.org/sbacoss/monitoringandalerting_release)
-The Monitoring and Alerting (MnA) component aggregates Logging, Metrics, and Notifications. Log entries and notifications can be searched and managed through a central UI.
+>##### [Monitoring and Alerting](https://github.com/SmarterApp/SS_MonitoringAndAlerting){: target="_blank"}
+>Monitoring and Alerting component aggregates Logging, Metrics, and Notifications
 
-### [Monitoring and Alerting Client](https://bitbucket.org/sbacoss/monitoringandalertingclient_release)
-The SmarterApp Monitoring and Alerting Client aggregates Logging, Metrics, and Notifications. Log entries and notifications can be searched and managed through a central UI.
+>##### [Monitoring and Alerting Client](https://github.com/SmarterApp/SS_MonitoringAndAlertingClient){: target="_blank"}
+>Monitoring and Alerting Client is the central UI for viewing the aggregates of Logging, Metrics, and Notifications.
 
-## Software Build and Administration
+>##### [Permissions](https://github.com/SmarterApp/SS_Permissions){: target="_blank"}
+>Permissions enables users to create Components, Permissions and Roles, and map component permissions to roles. It includes the following functionalities:
+>
+* Manage Components (create, view and edit components)
+* Manage Component Permissions (create, view and edit component permissions)
+* Manage Roles (create, view, and edit roles, their allowable hierarchy levels and their restricted role status)
+* Map Roles to Component Permissions (create and manage mappings between roles and component permissions)
 
-### [Administrative](https://bitbucket.org/sbacoss/administrative_release)
-The SmarterApp Administrative repository contains administrative scripts for the configuration, installation, maintenance of the SmarterApp system.
+>##### [Portal](https://github.com/SmarterApp/SS_Portal){: target="_blank"}
+>Portal has two basic functions. For non-logged-in users, it provides generic information regarding Smarter Balanced assessments, including links to download the Secure Browser. For logged-in users, the portal provides links to only the components for which the logged-in user has permissions, in the private pages. Some links may also be available on public-facing pages - but those are left to the discretion of the deploying entities. Portal's main features include:
+>
+* SSO Integration
+* Private and Public pages
+* Built on the popular Wordpress platform
 
-### [Shared Build Component](https://bitbucket.org/sbacoss/sharedbuild_release)
-The Shared Build component has three modules:
+>##### [Program Management](https://github.com/SmarterApp/SS_ProgramManagement){: target="_blank"}
+>Program Management Component is responsible for configuration management and UI custom branding.
+
+>##### [Program Management Client](https://github.com/SmarterApp/SS_ProgramManagementClient){: target="_blank"}
+>Program Management Client Component is responsible for configuration management and UI custom branding. The Program Management Client allows other applications to interface with the Program Management Component in order to retrieve bootstrap initialization parameters and to interrogate tenancy-related information.
+
+>##### [REST API Generator](https://github.com/SmarterApp/SS_RestApiGenerator){: target="_blank"}
+>A tool for generating REST API Code.
+
+>##### [Shared Build](https://github.com/SmarterApp/SS_SharedBuild){: target="_blank"}
+>Shared Build has three modules:
+>
 * shared-build-parent: a POM (Project Object Model) artifact that holds the configuration for the build plugins and the code quality profile
 * quality-tools-config: a JAR (Java ARchive) that holds the resources (xml configuration) for the code quality profile in the parent
 * shared-dependencies: a POM that holds the declarations for the major shared dependencies for the SmarterApp development effort
 
-### [SharedMultiJar](https://bitbucket.org/sbacoss/sharedmultijar_release)
-The SharedMultiJarDev is group of shared modules that can be used by other projects for common functionality.
+>##### [Shared Code](https://github.com/SmarterApp/SS_SharedCode){: target="_blank"}
+>Contains code to be used across all SmarterApp projects.
 
-### [Shared Security Component](https://bitbucket.org/sbacoss/sharedsecurity_release)
-The Shared Security component contains reusable components for authentication and authorization.
+>##### [Shared Multi Jar](https://github.com/SmarterApp/SS_SharedMultiJar){: target="_blank"}
+>Shared Multi Jar is group of shared modules that can be used by other projects for common functionality.
 
-### [Test Delivery System Database Access](https://bitbucket.org/fwsbac/tdsdll_release)
-The TDSDLL is group of shared modules which can be used by other projects to access and manipulate databases. TDSDLL contains business level logic of database reads and updates most commonly perfomed by stored procedures.
+>##### [Shared Security](https://github.com/SmarterApp/SS_SharedSecurity){: target="_blank"}
+>Shared Security contains reusable components for authentication and authorization.
 
-### [REST API Generator](https://bitbucket.org/sbacoss/restapigenerator_release)
-A tool for generating REST API Code.
+>##### [Test Specification Bank (TSB)](https://github.com/SmarterApp/SS_TestSpecificationBank){: target="_blank"}
+>The Test Specification Bank (TSB) component is responsible for test (assessment) specification storage, searching, and initiation of packaging. The authenticated and authorized user can search for test specifications that were published from Test Authoring, view the actual specification XML, and initiate a packaging of that specification which will bundle the XML with all related Test Item data to be compressed and stored in a remote Secure FTP host location.
 
-## [Technology Readiness Tool (TRT)](https://github.com/SmarterApp/TechnologyReadinessTool)
+---
 
-In 2012 the [Smarter Balanced Assessment Consortium](http://www.smarterbalanced.org) and the [Partnership for Assessment of Readiness for College and Careers (PARCC)](http://parcconline.org/) jointly commissioned a Technology Readiness Tool to support state and local education agencies to evaluate and determine needed technology and infrastructure upgrades for the new online assessments to be launched by the two consortia in the 2014-15 school year. The tool supports surveying inventories of computing devices and associated network infrastructure and reporting on the collected data. As of June 2015 source code is available on the [SmarterApp GitHub Repository](https://github.com/SmarterApp/TechnologyReadinessTool)
+## [Technology Readiness Tool](https://github.com/SmarterApp/TechnologyReadinessTool){: target="_blank"}
+>In 2012 the [Smarter Balanced Assessment Consortium](http://www.smarterbalanced.org){: target="_blank"} and the [Partnership for Assessment of Readiness for College and Careers (PARCC)](http://parcconline.org/){: target="_blank"} jointly commissioned a Technology Readiness Tool to support state and local education agencies to evaluate and determine needed technology and infrastructure upgrades for the new online assessments to be launched by the two consortia in the 2014-15 school year. The tool supports surveying inventories of computing devices and associated network infrastructure and reporting on the collected data. As of June 2015 source code for the tool is available on GitHub at [Technology Readiness Tool](https://github.com/SmarterApp/TechnologyReadinessTool){: target="_blank"}.

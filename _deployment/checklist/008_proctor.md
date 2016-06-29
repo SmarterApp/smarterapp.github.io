@@ -10,9 +10,9 @@ categories: ["deployment", "checklist", "tds"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Provide interfaces for administering assessments |
-| Communicates With | OpenAM, ProgMan, ART, TestSpecBank |
-| Repository Location | [https://bitbucket.org/sbacoss/tds_release](https://bitbucket.org/sbacoss/tds_release |
-| Additional Documentation | [README.txt](https://bitbucket.org/fwsbac/tds_release/src/7c30cef1a499ff5cf027bede5268cd5f278e99e9/proctor/?at=default), [proctor-progman-config.txt](https://bitbucket.org/fwsbac/tds_release/src/7c30cef1a499ff5cf027bede5268cd5f278e99e9/proctor/docs/Installation/proctor-progman-config.txt?at=default) |
+| Communicates With | OpenAM<br>ProgMan<br>ART<br>TestSpecBank |
+| Repository Location | [https://github.com/SmarterApp/TDS_Proctor](https://github.com/SmarterApp/TDS_Proctor){:target="_blank"} |
+| Additional Documentation | [README.txt](https://github.com/SmarterApp/TDS_Proctor/blob/master/README.md){:target="_blank"}<br>[proctor-progman-config.txt](https://github.com/SmarterApp/TDS_Proctor/blob/master/proctor/docs/Installation/proctor-progman-config.txt){:target="_blanks"} |
 
 # Instructions
 
@@ -21,12 +21,13 @@ categories: ["deployment", "checklist", "tds"]
 ### Create Test Delivery System (TDS) Databases
 * Install git and mercurial:
   * `sudo apt-get install -y git mercurial`
-* Clone the tdsdll_release repository (which contains the database migration scripts):
-  * `hg clone https://[your bitbucket user name]@bitbucket.org/sbacoss/tdsdll_release`
-    * Example:  `hg clone https://jjohnson-fwtech@bitbucket.org/sbacoss/tdsdll_release`
+* Clone the TDS_Proctor repository from Smarter Balanced GitHub to the server:
+  * `git clone https://github.com/`[*Your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/TDS_Proctor.git`
+  <br>Example:
+    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/TDS_Proctor.git`
 * Clone the Fairway `tds-build` repository:
   * `git clone https://`[*your bitbucket username*{: style="color: #f00;"}]`@bitbucket.org/fwsbac/tds-build.git`
-    * Example:  `git clone https://`<span class="placeholder-example">jjohnson-fwtech@bitbucket.org</span>`/fwsbac/tds-build.git`
+    <br>Example:  `git clone https://`<span class="placeholder-example">jjohnson-fwtech@bitbucket.org</span>`/fwsbac/tds-build.git`
 * ***NOTE:*** When cloning the repositories above, they should be "siblings" at the same level.  For example, if both
 repositories are cloned in the `ubuntu` user's home directory, the directory will look like this:
 
@@ -42,7 +43,7 @@ drwx------  2 ubuntu ubuntu 4.0K May  2 17:23 .cache
 -rw-r--r--  1 ubuntu ubuntu  675 Apr  9  2014 .profile
 drwx------  2 ubuntu ubuntu 4.0K May  2 17:22 .ssh
 drwxrwxr-x 13 ubuntu ubuntu 4.0K May  2 17:58 tds-build
-drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 tdsdll_release
+drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 TDS_Proctor
 -rw-------  1 ubuntu ubuntu 4.2K May  2 17:54 .viminfo
 ~~~~
 
@@ -390,7 +391,7 @@ drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 tdsdll_release
 8 rows in set (0.00 sec)
 ~~~~
 
-***NOTE:*** The tests loaded into the `itembank` database come from the [Practice and Training Tests Package](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/PracticeAndTrainingTests/2015-08-28_TrainingTestPackagesAndContent.zip).
+***NOTE:*** The tests loaded into the `itembank` database come from the [Practice and Training Tests Package](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/PracticeAndTrainingTests/2015-08-28_TrainingTestPackagesAndContent.zip){:target="_blank"}.
 
 ## Create AWS Web Application Instance
 * Create server instance to host the Permissions component

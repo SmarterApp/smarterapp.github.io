@@ -10,9 +10,9 @@ categories: ["deployment", "checklist", "shared_services"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Provide configuration settings for TDS components |
-| Communicates With | OpenAM, Permissions, ART, Proctor, Teacher Hand-Scoring System, TestSpecBank |
-| Repository Location | [https://bitbucket.org/sbacoss/programmanagement_release](https://bitbucket.org/sbacoss/programmanagement_release) |
-| Additional Documentation | [Program Management User Guide](Program_Management_User_Guide.docx), [ProgMan Technical Design](SBAC-11 Prog man Technical Design.doc), [API Documentation](https://bitbucket.org/sbacoss/programmanagement_release/src/5aebb91fd5bb08fc841e7427b7ee789d36fb1cb0/docs/api_docs/?at=default), [Design Diagrams](https://bitbucket.org/sbacoss/programmanagement_release/src/5aebb91fd5bb08fc841e7427b7ee789d36fb1cb0/docs/designPics/?at=default), [Sequence Diagrams](https://bitbucket.org/sbacoss/programmanagement_release/src/5aebb91fd5bb08fc841e7427b7ee789d36fb1cb0/docs/sequenceDiagrams/?at=default) |
+| Communicates With | OpenAM<br>Permissions<br>ART<br>Proctor<br>Teacher Hand-Scoring System<br>TestSpecBank |
+| Repository Location | [https://github.com/SmarterApp/SS_ProgramManagement](https://github.com/SmarterApp/SS_ProgramManagement){:target="_blank"} |
+| Additional Documentation | [Program Management User Guide](http://www.smarterapp.org/documents/ProgramManagementUserGuide.pdf){:target="_blank"}<br>[ProgMan Technical Design](https://github.com/SmarterApp/SS_ProgramManagement/blob/master/docs/SBAC-11%20Prog%20man%20Technical%20Design.doc){:target="_blank"}<br>[API Documentation](https://github.com/SmarterApp/SS_ProgramManagement/tree/master/docs/api_docs){:target="_blank"}<br>[Design Diagrams](https://github.com/SmarterApp/SS_ProgramManagement/tree/master/docs/designPics){:target="_blank"}<br>[Sequence Diagrams](https://github.com/SmarterApp/SS_ProgramManagement/tree/master/docs/sequenceDiagrams){:target="_blank"} |
 
 # Instructions
 

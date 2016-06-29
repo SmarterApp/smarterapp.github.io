@@ -10,9 +10,9 @@ categories: ["deployment", "checklist", "tds"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Background processor that submits completed tests to TIS |
-| Communicates With | Student, TIS |
-| Repository Location | [https://bitbucket.org/sbacoss/studentreportprocessor_release](https://bitbucket.org/sbacoss/studentreportprocessor_release) |
-| Additional Documentation | [README](https://bitbucket.org/sbacoss/studentreportprocessor_release/src/8d545cf5e698d6e1b7fc326b07357f24312c8fec/README.md?at=default&fileviewer=file-view-default) |
+| Communicates With | Student<br>TIS |
+| Repository Location | [https://github.com/SmarterApp/TDS_StudentReportProcessor](https://github.com/SmarterApp/TDS_StudentReportProcessor){:target="_blank"} |
+| Additional Documentation | [README](https://github.com/SmarterApp/TDS_StudentReportProcessor/blob/master/README.md){:target="_blank"} |
 
 ***NOTE:***{: style="color: #f00"} *The Student Report Processor is typically deployed to the same application server that hosts the Student and Proctor applications.  That is, a single AWS instance will host the Student and Proctor applications.*{: style="color: #04384e"}
 

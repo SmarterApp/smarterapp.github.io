@@ -10,9 +10,9 @@ categories: ["deployment", "checklist", "shared_services"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Provide component and role authorization settings for TDS components |
-| Communicates With | ProgMan, ART, Proctor, Teacher Hand-Scoring System, TestSpecBank |
-| Repository Location | [https://bitbucket.org/sbacoss/prermissions_release](https://bitbucket.org/sbacoss/permissions_release) |
-| Additional Documentation | [Permissions DTD](https://bitbucket.org/sbacoss/permissions_release/src/5efe2172013d5784161097decf9d1c73cc45fb73/Documents/DTD.txt?at=default), [Permissions API](https://bitbucket.org/sbacoss/permissions_release/src/5efe2172013d5784161097decf9d1c73cc45fb73/Documents/Permissions-API.pdf?at=default), [Permissions Database Design](https://bitbucket.org/sbacoss/permissions_release/src/5efe2172013d5784161097decf9d1c73cc45fb73/Documents/PermissionsDB_Design.docx?at=default), [Permissions User Guide](https://bitbucket.org/sbacoss/permissions_release/src/5efe2172013d5784161097decf9d1c73cc45fb73/Documents/PermissionsUserGuide.pdf?at=default), [Permissions High-Level Design](https://bitbucket.org/sbacoss/permissions_release/src/5efe2172013d5784161097decf9d1c73cc45fb73/Documents/SBAC11%20High%20Level%20Design-Permissions.docx?at=default), [Permissions Roles to Components Map](https://bitbucket.org/sbacoss/permissions_release/src/5efe2172013d5784161097decf9d1c73cc45fb73/Documents/permissions-roles-components.xlsx?at=default) |
+| Communicates With | ProgMan<br>ART<br>Proctor<br>Teacher Hand-Scoring System<br>TestSpecBank |
+| Repository Location | [https://github.com/SmarterApp/SS_Permissions](https://github.com/SmarterApp/SS_Permissions){:target="_blank"} |
+| Additional Documentation | [Permissions DTD](https://github.com/SmarterApp/SS_Permissions/blob/master/Documents/DTD.txt){:target="_blank"}<br>[Permissions API](https://github.com/SmarterApp/SS_Permissions/blob/master/Documents/Permissions-API.pdf){:target="_blank"}<br>[Permissions Database Design](https://github.com/SmarterApp/SS_Permissions/blob/master/Documents/PermissionsDB_Design.docx){:target="_blank"}<br>[Permissions User Guide](https://github.com/SmarterApp/SS_Permissions/blob/master/Documents/PermissionsUserGuide.pdf){:target="_blank"}<br>[Permissions High-Level Design](https://github.com/SmarterApp/SS_Permissions/blob/master/Documents/SBAC11%20High%20Level%20Design-Permissions.docx){:target="_blank"}<br>[Permissions Roles to Components Map](https://github.com/SmarterApp/SS_Permissions/blob/master/Documents/permissions-roles-components.xlsx){:target="_blank"} |
 
 # Instructions
 
@@ -21,12 +21,12 @@ categories: ["deployment", "checklist", "shared_services"]
 ### Create Permissions Database
 * Install git and mercurial:
   * `sudo apt-get install -y git mercurial`
-* Clone the permissions_release repository:
-  * `hg clone https://`[*your bitbucket user name*{: style="color: #f00;"}]`@bitbucket.org/sbacoss/permissions_release`
-    * Example:  `hg clone https://jjohnson-fwtech@bitbucket.org/sbacoss/permissions_release`
+* Clone the SS_Permissions repository from Smarter Balanced GitHub to the server:
+  * `git clone https://github.com/`[*your GitHub user name*{: style="color: #f00;"}]`/SmarterBalanced/SS_Permissions.git`
+    <br>Example:  `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterBalanced/SS_Permissions.git`
 * Clone the Fairway `tds-build` repository:
   * `git clone https://`[*your bitbucket username*{: style="color: #f00;"}]`@bitbucket.org/fwsbac/tds-build.git`
-    * Example:  `git clone https://jjohnson-fwtech@bitbucket.org/fwsbac/tds-build.git`
+    <br>Example:  `git clone https://jjohnson-fwtech@bitbucket.org/fwsbac/tds-build.git`
 * ***NOTE:*** When cloning the repositories above, they should be "siblings" at the same level.  For example, if both
 repositories are cloned in the `ubuntu` user's home directory, the directory will look like this:
 
@@ -39,7 +39,7 @@ drwxr-xr-x  3 root   root   4.0K Apr 10 18:08 ..
 -rw-r--r--  1 ubuntu ubuntu 3.6K Apr 11 03:22 .bashrc
 drwx------  2 ubuntu ubuntu 4.0K Apr 11 03:22 .cache
 -rw-------  1 ubuntu ubuntu  193 Apr 11 04:20 .mysql_history
-drwxrwxr-x  5 ubuntu ubuntu 4.0K Apr 11 04:25 permissions_release
+drwxrwxr-x  5 ubuntu ubuntu 4.0K Apr 11 04:25 SS_Permissions
 -rw-r--r--  1 ubuntu ubuntu  675 Apr  9  2014 .profile
 drwx------  2 ubuntu ubuntu 4.0K Apr 11 04:09 .ssh
 drwxrwxr-x 13 ubuntu ubuntu 4.0K Apr 11 04:16 tds-build

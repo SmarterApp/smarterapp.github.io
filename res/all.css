@@ -1,4 +1,4 @@
-﻿/* Reset everything */
+/* Reset everything */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -178,7 +178,8 @@ h5,
 h6
 {
 	font-size:1.1em;
-	color:#63666A;
+	/*color:#63666A;*/
+	color: #2471A3;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,

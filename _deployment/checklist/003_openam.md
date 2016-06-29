@@ -10,9 +10,9 @@ categories: ["deployment", "checklist", "shared_services"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | Provide authentication for TDS components |
-| Communicates With | Progman, Permissions, ART, Proctor, Teacher Hand-Scoring System,TestSpecBank |
-| Repository Location | [https://bitbucket.org/sbacoss/openam12_release](https://bitbucket.org/sbacoss/openam12_release) |
-| Additional Documentation | [SBAC OpenAM Installation](https://bitbucket.org/sbacoss/openam12_release/src/66cc50368d39bce89d22913d5be74eb96d1d0b90/sbacOpenAM-Installation-04152015.pdf?at=default), [SBAC SSO Design](https://bitbucket.org/sbacoss/openam12_release/src/66cc50368d39bce89d22913d5be74eb96d1d0b90/SBAC_SSO_Design-v2.0-04132015.pdf?at=default) |
+| Communicates With | Progman<br>Permissions<br>ART<br>Proctor<br>Teacher Hand-Scoring System<br>TestSpecBank |
+| Repository Location | [https://github.com/SmarterApp/IM_OpenAM](https://github.com/SmarterApp/IM_OpenAM){:target="_blank"} |
+| Additional Documentation | [SBAC OpenAM Installation](https://github.com/SmarterApp/IM_OpenAM/blob/master/sbacOpenAM-Installation-04152015.pdf){:target="_blank"}<br>[SBAC SSO Design](https://github.com/SmarterApp/IM_OpenAM/blob/master/SBAC_SSO_Design-v2.0-04132015.pdf){:target="_blank"} |
 
 ## Instructions
 
@@ -65,15 +65,17 @@ categories: ["deployment", "checklist", "shared_services"]
   * `sudo apt-get update`
   * `sudo apt-get upgrade -y`
 * Install packages to satisfy dependencies:
-  * `sudo apt-get install -y unzip mercurial software-properties-common ntp`
+  * {:style="width:600px;"} `sudo apt-get install -y unzip mercurial software-properties-common ntp`
 * Add repository and install Java 6 JDK using Oracle Java Installer:
   * `sudo add-apt-repository ppa:webupd8team/java -y`
   * `sudo apt-get update`
   * `sudo apt-get install -y oracle-java7-installer`
-* Clone the openam12_release repository from Smarter Balanced BitBucket to the server:
-  * `hg clone https://`[*Your BitBucket user or team name*{: style="color: #f00;"}]`/sbacoss/openam12_release`
+* Clone the IM_OpenAM repository from Smarter Balanced GitHub to the server:
+  * {:style="width:600px;"} `git clone https://github.com/`[*Your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/IM_OpenAM.git`
+  <br>Example:
+    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/IM_OpenAM.git`
 * Copy SBAC OpenAM installer and content to the /opt directory:
-  * `sudo cp -R openam12_release/sbacInstaller/* /opt`
+  * `sudo cp -R IM_OpenAM/sbacInstaller/* /opt`
 * Update the `/opt/installOpenAM.sh` script to use the correct Java version:
   * change `JAVAVERSION="1.7.0_76"` to `JAVAVERSION="1.7.0_80"`
 * Run the OpenAM installer:

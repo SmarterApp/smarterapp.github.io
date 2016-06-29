@@ -10,9 +10,9 @@ categories: ["deployment", "checklist", "shared_services"]
 | Item | Description |
 |:-----|:------------|
 | Purpose | LDAP server for TDS user accounts |
-| Communicates With | OpenAM, ART |
-| Repository Location | [https://bitbucket.org/sbacoss/opendj_release](https://bitbucket.org/sbacoss/opendj_release) |
-| Additional Documentation | [SBAC OpenDJ Installation](https://bitbucket.org/sbacoss/opendj_release/src/6f5a11b091f5304189c4f1eb54e03aeb98c44162/sbacInstaller/sbacOpenDJ-Installation-12312013.pdf?at=default), [SBAC SSO Design](https://bitbucket.org/sbacoss/opendj_release/src/6f5a11b091f5304189c4f1eb54e03aeb98c44162/SBAC_SSO_Design-v1.10-03282014.pdf?at=default) |
+| Communicates With | OpenAM<br>ART |
+| Repository Location | [https://github.com/SmarterApp/IM_OpenDJ](https://github.com/SmarterApp/IM_OpenDJ){:target="_blank"} |
+| Additional Documentation | [SBAC OpenDJ Installation](https://github.com/SmarterApp/IM_OpenDJ/blob/master/sbacInstaller/sbacOpenDJ-Installation-12312013.pdf){:target="_blank"}<br>[SBAC SSO Design](https://github.com/SmarterApp/IM_OpenDJ/blob/master/SBAC_SSO_Design-v1.10-03282014.pdf){:target="_blank"} |
 
 ## Instructions
 
@@ -130,12 +130,11 @@ Match group <span class="placeholder-example">sftpusers</span>
   * `sudo apt-get install -y oracle-java6-installer`
 * Install Perl modules to satisfy dependencies:
   * `sudo cpanm Net::LDAP Net::SMTP File::Copy LWP::UserAgent HTTP::Request`
-* Clone the `opendj_release` repository from the Smarter Balanced BitBucket to this server:
-  * `hg clone https://`[*your BitBucket user or team name*{: style="color: #f00;"}]`/sbacoss/opendj_release`
-  * Example:
-    * `hg clone https://`<span class="placeholder-example">jjohnson-fw@bitbucket.org</span>`/sbacoss/opendj_release`
+* Clone the `IM_OpenDJ` repository from the Smarter Balanced GitHub to this server:
+  * `git clone https://github.com/`[*your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/IM_OpenDJ.git` <br>Example:
+    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/IM_OpenDJ.git`
 * Copy SBAC OpenDJ installer and content to the /opt directory:
-  * `sudo cp -R opendj_release/sbacInstaller/* /opt`
+  * `sudo cp -R IM_OpenDJ/sbacInstaller/* /opt`
 * Execute the SBAC OpenDJ installer:
   * `cd /opt`
   * `sudo ./installOpenDJ.sh`
@@ -219,11 +218,11 @@ su -c "perl /opt/scripts/sbacWatchXMLFolder.pl" opendj &
   * `sudo update-rc.d sbac-userwatch.sh defaults`
 
 ## Verification
-* Connect to the OpenDJ instance with any client (e.g. [Apache Directory Studio](https://directory.apache.org/studio/))
+* Connect to the OpenDJ instance with any client (e.g. [Apache Directory Studio](https://directory.apache.org/studio/){:target="_blank"})
 
 ### Create Prime User Account
 * Create an XML file named `prime_user_testfile_.xml` with the content shown below.  Replace the following:
-  * `CREATE-UNIQUE_UUID_HERE` should be a unique identifier (e.g. a GUID from an [Online GUID Generator](https://www.guidgenerator.com/))
+  * `CREATE-UNIQUE_UUID_HERE` should be a unique identifier (e.g. a GUID from an [Online GUID Generator](https://www.guidgenerator.com/){:target="_blank"})
   * `CHOOSE-FIRST_NAME` should be a meaningful first name
   * `CHOOSE-LAST_NAME` should be a meaningful last name
   * `CHOOSE-EMAIL` should be replaced with an easy to remember email adddress
@@ -307,10 +306,10 @@ An example of the `prime_user_testfile_.xml` file with placeholders replaced by 
   * **NOTE:** The `opendj` user (or whatever account is running the `sbacWatchXMLFolder.pl` script) must be able to read the `prime_user_testfile_.xml` file
   * **NOTE:** If the `prime_user_testfile_.xml` is created in the `dropbox` directory, run `touch `[*path to dropbox directory*{: style="color: #f00;"}]`/prime_user_testfile_.xml` to update the timestamp on the file.
     * Example: `touch `<span class="placeholder-example">/opt/dropbox</span>`/prime_user_testfile_.xml`
-* Connect to OpenDJ with any client (e.g. [Apache Directory Studio](https://directory.apache.org/studio/)) and verify the Prime User account was created
+* Connect to OpenDJ with any client (e.g. [Apache Directory Studio](https://directory.apache.org/studio/){:target="_blank"}) and verify the Prime User account was created
 
 ###  Verify SFTP Connectivity
-* Connect to the SFTP server using an FTP client (e.g. [Cyberduck](https://cyberduck.io/) or [FileZilla](https://filezilla-project.org/)) using the user account created while following this checklist
+* Connect to the SFTP server using an FTP client (e.g. [Cyberduck](https://cyberduck.io/){:target="_blank"} or [FileZilla](https://filezilla-project.org/){:target="_blank"}) using the user account created while following this checklist
 * Verify the user can write a file to the desired directory
 
 [back to Deployment Checklists](index.html)
