@@ -1,6 +1,6 @@
 ---
 title: Item Types and Accessibility Features
-date: 2016-03-19
+date: 2016-06-30
 docurl: /documents/Item_Types_And_Features.pdf
 status: Preliminary
 ---
