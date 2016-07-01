@@ -119,6 +119,9 @@ Included in this guide are the best practices for:
 * Scoring the test
 * Sending the scored test to downstream systems via SFT
 
+>##### [Test Scoring](https://github.com/SmarterApp/TDS_TestScoring){:target="_blank"}
+>Used in the [Student](https://github.com/SmarterApp/TDS_Student){:target="_blank"} component, this module contains classes related to Scorer and ScoringEngine.
+
 ---
 
 ## [RDW - Reporting and Data Warehouse](https://github.com/SmarterApp?utf8=%E2%9C%93&query=RDW_){: target="_blank"}
