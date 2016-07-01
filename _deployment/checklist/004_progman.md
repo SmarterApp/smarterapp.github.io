@@ -211,14 +211,12 @@ logfile.path=/var/log/tomcat7/</code>
 ### Load Seed Data into ProgMan
 ***IMPORTANT:*** MongoDB must be installed on whatever computer runs the script to load the ProgMan seed data.
 
-* Unless already done, clone the `tds-build` repository from BitBucket:
-  * `git clone https://`[*Your BitBucket account or team name*{: style="color: #f00;"}]`/fwsbac/tds-build.git`
-  * Example:
-    * `git clone https://`<span class="placeholder-example">jjohnson-fwtech@bitbucket.org</span>`/fwsbac/tds-build.git`
+* Unless already done, clone the `TDS_Build` repository from GitHub:
+  * `git clone https://github.com/SmarterApp/TDS_Build.git`
 * Navigate to the directory where the seed data script is located:
-  * `cd `[*Path to where the `tds-build` repository was cloned*{: style="color: #f00;"}]`/database/mongodb/progman`
+  * `cd `[*Path to where the `TDS_Build` repository was cloned*{: style="color: #f00;"}]`/database/mongodb/progman`
   * Example:
-    * `cd `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/tds-build/database/mongodb/progman</span>
+    * `cd `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/TDS_Build/database/mongodb/progman</span>
 * Edit the `load-seed-data.sh` script to configure the following:
   * `HOST=`[*The FQDN or IP address of the MongoDB server hosting the ProgMan database*{: style="color: #f00;"}]
   * `PORT=`[*The port on which MongoDB is listening*{: style="color: #f00;"}]

@@ -19,15 +19,12 @@ categories: ["deployment", "checklist", "tds"]
 {% include checklist/mysql_setup.md %}
 
 ### Create Test Delivery System (TDS) Databases
-* Install git and mercurial:
-  * `sudo apt-get install -y git mercurial`
+* Install git:
+  * `sudo apt-get install -y git`
 * Clone the TDS_Proctor repository from Smarter Balanced GitHub to the server:
-  * `git clone https://github.com/`[*Your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/TDS_Proctor.git`
-  <br>Example:
-    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/TDS_Proctor.git`
-* Clone the Fairway `tds-build` repository:
-  * `git clone https://`[*your bitbucket username*{: style="color: #f00;"}]`@bitbucket.org/fwsbac/tds-build.git`
-    <br>Example:  `git clone https://`<span class="placeholder-example">jjohnson-fwtech@bitbucket.org</span>`/fwsbac/tds-build.git`
+  * `git clone https://github.com/SmarterApp/TDS_Proctor.git`
+* Unless already done, clone the `TDS_Build` repository from GitHub:
+  * `git clone https://github.com/SmarterApp/TDS_Build.git`
 * ***NOTE:*** When cloning the repositories above, they should be "siblings" at the same level.  For example, if both
 repositories are cloned in the `ubuntu` user's home directory, the directory will look like this:
 
@@ -42,20 +39,20 @@ drwx------  2 ubuntu ubuntu 4.0K May  2 17:23 .cache
 -rw-------  1 ubuntu ubuntu  135 May  2 17:56 .mysql_history
 -rw-r--r--  1 ubuntu ubuntu  675 Apr  9  2014 .profile
 drwx------  2 ubuntu ubuntu 4.0K May  2 17:22 .ssh
-drwxrwxr-x 13 ubuntu ubuntu 4.0K May  2 17:58 tds-build
+drwxrwxr-x 13 ubuntu ubuntu 4.0K May  2 17:58 TDS_Build
 drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 TDS_Proctor
 -rw-------  1 ubuntu ubuntu 4.2K May  2 17:54 .viminfo
 ~~~~
 
-* Navigate to the `tds-build` directory:
-  * `cd tds-build`
-* Update the `db-schema-setup` script to use the correct user name and password (lines 20 and 21):
+* Navigate to the `TDS_Build\database\tds` directory:
+  * `cd TDS_Build\database\tds `
+* Update the `db-schema-setup.sh` script to use the correct user name and password (lines 20 and 21):
   * `USER=[a valid MySQL user name that can create databases]`
   * `PW=[the MySQL user's password]`
 * If necessary, update the port and hostame (lines 18 and 19)
 * Make the `db-schema-setup.sh` executable:
   * `sudo chmod u+x db-schema-setup.sh`
-* Run the `db-schema-setup.sh` script to create the Permissions database schema and load it with seed data:
+* Run the `db-schema-setup.sh` script to create the TDS database schema and load it with seed data:
   * `./db-schema-setup.sh`
 
 #### Verify the TDS Database Schemas Were Created and Populated With Seed Data
