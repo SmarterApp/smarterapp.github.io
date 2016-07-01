@@ -71,9 +71,7 @@ categories: ["deployment", "checklist", "shared_services"]
   * `sudo apt-get update`
   * `sudo apt-get install -y oracle-java7-installer`
 * Clone the IM_OpenAM repository from Smarter Balanced GitHub to the server:
-  * {:style="width:600px;"} `git clone https://github.com/`[*Your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/IM_OpenAM.git`
-  <br>Example:
-    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/IM_OpenAM.git`
+  * {:style="width:600px;"} `git clone https://github.com/SmarterApp/IM_OpenAM.git`
 * Copy SBAC OpenAM installer and content to the /opt directory:
   * `sudo cp -R IM_OpenAM/sbacInstaller/* /opt`
 * Update the `/opt/installOpenAM.sh` script to use the correct Java version:

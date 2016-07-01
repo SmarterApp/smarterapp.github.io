@@ -65,9 +65,7 @@ Python 2.7.6
 
 ### Deploy the Equation Scoring Service
 * Clone the `TDS_ItemScoring`repository from Smarter Balanced GitHub to the server:
-  * `git clone https://github.com/`[*Your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/TDS_ItemScoring.git`
-  <br>Example:
-    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/TDS_ItemScoring.git`
+  * `git clone https://github.com/SmarterApp/TDS_ItemScoring.git`
 * Copy the [*/path/to/itemscoring/repo*{: style="color: #f00;"}]`/sympy-scripts/EqScoringWebService.py` to the desired deployment directory (created earlier)
   * Example (assuming the `git clone` was run on a machine other than the AWS instance):
     * `scp -i `<span class="placeholder-example">~/.ssh/tds/ssh-dev.pem</span>` `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/repositories</span>`/TDS_ItemScoring/sympy-scripts/EqScoringWebService.py ubuntu@`<span class="placeholder-example">54.186.182.136</span>`:`<span class="placeholder-example">/opt/sbtds/eqsvc</span>
