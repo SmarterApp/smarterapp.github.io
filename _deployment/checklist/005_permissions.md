@@ -226,9 +226,7 @@ permission.oauth.checktoken.endpoint=https://<span class="placeholder-example">s
 
 #### Download War File
 * Download the latest `.war` file for the Permissions Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/permissions_release/downloads/`[*Name of latest .war file*{: style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/ROOT.war`
-  * Example:
-    * `sudo wget https://bitbucket.org/fwsbac/permissions_release/downloads/`<span class="placeholder-example">permissions-R01.00.38.war</span>` -O /var/lib/tomcat7/webapps/ROOT.war`
+  * `sudo wget https://github.com/SmarterApp/SS_Permissions/releases/download/R01.00.38/permissions-R01.00.38.war -O /var/lib/tomcat7/webapps/ROOT.war`
 
 {% include checklist/tomcat_pm_client_security_props.md %}
 

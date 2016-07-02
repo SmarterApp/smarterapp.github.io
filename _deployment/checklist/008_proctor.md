@@ -557,7 +557,7 @@ proctor.TDSSessionDBName=<span class="placeholder-example">session</span></code>
 
 #### Download War Files
 * Download the latest `.war` file for the Proctor Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/`[*Latest .war file*{: style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/ROOT.war`
+  * `sudo wget https://github.com/SmarterApp/TDS_Proctor/releases/download/1.1.0/testadmin-1.1.0.war -O /var/lib/tomcat7/webapps/ROOT.war`
   * Example:
     * `sudo wget https://bitbucket.org/fwsbac/tds_release/downloads/`<span class="placeholder-example">testadmin-1.0.0-BUILD-SNAPSHOT.war</span>` -O /var/lib/tomcat7/webapps/ROOT.war`
 
