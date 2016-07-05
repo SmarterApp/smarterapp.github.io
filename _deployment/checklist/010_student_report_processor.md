@@ -29,8 +29,8 @@ categories: ["deployment", "checklist", "tds"]
 
 ### Download the SRP .jar
 * Download the latest `.jar` file for the SRP Component into the desired directory:
-  * `sudo wget https://bitbucket.org/fwsbac/studentreportprocessor_release/downloads/`[*Latest .jar file*{: style="color: #f00;"}]` -O `[*Path to where the SRP .jar should be deployed*{: style="color: #f00;"}]
-    * Example: `sudo wget https://bitbucket.org/fwsbac/studentreportprocessor_release/downloads/`<span class="placeholder-example">StudentReportProcessor-0.0.1-SNAPSHOT.jar</span>` -O `<span class="placeholder-example">/opt/sbtds/srp</span>`StudentReportProcessor-0.0.1-SNAPSHOT.jar`
+  * `sudo wget https://github.com/SmarterApp/TDS_StudentReportProcessor/releases/download/1.0.1/StudentReportProcessor-1.0.1.jar -O `[*Path to where the SRP .jar should be deployed*{: style="color: #f00;"}]`
+    * Example: `sudo wget https://github.com/SmarterApp/TDS_StudentReportProcessor/releases/download/1.0.1/StudentReportProcessor-1.0.1.jar` -O `<span class="placeholder-example">/opt/sbtds/srp</span>`StudentReportProcessor-0.0.1-SNAPSHOT.jar`
 
 ### Configure the SRP
 ***IMPORTANT:***{: style="color: #f00;"} *The SRP does not have any entries in ProgMan.  The SRP is configured entirely by settings passed into the `JAVA_OPTS`.*{: style="background-color: #ff0;"}

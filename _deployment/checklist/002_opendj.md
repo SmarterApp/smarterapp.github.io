@@ -131,8 +131,7 @@ Match group <span class="placeholder-example">sftpusers</span>
 * Install Perl modules to satisfy dependencies:
   * `sudo cpanm Net::LDAP Net::SMTP File::Copy LWP::UserAgent HTTP::Request`
 * Clone the `IM_OpenDJ` repository from the Smarter Balanced GitHub to this server:
-  * `git clone https://github.com/`[*your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/IM_OpenDJ.git` <br>Example:
-    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/IM_OpenDJ.git`
+  * `git clone https://github.com/SmarterApp/IM_OpenDJ.git`
 * Copy SBAC OpenDJ installer and content to the /opt directory:
   * `sudo cp -R IM_OpenDJ/sbacInstaller/* /opt`
 * Execute the SBAC OpenDJ installer:

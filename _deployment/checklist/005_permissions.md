@@ -22,11 +22,9 @@ categories: ["deployment", "checklist", "shared_services"]
 * Install git and mercurial:
   * `sudo apt-get install -y git mercurial`
 * Clone the SS_Permissions repository from Smarter Balanced GitHub to the server:
-  * `git clone https://github.com/`[*your GitHub user name*{: style="color: #f00;"}]`/SmarterBalanced/SS_Permissions.git`
-    <br>Example:  `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterBalanced/SS_Permissions.git`
-* Clone the Fairway `tds-build` repository:
-  * `git clone https://`[*your bitbucket username*{: style="color: #f00;"}]`@bitbucket.org/fwsbac/tds-build.git`
-    <br>Example:  `git clone https://jjohnson-fwtech@bitbucket.org/fwsbac/tds-build.git`
+  * `git clone https://github.com/SmarterApp/SS_Permissions.git`
+* Unless already done, clone the `TDS_Build` repository from GitHub:
+  * `git clone https://github.com/SmarterApp/TDS_Build.git`
 * ***NOTE:*** When cloning the repositories above, they should be "siblings" at the same level.  For example, if both
 repositories are cloned in the `ubuntu` user's home directory, the directory will look like this:
 
@@ -42,13 +40,13 @@ drwx------  2 ubuntu ubuntu 4.0K Apr 11 03:22 .cache
 drwxrwxr-x  5 ubuntu ubuntu 4.0K Apr 11 04:25 SS_Permissions
 -rw-r--r--  1 ubuntu ubuntu  675 Apr  9  2014 .profile
 drwx------  2 ubuntu ubuntu 4.0K Apr 11 04:09 .ssh
-drwxrwxr-x 13 ubuntu ubuntu 4.0K Apr 11 04:16 tds-build
+drwxrwxr-x 13 ubuntu ubuntu 4.0K Apr 11 04:16 TDS_Build
 -rw-------  1 ubuntu ubuntu 4.0K Apr 11 04:16 .viminfo
 ~~~~
 
-* Navigate to the `tds-build` directory:
-  * `cd tds-build`
-* Update the `db-perm-schema-setup` script to use the correct user name and password (lines 20 and 21):
+* Navigate to the `TDS_Build\database\permissions` directory:
+  * `cd TDS_Build\database\permissions`
+* Update the `db-perm-schema-setup.sh` script to use the correct user name and password (lines 20 and 21):
   * `USER=`[*A valid MySQL user name that can create databases*{: style="color: #f00;"}]
   * `PW=`[*The MySQL user's password*{: style="color: #f00;"}]
 * If necessary, update the port and hostame (lines 18 and 19)
@@ -228,9 +226,7 @@ permission.oauth.checktoken.endpoint=https://<span class="placeholder-example">s
 
 #### Download War File
 * Download the latest `.war` file for the Permissions Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/permissions_release/downloads/`[*Name of latest .war file*{: style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/ROOT.war`
-  * Example:
-    * `sudo wget https://bitbucket.org/fwsbac/permissions_release/downloads/`<span class="placeholder-example">permissions-R01.00.38.war</span>` -O /var/lib/tomcat7/webapps/ROOT.war`
+  * `sudo wget https://github.com/SmarterApp/SS_Permissions/releases/download/R01.00.38/permissions-R01.00.38.war -O /var/lib/tomcat7/webapps/ROOT.war`
 
 {% include checklist/tomcat_pm_client_security_props.md %}
 

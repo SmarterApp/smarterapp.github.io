@@ -31,9 +31,7 @@ categories: ["deployment", "checklist", "tds"]
 * Stop the Tomcat server:
   * `sudo service tomcat7 stop`
 * Download the latest `.war` file for the Item Scoring Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/itemscoring_release/downloads/`[*Latest .war file*{: style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/itemscoring.war`
-  * Example:
-    * `sudo wget https://bitbucket.org/fwsbac/itemscoring_release/downloads/`<span class="placeholder-example">item-scoring-service-1.1.0.war</span>` -O /var/lib/tomcat7/webapps/itemscoring.war`
+  * `sudo wget https://github.com/SmarterApp/TDS_ItemScoring/releases/download/1.1.0/item-scoring-service-1.1.0.war -O var/lib/tomcat7/webapps/itemscoring.war`
 
 ### Update Item Scoring Configuration in the Itembank Database
 * Connect to the MySQL server that supports the TDS Components

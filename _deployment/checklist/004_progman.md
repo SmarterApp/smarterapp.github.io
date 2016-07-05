@@ -76,9 +76,7 @@ categories: ["deployment", "checklist", "shared_services"]
 
 #### Download REST Component War File
 * Download the latest `.war` file for the ProgMan REST Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/programmanagement_release/downloads/`[*name of latest REST .war file*{:style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/rest.war`
-  * Example:
-    * `sudo wget https://bitbucket.org/fwsbac/programmanagement_release/downloads/`<span class="placeholder-example">prog-mgmnt.rest-R01.00.38.war</span>` -O /var/lib/tomcat7/webapps/rest.war`
+  * `sudo wget https://github.com/SmarterApp/SS_ProgramManagement/releases/download/R01.00.38/prog-mgmnt.rest-R01.00.38.war -O /var/lib/tomcat7/webapps/rest.war`
 
 * Create a `rest-endpoints.properties` file in `/var/lib/tomcat7/resources/progman`
 * Copy the following into `/var/lib/tomcat7/resources/progman/rest-endpoints.properties`:
@@ -104,9 +102,7 @@ pm.minJs=false</code>
 
 #### Download ProgMan Web Application Component
 * Download the latest `.war` file for the ProgMan Web Application Component into the Tomcat server's `webapps` directory:
-  * `sudo wget https://bitbucket.org/fwsbac/programmanagement_release/downloads/`[*Name of lastest Web Application .war file*{: style="color: #f00;"}]` -O /var/lib/tomcat7/webapps/ROOT.war`
-  * Exmaple:
-    * `sudo wget https://bitbucket.org/fwsbac/programmanagement_release/downloads/`<span class="placeholder-example">prog-mgmnt.webapp-R01.00.38.war</span>` -O /var/lib/tomcat7/webapps/ROOT.war`
+  * `sudo wget https://github.com/SmarterApp/SS_ProgramManagement/releases/download/R01.00.38/prog-mgmnt.webapp-R01.00.38.war -O /var/lib/tomcat7/webapps/ROOT.war`
 * Create a `progman-bootstrap.properties` file in `/var/lib/tomcat7/resources/progman`
 * Copy the following into `/var/lib/tomcat7/resources/progman/progman-bootstrap.properties`:
 
@@ -211,14 +207,12 @@ logfile.path=/var/log/tomcat7/</code>
 ### Load Seed Data into ProgMan
 ***IMPORTANT:*** MongoDB must be installed on whatever computer runs the script to load the ProgMan seed data.
 
-* Unless already done, clone the `tds-build` repository from BitBucket:
-  * `git clone https://`[*Your BitBucket account or team name*{: style="color: #f00;"}]`/fwsbac/tds-build.git`
-  * Example:
-    * `git clone https://`<span class="placeholder-example">jjohnson-fwtech@bitbucket.org</span>`/fwsbac/tds-build.git`
+* Unless already done, clone the `TDS_Build` repository from GitHub:
+  * `git clone https://github.com/SmarterApp/TDS_Build.git`
 * Navigate to the directory where the seed data script is located:
-  * `cd `[*Path to where the `tds-build` repository was cloned*{: style="color: #f00;"}]`/database/mongodb/progman`
+  * `cd `[*Path to where the `TDS_Build` repository was cloned*{: style="color: #f00;"}]`/database/mongodb/progman`
   * Example:
-    * `cd `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/tds-build/database/mongodb/progman</span>
+    * `cd `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/TDS_Build/database/mongodb/progman</span>
 * Edit the `load-seed-data.sh` script to configure the following:
   * `HOST=`[*The FQDN or IP address of the MongoDB server hosting the ProgMan database*{: style="color: #f00;"}]
   * `PORT=`[*The port on which MongoDB is listening*{: style="color: #f00;"}]

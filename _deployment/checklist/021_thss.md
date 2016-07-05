@@ -60,9 +60,7 @@ categories: ["deployment", "checklist", "tds"]
 
 ### Build the Test Hand Scoring System
 * Clone the TDS_TeacherHandScoringSystem repository to a machine that can build .NET applications:
-  * `git clone https://github.com/`[*Your GitHub user name*{: style="color: #f00;"}]`/SmarterApp/TDS_TestIntegrationSystem.git`
-  <br>Example:
-    `git clone https://github.com/`<span class="placeholder-example">hansolo</span>`/SmarterApp/TDS_TestIntegrationSystem.git`
+  * `git clone https://github.com/SmarterApp/TDS_TestIntegrationSystem.git`
 * Launch Visual Studio
 * Open the `Src/TSS.sln`
 
