@@ -29,7 +29,7 @@ categories: ["deployment", "checklist", "tds"]
 
 ### Download the SRP .jar
 * Download the latest `.jar` file for the SRP Component into the desired directory:
-  * `sudo wget https://github.com/SmarterApp/TDS_StudentReportProcessor/releases/download/1.0.1/StudentReportProcessor-1.0.1.jar -O [*Path to where the SRP .jar should be deployed*{: style="color: #f00;"}]
+  * `sudo wget https://github.com/SmarterApp/TDS_StudentReportProcessor/releases/download/1.0.1/StudentReportProcessor-1.0.1.jar -O `[*Path to where the SRP .jar should be deployed*{: style="color: #f00;"}]`
     * Example: `sudo wget https://github.com/SmarterApp/TDS_StudentReportProcessor/releases/download/1.0.1/StudentReportProcessor-1.0.1.jar` -O `<span class="placeholder-example">/opt/sbtds/srp</span>`StudentReportProcessor-0.0.1-SNAPSHOT.jar`
 
 ### Configure the SRP
