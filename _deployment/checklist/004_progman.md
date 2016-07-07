@@ -48,7 +48,22 @@ categories: ["deployment", "checklist", "shared_services"]
 * Stop the Tomcat service:
   * `sudo service tomcat7 stop`
 
-{% include checklist/tomcat_java_opts.md %}
+* Edit the `/etc/default/tomcat7` file, updating the `JAVA_OPTS` value to what's shown below:
+
+<div class="highlighter-rouge" style="display: inline-flex;">
+<pre class="highlight">
+<code>JAVA_OPTS="-Djava.awt.headless=true\
+ -XX:+UseConcMarkSweepGC\
+ -Xms[<span class="placeholder">initial amount of memory that can be allocated to the JVM heap</span>]\
+ -Xmx[<span class="placeholder">maximum amount of memory that can be allocated to the JVM heap</span>]\
+ -XX:PermSize=[<span class="placeholder">initial amount of memory that can be used for PermGen</span>]\
+ -XX:MaxPermSize=[<span class="placeholder">maximum amount of memory that can be used for PermGen</span>]\
+ -DSB11_CONFIG_DIR=$CATALINA_BASE/resources\
+ -Dspring.profiles.active=progman.client.impl.integration,mna.client.null,server.singleinstance"</code>
+</pre>
+</div>
+
+* **NOTE:** If the component being set up will be load-balanced, then change the `server.singleinstance` (for the `spring.profiles.active` option) to `server.loadbalanced`.
 
 * Example:
 
@@ -61,9 +76,7 @@ categories: ["deployment", "checklist", "shared_services"]
  -XX:PermSize=<span class="placeholder-example">512m</span>\
  -XX:MaxPermSize=<span class="placeholder-example">1512m</span>\
  -DSB11_CONFIG_DIR=$CATALINA_BASE/resources\
- -Dspring.profiles.active=mna.client.null,server.singleinstance,progman.client.impl.null,special.role.required"
- -Dprogman.baseUri=http://<span class="placeholder-example">54.213.81.243</span>/rest/\
- -Dprogman.locator=<span class="placeholder-example">pm</span>,<span class="placeholder-example">Development</span>"</code>
+ -Dspring.profiles.active=mna.client.null,server.singleinstance,progman.client.impl.null,special.role.required"</code>
  </pre>
  </div>
 
