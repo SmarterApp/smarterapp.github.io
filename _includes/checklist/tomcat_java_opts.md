@@ -1,4 +1,4 @@
-* Edit the `/etc/default/tomcat` file, updating the `JAVA_OPTS` value to what's shown below:
+* Edit the `/etc/default/tomcat7` file, updating the `JAVA_OPTS` value to what's shown below:
 
 <div class="highlighter-rouge" style="display: inline-flex;">
 <pre class="highlight">
