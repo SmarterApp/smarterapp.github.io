@@ -2,7 +2,6 @@
 title:  TDS Deployment Checklist
 permalink: "/deployment/checklist/index.html"
 categories: ["deployment", "checklist_index"]
-layout: post
 ---
 
 # Overview
