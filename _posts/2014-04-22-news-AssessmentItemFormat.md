@@ -1,5 +1,4 @@
 ---
-layout: default
 category: news
 title: Assessment Item Format Updated
 date: 2014-04-22

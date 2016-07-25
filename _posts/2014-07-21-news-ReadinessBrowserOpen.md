@@ -1,5 +1,4 @@
 ---
-layout: default
 category: news
 title: Technology Implementation, Secure Browser, and Open Source
 date: 2014-07-21

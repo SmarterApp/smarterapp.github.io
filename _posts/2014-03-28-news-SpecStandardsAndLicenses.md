@@ -1,5 +1,4 @@
 ---
-layout: default
 category: news
 title: Specification Standards and Content Licenses
 date: 2014-03-28

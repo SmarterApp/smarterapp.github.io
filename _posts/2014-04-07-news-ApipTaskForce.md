@@ -1,5 +1,4 @@
 ---
-layout: default
 category: news
 title: Smarter Balanced Profile of IMS APIP Task Force
 date: 2014-04-07

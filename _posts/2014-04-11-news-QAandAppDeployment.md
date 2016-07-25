@@ -1,5 +1,4 @@
 ---
-layout: default
 category: news
 title: Two New Documents Posted on SmarterApp.org
 date: 2014-04-11

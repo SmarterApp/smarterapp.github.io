@@ -1,5 +1,4 @@
 ---
-layout: default
 category: news
 title: Assessment System Architecture Updated
 date: 2014-08-08

@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Hosting Requirements
 category: news
 date: 2014-03-10

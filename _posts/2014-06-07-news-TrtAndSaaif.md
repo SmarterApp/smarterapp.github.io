@@ -1,5 +1,4 @@
 ---
-layout: default
 category: news
 title: TRT Source Code and Assessment Item Format Update
 date: 2014-06-07

@@ -1,5 +1,4 @@
 ---
-layout: default
 title: SmarterApp is on GitHub
 category: news
 date: 2014-03-22
