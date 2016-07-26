@@ -21,6 +21,10 @@
 				<td style="font-weight:bold;">Document:&nbsp;</td>
 				<td><a href="{{ page.docurl }}">Click Here</a></td>
 			</tr>
+			<tr>
+				<td style="font-weight:bold;">Status:&nbsp;</td>
+				<td>{{ page.status | escape }}</td>
+			</tr>
 		</table>
 	</div>
 	{% include footer.html %}
