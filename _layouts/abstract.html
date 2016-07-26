@@ -10,33 +10,7 @@
 
 <div id="main">
 	{% include header.html %}
-	<div id="content" style="min-height: 400px;">
-		<div class="title">{{ page.title | escape }}</div>
-		<table class="layout">
-			<tr>
-				<td style="font-weight:bold;">Date:&nbsp;</td>
-				<!--<td>{{ page.date | date_to_string }}</td>-->
-				<td></td>
-			</tr>
-			<tr>
-				<td style="font-weight:bold;">Document:&nbsp;</td>
-				<td><a href="{{ page.docurl }}">Click Here</a></td>
-			</tr>
-			<tr>
-				<td style="font-weight:bold;">Status:&nbsp;</td>
-				<td>{{ page.status | escape }}</td>
-			</tr>
-			<tr>
-				<td style="font-weight:bold;">Version:&nbsp;</td>
-				<!--<td>{{ page.version | escape }}</td>-->
-				<td></td>
-			</tr>
-			<tr>
-				<td style="font-weight:bold;">Abstract:&nbsp;</td>
-				<td>{{ content }}</td>
-			</tr>
-		</table>
-	</div>
+	
 	{% include footer.html %}
 </div>
 
