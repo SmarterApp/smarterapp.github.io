@@ -10,7 +10,9 @@
 
 <div id="main">
 	{% include header.html %}
-	
+	<div id="content" style="min-height:400px;">
+		<div class="title">{{ page.title | escape }}</div>
+	</div>
 	{% include footer.html %}
 </div>
 
