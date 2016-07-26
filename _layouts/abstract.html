@@ -12,6 +12,12 @@
 	{% include header.html %}
 	<div id="content" style="min-height:400px;">
 		<div class="title">{{ page.title | escape }}</div>
+		<table class="layout">
+			<tr>
+				<td style="font-weight:bold;">Date:&nbsp;</td>
+				<td>{{ page.date | date_to_string }}</td>
+			</tr>
+		</table>
 	</div>
 	{% include footer.html %}
 </div>
