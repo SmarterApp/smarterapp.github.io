@@ -1,9 +1,9 @@
 ---
 title: Data Warehouse - Data Model 
-date: 2015-01-23
+date: 2016-08-01
 docurl: /documents/DataWarehouse-Spec-DataModel.pdf
-status: Draft
-Version: Milestone 7, V1.0
+status: Release
+Version: 1.0
 ---
 This describes the data model & schema employed by the Smarter Balanced Data Warehouse.
 
