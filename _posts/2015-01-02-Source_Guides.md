@@ -3,7 +3,7 @@ category: news
 title: Test Integration Source and User Guides
 date: 2015-01-02
 ---
-The source code to the Test Integration System has been released on [BitBucket](https://bitbucket.org/sbacoss) and a link has been posted on the [SmarterApp Source Code Page](http://www.smarterapp.org/source.html).
+The source code to the Test Integration System has been released on [GitHub](https://github.com/SmarterApp/TDS_TestIntegrationSystem) and a link has been posted on the [SmarterApp Source Code Page](http://www.smarterapp.org/source.html).
 
 User Guides to four Shared Services components have been posted:
 

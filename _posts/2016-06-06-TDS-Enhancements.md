@@ -15,38 +15,38 @@ Smarter Balanced and Fairway Technologies are pleased to release updates to the 
 
 Updated repositories
 
-[Student Application](https://bitbucket.org/fwsbac/student_release)
+[Student Application](https://github.com/SmarterApp/TDS_Student)
 
 * Performance improvements
 * Secure Browser Session Launch Protocol
 * Illustration Glossary accessibility feature
 
-[Test Delivery System Database Access](https://bitbucket.org/fwsbac/tdsdll_release)
+[Test Delivery System Database Access](https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess)
 
 * Performance improvements
 * Test Results Transmission updates
 
-[Test Delivery System / Proctor](https://bitbucket.org/fwsbac/tds_release)
+[Test Delivery System / Proctor](https://github.com/SmarterApp/TDS_Proctor)
 
 * Performance improvements
-* TDS Routing capability using the new [Test Delivery System Router](https://bitbucket.org/fwsbac/tds-router) component
+* TDS Routing capability using the new [Test Delivery System Router](https://github.com/SmarterApp/TDS_TestDeliverySystemRouter) component
 
-[Item Renderer](https://bitbucket.org/fwsbac/itemrenderer_release)
+[Item Renderer](https://github.com/SmarterApp/TDS_ItemRenderer)
 
 * Secure Browser Session Launch Protocol
 * Illustration Glossary accessibility feature
 * Test Results Transmission updates
 
-[Administration and Registration Tools](https://bitbucket.org/fwsbac/adminandregtools_release)
+[Administration and Registration Tools](https://github.com/SmarterApp/TDS_AdministrationAndRegistrationTools)
 
 * User search performance improvements
 * Illustration Glossary accessibility feature
 
-[Test Integration System](https://bitbucket.org/fwsbac/testintegrationsystem_release)
+[Test Integration System](https://github.com/SmarterApp/TDS_TestIntegrationSystem)
 
 * Test Results Transmission updates
 *  Configuration and documentation in the README file
 
 New component
 
-[Test Delivery System Router](https://bitbucket.org/fwsbac/tds-router)
+[Test Delivery System Router](https://github.com/SmarterApp/TDS_TestDeliverySystemRouter)
