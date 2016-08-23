@@ -44,10 +44,8 @@ Python 2.7.6
   * `sudo pip install sympy`
 * Create a directory for the `sympy` library customized by AIR:
   * `mkdir ~/air-sympy`
-* Copy the custom `sympy` module from source control to the server:
-  * **TODO**
-  * Example:
-    * `scp -i `<span class="placeholder-example">~/.ssh/tds/ssh-dev.pem</span>` `<span class="placeholder-example">/Users/jjohnson/dev/ucla/sbac/sbrepo/repositories/itemscoring_release/sympy-scripts/</span>`site-packages.zip ubuntu@`<span class="placeholder-example">54.186.182.136</span>`:`<span class="placeholder-example">~/air-sympy</span>
+* Download the `sympy` module from source control to the server:
+  * `sudo wget https://github.com/SmarterApp/TDS_ItemScoring/blob/master/sympy-scripts/site-packages.zip?raw=true -O ~/air-sympy/site-packages.zip`
 * Extract the contents of the custom `sympy` module:
   * Example:
     * `unzip `<span class="placeholder-example">~/air-sympy</span>`/site-packages.zip -d `<span class="placeholder-example">~/air-sympy</span>
@@ -64,11 +62,8 @@ Python 2.7.6
     * `cd CherryPy-3.6.0 && sudo python setup.py install`
 
 ### Deploy the Equation Scoring Service
-* Clone the `TDS_ItemScoring`repository from Smarter Balanced GitHub to the server:
-  * `git clone https://github.com/SmarterApp/TDS_ItemScoring.git`
-* Copy the [*/path/to/itemscoring/repo*{: style="color: #f00;"}]`/sympy-scripts/EqScoringWebService.py` to the desired deployment directory (created earlier)
-  * Example (assuming the `git clone` was run on a machine other than the AWS instance):
-    * `scp -i `<span class="placeholder-example">~/.ssh/tds/ssh-dev.pem</span>` `<span class="placeholder-example">~/dev/ucla/sbac/sbrepo/repositories</span>`/TDS_ItemScoring/sympy-scripts/EqScoringWebService.py ubuntu@`<span class="placeholder-example">54.186.182.136</span>`:`<span class="placeholder-example">/opt/sbtds/eqsvc</span>
+* Get the latest `EqScoringWebService.py` from the `TDS_ItemScoring`repository
+  * `sudo wget https://raw.githubusercontent.com/SmarterApp/TDS_ItemScoring/master/sympy-scripts/EqScoringWebService.py -O /opt/sbtds/eqsvc/EqScoringWebService.py`
 
 ### Start the Equation Scoring Service
 * Run the following command to start the Equation Scoring Service as a background process:
