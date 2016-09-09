@@ -5,7 +5,6 @@ categories: ["deployment", "checklist_index"]
 ---
 
 # Overview
-TODO:  Write overview
 
 ## Intended Audience
 This document is intended for use by system administrators and/or software developers that want to deploy an instance of the Test Delivery System (TDS) to a set of server instances hosted on Amazon Web Services (AWS).
