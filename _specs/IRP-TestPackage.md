@@ -1,6 +1,6 @@
 ---
 title: Implementation Readiness - Test Packages
-date: 2015-08-26
+date: 2016-09-23
 docurl: /specs/IRP-TestPackage.html
 status: Release
 ---
