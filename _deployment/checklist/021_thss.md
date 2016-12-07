@@ -30,15 +30,15 @@ categories: ["deployment", "checklist", "tds"]
   1. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Items.sql`
   2. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Dimensions.sql`
   3. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.ConditionCodes.sql`
-  4. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Districts.sql`
-  5. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Schools.sql`
-  6. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Students.sql`
-  7. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Teachers.sql`
-  8. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Tests.sql`
-  9. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Responses.sql`
-  10. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Assignments.sql`
-  11. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Logs.sql`
-  12. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo._dbLatency.sql`
+  4. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Students.sql`
+  5. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Teachers.sql`
+  6. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Tests.sql`
+  7. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Responses.sql`
+  8. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Assignments.sql`
+  9. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.TeacherDistrictMap.sql`
+  10. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.Logs.sql`
+  11. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo._dbLatency.sql`
+  12. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.ActivityLog.sql`
   13. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\dbo.fn_SplitDelimitedString.sql`
   14. [*\Path\to\THSS Repository*{: style="color: #f00;"}]`DB\TSS\Tables\*.sql`
     **NOTE:** The intent of item 14 is to describe running all of the stored procedure scripts against the `TSS` database.
@@ -102,7 +102,7 @@ categories: ["deployment", "checklist", "tds"]
 
 #### Get IDP Metadata
 * Create a new file named ***exactly*** `idp.xml` and save it to the [*\Path\to\THSS web application*{: style="color: #f00;"}]`\App_Data` directory
-* Navigate to `https://`[*FQDN or IP address of OpenAM server*{: style="color: #f00;"}]`//auth/saml2/jsp/exportmetadata.jsp?realm=/sbac`
+* Navigate to `https://`[*FQDN or IP address of OpenAM server*{: style="color: #f00;"}]`/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac`
   * Example:  `https://sso-deployment.sbtds.org/auth/saml2/jsp/exportmetadata.jsp?realm=/sbac`
 * Right-click on the resulting XML and choose **View source**
 * Copy the ***entire content*** of the results into [*\Path\to\THSS web application*{: style="color: #f00;"}]`\App_Data\idp.xml` and save `idp.xml`.
@@ -126,7 +126,7 @@ sun-fm-saml2-writerservice-url=</code>
 <pre class="highlight">
 <code>cot-name=<span class="placeholder-example">sbac</span>
 sun-fm-cot-status=Active
-sun-fm-trusted-providers=https://<span class="placeholder-example">sso-deployment.sbtds.org:443</span>/auth, <span class="placeholder-example">thss</strong> </span>
+sun-fm-trusted-providers=https://<span class="placeholder-example">sso-deployment.sbtds.org:443</span>/auth, <span class="placeholder-example">thss </span>
 sun-fm-saml2-readerservice-url=
 sun-fm-saml2-writerservice-url=</code>
 </pre>
@@ -478,5 +478,32 @@ sun-fm-saml2-writerservice-url=</code>
     &lt;/appSettings&gt;</code>
 </pre>
 </div>
+
+### Permission Settings
+* Log into the Permissions Application in order to create the new Component and Permissions.
+* Create a new Component named `Teacher Hand Scoring System`
+* Create the following permissions for the newly created `Teacher Hand Scoring System` Component:
+	* `Can See All Items`
+	* `Can See Own Items` 
+* Grant Roles access to the newly created Permissions.  The following mapping is a good starting point:
+	* `Can See All Items` -> `Administrator`
+	* `Can See Own Items` -> `Administrator`, `Test Administrator`
+
+### OpenAM Updates
+* In order to get SAML working and enable logging into THSS via the Signle Sign-On, you will need to add THSS as a Service Provider in OpenAM.
+* Log into the OpenAM administration console located at: 
+	* https://[*Base OpenAM URL*{: style="color: #f00;"}]/auth/console?realm=/
+* 	The default username is `amadmin`
+*  Click on the `Federation` tab
+*  In the `Entity Providers` section of the page, click `Import Entity...`
+*  Enter the following:
+	* Change Realm to `/sbac`
+	* Select `File` for the `Where does the metadata file reside?:` option
+	* Upload the `sp.xml` file
+	* Ignore the second option for uploading a file or URL, leave it blank
+	* Click `'Ok`
+* Click on the `sbac` link within the `Circle of Trust` section of the page
+* Click the `Add >` button to move the newly created `thss` item to the `Selected` list
+* Click `Save`  
 
 [back to Deployment Checklists](index.html)
