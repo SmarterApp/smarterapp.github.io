@@ -16,17 +16,17 @@ Included in this guide are the best practices for:
 
 ## Components
 
-- [TDS – Test Delivery System](https://github.com/SmarterApp?utf8=%E2%9C%93&query=TDS_){: target="_blank"}
-- [RDW – Reporting and Data Warehouse](https://github.com/SmarterApp?utf8=%E2%9C%93&query=RDW_){: target="_blank"}
-- [DL – Digital Library](https://github.com/SmarterApp?utf8=%E2%9C%93&query=DL_){: target="_blank"}
-- [SB – Secure Browsers](https://github.com/SmarterApp?utf8=%E2%9C%93&query=SB_){: target="_blank"}
-- [AP – Assessment Production](https://github.com/SmarterApp?utf8=%E2%9C%93&query=AP_){:target="_blank"}
-- [IM – Identity Management](https://github.com/SmarterApp?utf8=%E2%9C%93&query=IM_){: target="_blank"}
-- [SS – Shared Services](https://github.com/SmarterApp?utf8=%E2%9C%93&query=SS_){: target="_blank"}
+- [TDS – Test Delivery System](https://github.com/SmarterApp?utf8=%E2%9C%93&q=TDS_){: target="_blank"}
+- [RDW – Reporting and Data Warehouse](https://github.com/SmarterApp?utf8=%E2%9C%93&q=RDW_){: target="_blank"}
+- [DL – Digital Library](https://github.com/SmarterApp?utf8=%E2%9C%93&q=DL_){: target="_blank"}
+- [SB – Secure Browsers](https://github.com/SmarterApp?utf8=%E2%9C%93&q=SB_){: target="_blank"}
+- [AP – Assessment Production](https://github.com/SmarterApp?utf8=%E2%9C%93&q=AP_){:target="_blank"}
+- [IM – Identity Management](https://github.com/SmarterApp?utf8=%E2%9C%93&q=IM_){: target="_blank"}
+- [SS – Shared Services](https://github.com/SmarterApp?utf8=%E2%9C%93&q=SS_){: target="_blank"}
 
 ---
 
-## [TDS - Test Delivery System](https://github.com/SmarterApp?utf8=%E2%9C%93&query=TDS_){: target="_blank"}
+## [TDS - Test Delivery System](https://github.com/SmarterApp?utf8=%E2%9C%93&q=TDS_){: target="_blank"}
 
 
 >##### [Administration and Registration Tools (ART)](https://github.com/SmarterApp/TDS_AdministrationAndRegistrationTools){: target="_blank"}
@@ -124,7 +124,7 @@ Included in this guide are the best practices for:
 
 ---
 
-## [RDW - Reporting and Data Warehouse](https://github.com/SmarterApp?utf8=%E2%9C%93&query=RDW_){: target="_blank"}
+## [RDW - Reporting and Data Warehouse](https://github.com/SmarterApp?utf8=%E2%9C%93&q=RDW_){: target="_blank"}
 
 >##### [Reporting Data Warehouse](https://github.com/SmarterApp/RDW_DataWarehouse){: target="_blank"}
 >Reporting and Data Warehouse offers a secure and scalable multi-tenant system that houses student assessment and student registration data and provides tools for data access in HTML, CSV, and PDF formats.
@@ -134,14 +134,14 @@ Included in this guide are the best practices for:
 
 ---
 
-## [DL - Digital Library](https://github.com/SmarterApp?utf8=%E2%9C%93&query=DL_){: target="_blank"}
+## [DL - Digital Library](https://github.com/SmarterApp?utf8=%E2%9C%93&q=DL_){: target="_blank"}
 
 >##### [Digital Library](https://github.com/SmarterApp/DL_DigitalLibrary){: target="_blank"}
 >Information and configuration for the Digital Library site.
 
 ---
 
-## [SB - Secure Browsers](https://github.com/SmarterApp?utf8=%E2%9C%93&query=SB_){: target="_blank"}
+## [SB - Secure Browsers](https://github.com/SmarterApp?utf8=%E2%9C%93&q=SB_){: target="_blank"}
 
 >##### [Secure Browser 6.5](https://github.com/SmarterApp/SB_SecureBrowser65){: target="_blank"}
 Secure Browser 6.5 builds upon the Mozilla Firefox source code and creates a secure browser that is used to deliver student assessments. The Secure Browser implements security features such as not permitting multiple tabs, browsing arbitrary URLs and enforcing a white list of applications.
@@ -160,7 +160,7 @@ Secure Browser 6.5 builds upon the Mozilla Firefox source code and creates a sec
 
 ---
 
-## [AP - Assessment Production](https://github.com/SmarterApp?utf8=%E2%9C%93&query=AP_){: target="_blank"}
+## [AP - Assessment Production](https://github.com/SmarterApp?utf8=%E2%9C%93&q=AP_){: target="_blank"}
 
 >##### [Item Authoring and Item Pool](https://github.com/SmarterApp/AP_ItemAuthoring){: target="_blank"}
 >Item Authoring and Item Pool facilitates the process of writing new assessment items, reviewing them, and adding accessibility features.
@@ -181,7 +181,7 @@ Secure Browser 6.5 builds upon the Mozilla Firefox source code and creates a sec
 
 ---
 
-## [IM - Identity Management](https://github.com/SmarterApp?utf8=%E2%9C%93&query=IM_){: target="_blank"}
+## [IM - Identity Management](https://github.com/SmarterApp?utf8=%E2%9C%93&q=IM_){: target="_blank"}
 
 >##### [OpenAM](https://github.com/SmarterApp/IM_OpenAM){: target="_blank"}
 >Contains ForgeRock OpenAM source code and any scripts necessary to create an OpenAM Single Sign On system.
@@ -191,7 +191,7 @@ Secure Browser 6.5 builds upon the Mozilla Firefox source code and creates a sec
 
 ---
 
-## [SS - Shared Services](https://github.com/SmarterApp?utf8=%E2%9C%93&query=SS_){: target="_blank"}
+## [SS - Shared Services](https://github.com/SmarterApp?utf8=%E2%9C%93&q=SS_){: target="_blank"}
 
 >##### [Core Standards](https://github.com/SmarterApp/SS_CoreStandards){: target="_blank"}
 >CoreStandards enables users to serve standards publications. The UI includes the following functionalities:
