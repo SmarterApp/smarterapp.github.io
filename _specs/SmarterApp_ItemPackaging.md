@@ -1,6 +1,6 @@
 ---
 title: Item Packaging Specification
-date: 2014-11-25
+date: 2017-02-16
 docurl: /documents/SmarterApp_ItemPackaging.pdf
 status: Acceptance Candidate
 ---
