@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>{{ page.title | escape }}</title>
+{% include head.html %}
+</head>
+
+<body>
+
+<div id="main">
+	{% include header.html %}
+	<div class="title" style="margin:20, 0, 0, 20;">
+		{{ page.title | escape }}
+	</div>
+	<div class="subtitle" style="text-align:right;margin:0;">
+		{{ page.date | date: "%Y-%m-%d"}} | {{ page.version | escape }}
+	</div>
+	<hr/>
+	<div id="content" style="min-height: 40em;">
+		{{ content }}
+	</div>
+	{% include footer.html %}
+</div>
+
+</body>
+
+</html>

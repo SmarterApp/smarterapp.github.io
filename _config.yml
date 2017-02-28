@@ -15,6 +15,9 @@ collections:
   arch:
     output: true
     permalink: /arch/:path.html
+  irp:
+    output: true
+    permalink: /irp/:path.html
 defaults:
   -
     scope:
