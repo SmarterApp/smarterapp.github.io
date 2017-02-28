@@ -34,7 +34,6 @@ Smarter Balanced is providing implementation testing guidelines to serve as refe
 
 A link to a zip file containing the necessary example assessment/test item containing items with illustration glossaries will be available soon.
 
-
 ## Quality Assurance & Testing
 
 The Smarter Balanced Illustration Glossary Quality Assurance Checklist is intended to ensure third-party Test Delivery System (TDS) applications adhere to Smarter Balanced practices, standards, and guidelines that promote quality solutions. Even though this checklist covers mostly the functional aspects of the User Interface, it is recommended that the team developing this feature familiarize themselves with this checklist to ensure the developed application meets the quality standards.  
