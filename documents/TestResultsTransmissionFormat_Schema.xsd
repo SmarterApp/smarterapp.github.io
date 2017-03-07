@@ -150,6 +150,7 @@
                                 </xs:attribute>
                                 <xs:attribute name="adminDate" use="required" type="xs:dateTime"/>
                                 <xs:attribute name="numberVisits" use="required" type="xs:unsignedInt"/>
+                                <xs:attribute name="responseDuration" use="required" type="xs:unsignedInt" />
                                 <xs:attribute name="mimeType" use="required">
                                     <xs:simpleType>
                                         <xs:restriction base="xs:token">
@@ -193,6 +194,23 @@
                                 <xs:enumeration value="scored"/>
                                 <xs:enumeration value="submitted"/>
                                 <xs:enumeration value="pending"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="validity" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="valid"/>
+                                <xs:enumeration value="invalid"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="completeness" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="none"/>
+                                <xs:enumeration value="partial"/>
+                                <xs:enumeration value="complete"/>
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:attribute>
@@ -251,7 +269,7 @@
 <xs:complexType name="ScoreInfoType">
     <xs:sequence>
         <xs:element name="ScoreRationale" minOccurs="0" maxOccurs="1">
-            <xs:complexType>
+            <xs:complexType mixed="true">
                 <xs:sequence>
                     <xs:element minOccurs="0" maxOccurs="1" name="Message"/>
                 </xs:sequence>
