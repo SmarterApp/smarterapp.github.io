@@ -20,3 +20,6 @@ Version 1.6 includes updates to the XSD and XML sample files
 <br/>
 <br/>
 Version 1.7 includes updates to the specification with optional fields and an updated XSD file.
+<br/>
+<br/>
+Version 1.8 includes updates to the specification, XML, and XSD files.
