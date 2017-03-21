@@ -1,7 +1,7 @@
 ---
 title: Illustration Glossary - Implementation Readiness Package
 dateCreated: 2017-02-23
-date: 2017-02-23
+date: 2017-03-20
 version: Preliminary
 layout: document-wide
 ---
@@ -24,7 +24,7 @@ For a complete description of all the functional specifications please refer to 
 
 Smarter Balanced is providing a link (below) to a website where the Smarter Balanced Test Delivery System is running and where users can sign in anonymously to test items containing the Illustration Glossary:
 
-[https://tds.smarterbalanced.org/student](https://tds.smarterbalanced.org/student)
+[https://tds.smarterbalanced.org/student](https://tds.smarterbalanced.org/student){:target="_blank"}
 
 Note: to test/demo please follow the initial login screens. When on the Choose Settings screen please select from the "Illustration Glossary" drop down the option "Show Illustration Glossary".
 
