@@ -22,7 +22,11 @@ For a complete description of all the functional specifications please refer to 
 
 ## Demonstration Website
 
-Smarter Balanced will be providing a link to a website where the Smarter Balanced Test Delivery System is running and where users can sign in anonymously to test items containing the Illustration Glossary. This website will be posted here when available.
+Smarter Balanced is providing a link (below) to a website where the Smarter Balanced Test Delivery System is running and where users can sign in anonymously to test items containing the Illustration Glossary:
+
+[https://tds.smarterbalanced.org/student](https://tds.smarterbalanced.org/student)
+
+Note: to test/demo please follow the initial login screens. When on the Choose Settings screen please select from the "Illustration Glossary" drop down the option "Show Illustration Glossary".
 
 # Testing and Quality Assurance of the Implementation
 
