@@ -36,7 +36,9 @@ Smarter Balanced is providing implementation testing guidelines to serve as refe
 
 [Illustration-Glossary-Implementation-Testing-Guidelines-IRP-v0.1.pdf](http://www.smarterapp.org/documents/Illustration-Glossary-Implementation-Testing-Guidelines-IRP-v0.1.pdf)
 
-A link to a zip file containing the necessary example assessment/test item containing items with illustration glossaries will be available soon.
+The following link points to a zip file containing the necessary example assessment/test item containing items with illustration glossaries. Use this file and its contents for loading the examples into a Test Delivery System:
+
+[2017.03.21.IllustrationGlossaryIrpTestPackageAndContent.zip](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/ImplementationReadiness/2017.03.21.IllustrationGlossaryIrpTestPackageAndContent.zip){:target="_blank"}
 
 ## Quality Assurance & Testing
 
