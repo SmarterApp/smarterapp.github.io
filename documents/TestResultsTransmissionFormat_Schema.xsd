@@ -71,9 +71,9 @@
                                 </xs:attribute>
                                 <xs:attribute name="formId"/>
                                 <xs:attribute name="formKey"/>
-                                <xs:attribute name="algorithm" use="required"/>
+                                <xs:attribute name="algorithm"/>
                                 <!-- new field requested for open source -->
-                                <xs:attribute name="algorithmVersion" use="required"/>
+                                <xs:attribute name="algorithmVersion"/>
                             </xs:complexType>
                         </xs:element>
                         <xs:element name="Accommodation" minOccurs="0" maxOccurs="unbounded">
@@ -113,7 +113,7 @@
                                     <xs:element name="Response" minOccurs="0" maxOccurs="1">
                                         <xs:complexType mixed="true">
                                             <xs:attribute name="date" type="xs:dateTime" use="required"/>
-                                            <xs:attribute name="type" use="required">
+                                            <xs:attribute name="type" default="value">
                                                 <xs:simpleType>
                                                     <xs:restriction base="xs:token">
                                                         <xs:enumeration value="value"/>
@@ -150,7 +150,7 @@
                                 </xs:attribute>
                                 <xs:attribute name="adminDate" use="required" type="xs:dateTime"/>
                                 <xs:attribute name="numberVisits" use="required" type="xs:unsignedInt"/>
-                                <xs:attribute name="responseDuration" use="required" type="xs:unsignedInt" />
+                                <xs:attribute name="responseDuration" use="required" type="xs:float" />
                                 <xs:attribute name="mimeType" use="required">
                                     <xs:simpleType>
                                         <xs:restriction base="xs:token">
@@ -197,20 +197,21 @@
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:attribute>
-                    <xs:attribute name="validity" use="required">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:token">
-                                <xs:enumeration value="valid"/>
-                                <xs:enumeration value="invalid"/>
-                            </xs:restriction>
-                        </xs:simpleType>
+                    <xs:attribute name="validity" default="">
+                       <xs:simpleType>
+                          <xs:restriction base="xs:token">
+                             <xs:enumeration value="valid"/>
+                             <xs:enumeration value="invalid"/>
+                             <xs:enumeration value=""/>
+                          </xs:restriction>
+                       </xs:simpleType>
                     </xs:attribute>
-                    <xs:attribute name="completeness" use="required">
+                    <xs:attribute name="completeness">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
-                                <xs:enumeration value="none"/>
-                                <xs:enumeration value="partial"/>
-                                <xs:enumeration value="complete"/>
+                                <xs:enumeration value=""/>
+                                <xs:enumeration value="Partial"/>
+                                <xs:enumeration value="Complete"/>
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:attribute>
@@ -227,14 +228,32 @@
                     <xs:attribute name="sessionId"/>
                     <xs:attribute name="windowId" use="required"/>
                     <xs:attribute name="windowOpportunity" type="NullableUInt"/>
-                    <xs:attribute name="completeStatus"/>
-                    <xs:attribute name="administrationCondition"/>
+                    <xs:attribute name="completeStatus">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value=""/>
+                                <xs:enumeration value="Partial"/>
+                                <xs:enumeration value="Complete"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="administrationCondition">
+                         <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="Valid"/>
+                                <xs:enumeration value="SD"/>
+                                <xs:enumeration value="NS"/>
+                                <xs:enumeration value="IN"/>
+                                <xs:enumeration value=""/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
                     <xs:attribute name="dateForceCompleted" type="NullableDateTime"/>
                     <xs:attribute name="qaLevel"/>
                     <!-- new field requested for open source -->
                     <xs:attribute name="assessmentParticipantSessionPlatformUserAgent" use="required"/>
                     <!-- the first date of the first window for a given assessment.  Format = YYYY-MM-DD -->
-                    <xs:attribute name="effectiveDate" use="required"/>
+                    <xs:attribute name="effectiveDate"/>
                     <xs:attribute name="reportingVersion" type="xs:unsignedInt"/>
                     <xs:attribute name="testReason"/>
                 </xs:complexType>
