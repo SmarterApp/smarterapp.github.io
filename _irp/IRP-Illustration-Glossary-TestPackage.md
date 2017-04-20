@@ -1,5 +1,5 @@
 ---
-title: Illustration Glossary - Implementation Readiness Package
+title: Illustration Glossary - Implementation Readiness
 dateCreated: 2017-02-23
 date: 2017-03-20
 version: Preliminary
@@ -8,7 +8,7 @@ layout: document-wide
 
 # Introduction
 
-Smarter Balanced provides guidance and supporting tools to insure the proper implementation of specific functionality.  This page references all the documents, demo website, and QA guidelines to insure a reliable implementation of the Illustration Glossary functionality in any Test Delivery System.
+Smarter Balanced provides guidance and supporting tools to ensure the proper implementation of specific functionality.  This page references all the documents, demo website, and QA guidelines to insure a reliable implementation of the Illustration Glossary functionality in any Test Delivery System.
 
 # Illustration Glossary Definition
 
