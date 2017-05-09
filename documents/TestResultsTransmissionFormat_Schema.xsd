@@ -43,7 +43,7 @@
                             <xs:complexType>
                                 <xs:attribute name="context" use="required" type="Context"/>
                                 <xs:attribute name="name" use="required"/>
-                                <xs:attribute name="entityKey" type="xs:unsignedLong"/>
+                                <xs:attribute name="entityKey"/>
                                 <xs:attribute name="value"/>
                                 <xs:attribute name="contextDate" use="required" type="xs:dateTime"/>
                             </xs:complexType>
@@ -51,7 +51,7 @@
                     </xs:choice>
                     <!-- negative values are used by TDS for testing. -->
                     <xs:attribute name="key" type="xs:long"/>
-                    <xs:attribute name="isDemo" type="Bit"/>
+                    <xs:attribute name="isDemo" type="xs:boolean"/>
                 </xs:complexType>
             </xs:element>
             <xs:element name="Opportunity" minOccurs="1" maxOccurs="1">
@@ -262,7 +262,7 @@
                 <xs:complexType mixed="true">
                     <!-- TODO: domain values; I've seen GlobalNotes and TESTITEM, but I'm not sure how rigid this is. -->
                     <xs:attribute name="context" use="required"/>
-                    <xs:attribute name="itemPosition" type="NullableUInt" use="required"/>
+                    <xs:attribute name="itemPosition" use="required" type="NullableUInt"/>
                     <xs:attribute name="date" use="required" type="xs:dateTime"/>
                 </xs:complexType>
             </xs:element>
