@@ -121,8 +121,8 @@ Installing the Spring Boot Command-Line-Interface is required to encrypt sensiti
 - Instructions for installing the Spring Boot CLI can be found [here](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-installing-spring-boot.html#getting-started-installing-the-cli).
 - Instructions for installing the Spring Cloud CLI Extension can be found [here](https://cloud.spring.io/spring-cloud-cli/). 
 - If required, download and install the “Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files” from Oracle.
-- You can now encrypt/decrypt configuration values via:  
-`spring encrypt <SENSITIVE_VALUE> --key <ENCRYPT_KEY>`
+- You can now encrypt/decrypt configuration values via:<br>
+`spring encrypt <SENSITIVE_VALUE> --key <ENCRYPT_KEY>`<br>
 `spring decrypt <ENCRYPTED_VALUE> --key <ENCRYPT_KEY>`
 - Encrypted values can be used in configuration .yml files as:  
 `password: '{cipher}encrypted_value'`

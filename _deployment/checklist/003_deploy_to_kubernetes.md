@@ -9,18 +9,23 @@ categories: ["deployment", "checklist", "tds"]
 ### Create Kubernetes Cluster
 This section covers creating and initializing the base Kubernetes cluster. Whoever is deploying the system should decide what values to use for each command and remain consistent throughout as our examples have done below.
 
-1. Determine the name of your cluster and the zone.  For the examples below we are zone `us-west-2a` and cluster `tdsuat.sbtds.org` because `sbtds.org` is hosted on AWS.
-1. Create the cluster configuration: `kops create cluster --zones=us-west-2a tdsuat.sbtds.org`
+1. Determine the name of your cluster and the zone.  
+For the examples below we are using `<ZONE>`=`us-west-2a` and `<CLUSTER>`=`tdsuat.sbtds.org` because `sbtds.org` is hosted on AWS.
+1. Create the cluster configuration: `kops create cluster --zones=<ZONE> <CLUSTER>`
+  - Example: `kops create cluster --zones=us-west-2a tdsuat.sbtds.org`
 1. Configure node instance group
-  - Run `kops edit ig nodes --name tdsuat.sbtds.org` 
+  - Run `kops edit ig nodes --name <CLUSTER>` 
+  - Example: `kops edit ig nodes --name tdsuat.sbtds.org`
   - Change minSize to 3
   - Change maxSize to 10
   - Change machineType to m3.large
 1. Configure master instance group
-  - Run `kops edit ig master-us-west-2a --name tdsuat.sbtds.org` 
+  - Run `kops edit ig master-<ZONE> --name <CLUSTER>` 
+  - Example: `kops edit ig master-us-west-2a --name tdsuat.sbtds.org` 
   - Change machineType to m3.large
 1. Apply the configuration to create the cluster
-  - Run `kops update cluster tdsuat.sbtds.org --yes`
+  - Run `kops update cluster <CLUSTER> --yes`
+  - Example: `kops update cluster tdsuat.sbtds.org --yes`
   - Wait for cluster to initialize.  You can run `kubectl get pod` and it should return an empty list of pods and no error if initialized.
 1. Add the kubernetes dashboard:
   - Run `kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/kubernetes-dashboard/v1.6.0.yaml`
