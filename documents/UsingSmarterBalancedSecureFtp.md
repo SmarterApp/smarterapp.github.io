@@ -1,8 +1,8 @@
 ---
 title: Using the Smarter Balanced Secure FTP Site
 dateCreated: 2015-01-09
-date: 2015-04-20
-version: 1.1
+date: 2017-07-13
+version: 1.2
 layout: document
 author: Brandt Redd
 ---
@@ -10,7 +10,7 @@ author: Brandt Redd
 
 Smarter Balanced uses a Secure FTP site provided by HostedFTP to share sensitive and bulky digital materials including Interim and Summative test packages. These instructions will help you set up your FTP client for access to these materials.
 
-Most contents on the Secure FTP site are sensitive. For member states, these contents are subject to the confidentiality clause of your Memo of Understanding with UCLA/Smarter Balanced. For service providers and other partners, you should have signed a confidentiality agreement before being granted access.
+Most contents on the Secure FTP site are sensitive. For member states, these contents are subject to the confidentiality clause of your Memo of Understanding with UCSC/Smarter Balanced. For service providers and other partners, you should have signed a confidentiality agreement before being granted access.
 
 ## Welcome Email
 The contents on the Secure FTP site are divided into folders and access is granted on a per-folder basis. Each time you are granted access you will receive a welcome email similar to the following:
@@ -37,7 +37,7 @@ The contents on the Secure FTP site are divided into folders and access is grant
 ## Setting a Password
 The first time you click on one of these links, you will be prompted to set a password. For future access, your username is your email address and your password is the one you set the first time you connect.
 
-Per the terms of your organization's confidentiality agreement, you share with UCLA/Smarter Balanced the responsibility for preserving the security of these materials. So, please set a good quality password and keep it secure.
+Per the terms of your organization's confidentiality agreement, you share with UCSC/Smarter Balanced the responsibility for preserving the security of these materials. So, please set a good quality password and keep it secure.
 
 ## Web Browser Access
 
