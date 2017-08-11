@@ -55,7 +55,7 @@ drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 TDS_TestDeliverySystemDataAccess
 <div class="highlighter-rouge">
 <pre class="highlight">
 <code>
-HOST=<span class="placeholder-example">fw-tds-schema-setup.cugsexobhx8t.us-west-2.rds.amazonaws.com</span>
+HOST=<span class="placeholder-example">rds-schema-setup-example.cugsexobhx8t.us-west-2.rds.amazonaws.com</span>
 PORT=<span class="placeholder-example">3306</span>
 USER=<span class="placeholder-example">root</span>
 PW=<span class="placeholder-example">[redacted]</span>
