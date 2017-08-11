@@ -11,7 +11,8 @@ categories: ["deployment", "checklist", "tds"]
 |:-----|:------------|
 | Purpose | Provide databases to support TDS |
 | Communicates With | Proctor<br>Student |
-| Repository Location | [https://github.com/SmarterApp/TDS_Proctor](https://github.com/SmarterApp/TDS_Proctor){:target="_blank"} |
+| Repository Location | SQL: [https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess/tree/master/tds-dll-schemas/src/main/resources/sql/MYSQL](https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess/tree/master/tds-dll-schemas/src/main/resources/sql/MYSQL){:target="_blank"}<br>
+Utilities for creating databases: [https://github.com/SmarterApp/TDS_Build/tree/master/database/tds](https://github.com/SmarterApp/TDS_Build/tree/master/database/tds)  |
 | Additional Documentation | Not Applicable |
 
 # Instructions
