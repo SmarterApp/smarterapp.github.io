@@ -15,11 +15,11 @@ categories: ["deployment", "checklist", "tds"]
 | Additional Documentation | Not Applicable |
 
 # Instructions
-**NOTE:** These instructions assume Amazon Relational Database Service (RDS) will be leveraged to create the server that will host the TDS databases.  The database deployment scripts can also be run against a MySQL database server that is hosted on an Amazon EC2 instance (or any other server).
+***NOTE:*** These instructions assume Amazon Relational Database Service (RDS) will be leveraged to create the server that will host the TDS databases.  Usage of Amazon RDS is recommened for creating a TDS datbase server.  However, the database deployment scripts can also be run against a MySQL database server that is hosted on an Amazon EC2 instance.
 
 {% include checklist/rds_setup.md %}
 
-**NOTE:** When creating the TDS databases, the RDS instance must be accessible remotely.  A remote computer must be able to connect to it with a user account that has sufficient privileges to create schemas and objects within those schemas.
+***NOTE:*** When creating the TDS databases, the RDS instance must be accessible remotely.  A remote computer must be able to connect to it with a user account that has sufficient privileges to create schemas and objects within those schemas.
 
 ### Create Test Delivery System (TDS) Databases
 * If not done already, install [git](https://git-scm.com/) on the machine that will be responsible for creating the TDS databases
@@ -46,13 +46,23 @@ drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 TDS_TestDeliverySystemDataAccess
 
 * Navigate to the `TDS_Build/database/tds` directory:
   * `cd TDS_Build/database/tds`
-* Update the `db-schema-setup.sh` script to use the correct user name and password (lines 20 and 21):
+* Update the `db-schema-setup.sh` script to use the correct connection information:
   * `HOST`=[<span class="placeholder">the host name or IP address of the database server that will host the TDS databases</span>]
   * `PORT`=[<span class="placeholder">the port on which the database server is listening</span>]
   * `USER`=[<span class="placeholder">the user name with sufficient privileges to create schemas and objects within those schemas</span>]
   * `PW`=[<span class="placeholder">the MySQL user's password</span>]
-* If necessary, update the port and hostame (lines 18 and 19)
-* Make the `db-schema-setup.sh` executable:
+* An example of a configured `db-schema-setup.sh` script is shown below:
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>
+HOST=<span class="placeholder-example">fw-tds-schema-setup.cugsexobhx8t.us-west-2.rds.amazonaws.com</span>
+PORT=<span class="placeholder-example">3306</span>
+USER=<span class="placeholder-example">root</span>
+PW=<span class="placeholder-example">[redacted]</span>
+</code>
+</pre>
+</div>
+* Make the `db-schema-setup.sh` executable (if it is not already):
   * `sudo chmod u+x db-schema-setup.sh`
 * Run the `db-schema-setup.sh` script to create the TDS database schema and load it with seed data:
   * `./db-schema-setup.sh`
