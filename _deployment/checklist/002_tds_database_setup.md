@@ -1,6 +1,6 @@
 ---
 title: TDS Database Installation Checklist
-permalink: "deployment/checklist/tdsdb.html"
+permalink: "deployment/checklist/tds_database.html"
 layout: "document"
 categories: ["deployment", "checklist", "tds"]
 ---
@@ -11,11 +11,11 @@ categories: ["deployment", "checklist", "tds"]
 |:-----|:------------|
 | Purpose | Provide databases to support TDS |
 | Communicates With | Proctor<br>Student |
-| Repository Location | SQL: [https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess/tree/master/tds-dll-schemas/src/main/resources/sql/MYSQL](https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess/tree/master/tds-dll-schemas/src/main/resources/sql/MYSQL){:target="_blank"}<br>
-Utilities for creating databases: [https://github.com/SmarterApp/TDS_Build/tree/master/database/tds](https://github.com/SmarterApp/TDS_Build/tree/master/database/tds)  |
+| Repository Location | SQL: [https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess/tree/master/tds-dll-schemas/src/main/resources/sql/MYSQL](https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess/tree/master/tds-dll-schemas/src/main/resources/sql/MYSQL){:target="_blank"}<br><br>Utilities for creating and interacting with databases: [https://github.com/SmarterApp/TDS_Build/tree/master/database/tds](https://github.com/SmarterApp/TDS_Build/tree/master/database/tds)  |
 | Additional Documentation | Not Applicable |
 
 # Instructions
+**NOTE:** These instructions assume Amazon Relational Database Service (RDS) will be leveraged to create the server that will host the TDS databases.  The database deployment scripts can also be run against a MySQL database server that is hosted on an Amazon EC2 instance (or any other server).
 
 {% include checklist/rds_setup.md %}
 
@@ -23,7 +23,7 @@ Utilities for creating databases: [https://github.com/SmarterApp/TDS_Build/tree/
 
 ### Create Test Delivery System (TDS) Databases
 * If not done already, install [git](https://git-scm.com/) on the machine that will be responsible for creating the TDS databases
-* If not done already, clone the `TDS_Build` and `TDS_TestDeliverySystemDataAccess` repositories from GitHub:
+* If not done already, clone the **TDS_Build** and **TDS_TestDeliverySystemDataAccess** repositories from GitHub:
   * `git clone https://github.com/SmarterApp/TDS_Build.git`
   * `git clone https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess.git`
 * ***NOTE:*** When cloning `TDS_Build` and `TDS_TestDeliverySystemDataAccess`, they should be "siblings" at the same directory level.  For example, if both repositories are cloned in the `ubuntu` user's home directory, the directory will look like this:
@@ -47,10 +47,10 @@ drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 TDS_TestDeliverySystemDataAccess
 * Navigate to the `TDS_Build/database/tds` directory:
   * `cd TDS_Build/database/tds`
 * Update the `db-schema-setup.sh` script to use the correct user name and password (lines 20 and 21):
-  * `HOST=[the host name or IP address of the database server that will host the TDS databases]`
-  * `PORT=[the port on which the database server is listening]`
-  * `USER=[the user name with sufficient privileges to create schemas and objects within those schemas]`
-  * `PW=[the MySQL user's password]`
+  * `HOST`=[<span class="placeholder">the host name or IP address of the database server that will host the TDS databases</span>]
+  * `PORT`=[<span class="placeholder">the port on which the database server is listening</span>]
+  * `USER`=[<span class="placeholder">the user name with sufficient privileges to create schemas and objects within those schemas</span>]
+  * `PW`=[<span class="placeholder">the MySQL user's password</span>]
 * If necessary, update the port and hostame (lines 18 and 19)
 * Make the `db-schema-setup.sh` executable:
   * `sudo chmod u+x db-schema-setup.sh`
@@ -371,25 +371,4 @@ drwxrwxr-x 12 ubuntu ubuntu 4.0K May  2 17:57 TDS_TestDeliverySystemDataAccess
 85 rows in set (0.00 sec)
 ~~~~
 
-* Change to the `itembank` database:
-  * `use itembank;`
-* List the assessments that have been loaded:
-  * `select _key, testid from tblsetofadminsubjects;`
-
-~~~~
-+------------------------------------------------+------------------------------+
-| _key                                           | testid                       |
-+------------------------------------------------+------------------------------+
-| (SBAC_PT)SBAC ELA 3-ELA-3-Spring-2014-2015     | SBAC ELA 3-ELA-3             |
-| (SBAC_PT)SBAC ELA 6-ELA-6-Spring-2014-2015     | SBAC ELA 6-ELA-6             |
-| (SBAC_PT)SBAC ELA HS-ELA-10-Spring-2014-2015   | SBAC ELA HS-ELA-10           |
-| (SBAC_PT)SBAC Math 3-MATH-3-Spring-2014-2015   | SBAC Math 3-MATH-3           |
-| (SBAC_PT)SBAC Math 6-MATH-6-Spring-2014-2015   | SBAC Math 6-MATH-6           |
-| (SBAC_PT)SBAC Math 7-MATH-7-Spring-2014-2015   | SBAC Math 7-MATH-7           |
-| (SBAC_PT)SBAC Math HS-MATH-10-Spring-2014-2015 | SBAC Math HS-MATH-10         |
-| (SBAC_PT)SBAC-Student Help-11-Spring-2014-2015 | SBACTraining-Student Help-11 |
-+------------------------------------------------+------------------------------+
-8 rows in set (0.00 sec)
-~~~~
-
-***NOTE:*** The tests loaded into the `itembank` database come from the [Practice and Training Tests Package](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/PracticeAndTrainingTests/2015-08-28_TrainingTestPackagesAndContent.zip){:target="_blank"}.
+[back to Deployment Checklists](index.html)
