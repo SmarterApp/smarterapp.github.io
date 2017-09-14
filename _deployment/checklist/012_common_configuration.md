@@ -20,7 +20,6 @@ SET label = '<desired assessment label>'
 WHERE testid = '<assessment id>'; 
 ``` 
 2. Flush the redis cache
-3. Delete the currently running `tds-student-war` and `tds-assessment-service` pods and allow Kubernetes to recreate new pods.
 
 
 ## Enabling Segment Entry/Exit Approval
@@ -35,7 +34,6 @@ SET entryapproval = 1
 WHERE segmentid = '<segment id>';
 ```
 2. Flush the redis cache
-3. Delete the currently running `tds-student-war` and `tds-config-service` pods and allow Kubernetes to recreate new pods.
 
 
 ## Configuring Universal Tools/Designated Supports/Accommodations for Specific Assessments and Segments
@@ -79,8 +77,6 @@ SELECT * FROM configs.client_tooldependencies
 WHERE context = 'SBAC-IRP-Mathematics-7';
 ```
 3. Flush the redis cache
-4. Delete the currently running `tds-student-war`, `tds-assessment-service` and `tds-config-service` pods and allow 
-Kubernetes to recreate new pods.
 
 ## Disabling Guest Mode/Practice Test
 By default, guest login is enabled for the **SBAC_PT** client, and disabled for the **SBAC** client. This configuration flag 
@@ -95,7 +91,6 @@ WHERE auditobject = 'AnonymousTestee'
 AND clientname = 'SBAC';
 ```
 2. Flush the redis cache
-3. Delete the currently running `tds-student-war` and `tds-config-service` pods and allow Kubernetes to recreate new pods.
 
 ## Configuring Login Screen Input Fields
 By default, the student application requires students to enter their (External) SSID and first name. The login screen is 
@@ -121,7 +116,6 @@ WHERE clientname = 'SBAC'
 AND label = 'Last Name';
 ```
 2. Flush the redis cache
-3. Delete the currently running `tds-student-war` and `tds-config-service` pods and allow Kubernetes to recreate new pods.
 
 ## Updating Item Content File Path Case
 By default, the `itembank.loader_main()` stored procedure inserts items into the `itembank.tblitem` table with a lower-case "i" 
@@ -198,7 +192,6 @@ VALUES (
 DELETE FROM configs.__appmessages;
 ```
 5. Flush the redis cache
-6. Delete the currently running `tds-student-war` and `tds-config-service` pods and allow Kubernetes to recreate new pods.
 
 
 ### Inserting a New Message
@@ -265,6 +258,5 @@ FROM
 DELETE FROM configs.__appmessages;
 ```
 5. Flush the redis cache
-6. Delete the currently running `tds-student-war` and `tds-config-service` pods and allow Kubernetes to recreate new pods.
 
 [back to Deployment Checklists](index.html)
