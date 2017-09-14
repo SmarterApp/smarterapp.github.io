@@ -84,7 +84,6 @@ tds.exam.remote.enabled=true
 tds.exam.remote.url=http://tds-exam-service/exam
 tds.exam.legacy.enabled=false
 tds.assessment.remote.url=http://tds-assessment-service/
-tds.content.remote.url=http://tds-content-service/
 tds.session.remote.url=http://tds-session-service/sessions
 tds.session.remote.enabled=true
 tds.session.legacy.enabled=false
@@ -98,7 +97,7 @@ Type of information being modified
 - DB information
 - Redis
 - Rabbit
-- S3 information in tds-content-service.yml
+- S3 information in tds-exam-service.yml
 
 There are comments within the configuration files explaining what certain properties represent.  Any property that has `<SOMETHING>` style means that you will need to edit it following the steps we present below.  
 Any property that starts with `{cipher}` means that we recommend you secure this value using the Spring CLI tool mentioned above.  The `{cipher}` keyword should remain and the value after to be replaced.  For example, `{cipher}<RABBIT PASSWORD>`, you’d replace the `<RABBIT PASSWORD>` part with the value created via the Sprint CLI.
@@ -112,9 +111,8 @@ Example Spring CLI Encrypt command usage
 1. Take that value and replace the `{cipher}` property with this value.  So `{cipher}<RABBIT PASSWORD>` would be `{cipher}604a89112855fc5fd80132c3a6f2a331639a0ffe0c280d65848833276062cebb`
 
 ### S3 Configuration
-In the tds-content-service.yml file you will see a section like this:
+In the tds-exam-service.yml file you will see a section like this:
 ```
-  content:
     s3:
       bucketName: tds-resources
       itemPrefix: uat/
