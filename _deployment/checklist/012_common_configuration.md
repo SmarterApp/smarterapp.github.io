@@ -78,6 +78,8 @@ WHERE context = 'SBAC-IRP-Mathematics-7';
 ```
 3. Flush the redis cache
 
+Example test tool seed data can be found in the [TDS_TestDeliverySystemDataAccess](https://raw.githubusercontent.com/SmarterApp/TDS_TestDeliverySystemDataAccess/develop/tds-dll-schemas/src/main/resources/import/genericsbacconfig/sbac_testtools.sql) github repository.
+
 ## Disabling Guest Mode/Practice Test
 By default, guest login is enabled for the **SBAC_PT** client, and disabled for the **SBAC** client. This configuration flag 
 can be updated in the `configs.client_systemflags` table. For example, the following steps can be taken to enable guest login
