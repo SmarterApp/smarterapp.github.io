@@ -14,19 +14,21 @@ The following conventions are used throughout the checklist:
 
 * `Code` font indicates code or a command that should be executed on the command line.<br>For example, `sudo apt-get update` is an instruction to execute a command.
 
-* [*some text*{: style="color: red"}] indicates text that should be replaced by the user.  When replacing text, the surrounding square brackets should be omitted.<br>For example, 
+* [*some text*{: style="color: red"}] indicates text that should be replaced by the user.  When replacing text, the surrounding square brackets should be omitted.<br>For example,
 
-> <span style="font-family: 'Lucida Console', Monaco, monospace">sudo git clone ssh://git@github.com:[*your github user name*{: style="color: red"}]/IM_OpenDJ</span> 
-> 
-> would look like 
-> 
-> `sudo git clone ssh://git@github.com:`<span class="placeholder-example">hansolo</span>`/IM_OpenDJ` 
-> 
+> <span style="font-family: 'Lucida Console', Monaco, monospace">sudo git clone ssh://git@github.com:[*your github user name*{: style="color: red"}]/IM_OpenDJ</span>
+>
+> would look like
+>
+> `sudo git clone ssh://git@github.com:`<span class="placeholder-example">hansolo</span>`/IM_OpenDJ`
+>
 > after the text has been replaced.
-> 
->* <span class="placeholder-example">some text</span> indicates an example value for the [*some text*{: style="color: red"}] placeholder.
+>
+>
+
+* <span class="placeholder-example">some text</span> indicates an example value for the [*some text*{: style="color: red"}] placeholder.
 * ***IMPORTANT*:**{: style="color: #f00"} <span style=" background-color: #ff0;">These are example values for demonstration purposes only; the proper values for your environment may differ.</span>
-  
+
 * ***OPTIONAL:***  These steps are not required to complete the deployment process.
 
 ## Assumptions
