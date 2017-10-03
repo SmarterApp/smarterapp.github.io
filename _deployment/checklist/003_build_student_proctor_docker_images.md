@@ -10,10 +10,10 @@ categories: ["deployment", "checklist", "tds"]
 The assumption is that one has already followed the necessary steps to stand up a DB server covered in previous deployment checklist items.  However, there are some new schemas and tables that are required for the deployment.  Within the tds_deployment_support_files.zip file there is a db directory with two SQL scripts that can be used to create application tables.
 
 1. Log into the TDS database
-1. Run the exam_create_schema.sql
+1. Run the `exam_create_schema.sql`
   - This will create the exam database with the appropriate tables
   - The user that you want the application to use should have read and write abilities on these tables.
-1. Run the exam_audit_create_schema.sql
+1. Run the `exam_audit_create_schema.sql`
   - This will create the exam_audit database with the appropriate tables
   - The user that you want the application to use should have read and write abilities on these tables.
 1. The user that you want the application should have the following DB access
@@ -44,6 +44,7 @@ tds-resources
 ### Student
 
 1. Clone (git) Student master branch: `git clone https://github.com/SmarterApp/TDS_Student.git`
+2. Ensure that you are using the proper tag.
 1. Place the items and stimuli that you want to use in this deployment in on the machine you’re using to build the project: `/usr/local/tomcat/resources/tds/bank`
   - Practice and training tests can be downloaded from FTP site: `ftp://ftps.smarterbalanced.org/~sbacpublic/Public`
 1. Run `mvn clean install -DskipTests` in the cloned project’s base directory. 
@@ -60,6 +61,7 @@ tds-resources
 ### Proctor
 
 1. Clone (git) Proctor master branch : `git clone https://github.com/SmarterApp/TDS_Proctor.git`
+2. Ensure that you are using the proper tag.
 1. This should be done if you already built student.  Place the items and stimuli that you want to use in this deployment on the machine you’re using to build this project in `/usr/local/tomcat/resources/tds/bank`
 1. Change directory to the proctor directory (cd proctor)
 1. Run `mvn clean install -DskipTests` in the cloned project’s proctor directory. 
