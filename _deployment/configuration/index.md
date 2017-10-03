@@ -2,8 +2,10 @@
 title:  TDS Configuration Tasks
 permalink: "/deployment/configuration/index.html"
 categories: ["config_index"]
+date: 2017-10-01
+status: release
+version: 3.x.x.RELEASE
 ---
-this is the configuration index page
 
 # Overview
 This page hosts instructions on how to configure various options within the TDS Student application.
