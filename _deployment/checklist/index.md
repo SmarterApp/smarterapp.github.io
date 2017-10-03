@@ -41,18 +41,18 @@ The following assumptions are made:
 ## Disclaimer
 The intent of these checklists are to install/deploy the Shared Services and Test Delivery System with minimal effort.  This document does not account for security considerations or network topology/layout of servers.  System administrators, network administrators, database administrators and/or developers involved in deploying the Shared Services and Test Delivery System are left to their own recognizance for identifying and following their own practices/standards for creating and securing their environment.
 
-#Version Compatibility
+# Version Compatibility
 TDS requires a suite of applications to be deployed.  The table below lists out the versions of the applications that work together.  References to building particular versions or deployment versions in the checklists refer to these versions unless specified.
 
-Project | Version | Notes
-------- | ------- | -----
-Student | 3.1.4.RELEASE | Student WAR application |
-Proctor | 3.1.4.RELASE | Proctor WAR application | 
-Assessment Service | 3.1.1.RELEASE | microservice for asssesment data |
-Session Service | 3.1.1.RELEASE | microservice for session data |
-Config Service | 3.1.1.RELEASE | microservice for configuration data |
-Exam Service | 3.1.2.RELEASE | microservice for exam data/interaction |
-Student Service | 3.1.1.RELEASE | handles student information from ART |
+| Project | Version | 
+| :------- | :------- | 
+| Student &nbsp; | [3.1.5.RELEASE](https://github.com/SmarterApp/TDS_Student/releases/tag/3.1.5.RELEASE) |
+| Proctor &nbsp; | [3.1.4.RELEASE](https://github.com/SmarterApp/TDS_Proctor/releases/tag/3.1.4.RELEASE) |
+| Assessment Service &nbsp;| [3.1.2.RELEASE](https://github.com/SmarterApp/TDS_AssessmentService/releases/tag/3.1.2.RELEASE) | 
+| Session Service &nbsp; | [3.1.3.RELEASE](https://github.com/SmarterApp/TDS_SessionService/releases/tag/3.1.3.RELEASE) | 
+| Config Service &nbsp; | [3.1.2.RELEASE](https://github.com/SmarterApp/TDS_ConfigService/releases/tag/3.1.2.RELEASE) | 
+| Exam Service &nbsp;| [3.1.2.RELEASE](https://github.com/SmarterApp/TDS_ExamService/releases/tag/3.1.2.RELEASE) | 
+| Student Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/TDS_StudentService/releases/tag/3.1.1.RELEASE) | 
 
 
 # Deployment Checklists
