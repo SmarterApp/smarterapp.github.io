@@ -22,10 +22,20 @@ categories: ["deployment", "checklist", "tds"]
 ***NOTE:*** When creating the TDS databases, the RDS instance must be accessible remotely.  A remote computer must be able to connect to it with a user account that has sufficient privileges to create schemas and objects within those schemas.
 
 ### Create Test Delivery System (TDS) Databases
+Two projects are used in this process.  The versions are linked below.
+
+|Project|Version|
+|-----|----|
+|TDS_TestDeliveryDataAccess &nbsp;|[3.1.2.RELEASE](https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess/releases/tag/3.1.2.RELEASE)|
+|TDS_Build &nbsp;|[2.0](https://github.com/SmarterApp/TDS_Build/releases/tag/2.0)|
+
 * If not done already, install [git](https://git-scm.com/) on the machine that will be responsible for creating the TDS databases
 * If not done already, clone the **TDS_Build** and **TDS_TestDeliverySystemDataAccess** repositories from GitHub:
-  * `git clone https://github.com/SmarterApp/TDS_Build.git`
-  * `git clone https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess.git`
+  1. `git clone https://github.com/SmarterApp/TDS_Build.git`
+  2. `git fetch`
+  3. `git checkout tags/2.0`
+  4. `git clone https://github.com/SmarterApp/TDS_TestDeliverySystemDataAccess.git`
+  5. `git checkout tags/3.1.2.RELEASE`
 * ***NOTE:*** When cloning `TDS_Build` and `TDS_TestDeliverySystemDataAccess`, they should be "siblings" at the same directory level.  For example, if both repositories are cloned in the `ubuntu` user's home directory, the directory will look like this:
 
 ~~~~
