@@ -14,6 +14,15 @@ categories: ["deployment", "checklist"]
 * Create GitHub account
 * ***OPTIONAL:***  Create [GitHub](https://GitHub.com/){: target="_blank"} team and grant access to users
 
+### Common GIT Commands
+In multiple parts of the deployment checklist will refer to specific tags of an application.  This will be particular important in the sections where you have to build an image or are looking for scripts.
+
+After you've cloned a git repository you can do the following to check out a tag.
+
+1. Run `git fetch` which will fetch all the active tags and branches for the repository.
+2. Run `git tag` to list all the tags available
+3. Checkout the tag by running `git checkout tags/<tagname>`.  For example, if you wanted to check out the 3.1.4.RELEASE tag you'd run `git checkout tags/3.1.4.RELEASE` 
+
 # Amazon Web Services (AWS)
 * Create AWS account for creating/provisioning server instances
 * ***OPTIONAL:***  Install AWS command-line tools

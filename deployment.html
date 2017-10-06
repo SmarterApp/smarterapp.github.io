@@ -33,10 +33,16 @@ td {
 				</tr>
 				{% assign deployment_pages = (site.deployment | sort: 'date' | reverse) %}
 				{% for page in deployment_pages %}
-					{% comment %} Do not display any pages that are categorized as "checklist" pages. {% endcomment %}
+					{% comment %} Do not display any pages that are categorized as "checklist" or "configuration" pages. {% endcomment %}
 					{% if page.categories contains "checklist" %}
 						{% continue %}
+					{% elsif page.categories contains "tds-config" %}
+						{% continue %}
+					{% elsif page.categories contains "accommodations" %}
+						{% continue %}
 					{% elsif page.categories contains "checklist_index" %}
+						{% continue %}
+					{% elsif page.categories contains "config_index" %}
 						{% continue %}
 					{% endif %}
 					<tr>

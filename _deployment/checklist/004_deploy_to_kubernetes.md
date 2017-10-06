@@ -164,6 +164,10 @@ The following steps walk you through setting up the system to be available for p
 1. If you’re doing SSL:
   - Register an SSL certificate with the ELB to provide SSL termination at the ELB
   - Change the ELB from TCP/SSL protocols to HTTP/HTTPS forwarding to the same HTTP port that was recorded in step 3.  This ensures the ELB adds the necessary X-Forwarded headers to requests.
+  - If you forgot to write those down you can still get the information
+	  - Run `kubectl -n kube-system describe svc nginx-ingress-service`
+	  - The ports you want are the nodeport for HTTP and HTTPS
+	  - The ELB should be set up to do HTTP and HTTPS but by default may be TCP.
 1. If you’re **not** doing SSL:
   - Change the ELB from TCP/SSL protocols to HTTP/HTTPS forwarding to the separate ports recorded in step 3.
 1. Verify everything is running by navigating a browser to `<YOUR HOST>/student` and `<YOUR HOST>/proctor`
