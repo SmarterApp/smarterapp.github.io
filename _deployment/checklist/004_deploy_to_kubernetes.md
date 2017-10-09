@@ -186,7 +186,7 @@ Once creating a new proctor deployment you will need to do a couple extra steps 
 		4. Click `Configure` at the top right.
 3. Verify it is configured in OpenAM
 	1. 	click the `Federation` tab
-	2. You should see a `entity id` + `saml2`
+	2. You should see a `entity id` + `saml2` (i.e. `proctorexamplesaml2`)
 	3. You should have the same `entity id` in the `Entity Providers` section
 4. Go to Proctor to see it is configured properly.
 
