@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>{{ page.title | escape_once }}</title>
+<title>{{ page.title | escape }}</title>
 {% include head.html %}
 </head>
 
@@ -11,7 +11,7 @@
 <div id="main">
 	{% include header.html %}
 	<div id="content" style="min-height:400px;">
-		<div class="title">{{ page.title | escape_once }}</div>
+		<div class="title">{{ page.title | escape }}</div>
 		<table class="layout">
 			<tr>
 				<td style="font-weight:bold;">Date:&nbsp;</td>
@@ -23,11 +23,11 @@
 			</tr>
 			<tr>
 				<td style="font-weight:bold;">Status:&nbsp;</td>
-				<td>{{ page.status | escape_once }}</td>
+				<td>{{ page.status | escape }}</td>
 			</tr>
 			<tr>
 				<td style="font-weight:bold;">Version:&nbsp;</td>
-				<td>{{ page.version | escape_once }}</td>
+				<td>{{ page.version | escape }}</td>
 			</tr>
 			<tr>
 				<td style="font-weight:bold;">Abstract:&nbsp;</td>
