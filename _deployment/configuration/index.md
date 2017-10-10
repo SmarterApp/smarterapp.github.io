@@ -2,6 +2,7 @@
 title:  TDS Configuration Tasks
 permalink: "/deployment/configuration/index.html"
 categories: ["deployment", "config_index"]
+date: 2017-10-07
 ---
 
 # Overview
