@@ -1,8 +1,8 @@
 ---
 title: Deploy to Kubernetes
-permalink: "/deployment/checklist/deploy_to_kubernetes.html"
+permalink: "/deployment/checklist/student_3x/deploy_to_kubernetes.html"
 layout: "document"
-categories: ["deployment", "checklist", "tds"]
+categories: ["deployment", "checklist", "tds", "3x"]
 ---
 # Deploy to Kubernetes
 

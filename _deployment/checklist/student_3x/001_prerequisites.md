@@ -1,8 +1,8 @@
 ---
 title: Deployment Pre-Requisites
-permalink: "/deployment/checklist/prereqs.html"
+permalink: "/deployment/checklist/student_3x/prereqs.html"
 layout: "document"
-categories: ["deployment", "checklist"]
+categories: ["deployment", "checklist", "3x"]
 ---
 
 # Domain and SSL Certificate
