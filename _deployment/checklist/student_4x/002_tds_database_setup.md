@@ -1,8 +1,8 @@
 ---
 title: TDS Database Installation Checklist
-permalink: "deployment/checklist/tds_database.html"
+permalink: "deployment/checklist/student_4x/tds_database.html"
 layout: "document"
-categories: ["deployment", "checklist", "tds"]
+categories: ["deployment", "checklist", "tds", "4x"]
 ---
 
 # Overview

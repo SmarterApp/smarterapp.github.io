@@ -1,8 +1,8 @@
 ---
 title: Item Scoring Installation Checklist
-permalink: "deployment/checklist/itemscoring.html"
+permalink: "deployment/checklist/student_3x/itemscoring.html"
 layout: "document"
-categories: ["deployment", "checklist", "tds"]
+categories: ["deployment", "checklist", "tds", "3x"]
 ---
 
 # Overview
