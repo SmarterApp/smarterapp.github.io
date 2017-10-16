@@ -2,6 +2,7 @@
 title:  TDS Deployment Checklist
 permalink: "/deployment/checklist/index.html"
 categories: ["deployment", "checklist_index"]
+date: 2017-10-07
 ---
 
 # Overview
