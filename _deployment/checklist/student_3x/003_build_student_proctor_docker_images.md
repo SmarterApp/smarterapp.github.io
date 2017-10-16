@@ -1,8 +1,8 @@
 ---
 title: Build Student/Proctor Docker Images
-permalink: "/deployment/checklist/build_student_proctor_docker_images.html"
+permalink: "/deployment/checklist/student_3x/build_student_proctor_docker_images.html"
 layout: "document"
-categories: ["deployment", "checklist", "tds"]
+categories: ["deployment", "checklist", "tds", "3x"]
 ---
 # Student and Proctor Images
 # TDS Environment Setup/Deployment

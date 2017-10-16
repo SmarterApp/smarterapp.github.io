@@ -1,8 +1,8 @@
 ---
 title: Deployment Pre-Requisites
-permalink: "/deployment/checklist/general_tools.html"
+permalink: "/deployment/checklist/student_3x/general_tools.html"
 layout: "document"
-categories: ["deployment", "checklist", "tds"]
+categories: ["deployment", "checklist", "tds", "3x"]
 ---
 
 # General Tools
