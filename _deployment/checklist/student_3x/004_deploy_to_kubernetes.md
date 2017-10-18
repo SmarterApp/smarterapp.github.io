@@ -1,8 +1,8 @@
 ---
 title: Deploy to Kubernetes
-permalink: "/deployment/checklist/deploy_to_kubernetes.html"
+permalink: "/deployment/checklist/student_3x/deploy_to_kubernetes.html"
 layout: "document"
-categories: ["deployment", "checklist", "tds"]
+categories: ["deployment", "checklist", "tds", "3x"]
 ---
 # Deploy to Kubernetes
 
@@ -171,6 +171,24 @@ The following steps walk you through setting up the system to be available for p
 1. If you’re **not** doing SSL:
   - Change the ELB from TCP/SSL protocols to HTTP/HTTPS forwarding to the separate ports recorded in step 3.
 1. Verify everything is running by navigating a browser to `<YOUR HOST>/student` and `<YOUR HOST>/proctor`
+
+### Configuring Proctor
+Once creating a new proctor deployment you will need to do a couple extra steps to configure it to work with OpenAM and SAML needs.  The steps below assume you are using SAML and OpenAM for security.
+
+1. Go to `<Your Host>/proctor/saml/metadata`
+	* If things are working correctly this will give you a `spring_saml_metadata.xml` file 
+2. Log into OpenAM.
+	1. Under the `Common Tasks` tab and `Create SAMLv2 Providers` click the `Register Remote Service Provider`
+	2. Configure the Provider
+		1. Pick the realm you want to use.  Should be single one if you followed the provided deployment steps.
+		2. Paste the URL that you typed in on step 1 into `URL where metadata is located` textbox
+		3. You should not have to change the Circle of trust as it should be whatever you set up in the OpenAM configuration.
+		4. Click `Configure` at the top right.
+3. Verify it is configured in OpenAM
+	1. 	click the `Federation` tab
+	2. You should see a `entity id` + `saml2`
+	3. You should have the same `entity id` in the `Entity Providers` section
+4. Go to Proctor to see it is configured properly.
 
 ### Troubleshooting
 The cause of most failures during deployment will be due to configuration issues either in the configuration or deployment yml files.

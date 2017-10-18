@@ -1,8 +1,8 @@
 ---
 title: Permissions Installation Checklist
-permalink: "deployment/checklist/permissions.html"
+permalink: "deployment/checklist/student_3x/permissions.html"
 layout: "document"
-categories: ["deployment", "checklist", "shared_services"]
+categories: ["deployment", "checklist", "shared_services", "3x"]
 ---
 
 # Overview

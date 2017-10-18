@@ -1,8 +1,8 @@
 ---
 title: OpenAM Installation Checklist
-permalink: "deployment/checklist/openam.html"
+permalink: "deployment/checklist/student_4x/openam.html"
 layout: "document"
-categories: ["deployment", "checklist", "shared_services"]
+categories: ["deployment", "checklist", "shared_services", "4x"]
 ---
 
 ## Overview

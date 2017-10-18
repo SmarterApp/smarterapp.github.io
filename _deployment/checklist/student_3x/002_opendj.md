@@ -1,8 +1,8 @@
 ---
 title: OpenDJ Installation Checklist
-permalink: "/deployment/checklist/opendj.html"
+permalink: "/deployment/checklist/student_3x/opendj.html"
 layout: "document"
-categories: ["deployment", "checklist", "shared_services"]
+categories: ["deployment", "checklist", "shared_services", "3x"]
 ---
 
 ## Overview

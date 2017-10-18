@@ -42,36 +42,8 @@ The following assumptions are made:
 ## Disclaimer
 The intent of these checklists are to install/deploy the Shared Services and Test Delivery System with minimal effort.  This document does not account for security considerations or network topology/layout of servers.  System administrators, network administrators, database administrators and/or developers involved in deploying the Shared Services and Test Delivery System are left to their own recognizance for identifying and following their own practices/standards for creating and securing their environment.
 
-# Version Compatibility
-TDS requires a suite of applications to be deployed.  The table below lists out the versions of the applications that work together.  References to building particular versions or deployment versions in the checklists refer to these versions unless specified.
+## Deployment Checklists
+The TDS system is continually being enhanced fixing bugs and adding features.  Depending on the size or type of change certain versions of the applications are not compatible with each other.  Each supported major version of the TDS application will have documentation listed below.
 
-| Project | Version | 
-| :------- | :------- | 
-| Student &nbsp; | [3.1.5.RELEASE](https://github.com/SmarterApp/TDS_Student/releases/tag/3.1.5.RELEASE) |
-| Proctor &nbsp; | [3.1.4.RELEASE](https://github.com/SmarterApp/TDS_Proctor/releases/tag/3.1.4.RELEASE) |
-| Assessment Service &nbsp;| [3.1.2.RELEASE](https://github.com/SmarterApp/TDS_AssessmentService/releases/tag/3.1.2.RELEASE) | 
-| Session Service &nbsp; | [3.1.3.RELEASE](https://github.com/SmarterApp/TDS_SessionService/releases/tag/3.1.3.RELEASE) | 
-| Config Service &nbsp; | [3.1.2.RELEASE](https://github.com/SmarterApp/TDS_ConfigService/releases/tag/3.1.2.RELEASE) | 
-| Exam Service &nbsp;| [3.1.2.RELEASE](https://github.com/SmarterApp/TDS_ExamService/releases/tag/3.1.2.RELEASE) | 
-| Student Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/TDS_StudentService/releases/tag/3.1.1.RELEASE) | 
-
-
-# Deployment Checklists
-
-## Shared Services
-<ul id="dc_toc" style="list-style: none">
-    {% for p in site.deployment %}
-        {% if p.categories contains "shared_services" %}
-            <li><a href="{{ p.url }}">{{ p.title }}</a></li>
-        {% endif %}
-    {% endfor %}
-</ul>
-
-## Test Delivery System
-<ul id="dc_toc" style="list-style: none">
-    {% for p in site.deployment %}
-        {% if p.categories contains "tds" %}
-            <li><a href="{{ p.url }}">{{ p.title }}</a></li>
-        {% endif %}
-    {% endfor %}
-</ul>
+* [TDS version 3.x](/deployment/checklist/student_3x/index.html)
+* [TDS version 4.x](/deployment/checklist/student_4x/index.html)
