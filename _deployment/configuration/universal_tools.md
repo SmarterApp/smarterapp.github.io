@@ -28,9 +28,9 @@ The following stored procedures in the `configs` database can be used to configu
    - Clears and then inserts universal tools and non-braille or subject specific accommodations/designated supports for the specified client and assessment.
    - This stored procedure should be executed before any of the following stored procedures
 * `InsertBrailleTools('<client name>', '<assessment id>')`
-   - Inserts braille tools and language for the specified client and assessment
+   - Inserts braille tools and "ENU-Braille" language for the specified client and assessment
 * `InsertSpanishTool('<client name>', '<assessment id>')`
-   - Inserts the spanish language for the specified client and assessment
+   - Inserts the spanish ("ESN") language for the specified client and assessment
 * `InsertCalculatorTool('<client name>', '<assessment/segment id>', <grade>, <isSegment>)` 
    - Inserts the calculator tool for the specified client, assessment (or segment), and grade. 
    - If the provided id is a segment id, the final argument should be `1`. 
