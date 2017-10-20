@@ -20,32 +20,36 @@ previous year. The three tables of concern are:
     * For example, IF <`Language`> IS <`ENU-Braille`> THEN <`Masking`> IS <`TDS_Masking0` (disabled)>
         * In other words, if "Braille" is selected as the language, then the masking tool should be disabled by default
 
-The simplest way to configure accommodations/tools for a new assessment that does not have any tools configured is to select an existing
-assessment that has the test tools defined that you wish to include, and copy them over to the new assessment. This can be
-achieved by taking the following steps:
 
-1. Identify the assessment id (known as the `testid` in the configuration database)
-```
-SELECT testid FROM configs.client_testproperties WHERE label = 'IRP CAT Grade 7 MATH';
->> SBAC-IRP-Mathematics-7
-```
-2. Copy the test tool data for the testid we identified
-```
-INSERT INTO configs.client_testtooltype
-SELECT * FROM configs.client_testtooltype
-WHERE context = 'SBAC-IRP-Mathematics-7';
-```
-```
-INSERT INTO configs.client_testtool
-SELECT * FROM configs.client_testtool
-WHERE context = 'SBAC-IRP-Mathematics-7';
-```
-```
-INSERT INTO configs.client_tooldependencies
-SELECT * FROM configs.client_tooldependencies
-WHERE context = 'SBAC-IRP-Mathematics-7';
-```
-3. Flush the redis cache
+## Test Tool Configuration Stored Procedures
+The following stored procedures in the `configs` database can be used to configure assessments with predefined sets of test tools:
+
+* `InsertGeneralTools('<client name>', '<assessment id>')`
+   - Clears and then inserts universal tools and non-braille or subject specific accommodations/designated supports for the specified client and assessment.
+   - This stored procedure should be executed before any of the following stored procedures
+* `InsertBrailleTools('<client name>', '<assessment id>')`
+   - Inserts braille tools and language for the specified client and assessment
+* `InsertSpanishTool('<client name>', '<assessment id>')`
+   - Inserts the spanish language for the specified client and assessment
+* `InsertCalculatorTool('<client name>', '<assessment/segment id>', <grade>, <isSegment>)` 
+   - Inserts the calculator tool for the specified client, assessment (or segment), and grade. 
+   - If the provided id is a segment id, the final argument should be `1`. 
+   - The calculator type is dependent on the provided grade.
+       * Grades 1 - 6: Basic Calculater
+       * Grades 7 - 9: Scientific Calculator
+       * Grades 10 - 12: Scientific/Inverse Regression calculator
+* `InsertDictionaryTool('<client name>', '<assessment/segment id>', <grade>, <isSegment>)` 
+   - Inserts the dictionary/thesaurus tools for the specified client, assessment (or segment), and grade. 
+   - If the provided id is a segment id, the final argument should be `1`. 
+   - The dictionary type is dependent on the provided grade.
+       * Grades 1 - 6: Elementary Dictionary
+       * Grades 7 - 9: Intermediate Dictionary
+       * Grades 10 - 12: College Dictionary
+   - The thesaurus tool is the same for all grade levels
+* `ClearTools('<client name>', '<assessment id>')` 
+   - Clears all tools except "Language" and "Print Size"
+
+**NOTE** - After making any test tool changes, be sure to flush the redis cache and restart student pods to clear all possible caching.
 
 Example test tool seed data can be found in the [TDS_TestDeliverySystemDataAccess](https://raw.githubusercontent.com/SmarterApp/TDS_TestDeliverySystemDataAccess/develop/tds-dll-schemas/src/main/resources/import/genericsbacconfig/sbac_testtools.sql) github repository.
 
