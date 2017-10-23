@@ -22,7 +22,11 @@ previous year. The three tables of concern are:
 
 
 ## Test Tool Configuration Stored Procedures
-The following stored procedures in the `configs` database can be used to configure assessments with predefined sets of test tools:
+The following stored procedures in the `configs` database can be used to configure assessments with predefined sets of test tools.
+
+Please note that the "client name" is also referred to as the "publisher" in the test specification package. The assessment 
+id is also known as the "test id" in both the TRT and the test specification package. The "test id" value is shared between different 
+years and publication of the same test/assessment. These values can be found in the `itembank.tblsetofadminsubjects` and `configs.client_testproperties` tables.
 
 * `InsertGeneralTools('<client name>', '<assessment id>')`
    - Clears and then inserts universal tools and non-braille or subject specific accommodations/designated supports for the specified client and assessment.
@@ -48,6 +52,16 @@ The following stored procedures in the `configs` database can be used to configu
    - The thesaurus tool is the same for all grade levels
 * `ClearTools('<client name>', '<assessment id>')` 
    - Clears all tools except "Language" and "Print Size"
+   
+Below is an example of setting up tools for a performance math exam with calculator, spanish, and braille enabled.
+
+``````
+CALL configs.InsertGeneralTools('SBAC_PT', 'SBAC-Perf-MATH-11');
+CALL configs.InsertBrailleTools('SBAC_PT', 'SBAC-Perf-MATH-11');
+CALL configs.InsertSpanishTool('SBAC_PT', 'SBAC-Perf-MATH-11');
+-- Calculator only included in the second segment
+CALL configs.InsertCalculatorTool('SBAC_PT', 'SBAC-SEG2-MATH-11', 11, 1);
+`````` 
 
 **NOTE** - After making any test tool changes, be sure to flush the redis cache and restart student pods to clear all possible caching.
 
