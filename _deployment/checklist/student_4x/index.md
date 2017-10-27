@@ -14,19 +14,19 @@ TDS requires a suite of applications to be deployed.  The table below lists out 
 
 Docker images are tagged with the same version as listed here.  The only project that does not have a docker image is the Proctor application.  This is due to the need to build the image with the security information to connect to OpenAM.  Those steps are covered in the Student and Proctor deployment checklist.
 
-| Project | Version | 
-| :------- | :------- | 
-| Student &nbsp; | [4.0.1.RELEASE](https://github.com/SmarterApp/TDS_Student/releases/tag/4.0.1.RELEASE) | []()
-| Proctor &nbsp; | [4.0.0.RELEASE](https://github.com/SmarterApp/TDS_Proctor/releases/tag/4.0.0.RELEASE) |
-| Assessment Service &nbsp;| [4.0.0.RELEASE](https://github.com/SmarterApp/TDS_AssessmentService/releases/tag/4.0.0.RELEASE) | 
-| Session Service &nbsp; | [3.1.3.RELEASE](https://github.com/SmarterApp/TDS_SessionService/releases/tag/3.1.3.RELEASE) | 
-| Config Service &nbsp; | [4.0.2.RELEASE](https://github.com/SmarterApp/TDS_ConfigService/releases/tag/4.0.2.RELEASE) | 
-| Exam Service &nbsp;| [4.0.1.RELEASE](https://github.com/SmarterApp/TDS_ExamService/releases/tag/4.0.1.RELEASE) | 
-| Student Service &nbsp;| [4.0.3.RELEASE](https://github.com/SmarterApp/TDS_StudentService/releases/tag/4.0.3.RELEASE) | 
-| Content Service &nbsp;| [1.0.2.RELEASE](https://github.com/SmarterApp/TDS_ContentService/releases/tag/1.0.2.RELEASE) | 
-| Exam Results Transmitter &nbsp;| [4.0.0.RELEASE](https://github.com/SmarterApp/TDS_ExamResultsTransmitter/releases/tag/4.0.0.RELEASE) | 
-| Equation Scoring Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/TDS_ItemScoring/releases/tag/3.1.1.RELEASE) | 
-| Configuration Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/SS_ConfigurationService/releases/tag/3.1.1.RELEASE) | 
+| Project | Version |
+| :------- | :------- |
+| Student &nbsp; | [4.0.3.RELEASE](https://github.com/SmarterApp/TDS_Student/releases/tag/4.0.3.RELEASE) | []()
+| Proctor &nbsp; | [4.0.1.RELEASE](https://github.com/SmarterApp/TDS_Proctor/releases/tag/4.0.1.RELEASE) |
+| Assessment Service &nbsp;| [4.0.0.RELEASE](https://github.com/SmarterApp/TDS_AssessmentService/releases/tag/4.0.0.RELEASE) |
+| Session Service &nbsp; | [3.1.3.RELEASE](https://github.com/SmarterApp/TDS_SessionService/releases/tag/3.1.3.RELEASE) |
+| Config Service &nbsp; | [4.0.2.RELEASE](https://github.com/SmarterApp/TDS_ConfigService/releases/tag/4.0.2.RELEASE) |
+| Exam Service &nbsp;| [4.0.6.RELEASE](https://github.com/SmarterApp/TDS_ExamService/releases/tag/4.0.6.RELEASE) |
+| Student Service &nbsp;| [4.0.3.RELEASE](https://github.com/SmarterApp/TDS_StudentService/releases/tag/4.0.3.RELEASE) |
+| Content Service &nbsp;| [1.0.6.RELEASE](https://github.com/SmarterApp/TDS_ContentService/releases/tag/1.0.6.RELEASE) |
+| Exam Results Transmitter &nbsp;| [4.0.1.RELEASE](https://github.com/SmarterApp/TDS_ExamResultsTransmitter/releases/tag/4.0.1.RELEASE) |
+| Equation Scoring Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/TDS_ItemScoring/releases/tag/3.1.1.RELEASE) |
+| Configuration Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/SS_ConfigurationService/releases/tag/3.1.1.RELEASE) |
 
 # Deployment Checklists
 
