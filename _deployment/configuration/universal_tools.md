@@ -66,6 +66,17 @@ CALL configs.InsertSpanishTool('SBAC_PT', 'SBAC-Perf-MATH-11');
 CALL configs.InsertCalculatorTool('SBAC_PT', 'SBAC-SEG2-MATH-11', 11, 1);
 `````` 
 
+Specific test tool types can be easily removed after the execution of the insert scripts. For example, of we wanted to disable the "Masking"
+tool, we'd execute the following statement to remove the testtooltype, which would also result in a cascade delete to the `client_testtool` and `client_tooldependencies`:
+``````
+DELETE FROM 
+    configs.client_testtooltype 
+WHERE 
+    clientname = 'SBAC_PT' 
+    AND context = 'SBAC-ELA-7' 
+    AND toolname = 'Masking';`
+``````
+
 **NOTE** - After making any test tool changes, be sure to flush the redis cache and restart student pods to clear all possible caching.
 
 Example test tool seed data can be found in the [TDS_TestDeliverySystemDataAccess](https://raw.githubusercontent.com/SmarterApp/TDS_TestDeliverySystemDataAccess/develop/tds-dll-schemas/src/main/resources/import/genericsbacconfig/sbac_testtools.sql) github repository.
