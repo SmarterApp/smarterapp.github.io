@@ -28,9 +28,11 @@ Please note that the "client name" is also referred to as the "publisher" in the
 id is also known as the "test id" in both the TRT and the test specification package. The "test id" value is shared between different 
 years and publication of the same test/assessment. These values can be found in the `itembank.tblsetofadminsubjects` and `configs.client_testproperties` tables.
 
-* `InsertGeneralTools('<client name>', '<assessment id>')`
+* `InsertGeneralTools('<client name>', '<assessment id>', <sound check enabled>)`
    - Clears and then inserts universal tools and non-braille or subject specific accommodations/designated supports for the specified client and assessment.
    - This stored procedure should be executed before any of the following stored procedures
+   - The third argument is a flag indicating whether or not the "sound check" screen should be enabled for this assessment.
+       * In most environments, this is "true"/1 for ELA assessments, and "false"/0 for Math assessments
 * `InsertBrailleTools('<client name>', '<assessment id>')`
    - Inserts braille tools and "ENU-Braille" language for the specified client and assessment
 * `InsertSpanishTool('<client name>', '<assessment id>')`
@@ -56,12 +58,24 @@ years and publication of the same test/assessment. These values can be found in 
 Below is an example of setting up tools for a performance math exam with calculator, spanish, and braille enabled.
 
 ``````
-CALL configs.InsertGeneralTools('SBAC_PT', 'SBAC-Perf-MATH-11');
+-- Disable sound check for MATH assessment
+CALL configs.InsertGeneralTools('SBAC_PT', 'SBAC-Perf-MATH-11', 0);
 CALL configs.InsertBrailleTools('SBAC_PT', 'SBAC-Perf-MATH-11');
 CALL configs.InsertSpanishTool('SBAC_PT', 'SBAC-Perf-MATH-11');
 -- Calculator only included in the second segment
 CALL configs.InsertCalculatorTool('SBAC_PT', 'SBAC-SEG2-MATH-11', 11, 1);
 `````` 
+
+Specific test tool types can be easily removed after the execution of the insert scripts. For example, of we wanted to disable the "Masking"
+tool, we'd execute the following statement to remove the testtooltype, which would also result in a cascade delete to the `client_testtool` and `client_tooldependencies`:
+``````
+DELETE FROM 
+    configs.client_testtooltype 
+WHERE 
+    clientname = 'SBAC_PT' 
+    AND context = 'SBAC-ELA-7' 
+    AND toolname = 'Masking';`
+``````
 
 **NOTE** - After making any test tool changes, be sure to flush the redis cache and restart student pods to clear all possible caching.
 
