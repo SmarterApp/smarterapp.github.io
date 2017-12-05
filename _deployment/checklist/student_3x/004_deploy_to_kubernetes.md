@@ -9,7 +9,7 @@ categories: ["deployment", "checklist", "tds", "3x"]
 ### Create Kubernetes Cluster
 This section covers creating and initializing the base Kubernetes cluster. Whoever is deploying the system should decide what values to use for each command and remain consistent throughout as our examples have done below.
 
-1. Determine the name of your cluster and the zone.  
+1. Determine the name of your cluster and the zone. 
 For the examples below we are using `<ZONE>`=`us-west-2a` and `<CLUSTER>`=`tdsuat.sbtds.org` because `sbtds.org` is hosted on AWS.
 1. Create the cluster configuration: `kops create cluster --zones=<ZONE> <CLUSTER>`
   - Example: `kops create cluster --zones=us-west-2a tdsuat.sbtds.org`
@@ -21,7 +21,7 @@ For the examples below we are using `<ZONE>`=`us-west-2a` and `<CLUSTER>`=`tdsua
   - Change machineType to m3.large
 1. Configure master instance group
   - Run `kops edit ig master-<ZONE> --name <CLUSTER>` 
-  - Example: `kops edit ig master-us-west-2a --name tdsuat.sbtds.org` 
+  - Example: `kops edit ig master-us-west-2a --name tdsuat.sbtds.org`
   - Change machineType to m3.large
 1. Apply the configuration to create the cluster
   - Run `kops update cluster <CLUSTER> --yes`
@@ -67,7 +67,7 @@ Create a RabbitMQ cluster that will be used by the application.  For convenienc
  node 'rabbit@rabbit-server-1.rabbit-service.default.svc.cluster.local' up
  =INFO REPORT==== 21-Apr-2017::21:05:12 ===
  rabbit on node 'rabbit@rabbit-server-1.rabbit-service.default.svc.cluster.local' up
-``` 
+```
 
 ### Create ProgMan Configuration
 This section assumes there is an existing Progman configuration setup for Student and Proctor.
@@ -90,7 +90,7 @@ tds.session.legacy.enabled=false
 ```
 
 ### Update Configuration YML Files 
-These files are located in the tds_deployment_support_files.zip and should reside in your private Gitlab repository if you followed the previous steps.  After making the edits make sure that you push the changes to your Gitlab private repository on the master branch so the Spring Cloud Config can leverage the values.
+These files are located in the **tds_deployment_support_files.zip** and should reside in your private Gitlab repository if you followed the previous steps.  After making the edits make sure that you push the changes to your Gitlab private repository on the master branch so the Spring Cloud Config can leverage the values.
 
 Type of information being modified
 
@@ -118,8 +118,8 @@ In the tds-exam-service.yml file you will see a section like this:
       itemPrefix: uat/
       accessKey: '{cipher}<REDACTED>'
       secretKey: '{cipher}<REDACTED>'
-``` 
-The `accessKey` and `secretKey` should be the AWS’s read only user’s `accessKey` and `secretKey`.  The `bucketName` and `itemPrefix` are as you configured it when you loaded the items to s3.  The values above are the ones used in the section that covered items to S3.  
+```
+The `accessKey` and `secretKey` should be the AWS’s read only user’s `accessKey` and `secretKey`.  The `bucketName` and `itemPrefix` are as you configured it when you loaded the items to s3.  The values above are the ones used in the section that covered items to S3.
 
 ### Update Deployment Configuration Files
 
@@ -128,6 +128,150 @@ This section refers to the files in the deployment directory contained in the `<
 **Important:** Since these files should never be publicly available nor hosted the passwords should be saved as plain text.
 
 **NOTE:** Any file that has a header `This file requires per-deployment/environment configuration changes` will have to be updated with information concerning your deployment environment.  Otherwise the file does not need to be modified.
+
+#### Proctor Deployment Configuration
+The following settings need to be configured in the `tds-proctor-war.yml` file.  These configuration settings are stored in the `env` section of the `yml` file.  Each configuration setting is listed as a name/value pair.  When making changes to the `tds-proctor-war.yml` file, only the value needs to be updated.  In some cases, the value does not need to be edited.
+
+* `GET_HOSTS_FROM`: [*Tell Kubernetes where/how to look up the host names of pods within the Kubernetes environment*{: style="color: #f00;"}]
+  * **NOTE:** Typically this will not have to be modified.
+* `OAUTH_ACCESS_URL`: [*the url to OpenAM for authentication*{: style="color: #f00;"}]
+* `PM_OAUTH_CLIENT_ID`: [*the client ID used to authenticate with OpenAM. Typically this value is “pm”*{: style="color: #f00;"}]
+* `PM_OAUTH_CLIENT_SECRET`: [*the “password” for whatever account you have set in the PM_OAUTH_CLIENT_ID*{: style="color: #f00;"}]
+* `PM_OAUTH_BATCH_ACCOUNT`: [*In our environments, we have this set to prime.user@example.com*{: style="color: #f00;"}]
+* `PM_OAUTH_BATCH_PASSWORD`: [*the password for whatever account is set in the PM_OAUTH_BATCH_ACCOUNT*{: style="color: #f00;"}]
+* `PROGMAN_BASEURI`: [*The URL to the ProgMan REST component, e.g. http://progman-example.com/rest/*{: style="color: #f00;"}]
+* `PROGMAN_LOCATOR`: [*The ProgMan profile containing the settings for the Proctor application, e.g. **tds,development***{: style="color: #f00;"}]
+* `SPRING_PROFILES_ACTIVE`: [*The Spring profiles in use by the Proctor application when it starts up.*{: style="color: #f00;"}]
+* `CATALINA_OPTS`: [*The options passed into the Proctor application when the tomcat server starts up*{: style="color: #f00;"}]
+  * **NOTE:** Typically this will not have to be modified.  However, they may need to be modified based on the traffic/workload that Proctor is expected to handle.
+* `PROCTOR_SECURITY_SAML_ALIAS`: [*this value should be registered in OpenAM*{: style="color: #f00;"}]
+* `PROCTOR_SECURITY_SAML_KEYSTORE_CERT`: [*this is the “alias” for the private key entry in the samlKeystore.jks*{: style="color: #f00;"}]
+* `PROCTOR_SECURITY_SAML_KEYSTORE_PASS`: [*this is the password to open the samlKeystore.jks*{: style="color: #f00;"}]
+* `PROCTOR_WEBAPP_SAML_METADATA_FILENAME`: [*this is the name of the SAML metadata file that should also be in*{: style="color: #f00;"}]
+* `RABBITMQ_ADDRESSES`: [*The list of all the RabbitMQ services that are running within the Kubernetes cluster*{: style="color: #f00;"}]
+  * **NOTE:** Typically this will not have to be modified.
+* `RABBITMQ_USERNAME`:  [*The RabbitMQ user account created for access to the RabbitMQ instance hosted witin the Kubernetes cluster*{: style="color: #f00;"}]
+* `RABBITMQ_PASSWORD`:  [*The password for the RabbitMQ user account*{: style="color: #f00;"}]
+* `CONFIG_SERVICE_URL`: [*The URL to the Spring Cloud Configuration service within the Kubernetes environment*{: style="color: #f00;"}]
+  * **NOTE:** Typically this will not have to be modified.
+* `LOGSTASH_DESTINATION`: [*The url of the Logstash server that stores logging information*{: style="color: #f00;"}]
+
+Shown below is an example of a configured `env` section of a `tds-proctor-war.yml` file:
+
+<div class="highlighter-rouge">
+  <pre class="highlight">
+    <code>
+    env:
+    - name: GET_HOSTS_FROM
+      value: dns
+    - name: OAUTH_ACCESS_URL
+      value: "<span class="placeholder-example">https://sso-example.org/auth/oauth2/access_token?realm=/sbac</span>"
+    - name: PM_OAUTH_CLIENT_ID
+      value: "<span class="placeholder-example">pm</span>"
+    - name: PM_OAUTH_CLIENT_SECRET
+      value: "<span class="placeholder-example">[redacted]</span>"
+    - name: PM_OAUTH_BATCH_ACCOUNT
+      value: "<span class="placeholder-example">prime.user@example.com</span>"
+    - name: PM_OAUTH_BATCH_PASSWORD
+      value: "<span class="placeholder-example">[redacted]</span>"
+    - name: PROGMAN_BASEURI
+      value: "<span class="placeholder-example">http://progman-example.org:8080/rest/</span>"
+    - name: PROGMAN_LOCATOR
+      value: "<span class="placeholder-example">tds,example</span>"
+    - name: SPRING_PROFILES_ACTIVE
+      value: "mna.client.null,progman.client.impl.integration,server.singleinstance"
+    - name: CATALINA_OPTS
+      value: "-XX:+UseConcMarkSweepGC -Xms512m -Xmx1512m -XX:PermSize=256m -XX:MaxPermSize=512m"
+    # Note that the values below are used by SAML for SSO.  They should match the values in the associated
+    # security files ./security/proctor/*
+    - name: PROCTOR_SECURITY_SAML_ALIAS
+      value: <span class="placeholder-example">proctorexample</span>
+    - name: PROCTOR_SECURITY_SAML_KEYSTORE_CERT
+      value: proctor-deploy-sp
+    - name: PROCTOR_SECURITY_SAML_KEYSTORE_PASS
+      value: <span class="placeholder-example">[redacted]</span>
+    - name: PROCTOR_WEBAPP_SAML_METADATA_FILENAME
+      value: proctor_sp_deployment.xml
+    - name: RABBITMQ_ADDRESSES
+      value: "rabbit-server-0.rabbit-service:5672,rabbit-server-1.rabbit-service:5672,rabbit-server-2.rabbit-service:5672"
+    - name: RABBITMQ_USERNAME
+      value: "<span class="placeholder-example">services</span>"
+    - name: RABBITMQ_PASSWORD
+      value: "<span class="placeholder-example">[redacted]</span>"
+    - name: CONFIG_SERVICE_URL
+      value: "http://configuration-service"
+    - name: LOGSTASH_DESTINATION
+      value: "logstash.sbtds.org:4560"
+    </code>
+  </pre>
+</div>
+
+#### Student Deployment Configuration
+The following settings need to be configured in the `tds-proctor-war.yml` file.  These configuration settings are stored in the `env` section of the `yml` file.  Each configuration setting is listed as a name/value pair.  When making changes to the `tds-proctor-war.yml` file, only the value needs to be updated.  In some cases, the value does not need to be edited.
+
+* `GET_HOSTS_FROM`: [*Tell Kubernetes where/how to look up the host names of pods within the Kubernetes environment*{: style="color: #f00;"}]
+  * **NOTE:** Typically this will not have to be modified.
+* `OAUTH_ACCESS_URL`: [*the url to OpenAM for authentication*{: style="color: #f00;"}]
+* `PM_OAUTH_CLIENT_ID`: [*the client ID used to authenticate with OpenAM. Typically this value is “pm”*{: style="color: #f00;"}]
+* `PM_OAUTH_CLIENT_SECRET`: [*the “password” for whatever account you have set in the PM_OAUTH_CLIENT_ID*{: style="color: #f00;"}]
+* `PM_OAUTH_BATCH_ACCOUNT`: [*In our environments, we have this set to prime.user@example.com*{: style="color: #f00;"}]
+* `PM_OAUTH_BATCH_PASSWORD`: [*the password for whatever account is set in the PM_OAUTH_BATCH_ACCOUNT*{: style="color: #f00;"}]
+* `PROGMAN_BASEURI`: [*The URL to the ProgMan REST component, e.g. http://progman-example.com/rest/*{: style="color: #f00;"}]
+* `PROGMAN_LOCATOR`: [*The ProgMan profile containing the settings for the Student application, e.g. **tds,development***{: style="color: #f00;"}]
+* `SPRING_PROFILES_ACTIVE`: [*The Spring profiles in use by the STudent application when it starts up.*{: style="color: #f00;"}]
+  * **NOTE:** to enable caching with Redis, add the `redisCaching` provile to the comma-separated list above
+* `CATALINA_OPTS`: [*The options passed into the Student application when the tomcat server starts up*{: style="color: #f00;"}]
+  * **NOTE:** Typically this will not have to be modified.  However, they may need to be modified based on the traffic/workload that Student is expected to handle.
+* `RABBITMQ_ADDRESSES`: [*The list of all the RabbitMQ services that are running within the Kubernetes cluster*{: style="color: #f00;"}]
+  * **NOTE:** Typically this will not have to be modified.
+* `RABBITMQ_USERNAME`:  [*The RabbitMQ user account created for access to the RabbitMQ instance hosted witin the Kubernetes cluster*{: style="color: #f00;"}]
+* `RABBITMQ_PASSWORD`:  [*The password for the RabbitMQ user account*{: style="color: #f00;"}]
+* `CONFIG_SERVICE_URL`: [*The URL to the Spring Cloud Configuration service within the Kubernetes environment*{: style="color: #f00;"}]
+  * **NOTE:** Typically this will not have to be modified.
+* `LOGSTASH_DESTINATION`: [*The url of the Logstash server that stores logging information*{: style="color: #f00;"}]
+* `PERFORMANCE_REQUEST_LIMIT`: [*The number of concurrent requests that IRiS is allowed to handle*{: style="color: #f00;"}]
+
+Shown below is an example of a configured `env` section of a `tds-proctor-war.yml` file:
+
+<div class="highlighter-rouge">
+  <pre class="highlight">
+    <code>
+    env:
+    - name: GET_HOSTS_FROM
+      value: dns
+    - name: OAUTH_ACCESS_URL
+      value: "<span class="placeholder-example">https://sso-example.org/auth/oauth2/access_token?realm=/sbac</span>"
+    - name: PM_OAUTH_CLIENT_ID
+      value: "<span class="placeholder-example">pm</span>"
+    - name: PM_OAUTH_CLIENT_SECRET
+      value: "<span class="placeholder-example">[redacted]</span>"
+    - name: PM_OAUTH_BATCH_ACCOUNT
+      value: "<span class="placeholder-example">prime.user@example.com</span>"
+    - name: PM_OAUTH_BATCH_PASSWORD
+      value: "<span class="placeholder-example">[redacted]</span>"
+    - name: PROGMAN_BASEURI
+      value: "<span class="placeholder-example">http://progman-example.org:8080/rest/</span>"
+    - name: PROGMAN_LOCATOR
+      value: "<span class="placeholder-example">tds,example</span>"
+    - name: SPRING_PROFILES_ACTIVE
+      value: "mna.client.null,progman.client.impl.integration,server.singleinstance"
+    - name: CATALINA_OPTS
+      value: "-XX:+UseConcMarkSweepGC -Xms512m -Xmx1512m -XX:PermSize=256m -XX:MaxPermSize=512m"
+    - name: RABBITMQ_ADDRESSES
+      value: "rabbit-server-0.rabbit-service:5672,rabbit-server-1.rabbit-service:5672,rabbit-server-2.rabbit-service:5672"
+    - name: RABBITMQ_USERNAME
+      value: "<span class="placeholder-example">services</span>"
+    - name: RABBITMQ_PASSWORD
+      value: "<span class="placeholder-example">[redacted]</span>"
+    - name: CONFIG_SERVICE_URL
+      value: "http://configuration-service"
+    - name: LOGSTASH_DESTINATION
+      value: "<span class="placeholder-example">logstash.sbtds.org:4560</span>"
+    - name: PERFORMANCE_REQUEST_LIMIT
+      value: "<span class="placeholder-example">50</span>"
+    </code>
+  </pre>
+</div>
 
 ### Cipher Decryption Configuration
 You’ll need to use the value you used for `my_encrypt_key` password encryption for the following steps.
@@ -176,7 +320,7 @@ The following steps walk you through setting up the system to be available for p
 Once creating a new proctor deployment you will need to do a couple extra steps to configure it to work with OpenAM and SAML needs.  The steps below assume you are using SAML and OpenAM for security.
 
 1. Go to `<Your Host>/proctor/saml/metadata`
-	* If things are working correctly this will give you a `spring_saml_metadata.xml` file 
+	* If things are working correctly this will give you a `spring_saml_metadata.xml` file
 2. Log into OpenAM.
 	1. Under the `Common Tasks` tab and `Create SAMLv2 Providers` click the `Register Remote Service Provider`
 	2. Configure the Provider
@@ -192,7 +336,7 @@ Once creating a new proctor deployment you will need to do a couple extra steps 
 
 ### Troubleshooting
 The cause of most failures during deployment will be due to configuration issues either in the configuration or deployment yml files.
- 
+
 #### Handy kubectl commands
 
 - `kubectl get po -w` ←- use this command to follow the creation of the pods
