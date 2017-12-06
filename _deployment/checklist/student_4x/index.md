@@ -33,19 +33,7 @@ Update 12/5/2017
 1. Student 4.0.4.RELEASE includes support for Secure Browser v10.
 2. Text to Speech is now implemented using W3C's Web Speech API.  
 3. Secure Browser v10 Text to Speech API will be used if W3C's Web Speech API's are not available.
-4. TDS can be configured to only allow login if the Secure Browser Version 10 is used as the client browser.
-
-## Instructions for Requiring the use of Secure Browser v10
-In the configs database schema add a row to the client_systemflags table.
- 
-Add secure browser required setting
-```sql
-INSERT INTO configs.client_systemflags (auditobject, ison, description, clientname, ispracticetest, datechanged, datepublished) VALUES ('secureBrowserRequired', 1, 'Requires the use of secure browser to log in', 'SBAC_PT', true, now(), null);
-``` 
-To disable the secureBrowserRequired flag:
-```sql
-UPDATE configs.client_systemflags SET ison = false AND datechanged = now() WHERE auditobject = 'secureBrowserRequired' AND clientname = 'SBAC_PT'
-```
+4. TDS can be configured to only allow login if the Secure Browser Version 10 is used as the client browser. [See Configuration Instructions](/deployment/configuration/require_secure_browser.html)
 
 # Deployment Checklists
 
