@@ -28,13 +28,6 @@ Docker images are tagged with the same version as listed here.  The only project
 | Equation Scoring Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/TDS_ItemScoring/releases/tag/3.1.1.RELEASE) |
 | Configuration Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/SS_ConfigurationService/releases/tag/3.1.1.RELEASE) |
 
-# Release Notes
-Update 12/5/2017
-1. Student 4.0.4.RELEASE includes support for Secure Browser v10.
-2. Text to Speech is now implemented using W3C's Web Speech API.  
-3. Secure Browser v10 Text to Speech API will be used if W3C's Web Speech API's are not available.
-4. TDS can be configured to only allow login if the Secure Browser Version 10 is used as the client browser. [See Configuration Instructions](/deployment/configuration/require_secure_browser.html)
-
 # Deployment Checklists
 
 ## Shared Services
