@@ -334,6 +334,8 @@ Once creating a new proctor deployment you will need to do a couple extra steps 
 	3. You should have the same `entity id` in the `Entity Providers` section
 4. Go to Proctor to see it is configured properly.
 
+{% include checklist/redploy_kubernetes_pod.md %}
+
 ### Troubleshooting
 The cause of most failures during deployment will be due to configuration issues either in the configuration or deployment yml files.
 
