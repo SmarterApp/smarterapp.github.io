@@ -24,7 +24,7 @@ Docker images are tagged with the same version as listed here.  The only project
 | Exam Service &nbsp;| [4.1.1.RELEASE](https://github.com/SmarterApp/TDS_ExamService/releases/tag/4.1.1.RELEASE) |
 | Student Service &nbsp;| [4.0.3.RELEASE](https://github.com/SmarterApp/TDS_StudentService/releases/tag/4.0.3.RELEASE) |
 | Content Service &nbsp;| [1.0.6.RELEASE](https://github.com/SmarterApp/TDS_ContentService/releases/tag/1.0.6.RELEASE) |
-| Exam Results Transmitter &nbsp;| [4.0.1.RELEASE](https://github.com/SmarterApp/TDS_ExamResultsTransmitter/releases/tag/4.0.1.RELEASE) |
+| Exam Results Transmitter &nbsp;| [4.1.0.RELEASE](https://github.com/SmarterApp/TDS_ExamResultsTransmitter/releases/tag/4.1.0.RELEASE) |
 | Equation Scoring Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/TDS_ItemScoring/releases/tag/3.1.1.RELEASE) |
 | Configuration Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/SS_ConfigurationService/releases/tag/3.1.1.RELEASE) |
 
