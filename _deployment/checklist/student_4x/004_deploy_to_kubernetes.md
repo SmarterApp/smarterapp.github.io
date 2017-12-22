@@ -74,7 +74,7 @@ This section assumes there is an existing Progman configuration setup for Studen
 1. Go to an existing configuration.
 1. Set the `Property Editor` to “Property File Entry”
 1. Copy the values in the text area.
-1. Create a new profile named `tds, tdsuat`
+1. Create a new profile with a meaningful name (e.g.`tds, tdsuat`)
 1. Once again set the `Property Editor` to “Property File Entry”
 1. Paste the values you copied on step 3 into the textarea and save the configuration.
 1. Go back and edit the newly created configuration.  Use the “Property File Entry” mode.
@@ -90,7 +90,7 @@ tds.session.legacy.enabled=false
 ```
 
 ### Update Configuration YML Files 
-These files are located in the tds_deployment_support_files.zip and should reside in your private Gitlab repository if you followed the previous steps.  After making the edits make sure that you push the changes to your Gitlab private repository on the master branch so the Spring Cloud Config can leverage the values.
+These files are located in the `tds_deployment_support_files.zip` and should reside in your private Gitlab repository if you followed the previous steps.  After making the edits make sure that you push the changes to your Gitlab private repository on the master branch so the Spring Cloud Config can leverage the values.
 
 Type of information being modified
 
@@ -333,6 +333,8 @@ Once creating a new proctor deployment you will need to do a couple extra steps 
 	2. You should see a `entity id` + `saml2` (i.e. `proctorexamplesaml2`)
 	3. You should have the same `entity id` in the `Entity Providers` section
 4. Go to Proctor to see it is configured properly.
+
+{% include checklist/redploy_kubernetes_pod.md %}
 
 ### Troubleshooting
 The cause of most failures during deployment will be due to configuration issues either in the configuration or deployment yml files.
