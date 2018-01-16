@@ -6,37 +6,143 @@ categories: ["deployment", "checklist", "tds", "4x"]
 ---
 # Deploy to Kubernetes
 
+**NOTE:**  This checklist assumes that a user conducting the deployment has access to an AWS account with sufficient privileges to interact with the following services:
+
+* VPC
+* EC2
+* Route53
+* ElastiCache
+* S3
+
+### Create a VPC
+Create a new VPC that will host the Kubernetes environment:
+
+* Identify the region and zone(s) in which the VPC should reside
+* Allocate a new Elastic IP Address
+* Create the new VPC using the VPC Wizard:
+  * Choose the VPC configuration that has **Public and Private Subnets**
+  * ***OPTIONAL:*** provide names for the public and private subnets
+  * ***IMPORTANT*:**{: style="color: #f00"} <span style=" background-color: #ff0;">Do not create any additional subnets; `kops` will create the subnets it needs as the cluster is created</span>
+* Record the VPC id; it will be used later when creating the cluster
+
+***IMPORTANT*:**{: style="color: #f00"} <span style=" background-color: #ff0;">When choosing a region that will host the Kubernetes cluster, make sure there are enough Elastic IPs available for allocation.  One Elastic IP is required for each *node* that will be a member of the Kubernetes cluster.  For example, if the cluster consists of four nodes plus a bastion node, five Elastic IP addresses are required.  If there are not enough Elastic IP addresses available, `kops` will not be able to create the cluster.</span>
+
+### Create an S3 Bucket to Store Cluster Configuration
+* Create an S3 bucket for storing configuration using console or CLI.
+  `aws s3 mb s3://`[*bucket name*{: style="color: #f00;"}] `--region `[*AWS region*{: style="color: #f00;"}]
+* Example:
+
+  <div class="highlighter-rouge" style="display: inline-flex;">
+    <pre class="highlight">
+      <code>
+        aws s3 mb s3://<span class="placeholder-example">kops-tds-cluster-state-store</span> --region <span class="placeholder-example">us-east-1</span>
+      </code>
+    </pre>
+  </div>
+* Apply versioning to the bucket:
+
+  `aws s3api put-bucket-versioning --bucket `[*bucket name*{: style="color: #f00"}] `--versioning-configuration Status=Enabled`
+* Example:
+  <div class="highlighter-rouge" style="display: inline-flex;">
+    <pre class="highlight">
+      <code>
+        aws s3api put-bucket-versioning --bucket <span class="placeholder-example">kops-tds-cluster-state-store</span> --versioning-configuration Status=Enabled
+      </code>
+    </pre>
+  </div>
+* Record kops bucket for future reference.
+* ***OPTIONAL:*** Add the path to the S3 bucket to the profile:  `export KOPS_STATE_STORE=s3://`[*bucket name*{: style="color: #f00;"}]
+
+### Generate Key for Accessing the Ops System
+* Generate ssh key for accessing the ops system and for cluster (later on). You can generate locally and upload to AWS Key Pairs, or generate via AWS and keep private key local, or ...
+
+`ssh-keygen -t rsa -C "`[*brief comment that describes the purpose of this file*{: style="color: #f00;"}]`" -f `[*the name of the file*{:style="color: #f00;"}]
+
+Example:
+
+<div class="highlighter-rouge" style="display: inline-flex;">
+  <pre class="highlight">
+    <code>
+      ssh-keygen -t rsa -C "<span class="placeholder-example">key for k8s dev environment</span>" -f <span class="placeholder-example">tds_ops_dev</span>
+    </code>
+  </pre>
+</div>
+
 ### Create Kubernetes Cluster
 This section covers creating and initializing the base Kubernetes cluster. Whoever is deploying the system should decide what values to use for each command and remain consistent throughout as our examples have done below.
 
-1. Determine the name of your cluster and the zone. 
+1. Determine the name of the cluster. 
 For the examples below we are using `<ZONE>`=`us-west-2a` and `<CLUSTER>`=`tdsuat.sbtds.org` because `sbtds.org` is hosted on AWS.
-1. Create the cluster configuration: `kops create cluster --zones=<ZONE> <CLUSTER>`
+1. Create the cluster configuration:
+  <div class="highlighter-rouge" style="display: inline-flex;">
+    <pre class="highlight">
+      <code>
+        kops create cluster \
+          --cloud=aws \
+          --node-count=<span class="placeholder">[the number of nodes desired for the cluster]</span> \
+          --zones=<span class="placeholder">[The AWS region where the previously created VPC resides]</span> \
+          --master-zones=<span class="placeholder">[a comma-separated list of AWS zones]</span> \
+          --dns-zone=<span class="placeholder">[the Route53 hosted zone]</span> \
+          --vpc="<span class="placeholder">[the id of the previously created VPC]</span>" \
+          --network-cidr="<span class="placeholder">[the CIDR range for the **private subnet** of the VPC]</span>" \
+          --node-size=<span class="placeholder">[The instance size of each agent node in the cluster]</span> \
+          --master-size=<span class="placeholder">[The instance size of the master node in the cluster]</span> \
+          --ssh-public-key="<span class="placeholder">[The path to the ssh key created in the previous step]</span>" \
+          --topology private --networking weave --bastion \
+          --state <span class="placeholder">[the path to the S3 bucket that stores the cluster configuration]</span> \
+          --name <span class="placeholder">[the name of the cluster]</span>
+      </code>
+    </pre>
+  </div>
+  * Example:
+  <div class="highlighter-rouge" style="display: inline-flex;">
+    <pre class="highlight">
+      <code>
+        kops create cluster \
+          --cloud=aws \
+          --node-count=<span class="placeholder-example">4</span> \
+          --zones=<span class="placeholder-example">us-east-1a</span> \
+          --master-zones=<span class="placeholder-example">us-east-1a</span> \
+          --dns-zone=<span class="placeholder-example">sbtds.org</span> \
+          --vpc="<span class="placeholder-example">vpc-2348765b</span>" \
+          --network-cidr="<span class="placeholder-example">170.20.0.0/16</span>" \
+          --node-size=<span class="placeholder-example">m3.large</span> \
+          --master-size=<span class="placeholder-example">m3.large</span> \
+          --ssh-public-key="<span class="placeholder-example">~/.ssh/tds_ops_dev.pub</span>" \
+          --topology private --networking weave --bastion \
+          --state <span class="placeholder-example">s3://kops-tds-cluster-state-store</span> \
+          --name <span class="placeholder-example">tdsuat.sbtds.org</span>
+      </code>
+    </pre>
+  </div>
   - Example: `kops create cluster --zones=us-west-2a tdsuat.sbtds.org`
-1. Configure node instance group
-  - Run `kops edit ig nodes --name <CLUSTER>` 
+1. ***OPTIONAL:*** Configure node instance group (e.g. to change min/max size, etc)
+  - Run `kops edit ig nodes --name `[*name of cluster*{: style="color: #f00;"}] 
   - Example: `kops edit ig nodes --name tdsuat.sbtds.org`
-  - Change minSize to 3
-  - Change maxSize to 10
-  - Change machineType to m3.large
-1. Configure master instance group
-  - Run `kops edit ig master-<ZONE> --name <CLUSTER>` 
-  - Example: `kops edit ig master-us-west-2a --name tdsuat.sbtds.org`
-  - Change machineType to m3.large
 1. Apply the configuration to create the cluster
-  - Run `kops update cluster <CLUSTER> --yes`
+  - Run `kops update cluster `[*name of cluster*{: style="color: #f00;"}] `--yes`
   - Example: `kops update cluster tdsuat.sbtds.org --yes`
-  - Wait for cluster to initialize.  You can run `kubectl get pod` and it should return an empty list of pods and no error if initialized.
-1. Add the kubernetes dashboard:
-  - Run `kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/kubernetes-dashboard/v1.6.0.yaml`
-1. Add monitoring via heapster
-  - Run `kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml`
+  - Wait for cluster to initialize (this can take up to 20 minutes).  You can run the following commands to verify the cluster:
+    - `kops validate cluster`
+    - `kubectl get nodes --show-labels`
 
 ### Create Redis Cluster
 Create a single node AWS ElastiCache Redis.
 
 - The Redis Cache is created within the same VPC as the kubernetes nodes
 - The security group allows access to the kubernetes container on 6379 (default unless changed by you)
+
+#### Running `kubectl` Commands Against the Cluster
+
+From here, all `kubectl` commands should be executed from a machine that has access to the VPC that was created (e.g. the bastion server that was created as part of the cluster or a "jump box" that has sufficient privileges to interact with the cluster).
+
+If using the bastion server, `kops` and `kubectl` will likely have to be installed and configured.  After the cluster is successfully created, the output will display the command necessary to `ssh` into the bastion server.  Alternately, instructions can be found [here](https://github.com/kubernetes/kops/blob/master/docs/bastion.md).
+
+***OPTIONAL:*** Add the kubernetes dashboard:
+* Run `kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/kubernetes-dashboard/v1.6.0.yaml`
+
+***OPTIONAL:*** Add monitoring via heapster
+* Run `kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml`
 
 ### Create NGINX
 This creates the NGINX ingress controller.
@@ -338,6 +444,137 @@ Once creating a new proctor deployment you will need to do a couple extra steps 
 
 ### Troubleshooting
 The cause of most failures during deployment will be due to configuration issues either in the configuration or deployment yml files.
+
+#### Resolving CIDR Range Conflicts
+It is possible that `kops` will report a conflict/overlap between CIDR blocks during setup.  The error will appear similar to this:
+
+```
+InvalidSubnet.Conflict: The CIDR 'XXX' conflicts with another subnet
+```
+
+**NOTE:** 'XXX' will be the CIDR range that is causing the conflict
+
+To see the existing subnets of your VPC, use the following command:
+
+`aws ec2 describe-subnets --filters Name=vpc-id,Values=`[*the id of the VPC created earlier*{: style="color: #f00;"}]
+
+Example: `aws ec2 describe-subnets --filters Name=vpc-id,Values=vpc-87f620fe`
+
+the output will appear similar to what's shown below:
+
+```
+{
+    "Subnets": [
+        {
+            "VpcId": "vpc-87f620fe",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "pri-sectest.sbtds.org"
+                }
+            ],
+            "CidrBlock": "170.20.1.0/24",
+            "AssignIpv6AddressOnCreation": false,
+            "MapPublicIpOnLaunch": false,
+            "SubnetId": "subnet-e0362186",
+            "State": "available",
+            "AvailableIpAddressCount": 251,
+            "AvailabilityZone": "us-west-2a",
+            "Ipv6CidrBlockAssociationSet": [],
+            "DefaultForAz": false
+        },
+        {
+            "VpcId": "vpc-87f620fe",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "pub-sectest.sbtds.org"
+                }
+            ],
+            "CidrBlock": "170.20.0.0/24",
+            "AssignIpv6AddressOnCreation": false,
+            "MapPublicIpOnLaunch": false,
+            "SubnetId": "subnet-c03522a6",
+            "State": "available",
+            "AvailableIpAddressCount": 249,
+            "AvailabilityZone": "us-west-2a",
+            "Ipv6CidrBlockAssociationSet": [],
+            "DefaultForAz": false
+        }
+    ]
+}
+```
+
+Edit the cluster configuration to eliminate the conflicts.  A CIDR range calculator (e.g. [this one](http://www.subnet-calculator.com/cidr.php) or [this one](https://www.ipaddressguide.com/cidr)) may be useful in verifying that the chosen IP address ranges do not overlap
+
+An example of a cluster configuration edited to avoid CIDR conflicts is shown below:
+
+`kops edit cluster sectest.sbtds.org`
+
+<div class="highlighter-rouge">
+  <pre class="highlight">
+    <code>
+      apiVersion: kops/v1alpha2
+      kind: Cluster
+      metadata:
+        creationTimestamp: 2018-01-12T02:04:16Z
+        name: sectest.sbtds.org
+      spec:
+        api:
+          loadBalancer:
+            type: Public
+        authorization:
+          alwaysAllow: {}
+        channel: stable
+        cloudProvider: aws
+        configBase: s3://kops-sbtds-org-state-store/sectest.sbtds.org
+        dnsZone: sbtds.org
+        etcdClusters:
+        - etcdMembers:
+          - instanceGroup: master-us-east-1a
+            name: a
+          name: main
+        - etcdMembers:
+          - instanceGroup: master-us-east-1a
+            name: a
+          name: events
+        iam:
+          allowContainerRegistry: true
+          legacy: false
+        kubernetesApiAccess:
+        - 0.0.0.0/0
+        kubernetesVersion: 1.8.4
+        masterInternalName: api.internal.sectest.sbtds.org
+        masterPublicName: api.sectest.sbtds.org
+        networkCIDR: 170.20.0.0/16
+        networkID: vpc-2348765b
+        networking:
+          weave:
+            mtu: 8912
+        nonMasqueradeCIDR: 100.64.0.0/10
+        sshAccess:
+        - 0.0.0.0/0
+        subnets:
+        - cidr: 170.20.32.0/19
+          name: us-east-1a
+          type: Private
+          zone: us-east-1a
+        - cidr: <span class="placeholder-example">170.20.10.0/22  # <-- this is the change to avoid the conflict; the CIDR range reported in the error was 170.20.0.0/22</span>
+          name: utility-us-east-1a
+          type: Utility
+          zone: us-east-1a
+        topology:
+          bastion:
+            bastionPublicName: bastion.sectest.sbtds.org
+          dns:
+            type: Public
+          masters: private
+          nodes: private
+    </code>
+  </pre>
+</div>
+
+Run `kops update cluster sectest.sbtds.org --state s3://kops-sbtds-org-state-store --yes` to update the cluster
 
 #### Handy kubectl commands
 
