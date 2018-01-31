@@ -69,3 +69,5 @@ This configuration setting only affects which SSID the student logs in with.  Th
 * When viewing students in the Proctor application, the student's **External SSID** will be displayed
 * In the `exam` database (the database that supports the Exam service), the student's **External SSID** will be stored
 * When the Exam Results Transmitter sends a Test Results Transmission (TRT) file to downstream systems, both identifiers (i.e the **SSID** and the **External SSID**) will be included
+
+[back to TDS Configuration Tasks](index.html)
