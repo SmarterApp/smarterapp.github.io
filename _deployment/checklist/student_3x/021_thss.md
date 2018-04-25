@@ -1,8 +1,8 @@
 ---
 title: Teacher Hand Scoring System (THSS) Installation Checklist
-permalink: "/deployment/checklist/thss.html"
+permalink: "/deployment/checklist/student_3x/thss.html"
 layout: "document"
-categories: ["deployment", "checklist", "tds"]
+categories: ["deployment", "checklist", "tds", "3x"]
 ---
 
 ## Overview

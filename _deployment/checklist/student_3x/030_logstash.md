@@ -1,8 +1,8 @@
 ---
 title: Centralized Logging
-permalink: "/deployment/checklist/centralized_logging.html"
+permalink: "/deployment/checklist/student_3x/centralized_logging.html"
 layout: "document"
-categories: ["deployment", "checklist", "tds"]
+categories: ["deployment", "checklist", "tds", "3x"]
 ---
 # Install Elastic Search
 

@@ -1,8 +1,8 @@
 ---
 title: Program Management (ProgMan) Installation Checklist
-permalink: "deployment/checklist/progman.html"
+permalink: "deployment/checklist/student_4x/progman.html"
 layout: "document"
-categories: ["deployment", "checklist", "shared_services"]
+categories: ["deployment", "checklist", "shared_services", "4x"]
 ---
 
 # Overview
