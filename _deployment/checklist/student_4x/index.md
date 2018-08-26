@@ -16,17 +16,18 @@ Docker images are tagged with the same version as listed here.  The only project
 
 | Project | Version |
 | :------- | :------- |
-| Student &nbsp; | [4.0.6.RELEASE](https://github.com/SmarterApp/TDS_Student/releases/tag/4.0.6.RELEASE) |
+| Student &nbsp; | [4.1.0.RELEASE](https://github.com/SmarterApp/TDS_Student/releases/tag/4.1.0.RELEASE) |
 | Proctor &nbsp; | [4.1.0.RELEASE](https://github.com/SmarterApp/TDS_Proctor/releases/tag/4.1.0.RELEASE) |
-| Assessment Service &nbsp;| [4.0.0.RELEASE](https://github.com/SmarterApp/TDS_AssessmentService/releases/tag/4.0.0.RELEASE) |
+| Assessment Service &nbsp;| [4.2.0.RELEASE](https://github.com/SmarterApp/TDS_AssessmentService/releases/tag/4.2.0.RELEASE) |
 | Session Service &nbsp; | [3.1.3.RELEASE](https://github.com/SmarterApp/TDS_SessionService/releases/tag/3.1.3.RELEASE) |
 | Config Service &nbsp; | [4.1.0.RELEASE](https://github.com/SmarterApp/TDS_ConfigService/releases/tag/4.1.0.RELEASE) |
-| Exam Service &nbsp;| [4.1.3.RELEASE](https://github.com/SmarterApp/TDS_ExamService/releases/tag/4.1.3.RELEASE) |
+| Exam Service &nbsp;| [4.2.2.RELEASE](https://github.com/SmarterApp/TDS_ExamService/releases/tag/4.2.2.RELEASE) |
 | Student Service &nbsp;| [4.0.3.RELEASE](https://github.com/SmarterApp/TDS_StudentService/releases/tag/4.0.3.RELEASE) |
-| Content Service &nbsp;| [1.0.6.RELEASE](https://github.com/SmarterApp/TDS_ContentService/releases/tag/1.0.6.RELEASE) |
-| Exam Results Transmitter &nbsp;| [4.1.1.RELEASE](https://github.com/SmarterApp/TDS_ExamResultsTransmitter/releases/tag/4.1.1.RELEASE) |
-| Equation Scoring Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/TDS_ItemScoring/releases/tag/3.1.1.RELEASE) |
+| Content Service &nbsp;| [4.1.1.RELEASE](https://github.com/SmarterApp/TDS_ContentService/releases/tag/4.1.1.RELEASE) |
+| Exam Results Transmitter &nbsp;| [4.2.0.RELEASE](https://github.com/SmarterApp/TDS_ExamResultsTransmitter/releases/tag/4.2.0.RELEASE) |
+| Equation Scoring Service &nbsp;| [4.0.2.RELEASE](https://github.com/SmarterApp/TDS_ItemScoring/releases/tag/4.0.2.RELEASE) |
 | Configuration Service &nbsp;| [3.1.1.RELEASE](https://github.com/SmarterApp/SS_ConfigurationService/releases/tag/3.1.1.RELEASE) |
+| Support Tool Service &nbsp;| [4.2.0.RELEASE](https://github.com/SmarterApp/TDS_SupportTool/releases/tag/4.2.0.RELEASE) |
 
 # Deployment Checklists
 
