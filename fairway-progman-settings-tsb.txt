@@ -13,6 +13,7 @@ tsb.mongo.username=mongo_admin
 tsb.mongo.password=[redacted]
 tsb.mongo.dbname=tsb
 tsb.dtd.url=http://name.of.test.authoring.server/rest/resources/dtd/testpackage_v_9_19_2013.dtd
+tsb.dtd.validation=false
 tsb.rest.context.root=/rest/
 tsb.minJs=false
 tib.tibUrl=http://name.of.test.item.bank.server/
