@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>{{ page.title | escape }}</title>
+<title>{{ page.title | escape_once }}</title>
 {% include head.html %}
 </head>
 
@@ -13,8 +13,8 @@
 		<td style="width:30%;"><a href="http://www.smarterapp.org/">
 		<img src="/res/SmarterApp_logo.png" alt="SmarterApp Logo" width="214" height="60"></a></td>
 		<td style="width:70%; vertical-align:top;">
-			<div class="title" style="text-align:right;margin:0;">{{ page.title | escape }}</div>
-			<div class="subtitle" style="text-align:right;margin:0;">{{ page.date }} | {{ page.version | escape }}</div>
+			<div class="title" style="text-align:right;margin:0;">{{ page.title | escape_once }}</div>
+			<div class="subtitle" style="text-align:right;margin:0;">{{ page.date }} | {{ page.version | escape_once }}</div>
 		</td>
 	</tr></table>
 	<hr/>

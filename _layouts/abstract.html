@@ -23,11 +23,11 @@
 			</tr>
 			<tr>
 				<td style="font-weight:bold;">Status:&nbsp;</td>
-				<td>{{ page.status | escape }}</td>
+				<td>{{ page.status | escape_once }}</td>
 			</tr>
 			<tr>
 				<td style="font-weight:bold;">Version:&nbsp;</td>
-				<td>{{ page.version | escape }}</td>
+				<td>{{ page.version | escape_once }}</td>
 			</tr>
 			<tr>
 				<td style="font-weight:bold;">Abstract:&nbsp;</td>

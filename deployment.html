@@ -31,7 +31,7 @@ td {
 					<th style="width: 4.5em;">Version</th>
 					<th style="width: 45%">Description</th>
 				</tr>
-				{% assign deployment_pages = (site.deployment | sort: 'date' | reverse) %}
+				{% assign deployment_pages = site.deployment | sort: 'date' | reverse %}
 				{% for page in deployment_pages %}
 					{% comment %} Do not display any pages that are categorized as "checklist" or "configuration" pages. {% endcomment %}
 					{% if page.categories contains "checklist" %}
