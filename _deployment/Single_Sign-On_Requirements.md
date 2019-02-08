@@ -2,7 +2,7 @@
 title: Single Sign-On and Access Management - Recommended Requirements
 date: 2019-02-08
 docurl: /documents/Single_Sign-On_Requirements.v2.pdf
-status: Draft
+status: Release
 ---
 A set of recommended requirements Smarter Balanced members may use when procuring Single Sign-On services. These are compatible with the Smarter Balanced strategy for member-provided Single Sign-On.
 <br/>
