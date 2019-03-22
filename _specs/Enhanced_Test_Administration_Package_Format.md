@@ -13,3 +13,9 @@ The Enhanced Test Administration Package replaces the four previous test package
 * Test Item Metadata
 
 The test administration package is paired with the test content package which contains the actual test items.
+
+The enhanced test administration XSD file is at:
+
+<ul>
+<li><a href="/documents/EnhancedTestPackage_Schema.xsd">Enhanced Test Administration Schema XSD</a></li>
+</ul>
