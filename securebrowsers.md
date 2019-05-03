@@ -26,3 +26,7 @@ In addition to the secure browsers and hosting the associated Browser Implementa
 * [API](https://github.com/SmarterApp/SB_BIRT/blob/master/irp/doc/req/SecureBrowserAPIspecification.md){: target="_blank"}
 * [Functional Requirements](https://github.com/SmarterApp/SB_BIRT/blob/master/irp/doc/req/SecureBrowserFunctionalRequirements.md){: target="_blank"}
 * [Launch Protocol Specification](https://github.com/SmarterApp/SB_BIRT/blob/master/irp/doc/req/SecureBrowserLaunchProtocol.md){: target="_blank"}
+
+## Smarter Balanced TDS Landing Page
+Landing page to access Smarter Balanced TDS instances
+https://browser.smarterbalanced.org/landing
