@@ -29,4 +29,5 @@ In addition to the secure browsers and hosting the associated Browser Implementa
 
 ## Smarter Balanced TDS Landing Page
 Landing page to access Smarter Balanced TDS instances
-https://browser.smarterbalanced.org/landing
+
+[https://browser.smarterbalanced.org/landing](https://browser.smarterbalanced.org/landing)
