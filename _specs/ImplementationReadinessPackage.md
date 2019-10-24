@@ -1,8 +1,10 @@
 ---
 title: Smarter Balanced Implementation Readiness Package
-date: 2014-12-31
-docurl: /documents/ImplementationReadinessPackage.html
-status: Preliminary
+date: 2019-10-09
+docurl: /documents/Technology_Document_Being_Updated.pdf
+status: Public Release
 ---
 
-Contains links to the <a href="http://smarterapp.cresst.net/">Implementation Readiness Package</a> and to a <a href="/documents/ImplementationReadinessPackage.pdf">descriptive document</a>. Each module of the IRP is designed to test one or more specific capabilities, and to provide feedback on compliance status. The purpose of this document is to describe each of the modules of the IRP, and identify the specific functional requirements of the Assessment Delivery System that they will test.
+The implementation readiness package is currently being updated. Please check back soon.
+
+If you require information related to this topic, please content us at support@smarterbalanced.org.
