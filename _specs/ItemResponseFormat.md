@@ -1,9 +1,11 @@
 ---
 title: Item Response Format
-date: 2015-04-23
-docurl: /documents/ItemResponseFormat.pdf
-status: Release
+date: 2019-11-13
+docurl: /documents/Technology_Document_Being_Updated.pdf
+status: Public Release
 version: 1.0
 ---
-This document describes the format of the student response data for an individual Smarter Balanced assessment item.  It includes the description of the response format for a select set of item types: ESBR, EQ, GI, HTQ, MI, SA, TI, and WER.
+This Item Response Format is currently being updated. Please check back soon.
+
+If you require information related to this topic, please contact us at support@smarterbalanced.org.
 

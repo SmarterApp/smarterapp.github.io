@@ -1,14 +1,9 @@
 ---
 title: Implementation Readiness - Test Packages
-date: 2016-09-23
-docurl: /specs/IRP-TestPackage.html
-status: Release
+date: 2019-11-13
+docurl: /documents/Technology_Document_Being_Updated.pdf
+status: Public Release
 ---
-These are test packages in SmarterApp format to support the [Implementation Readiness Package](/specs/ImplementationReadinessPackage.html) version 2.0. The content package includes samples of every item type used in Smarter Balanced assessments including every variation. Machine scored items include scoring rubrics. [Test packages](http://www.smarterapp.org/documents/AssessmentPackageTypes.html) include samples of computer adaptive tests and fixed-form performance tasks. A readme file provides detailed descriptions of the contents of the .zip file.
+The page is currently being updated. Please check back soon.
 
-* [Download Implementation Readiness Test Packages Zip File](ftp://ftps.smarterbalanced.org/~sbacpublic/Public/ImplementationReadiness/2016.05.18.IrpTestPackageAndContent.zip)
-
-The items in these packages are drawn from the Smarter Balanced Practice and Training tests and are not sensitive. Organizations are permitted and encouraged to use these test packages for development, testing and demo purposes.
-
-
-These test packages are licensed under a [Creative Commons Attribution-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nd/4.0/).
+If you require information related to this topic, please contact us at support@smarterbalanced.org.
