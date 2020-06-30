@@ -28,7 +28,7 @@ td {
 {% capture ulist %}{% for post in site.irp %}{% unless forloop.first %}|{% endunless %}{{ post.date }}`{{ post.docurl }}`{{ post.url }}`{{ post.title }}`{{ post.status }}`{{ post.version }}`{{ post.content }}{% endfor %}{% endcapture %}
 {% assign slist = ulist | split: '|' | sort %}
 
-		<div class="title">Implementation Readiness - Coming Soon</div>		
+		<div class="title">Implementation Readiness</div>		
 		<p>The resources on this page are what the Smarter Balanced team have been identified as necessary to implement Smarter Balanced Assessments are what comprise the Implementation Readiness Package (IRP).</p>
 		<p>The resources presented should be used to establish foundational understanding as well as provide technical and functional information related to the implementation and delivery of Smarter Balanced Assessments. We suggest accessing the <a href="https://www.smarterapp.org/documents/IRP_Overview.pdf">Overview Document</a> as the starting point to leveraging the IRP resources.</p>		
 		<!--<table class="layout">
