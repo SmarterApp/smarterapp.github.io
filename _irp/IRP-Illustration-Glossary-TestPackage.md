@@ -19,7 +19,7 @@ An Illustration Glossary provides support functionality to provide definitions f
 For a complete description of all the functional specifications please refer to the following document:
 
 [Illustration-Glossary-Functionality-Specifications-IRP-v0.1.pdf](http://www.smarterapp.org/documents/Illustration-Glossary-Functionality-Specifications-IRP-v0.1.pdf)
-
+<!--
 ## Demonstration Website
 
 Smarter Balanced is providing a link to the the Sample Test website where users can sign in anonymously to test items containing the Illustration Glossary.
@@ -47,3 +47,4 @@ The Smarter Balanced Illustration Glossary Quality Assurance Checklist is intend
 As part of the effort to assure consistency Smarter Balanced is providing the QA checklist below.  The checklist should be used as assurance that the Test Delivery System is capable of providing all of the functionality of the Illustration Glossaries:
 
 [Illustration-Glossary-QA-Checklist-IRP-v0.1.pdf](http://www.smarterapp.org/documents/Illustration-Glossary-QA-Checklist-IRP-v0.1.pdf)
+-->
