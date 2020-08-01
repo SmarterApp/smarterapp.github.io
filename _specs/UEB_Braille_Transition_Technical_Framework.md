@@ -1,6 +1,6 @@
 ---
 title: UEB Braille Transition - Technical Framework
-date: 2016-11-02
+date: 2020-07-31
 docurl: /documents/UEB_Braille_Transition_Technical_Framework.pdf
 status: Approved
 ---
