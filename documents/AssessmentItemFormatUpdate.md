@@ -1,28 +1,38 @@
 ---
 title: Assessment Item Format Update
-date: 2020-06-08
-version: 2.0
+date: 2021-01-29
+version: 3.0
 layout: document-wide
 ---
 
 # Introduction
 
-Smarter Balanced is providing sample items in QTI 3.0 format. This is intended to give service providers and member states an early preview of Smarter Balanced items in the new QTI format.
+Sample QTI 3.0 items have been updated based on feedback from technology stakeholders and service providers. These sample items are not intended to be the final iteration of the QTI 3.0 transition, and we encourage feedback related to these new samples.
 
 # Sample Content Packages
 
-Batch 1: [SBAC-QTI-Example-Set-1_04.15.2020.zip](http://www.smarterapp.org/documents/SBAC-QTI-Example-Set-1_04.15.2020.zip)  
-Batch 2: [QTI_ExampleSet2_QTI_202006051617_IG_EEfix.zip](http://download.smarterbalanced.org/QTI3/QTI_ExampleSet2_QTI_202006051617_IG_EEfix.zip)
+[QTI_ExampleSet3_QTI_20210129.zip](http://www.smarterapp.org/documents/QTI_ExampleSet3_QTI_20210129.zip)  
 
 # Sample Content Item Log
 
 Included with the sample content is an item log, listing additional details about the items. 
 
-[SB_QTI_ExampleItems.xlsx](http://www.smarterapp.org/documents/SB_QTI_ExampleItems.xlsx)  
-[SB_QTI_ExampleItems_Batch2.xlsx](http://www.smarterapp.org/documents/SB_QTI_ExampleItems_Batch2.xlsx)
+[SB_QTI_ExampleItems_Batch3.xlsx](http://www.smarterapp.org/documents/SB_QTI_ExampleItems_Batch3.xlsx)
 
 
-An explanation of the various codes contained in the log are included on the DataDictionary tab in the file.
+# Sample Content Changes
+
+Included is a listing of the changes to the sample items. 
+
+[sample-qti3-batch3-changes.pdf](http://www.smarterapp.org/documents/sample-qti3-batch3-changes.pdf)
+
+
+# QTI 3.0 Release Schedule
+
+Included is a release schedule of the QTI 3.0 rollout. 
+
+[Smarter_Balanced_QTI_transition_plan_dates.pdf](http://www.smarterapp.org/documents/Smarter_Balanced_QTI_transition_plan_dates.pdf)
+
 
 # Mapping Document
 
