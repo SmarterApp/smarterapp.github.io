@@ -7,7 +7,7 @@ layout: document-wide
 
 # Introduction
 
-Sample QTI 3.0 items have been updated based on feedback from technology stakeholders and service providers. These sample items are not intended to be the final iteration of the QTI 3.0 transition, and we encourage feedback related to these new samples.
+Sample QTI 3.0 items have been updated based on feedback from technology stakeholders and service providers. This is the last planned delivery of samples. If there are any questions about this sample set, please content Smarter Balanced.
 
 # Sample Content Packages
 
