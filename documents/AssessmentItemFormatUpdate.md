@@ -13,6 +13,16 @@ Sample QTI 3.0 items have been updated based on feedback from technology stakeho
 
 [QTI_ExampleSet3_QTI_20210129.zip](http://www.smarterapp.org/documents/QTI_ExampleSet3_QTI_20210129.zip)  
 
+# Known Issues
+
+|#|Issue|Note|
+|-|-----|----|
+|1|Variant QTI schema reference|Discrepancy between BPIG and what the validator is referencing|
+|2|imsmanifest requires empty <organizations/> element|QTI package Tabulator is capturing this error|
+|3|schemaLocation attribute is missing for the metadata.xml files|The schemaLocation attribute is used to discover the xsd|
+|4|in item the item xml, the stylesheet element is missing the type attribute|QTI package tabulator is capturing this error|
+
+
 # Sample Content Item Log
 
 Included with the sample content is an item log, listing additional details about the items. 
