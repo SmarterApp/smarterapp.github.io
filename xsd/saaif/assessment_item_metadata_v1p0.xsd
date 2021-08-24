@@ -1,120 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://www.smarterapp.org/ns/1/assessment_item_metadata" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.smarterapp.org/ns/1/assessment_item_metadata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="smarterAppMetadata">
+<xsd:schema xmlns:tns="http://www.smarterapp.org/ns/1/assessment_item_metadata" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    attributeFormDefault="unqualified" 
+    elementFormDefault="qualified" 
+    targetNamespace="http://www.smarterapp.org/ns/1/assessment_item_metadata" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
+    vc:minVersion="1.0" 
+    vc:maxVersion="1.1">
+    <xs:element name="metadata">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element name="Identifier" type="xs:unsignedInt" />
-                <xs:element name="Variant" type="xs:string" />
-                <xs:element name="Version" type="xs:decimal" />
-                <xs:element name="AlternateIdentifier" type="xs:unsignedInt" />
-                <xs:element name="InteractionType" type="xs:string" />
-                <xs:element name="Subject" type="xs:string" />
-                <xs:element name="Status" type="xs:string" />
-                <xs:element name="Language" type="xs:string" maxOccurs="unbounded" />
-                <xs:element name="Keyword" type="xs:string" />
-                <xs:element name="SecurityStatus" type="xs:string" />
-                <xs:element name="MinimumGrade" type="xs:unsignedByte" />
-                <xs:element name="IntendedGrade" type="xs:unsignedByte" />
-                <xs:element name="MaximumGrade" type="xs:unsignedByte" />
-                <xs:element name="BrailleType" type="xs:string" />
-                <xs:element name="BrailleStandard" type="xs:string" />
-                <xs:element name="EnemyItem" type="xs:unsignedInt" />
-                <xs:element name="PtWritingType" type="xs:string" />
-                <xs:element name="ItemAuthorIdentifier" type="xs:string" />
-                <xs:element name="LastModifiedBy" type="xs:string" />
-                <xs:element name="SufficientEvidenceOfClaim" type="xs:string" />
-                <xs:element name="Claim2Category" type="xs:string"/>
-                <xs:element name="Claim2RevisionCategory" type="xs:string"/>
-                <xs:element name="AllowCalculator" type="xs:string" />
-                <xs:element name="MathematicalPractice" type="xs:string"/>
-                <xs:element name="Notes" type="xs:string" />
-                <xs:element name="AssociatedStimulus" type="xs:unsignedInt" />
-                <xs:element name="AssociatedStimulusVersion" type="xs:decimal" />
-                <xs:element name="StimulusType" type="xs:string" />
-                <xs:element name="StimulusName" type="xs:string" />
-                <xs:element name="StimulusSource" type="xs:string" />
-                <xs:element name="StimulusGenre" type="xs:string" />
-                <xs:element name="StimulusLength" type="xs:string" />
-                <xs:element name="AssociatedTutorial" type="xs:unsignedInt" />
-                <xs:element name="AssociatedWordlist" type="xs:unsignedInt" />
-                <xs:element name="MaximumNumberOfPoints" type="xs:unsignedByte" />
-                <xs:element name="ScorePoints" type="xs:string" />
-                <xs:element name="ItemSpecFormat" type="xs:string" />
-                <xs:element name="EvidenceStatement" type="xs:string" />
-                <xs:element name="StimulusGraphic" type="xs:string" />
-                <xs:element name="EducationalDifficulty" type="xs:string" />
-                <xs:element name="DepthOfKnowledge" type="xs:unsignedByte" />
-                <xs:element name="EligibleAssessmentType" type="xs:string" />
-                <xs:element name="SpecificationsVersion" type="xs:unsignedInt"/>
-                <xs:element name="PresentationFormat" type="xs:string" />
-                <xs:element name="ResponseFormat" type="xs:string" />
-                <xs:element name="ScoringMethod" type="xs:string" />
-                <xs:element name="AchievementQuintile" type="xs:unsignedInt" />
-                <xs:element name="StimulusReadabilityFK" type="xs:unsignedInt" />
-                <xs:element name="StimulusReadabilityLexile" type="xs:unsignedInt" />
-                <xs:element name="StimulusLiteraryMeaning" type="xs:string" />
-                <xs:element name="StimulusLiteraryTextStructure" type="xs:string" />
-                <xs:element name="StimulusLiteraryLangFeatures" type="xs:string" />
-                <xs:element name="StimulusLiteraryKnowledgeDemands" type="xs:string" />
-                <xs:element name="StimulusInfoPurpose" type="xs:string" />
-                <xs:element name="StimulusInfoTextStructure" type="xs:string" />
-                <xs:element name="StimulusInfoLanguageFeatures" type="xs:string" />
-                <xs:element name="StimulusInfoKnowledgeDemands" type="xs:string" />
-                <xs:element name="StimulusLiteraryNonFiction" type="xs:string" />
-                <xs:element name="StimulusPerformanceTask" type="xs:string" />
-                <xs:element name="PerformanceTaskComponentItem" type="xs:string" />
-                <xs:element name="PtSequence" type="xs:unsignedInt"/>
-                <xs:element name="PtMetadataTypeOfWriting" type="xs:string"/>
-                <xs:element name="PtClassroomActivity" type="xs:string"/>
-                <xs:element name="PtIdentifier" type="xs:string"/>
-                <xs:element name="PtVersion" type="xs:string"/>
-                <xs:element name="AccessibilityTagsASLLanguage" type="xs:string" />
-                <xs:element name="StandardPublication" maxOccurs="unbounded">
+            <xs:sequence>   
+                <xs:element name="smarterAppMetadata">
                     <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="Publication" type="xs:string" />
-                            <xs:element name="PrimaryStandard" type="xs:string" />
-                            <xs:element name="SecondaryStandard" type="xs:string" />
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="IrtDimension" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="IrtStatDomain" type="xs:string" />
-                            <xs:element name="IrtModelType" type="xs:string" />
-                            <xs:element name="IrtWeight" type="xs:string" />
-                            <xs:element name="IrtDimensionPurpose" type="xs:string" />
-                            <xs:element name="IrtScore" type="xs:string" />
-                            <xs:element name="IrtParameter" maxOccurs="unbounded">
+                        <xs:all>
+                            <xs:element name="Identifier" type="xs:unsignedInt" />
+                            <xs:element name="Variant" type="xs:string"/>
+                            <xs:element name="Version" type="xs:decimal"/>
+                            <xs:element name="AlternateIdentifier" type="xs:unsignedInt" />
+                            <xs:element name="InteractionType" type="xs:string" />
+                            <xs:element name="Subject" type="xs:string" />
+                            <xs:element name="Status" type="xs:string" />
+                            <xs:element name="Language" type="xs:string" maxOccurs="unbounded" />
+                            <xs:element name="Keyword" type="xs:string" />
+                            <xs:element name="SecurityStatus" type="xs:string" />
+                            <xs:element name="SmarterAppItemDescriptor" type="xs:string" />
+                            <xs:element name="MinimumGrade" type="xs:unsignedByte" />
+                            <xs:element name="IntendedGrade" type="xs:unsignedByte" />
+                            <xs:element name="MaximumGrade" type="xs:unsignedByte" />
+                            <xs:element name="BrailleType" type="xs:string" />
+                            <xs:element name="BrailleStandard" type="xs:string" />
+                            <xs:element name="EnemyItem" type="xs:unsignedInt" />
+                            <xs:element name="PtWritingType" type="xs:string" />
+                            <xs:element name="ItemAuthorIdentifier" type="xs:string" />
+                            <xs:element name="LastModifiedBy" type="xs:string" />
+                            <xs:element name="SufficientEvidenceOfClaim" type="xs:string" />
+                            <xs:element name="Claim2Category" type="xs:string" />
+                            <xs:element name="Claim2RevisionCategory" type="xs:string" />
+                            <xs:element name="AllowCalculator" type="xs:string" />
+                            <xs:element name="MathematicalPractice" type="xs:string" />
+                            <xs:element name="Notes" type="xs:string" />
+                            <xs:element name="AssociatedStimulus" type="xs:unsignedInt" />
+                            <xs:element name="AssociatedStimulusVersion" type="xs:decimal" />
+                            <xs:element name="StimulusType" type="xs:string" />
+                            <xs:element name="StimulusFormat" type="xs:string" />
+                            <xs:element name="StimulusName" type="xs:string" />
+                            <xs:element name="StimulusSource" type="xs:string" />
+                            <xs:element name="StimulusGenre" type="xs:string" />
+                            <xs:element name="StimulusLength" type="xs:string" />
+                            <xs:element name="AssociatedTutorial" type="xs:unsignedInt" />
+                            <xs:element name="AssociatedWordlist" type="xs:unsignedInt" />
+                            <xs:element name="MaximumNumberOfPoints" type="xs:unsignedByte" />
+                            <xs:element name="ScorePoints" type="xs:string" />
+                            <xs:element name="ItemSpecFormat" type="xs:string" />
+                            <xs:element name="EvidenceStatement" type="xs:string" />
+                            <xs:element name="StimulusGraphic" type="xs:string" />
+                            <xs:element name="EducationalDifficulty" type="xs:string" />
+                            <xs:element name="DepthOfKnowledge" type="xs:unsignedByte" />
+                            <xs:element name="EligibleAssessmentType" type="xs:string" />
+                            <xs:element name="SpecificationsVersion" type="xs:unsignedInt" />
+                            <xs:element name="PresentationFormat" type="xs:string" />
+                            <xs:element name="ResponseFormat" type="xs:string" />
+                            <xs:element name="ScoringMethod" type="xs:string" />
+                            <xs:element name="AdministrationDate" type="xs:string" />
+                            <xs:element name="AchievementQuintile" type="xs:unsignedInt" />
+                            <xs:element name="StimulusReadabilityFK" type="xs:unsignedInt" />
+                            <xs:element name="StimulusReadabilityLexile" type="xs:unsignedInt" />
+                            <xs:element name="StimulusLiteraryMeaning" type="xs:string" />
+                            <xs:element name="StimulusLiteraryTextStructure" type="xs:string" />
+                            <xs:element name="StimulusLiteraryLangFeatures" type="xs:string" />
+                            <xs:element name="StimulusLiteraryKnowledgeDemands" type="xs:string" />
+                            <xs:element name="StimulusInfoPurpose" type="xs:string" />
+                            <xs:element name="StimulusInfoTextStructure" type="xs:string" />
+                            <xs:element name="StimulusInfoLanguageFeatures" type="xs:string" />
+                            <xs:element name="StimulusInfoKnowledgeDemands" type="xs:string" />
+                            <xs:element name="StimulusLiteraryNonFiction" type="xs:string" />
+                            <xs:element name="StimulusPerformanceTask" type="xs:string" />
+                            <xs:element name="PerformanceTaskComponentItem" type="xs:string" />
+                            <xs:element name="PtSequence" type="xs:unsignedInt"/>
+                            <xs:element name="PtMetadataTypeOfWriting" type="xs:string"/>
+                            <xs:element name="PtClassroomActivity" type="xs:string"/>
+                            <xs:element name="PtIdentifier" type="xs:string"/>
+                            <xs:element name="PtVersion" type="xs:string"/>
+                            <xs:element name="AccessibilityTagsASLLanguage" type="xs:string" />
+                            <xs:element name="StandardPublication" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element name="Publication" type="xs:string" />
+                                        <xs:element name="PrimaryStandard" type="xs:string" />
+                                        <xs:element name="SecondaryStandard" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="IrtDimension" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="Name" type="xs:string" />
-                                        <xs:element name="Value" type="xs:string" />
+                                        <xs:element name="IrtStatDomain" type="xs:string" />
+                                        <xs:element name="IrtModelType" type="xs:string" />
+                                        <xs:element name="IrtDimensionPurpose" type="xs:string" />
+                                        <xs:element name="IrtScore" type="xs:string" />
+                                        <xs:element name="IrtWeight" type="xs:string" />
+                                        <xs:element name="IrtParameter" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:all>
+                                                    <xs:element name="Name" type="xs:string" />
+                                                    <xs:element name="Value" type="xs:string" />
+                                                </xs:all>
+                                            </xs:complexType>
+                                        </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                        </xs:sequence>
+                            <xs:element name="ContentTaskModel" type="xs:string" />
+                            <xs:element name="AlgebraFunctionDescriptor" type="xs:string" />
+                            <xs:element name="LanguageFeatures" />
+                            <xs:element name="MeaningPurpose" />
+                            <xs:element name="PrimaryClaim" type="xs:unsignedByte" />
+                            <xs:element name="PrimaryCommonCoreStandard" type="xs:string" />
+                            <xs:element name="PrimaryContentDomain" type="xs:string" />
+                            <xs:element name="QuaternaryClaim" />
+                            <xs:element name="QuaternaryCommonCoreStandard" />
+                            <xs:element name="ScoringEngine" type="xs:string" />
+                            <xs:element name="SecondaryClaim" />
+                            <xs:element name="SecondaryCommonCoreStandard" />
+                            <xs:element name="SecondaryContentDomain" />
+                            <xs:element name="TertiaryClaim" />
+                            <xs:element name="TertiaryCommonCoreStandard" />
+                            <xs:element name="TertiaryContentDomain" />
+                            <xs:element name="TestCategory" type="xs:string" />
+                        </xs:all>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="ContentTaskModel" type="xs:string" />
-                <xs:element name="AlgebraFunctionDescriptor" type="xs:string" />
-                <xs:element name="LanguageFeatures" />
-                <xs:element name="MeaningPurpose" />
-                <xs:element name="PrimaryClaim" type="xs:unsignedByte" />
-                <xs:element name="PrimaryCommonCoreStandard" type="xs:string" />
-                <xs:element name="PrimaryContentDomain" type="xs:string" />
-                <xs:element name="QuaternaryClaim" />
-                <xs:element name="QuaternaryCommonCoreStandard" />
-                <xs:element name="ScoringEngine" type="xs:string" />
-                <xs:element name="SecondaryClaim" />
-                <xs:element name="SecondaryCommonCoreStandard" />
-                <xs:element name="SecondaryContentDomain" />
-                <xs:element name="TertiaryClaim" />
-                <xs:element name="TertiaryCommonCoreStandard" />
-                <xs:element name="TertiaryContentDomain" />
-                <xs:element name="TestCategory" type="xs:string" />
-            </xs:sequence>
+            </xs:sequence> 
         </xs:complexType>
     </xs:element>
-</xs:schema>
+</xsd:schema>

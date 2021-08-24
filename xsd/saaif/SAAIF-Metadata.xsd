@@ -1,0 +1,326 @@
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.smarterapp.org/ns/1/assessment_item_metadata"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="smarterAppMetadata">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="Identifier"/>
+                <xs:element type="xs:string" name="Variant"/>
+                <xs:element type="xs:string" name="Version"/>
+                <xs:element type="xs:string" name="AlternateIdentifier" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="InteractionType"/>
+                <xs:element type="xs:string" name="Subject"/>
+                <xs:element type="xs:string" name="Status"/>
+                <xs:element type="xs:string" name="Language" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="Keyword" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="SecurityStatus"/>
+                <xs:element type="xs:string" name="MinimumGrade"/>
+                <xs:element type="xs:string" name="IntendedGrade"/>
+                <xs:element type="xs:string" name="MaximumGrade"/>
+                <xs:element type="xs:string" name="BrailleType"/>
+                <xs:element type="xs:string" name="BrailleStandard"/>
+                <xs:element type="xs:string" name="EnemyItem" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="PtWritingType"/>
+                <xs:element type="xs:string" name="ItemAuthorIdentifier" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="LastModifiedBy" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="SufficientEvidenceOfClaim" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="Claim2Category"/>
+                <xs:element type="xs:string" name="Claim2RevisionCategory"/>
+                <xs:element type="xs:string" name="AllowCalculator"/>
+                <xs:element type="xs:string" name="MathematicalPractice" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="Notes" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="AssociatedStimulus" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="AssociatedStimulusVersion" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="StimulusType"/>
+                <xs:element type="xs:string" name="StimulusName"/>
+                <xs:element type="xs:string" name="StimulusSource"/>
+                <xs:element type="xs:string" name="StimulusGenre"/>
+                <xs:element type="xs:string" name="StimulusLength"/>
+                <xs:element type="xs:string" name="AssociatedTutorial"/>
+                <xs:element type="xs:string" name="AssociatedWordlist"/>
+                <xs:element type="xs:string" name="MaximumNumberOfPoints"/>
+                <xs:element type="xs:string" name="ScorePoints"/>
+                <xs:element type="xs:string" name="ItemSpecFormat"/>
+                <xs:element type="xs:string" name="StimulusFormat"/>
+                <xs:element type="xs:string" name="EvidenceStatement" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="StimulusGraphic"/>
+                <xs:element type="xs:string" name="EducationalDifficulty"/>
+                <xs:element type="xs:string" name="DepthOfKnowledge"/>
+                <xs:element type="xs:string" name="EligibleAssessmentType" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="SpecificationsVersion"/>
+                <xs:element type="xs:string" name="PresentationFormat"/>
+                <xs:element type="xs:string" name="ResponseFormat"/>
+                <xs:element type="xs:string" name="ScoringMethod"/>
+                <xs:element type="xs:string" name="AchievementQuintile"/>
+                <xs:element type="xs:string" name="StimulusReadabilityFK"/>
+                <xs:element type="xs:string" name="StimulusReadabilityLexile"/>
+                <xs:element type="xs:string" name="StimulusLiteraryMeaning"/>
+                <xs:element type="xs:string" name="StimulusLiteraryTextStructure"/>
+                <xs:element type="xs:string" name="StimulusLiteraryLangFeatures"/>
+                <xs:element type="xs:string" name="StimulusLiteraryKnowledgeDemands"/>
+                <xs:element type="xs:string" name="StimulusInfoPurpose"/>
+                <xs:element type="xs:string" name="StimulusInfoTextStructure"/>
+                <xs:element type="xs:string" name="StimulusInfoLanguageFeatures"/>
+                <xs:element type="xs:string" name="StimulusInfoKnowledgeDemand"/>
+                <xs:element type="xs:string" name="StimulusLiteraryNonFiction"/>
+                <xs:element type="xs:string" name="StimulusPerformanceTask"/>
+                <xs:element type="xs:string" name="PerformanceTaskComponentItem"/>
+                <xs:element type="xs:string" name="PtSequence"/>
+                <xs:element type="xs:string" name="PtMetadataTypeOfWriting"/>
+                <xs:element type="xs:string" name="PtClassroomActivity"/>
+                <xs:element type="xs:string" name="PtIdentifier"/>
+                <xs:element type="xs:string" name="PtVersion"/>
+                <xs:element type="xs:string" name="AccessibilityTagsASLLanguage"/>
+                <xs:element type="xs:string" name="ELAContentTaskModel"/>
+                <xs:element type="xs:string" name="MathContentTaskModel"/>
+                <xs:element type="xs:string" name="MathSubTaskModel"/>
+                <xs:element type="xs:string" name="AlgebraFunctionDescriptor" maxOccurs="unbounded" minOccurs="0"/>
+                <xs:element type="xs:string" name="Claim"/>
+                <xs:element type="xs:string" name="Target"/>
+
+                <!-- Standard Alignment -->
+                <xs:element name="StandardPublication" maxOccurs="unbounded" minOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="Publication"/>
+                            <xs:element type="xs:string" name="PrimaryStandard"/>
+                            <xs:element type="xs:string" name="SecondaryStandard" maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- IRT Fields -->
+                <xs:element name="IrtDimension" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="IrtModelType"/>
+                            <xs:element type="xs:string" name="IrtWeight"/>
+                            <xs:element type="xs:string" name="IrtDimensionPurpose"/>
+                            <xs:element type="xs:string" name="IrtRecodeRule"/>
+                            <xs:element type="xs:string" name="IrtScore"/>
+                            <xs:element name="IrtParameter" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Name"/>
+                                        <xs:element type="xs:string" name="Value"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="Administration"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element type="xs:string" name="WorkflowStatusCode"/>
+                <xs:element type="xs:string" name="BrailleRequired"/>
+                <xs:element type="xs:string" name="BrailledProvided"/>
+                <xs:element type="xs:string" name="AslRequired"/>
+                <xs:element type="xs:string" name="AslProvided"/>
+                <xs:element type="xs:string" name="CcRequired"/>
+                <xs:element type="xs:string" name="CcProvided"/>
+
+                <!-- Field Test Data -->
+
+                <xs:element type="xs:string" name="WER_ItemSubItemA"/>
+                <xs:element type="xs:string" name="WER_ItemSubItemB"/>
+                <xs:element type="xs:string" name="WER_ItemSubItemC"/>
+                <xs:element type="xs:string" name="WER_ItemSubItemD"/>
+
+                <xs:element type="xs:string" name="Excluded_from_All_Analysis"/>
+                <xs:element type="xs:string" name="Excluded_from_IRT_Analysis"/>
+                <xs:element type="xs:string" name="Student_Grade"/>
+                <xs:element type="xs:string" name="Sample_Size"/>
+                <xs:element type="xs:string" name="StatFlagLowAvgItemScore"/>
+                <xs:element type="xs:string" name="StatFlagScoreCatLowN"/>
+                <xs:element type="xs:string" name="StatFlagHighStudLowScorePt"/>
+                <xs:element type="xs:string" name="StatFlagHighAbilityPropChooseDistractor"/>
+                <xs:element type="xs:string" name="StatFlagHighAbilityAvgChooseDistractor"/>
+                <xs:element type="xs:string" name="StatFlagHighAvgItemScore"/>
+                <xs:element type="xs:string" name="StatFlagHighNotRespond"/>
+                <xs:element type="xs:string" name="StatFlagHighOmits"/>
+                <xs:element type="xs:string" name="StatFlagPosDistrBiserial"/>
+                <xs:element type="xs:string" name="StatFlagLowItemTtlCorr"/>
+                <xs:element type="xs:string" name="StatFlagSmallerAISatHigherGrade"/>
+                <xs:element type="xs:string" name="StatFlagNeedContentRvw"/>
+
+                <xs:element type="xs:string" name="Percent_ChoosingA"/>
+                <xs:element type="xs:string" name="Percent_ChoosingB"/>
+                <xs:element type="xs:string" name="Percent_ChoosingC"/>
+                <xs:element type="xs:string" name="Percent_ChoosingD"/>
+                <xs:element type="xs:string" name="Percent_ChoosingE"/>
+                <xs:element type="xs:string" name="Percent_ChoosingF"/>
+                <xs:element type="xs:string" name="Percent_ChoosingG"/>
+
+                <xs:element type="xs:string" name="Percent_Obtaining_0"/>
+                <xs:element type="xs:string" name="Percent_Obtaining_1"/>
+                <xs:element type="xs:string" name="Percent_Obtaining_2"/>
+                <xs:element type="xs:string" name="Percent_Obtaining_3"/>
+                <xs:element type="xs:string" name="Percent_Obtaining_4"/>
+                <xs:element type="xs:string" name="Percent_Obtaining_5"/>
+                <xs:element type="xs:string" name="Percent_Obtaining_6"/>
+                <xs:element type="xs:string" name="Percent_Obtaining_7"/>
+                <xs:element type="xs:string" name="Percent_Obtaining_8"/>
+
+                <xs:element type="xs:string" name="Biserial_OptionA"/>
+                <xs:element type="xs:string" name="Biserial_OptionB"/>
+                <xs:element type="xs:string" name="Biserial_OptionC"/>
+                <xs:element type="xs:string" name="Biserial_OptionD"/>
+                <xs:element type="xs:string" name="Biserial_OptionE"/>
+                <xs:element type="xs:string" name="Biserial_OptionF"/>
+                <xs:element type="xs:string" name="Biserial_OptionG"/>
+
+                <xs:element type="xs:string" name="Item_Total_Pearson_Correlation"/>
+
+                <xs:element type="xs:string" name="Pt_biserial_OptionA"/>
+                <xs:element type="xs:string" name="Pt_biserial_OptionB"/>
+                <xs:element type="xs:string" name="Pt_biserial_OptionC"/>
+                <xs:element type="xs:string" name="Pt_biserial_OptionD"/>
+                <xs:element type="xs:string" name="Pt_biserial_OptionE"/>
+                <xs:element type="xs:string" name="Pt_biserial_OptionF"/>
+                <xs:element type="xs:string" name="Pt_biserial_OptionG"/>
+
+                <xs:element type="xs:string" name="N_ChoosingA"/>
+                <xs:element type="xs:string" name="MeanCritScore_OptionA"/>
+                <xs:element type="xs:string" name="N_ChoosingB"/>
+                <xs:element type="xs:string" name="MeanCritScore_OptionB"/>
+                <xs:element type="xs:string" name="N_ChoosingC"/>
+                <xs:element type="xs:string" name="MeanCritScore_OptionC"/>
+                <xs:element type="xs:string" name="N_ChoosingD"/>
+                <xs:element type="xs:string" name="MeanCritScore_OptionD"/>
+                <xs:element type="xs:string" name="N_ChoosingE"/>
+                <xs:element type="xs:string" name="MeanCritScore_OptionE"/>
+                <xs:element type="xs:string" name="N_ChoosingF"/>
+                <xs:element type="xs:string" name="MeanCritScore_OptionF"/>
+                <xs:element type="xs:string" name="N_ChoosingG"/>
+                <xs:element type="xs:string" name="MeanCritScore_OptionG"/>
+
+                <xs:element type="xs:string" name="N_Omitting"/>
+                <xs:element type="xs:string" name="MeanCritScore_Omit"/>
+                <xs:element type="xs:string" name="N_Reached"/>
+                <xs:element type="xs:string" name="MeanCritScore_Reached"/>
+                <xs:element type="xs:string" name="N_Cat_0"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_0"/>
+                <xs:element type="xs:string" name="N_Cat_1"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_1"/>
+                <xs:element type="xs:string" name="N_Cat_2"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_2"/>
+                <xs:element type="xs:string" name="N_Cat_3"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_3"/>
+                <xs:element type="xs:string" name="N_Cat_4"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_4"/>
+                <xs:element type="xs:string" name="N_Cat_5"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_5"/>
+                <xs:element type="xs:string" name="N_Cat_6"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_6"/>
+                <xs:element type="xs:string" name="N_Cat_7"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_7"/>
+                <xs:element type="xs:string" name="N_Cat_8"/>
+                <xs:element type="xs:string" name="MeanCritScore_Cat_8"/>
+
+                <xs:element type="xs:string" name="DIFCat_Female_v_Male"/>
+                <xs:element type="xs:string" name="DIFCat_Asian_v_White"/>
+                <xs:element type="xs:string" name="DIFCat_Black_v_White"/>
+                <xs:element type="xs:string" name="DIFCat_Hispanic_v_White"/>
+                <xs:element type="xs:string" name="DIFCat_NativeA_v_White"/>
+                <xs:element type="xs:string" name="DIFCat_IEP_v_NonIEP"/>
+                <xs:element type="xs:string" name="DIFCat_LEP_v_NonLEP"/>
+                <xs:element type="xs:string" name="DIFCat_Title1_v_NonTitle1"/>
+                <xs:element type="xs:string" name="N_Male"/>
+                <xs:element type="xs:string" name="N_Female"/>
+                <xs:element type="xs:string" name="N_White"/>
+                <xs:element type="xs:string" name="N_Asian"/>
+                <xs:element type="xs:string" name="N_Black"/>
+                <xs:element type="xs:string" name="N_Hispanic"/>
+                <xs:element type="xs:string" name="N_NativeAmerican"/>
+                <xs:element type="xs:string" name="N_IEP"/>
+                <xs:element type="xs:string" name="N_LEP"/>
+                <xs:element type="xs:string" name="N_Title1"/>
+                <xs:element type="xs:string" name="MHDDIF_F_M"/>
+                <xs:element type="xs:string" name="SMD_F_M"/>
+                <xs:element type="xs:string" name="MHDDIF_Asian_White"/>
+                <xs:element type="xs:string" name="SMD_Asian_White"/>
+                <xs:element type="xs:string" name="MHDDIF_Black_White"/>
+                <xs:element type="xs:string" name="SMD_Black_White"/>
+                <xs:element type="xs:string" name="MHDDIF_Hispanic_White"/>
+                <xs:element type="xs:string" name="SMD_Hispanic_White"/>
+                <xs:element type="xs:string" name="MHDDIF_NativeA_White"/>
+                <xs:element type="xs:string" name="SMD_NativeA_White"/>
+                <xs:element type="xs:string" name="MHDDIF_IEP_NonIEP"/>
+                <xs:element type="xs:string" name="SMD_IEP_NonIEP"/>
+                <xs:element type="xs:string" name="MHDDIF_LEP_NonLEP"/>
+                <xs:element type="xs:string" name="SMD_LEP_NonLEP"/>
+                <xs:element type="xs:string" name="MHDDIF_Title1_NonTitle1"/>
+                <xs:element type="xs:string" name="SMD_Title1_NonTitle1"/>
+                <xs:element type="xs:string" name="MaximumPointsScored"/>
+                <xs:element type="xs:string" name="MinimumPointsScored"/>
+                <xs:element type="xs:string" name="IRT_Category_ReCoding"/>
+
+                <xs:element type="xs:string" name="LicensedWorkStandardNumber"/>
+                <xs:element type="xs:string" name="LicensedWorkTitle"/>
+                <xs:element type="xs:string" name="LicensedWorkArticleTitle"/>
+                <xs:element type="xs:string" name="LicensedWorkPublisher"/>
+                <xs:element type="xs:string" name="LicensedWorkDate"/>
+                <xs:element type="xs:string" name="LicensedWorkLocation"/>
+                <xs:element type="xs:string" name="LicensedWorkVolNum"/>
+                <xs:element type="xs:string" name="LicensedWorkCccId"/>
+
+                <xs:element type="xs:string" name="ElfQuantitative"/>
+                <xs:element type="xs:string" name="StimulusListeningPurpose"/>
+                <xs:element type="xs:string" name="StimulusListeningAuditoryStructure"/>
+                <xs:element type="xs:string" name="StimulusListeningOralLangFeatures"/>
+                <xs:element type="xs:string" name="StimulusListeningKnowledgeDemands"/>
+
+                <!-- New Properties - https://confluence.fairwaytech.com/pages/viewpage.action?title=Edit+item+metadata&spaceKey=IAT -->
+
+                <xs:element type="xs:string" name="AccessibilityLanguageComplexity"/>
+                <xs:element type="xs:string" name="Calculator"/>
+                <!--<xs:element type="xs:string" name="Claim2Category"/>-->
+                <xs:element type="xs:string" name="Claim2SubCategory"/>
+                <xs:element type="xs:string" name="ContentDomain"/>
+                <xs:element type="xs:string" name="ContentTaskModel"/>
+                <xs:element type="xs:string" name="CopyrightHolder"/>
+                <xs:element type="xs:string" name="CopyrightHolderOther"/>
+                <!--<xs:element type="xs:string" name="DepthOfKnowledge"/>-->
+                <xs:element type="xs:string" name="Grade"/>
+                <xs:element type="xs:string" name="AlgebraDescriptor1"/>
+                <xs:element type="xs:string" name="AlgebraDescriptor2"/>
+                <xs:element type="xs:string" name="ItemPoint"/>
+                <xs:element type="xs:string" name="KnowledgeDemands"/>
+                <xs:element type="xs:string" name="LanguageFeatures"/>
+                <!--<xs:element type="xs:string" name="MaxGrade"/>-->
+                <xs:element type="xs:string" name="MeaningPurpose"/>
+                <!--<xs:element type="xs:string" name="MinGrade"/>-->
+                <xs:element type="xs:string" name="PassageName"/>
+                <xs:element type="xs:string" name="PerformanceTask"/>
+                <xs:element type="xs:string" name="PrimaryAssessmentTarget"/>
+                <xs:element type="xs:string" name="PrimaryClaim"/>
+                <xs:element type="xs:string" name="PrimaryCommonCoreStandard"/>
+                <xs:element type="xs:string" name="PrimaryContentDomain"/>
+                <xs:element type="xs:string" name="QuaternaryAssessmentTarget"/>
+                <xs:element type="xs:string" name="QuaternaryClaim"/>
+                <xs:element type="xs:string" name="QuaternaryCommonCoreStandard"/>
+                <xs:element type="xs:string" name="ReadabilityFleschKincaid"/>
+                <xs:element type="xs:string" name="ReadabilityLexile"/>
+                <xs:element type="xs:string" name="ScoringEngine"/>
+                <!--<xs:element type="xs:string" name="ScoringPoints"/>-->
+                <xs:element type="xs:string" name="SecondaryAssessmentTarget"/>
+                <xs:element type="xs:string" name="SecondaryClaim"/>
+                <xs:element type="xs:string" name="SecondaryCommonCoreStandard"/>
+                <xs:element type="xs:string" name="SecondaryContentDomain"/>
+                <!--<xs:element type="xs:string" name="StimulusFormat"/>-->
+                <!--<xs:element type="xs:string" name="StimulusLength"/>-->
+                <xs:element type="xs:string" name="Structure"/>
+                <!--<xs:element type="xs:string" name="Subject"/>-->
+                <xs:element type="xs:string" name="TertiaryAssessmentTarget"/>
+                <xs:element type="xs:string" name="TertiaryClaim"/>
+                <xs:element type="xs:string" name="TertiaryCommonCoreStandard"/>
+                <xs:element type="xs:string" name="TertiaryContentDomain"/>
+                <xs:element type="xs:string" name="TestCategory"/>
+                <xs:element type="xs:string" name="WordCount"/>
+                <xs:element type="xs:string" name="WritingPurpose"/>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
