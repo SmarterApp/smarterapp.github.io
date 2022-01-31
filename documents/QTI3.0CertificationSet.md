@@ -13,6 +13,10 @@ Sample QTI certified items are provided to demonstrate the Smarter Balanced impl
 
 [Certification Set](https://fx.smarterbalanced.org/apps/files/?dir=/QTI/QTI%203.0%20Certification%20Set&fileid=7616749) login required
 
+## QTI 3 Implementation Guide
+
+[Implementation Guide](SBAC_QTI_ImplementationGuide.pdf)
+
 ## Service Provider Feedback
 
 [Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSdmsw5Z8TRV_jNSID0rT5r9CjH_g8nqIbtb2eZPncGY8DUmqw/viewform?vc=0&c=0&w=1&flr=0)
