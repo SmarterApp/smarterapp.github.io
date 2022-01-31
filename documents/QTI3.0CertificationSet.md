@@ -11,7 +11,7 @@ Sample QTI certified items are provided to demonstrate the Smarter Balanced impl
 
 ## QTI 3 Certification Set
 
-[Certification Set](https://fx.smarterbalanced.org/apps/files/?dir=/QTI/QTI%203.0%20Certification%20Set&fileid=7616749) login required
+[Certification Set](https://fx.smarterbalanced.org/s/wpnzZktRkM2cK35)
 
 ## QTI 3 Implementation Guide
 
