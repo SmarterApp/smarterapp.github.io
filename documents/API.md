@@ -2,10 +2,10 @@
 
 **Intended Audience**: this document describes the programming interface for the ingest and reporting services of the [Reporting Data Warehouse](../README.md). Operations and system adminstration will find it useful for the configuration data loading end-points and the diagnostic and task service end-points. Third party providers of test results will find it useful for the data loading end-points.
 
-This document describes the service end-points for the ingest and reporting services. *Note: there are many more end-points in the reporting services but most are intended to be consumed by the reporting UI, so are not documented here. Some of those are unofficially documented in [Troubleshooting](Troubleshooting.md#unofficial-api).*
+This document describes the service end-points for the ingest and reporting services. *Note: there are many more end-points in the reporting services but most are intended to be consumed by the reporting UI, so are not documented here.*
 * The import service has data loading end-points.
-* The task and report processor services have task trigger end-points. 
-* All services have diagnostic end-points. 
+* The task and report processor services have task trigger end-points.
+* All services have diagnostic end-points.
 
 Quick Links:
 1. [Authentication and Authorization](#authentication-and-authorization)
@@ -21,14 +21,14 @@ Quick Links:
 
 ### Authentication and Authorization
 The import service requires an OAuth2 access token for the data loading end-points. This is a password grant token requested from the OAuth2 server by a trusted client for a user of the system (the permissions are associated with the user).
-During the first couple years, the OAuth2 server was an OpenAM server. Recently it was migrated to an Okta server. There are instructions for both. 
+During the first couple years, the OAuth2 server was an OpenAM server. Recently it was migrated to an Okta server. There are instructions for both.
 
 #### Fetch Password Grant Access Token - OpenAM
 Accepts x-www-form-urlencoded data including client and user credentials and returns an access token.
 * Host: OpenAM
 * URL: `/auth/oauth2/access_token`
 * Method: `POST`
-* URL Params: 
+* URL Params:
   * `realm=/sbac`
 * Data Params (except for `grant_type` values given are examples and should be replaced with real values):
   * `grant_type=password`
@@ -38,7 +38,7 @@ Accepts x-www-form-urlencoded data including client and user credentials and ret
   * `client_secret=ClientSecret`
 * Success Response:
   * Code: 200 (OK)
-  * Content: 
+  * Content:
     ```json
     {
       "scope": "cn givenName mail sbacTenancyChain sbacUUID sn",
@@ -46,7 +46,7 @@ Accepts x-www-form-urlencoded data including client and user credentials and ret
       "token_type": "Bearer",
       "refresh_token": "639ddaa9-f993-4c52-aec5-923d5a21ee23",
       "access_token": "20b55fc2-1b84-4412-8149-88cfa622db01"
-    } 
+    }
     ```
 * Error Response:
   * Code: 400 (Bad Request)
@@ -85,7 +85,7 @@ Accepts x-www-form-urlencoded data including client and user credentials and ret
   * `client_secret=ClientSecret`
 * Success Response:
   * Code: 200 (OK)
-  * Content: 
+  * Content:
     ```json
     {
       "scope": "openid profile",
@@ -93,7 +93,7 @@ Accepts x-www-form-urlencoded data including client and user credentials and ret
       "token_type": "Bearer",
       "id_token": "eyJraWQi0...",
       "access_token": "eja8FA..."
-    } 
+    }
     ```
 * Error Response:
   * Code: 400 (Bad Request)
@@ -123,11 +123,11 @@ Although not needed during normal operations, this call can be used to check an 
 * Host: OpenAM
 * URL: `/auth/oauth2/tokeninfo`
 * Method: `GET`
-* URL Params: 
+* URL Params:
   * `access_token={access_token}`
 * Success Response:
   * Code: 200 (OK)
-  * Content: 
+  * Content:
     ```json
     {
       "sbacUUID": "599758d9e4b0fbecbf5fc586",
@@ -174,7 +174,7 @@ Although not needed during normal operations, this curl call can be used to chec
   ```
 * Success Response:
   * Code: 200 (OK)
-  * Content: 
+  * Content:
     ```json
     {
       "active": true,
@@ -197,7 +197,7 @@ Although not needed during normal operations, this curl call can be used to chec
       "sbacUUID": "59946ee4e4b031dfb7d388ca"
     }
     ```
-    
+
 * Error Response:
   * Code: 400 (Bad Request)
   * Content (specific error and description will vary):
@@ -263,7 +263,7 @@ curl --header "Authorization:Bearer {access_token}" https://import-service/impor
 The import requests are processed and migrated to the reporting data mart. Import payloads are hashed and duplicate content is detected, returning any previous import request for the given content. Thus, for most content, submitting a payload a second time will safely no-op and return the current status of the previous import. The one exception to this rule is for Student Groups: because other factors such as permissions and organizations affect the processing of groups, duplicate import requests are reprocessed.
 
 All data submissions result in an import being created. Thus a POST to `/exams/imports` will create an `import` resource which can be accessed at `/imports/{id}` (note that `exams` is not in the path). These are the end-points for querying imports.
- 
+
 #### Get Import Request
 This end-point may be used to get the current status of an import request.
 
@@ -309,7 +309,7 @@ curl --header "Authorization:Bearer {access_token}" https://import-service/impor
 ```
 
 #### Get Import Payload
-This end-point may be used to get the payload for an import request. 
+This end-point may be used to get the payload for an import request.
 
 * Host: import service
 * URL: `/imports/{id}/payload`
@@ -340,7 +340,7 @@ This end-point may be used to get the payload properties for an import request. 
   * `Authorization: Bearer {access_token}`
 * Success Response:
   * Code: 200 (OK)
-  * Content: 
+  * Content:
     ```json
     {
       "Content-Type": "application/xml",
@@ -418,17 +418,17 @@ curl -X POST --header "Authorization:Bearer {access_token}" --header "Content-Ty
 ```bash
 curl -X POST --header "Authorization:Bearer {access_token}" -F file=@winterICA.1.xml -F batch=WinterICA https://import-service/exams/imports
 ```
-  
+
 #### Resubmit Exams
-The system accepts and stores import payloads regardless of processing status. For imports with certain problems like an unknown school or assessment, the import may be "replayed" once the underlying cause is resolved. For example, if the missing school is added to the system, all affected exams can be resubmitted, without requiring the client to re-post the data. Note that this is meant as an operational utility; if it is being used regularly there are probably fundamental data flow issues. 
+The system accepts and stores import payloads regardless of processing status. For imports with certain problems like an unknown school or assessment, the import may be "replayed" once the underlying cause is resolved. For example, if the missing school is added to the system, all affected exams can be resubmitted, without requiring the client to re-post the data. Note that this is meant as an operational utility; if it is being used regularly there are probably fundamental data flow issues.
 
 * Host: import service
 * URL: `/exams/imports/resubmit`
 * Method: `POST`
 * URL Params: query params can be used to restrict which exam imports to include; typically the status
-  * `status=<status>` where status may be the import status name, e.g. `BAD_DATA`, or numeric id, e.g. `-3` (query the `import_status` table for allowed values). 
-  * `after=<interval>` where interval is like `-PT1H` 
-  * `before=<interval>` where interval is like `-PT1H` 
+  * `status=<status>` where status may be the import status name, e.g. `BAD_DATA`, or numeric id, e.g. `-3` (query the `import_status` table for allowed values).
+  * `after=<interval>` where interval is like `-PT1H`
+  * `before=<interval>` where interval is like `-PT1H`
   * `creator=<creator>`
   * `batch=<batchtag>`
   * `limit=<N>` where N is a count. If there are a lot of imports to resubmit, use a limit to run them in manageable chunks, e.g. `limit=100`.
@@ -436,7 +436,7 @@ The system accepts and stores import payloads regardless of processing status. F
   * `Authorization: Bearer {access_token}`
 * Success Response:
   * Code: 200
-  * Content: number of exams found and resubmitted. If the return value is the same as the `limit` param, it is likely there are more exams matching the query and additional resubmit calls should be made. 
+  * Content: number of exams found and resubmitted. If the return value is the same as the `limit` param, it is likely there are more exams matching the query and additional resubmit calls should be made.
     ```text
     7
     ```
@@ -448,7 +448,7 @@ The system accepts and stores import payloads regardless of processing status. F
 curl -X POST --header "Authorization:Bearer {access_token}" https://import-service/exams/imports/resubmit?status=UNKNOWN_SCHOOL
 ```
 
-  
+
 ### Organization Endpoints
 End-points for submitting organization data; this includes districts, schools, and groups of institutions.
 
@@ -456,9 +456,9 @@ These require the `ASMTDATALOAD` role.
 
 #### Create Organization Import Request
 Accepts JSON payload, compatible with the [format produced by ART](https://github.com/SmarterApp/TDS_AdministrationAndRegistrationTools/blob/master/external_release_docs/SBAC-11%20TestRegistration%20API.pdf),
-or CALPADS format. 
+or CALPADS format.
 
-The payload should contain all the organization data necessary to resolve all contents; for example, if a school is in a group under a district, all three must be present in the payload. The payload must be valid JSON but the exact structure doesn't matter a lot: the system will parse the payload looking for the required fields: `entityType`, `entityId`, `entityName`, `parentEntityId`. 
+The payload should contain all the organization data necessary to resolve all contents; for example, if a school is in a group under a district, all three must be present in the payload. The payload must be valid JSON but the exact structure doesn't matter a lot: the system will parse the payload looking for the required fields: `entityType`, `entityId`, `entityName`, `parentEntityId`.
 
 There are two ways of posting content: with a raw body of type `application/json` or `text/csv` or form-data (file upload).
 
@@ -499,68 +499,68 @@ There are two ways of posting content: with a raw body of type `application/json
       "entityName": "Crom District",
       "parentEntityId": "CA"
     }
-  ], 
+  ],
   "institutions": [
     {
       "entityId": "88800120012001",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Big Bay",
       "parentEntityId": "88800120000000"
-    }, 
+    },
     {
       "entityId": "88800130013001",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Camp Natalon",
       "parentEntityId": "88800130000000"
-    }, 
+    },
     {
       "entityId": "88800120012002",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Igen Hold",
       "parentEntityId": "88800120000000"
-    }, 
+    },
     {
       "entityId": "88800130013002",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Crom Hold",
       "parentEntityId": "88800130000000"
-    }, 
+    },
     {
       "entityId": "88800120012003",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Katz Field",
       "parentEntityId": "88800120000000"
-    }, 
+    },
     {
       "entityId": "88800130013003",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Greenfields",
       "parentEntityId": "88800130000000"
-    }, 
+    },
     {
       "entityId": "88800130013004",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Keogh",
       "parentEntityId": "88800130000000"
-    }, 
+    },
     {
       "entityId": "88800120012004",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Tannercraft Hall",
       "parentEntityId": "88800120000000"
-    }, 
+    },
     {
       "entityId": "88800130013005",
-      "entityType": "INSTITUTION", 
-      "parentEntityType": "DISTRICT", 
+      "entityType": "INSTITUTION",
+      "parentEntityType": "DISTRICT",
       "entityName": "Three Rivers",
       "parentEntityId": "88800130000000"
     }
@@ -616,9 +616,9 @@ curl -X POST --header "Authorization:Bearer {access_token}" --header "Content-Ty
 * Sample Call (form-data):
 ```bash
 curl -X POST --header "Authorization:Bearer {access_token}" -F file=@ART.json https://import-service/organizations/imports
-``` 
-    
-    
+```
+
+
 ### Accommodations Endpoints
 End-points for submitting accommodations data. This is data authored by Smarter Balanced that describes the various accessibility features available during testing.
 
@@ -688,12 +688,12 @@ curl -X POST --header "Authorization:Bearer {access_token}" --header "Content-Ty
 * Sample Call (form-data):
 ```bash
 curl -X POST --header "Authorization:Bearer {access_token}" -F file=@accommodations.xml https://import-service/accommodations/imports
-``` 
-        
+```
+
 ### Package Endpoints
 End-points for submitting assessment package data in CSV format (tabulator output). This is data authored by Smarter Balanced that describes the assessments, items and other test details. This end point can be used to either import new packages or update existing ones. When an assessment is created, the following data elements are considered critical in properly parsing incoming Exam requests and cannot be updated later:
 * grade
-* subject 
+* subject
 * sub-type (ICA, IAB or Summative)
 
 An attempt to update any of the above data elements will result in the "PROCESSED" status and the message stating that it was rejected.
@@ -701,7 +701,7 @@ An attempt to update any of the above data elements will result in the "PROCESSE
 These require the `ASMTDATALOAD` role.
 
 #### Create Package Import Request
-Accepts payloads in the Smarter Balanced Assessment Tabulator format. This is a CSV format produced by the internal tabulator utility. 
+Accepts payloads in the Smarter Balanced Assessment Tabulator format. This is a CSV format produced by the internal tabulator utility.
 
 There are two ways of posting content: with a raw body of type `application/csv` or form-data (file upload).
 
@@ -757,13 +757,13 @@ curl -X POST --header "Authorization:Bearer {access_token}" --header "Content-Ty
 * Sample Call (form-data):
 ```bash
 curl -X POST --header "Authorization:Bearer {access_token}" -F "file=@2017-2018.csv;type=text/csv" https://import-service/packages/imports
-``` 
+```
 ##### Check Package Import Request result
-To check the status of the import use Get Import Request. Imports with "PROCESSED" status will include a messages describing actions taken. An example of the response: 
+To check the status of the import use Get Import Request. Imports with "PROCESSED" status will include a messages describing actions taken. An example of the response:
 ```
 "Assessments processed: 7, created: 5, updated: 1, rejected: 1".
 ```
-              
+
 ### Groups Endpoints
 End-point for submitting student group data in the Smarter Balanced Student Group CSV format.
 
@@ -827,7 +827,7 @@ curl -X POST --header "Authorization:Bearer {access_token}" --header "Content-Ty
 * Sample Call (form-data):
 ```bash
 curl -X POST --header "Authorization:Bearer {access_token}" -F "file=@mygroups.csv;type=text/csv" https://import-service/groups/imports
-``` 
+```
 
 ### Norms Endpoints
 End-point for submitting norms percentile tables in the Smarter Balanced [Norms CSV format](Norms.md). This end point can be used to import new norms or update existing ones. When norms are created, the following data elements are required and comprise the unique identifier for the norms percentile table:
@@ -906,10 +906,10 @@ To check the status of the import use Get Import Request. Imports with "PROCESSE
 ```
 
 ### Task Endpoints
-There are a few tasks that are configured to run periodically (typically once a day). These end-points allow those tasks to be manually triggered on demand. These end-points are part of the actuator framework so they are exposed on a separate port (8008) which is typically kept behind a firewall in a private network. No authentication is required. 
+There are a few tasks that are configured to run periodically (typically once a day). These end-points allow those tasks to be manually triggered on demand. These end-points are part of the actuator framework so they are exposed on a separate port (8008) which is typically kept behind a firewall in a private network. No authentication is required.
 
 #### Reconciliation Report Task
-The reconciliation report task generates a report of all exam imports in the given time range, writing it to the specified location (usually an S3 bucket). This is typically scheduled to happen every day but may be less often in smaller installations (or not at all). To trigger an immediate execution: 
+The reconciliation report task generates a report of all exam imports in the given time range, writing it to the specified location (usually an S3 bucket). This is typically scheduled to happen every day but may be less often in smaller installations (or not at all). To trigger an immediate execution:
 
 * Host: task service
 * URL: `/reconciliationReport`
@@ -924,7 +924,7 @@ curl -X POST http://localhost:8008/reconciliationReport
 ```
 
 #### Update Organizations Task
-The update organization task retrieves all schools from ART and posts them to the import service. This is typically scheduled to happen every day in the wee hours. To trigger an immediate execution: 
+The update organization task retrieves all schools from ART and posts them to the import service. This is typically scheduled to happen every day in the wee hours. To trigger an immediate execution:
 
 * Host: task service
 * URL: `/updateOrganizations`
@@ -981,7 +981,7 @@ curl -X POST http://localhost:8008/migrate
 curl -X POST http://localhost:8008/migrate?tenantId=CA
 ```
 
-As a convenience the /migrate end-point will return the current migrate status. This can be useful when troubleshooting. 
+As a convenience the /migrate end-point will return the current migrate status. This can be useful when troubleshooting.
 NOTE: the `COMPLETED to <timestamp>` is the timestamp of the last *record* migrated, not when the last migrate occurred.
 
 * Host: migrate-olap service, migrate-reporting service
@@ -1028,7 +1028,7 @@ curl http://localhost:8008/status?level=2
 ```
 
 #### Actuator Endpoints
-As Spring Boot applications there are a number of `actuator` end-points that provide information about the status and configuration of the system. See [Actuator Endpoints][1] for a full (technical) description of these end-points. Like the status end-point these are exposed on a separate port (8008) and do not require authentication. 
+As Spring Boot applications there are a number of `actuator` end-points that provide information about the status and configuration of the system. See [Actuator Endpoints][1] for a full (technical) description of these end-points. Like the status end-point these are exposed on a separate port (8008) and do not require authentication.
 
 A list of the most useful:
 * Host: any RDW service
