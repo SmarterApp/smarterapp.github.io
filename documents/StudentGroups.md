@@ -40,9 +40,9 @@ Please refer to the next section for additional details and clarification.
     technology being used. A valid access token looks like a UUID.
 
 A curl request for the OpenAM server will look something like:
-```bash
-curl -s -X POST --data "grant_type=password&username=user@example.com&password=password&client_id=client_id&client_secret=secret" https://sso.smarterbalanced.org/auth/oauth2/access_token?realm=/sbac
-```
+
+`curl -s -X POST --data "grant_type=password&username=user@example.com&password=password&client_id=client_id&client_secret=secret" 
+https://sso.smarterbalanced.org/auth/oauth2/access_token?realm=/sbac`
 
 This is a sample response for an access token:
 ```json
@@ -56,9 +56,10 @@ This is a sample response for an access token:
 ```
 
 A curl request for the Okta server is very similar:
-```bash
-curl -s -X POST --data 'grant_type=password&username=user%40example.com&password=passowrd&client_id=client_id&client_secret=client_secret&scope=openid%20profile' https://smarterbalanced.oktapreview.com/oauth2/auslw2qcsmsUgzsqr0h7/v1/token
-```
+
+`curl -s -X POST --data 'grant_type=password&username=user%40example.com&password=passowrd&client_id=client_id&client_secret=client_secret&scope=openid%20profile' 
+https://smarterbalanced.oktapreview.com/oauth2/auslw2qcsmsUgzsqr0h7/v1/token`
+
 Note the addition of "scope" to the data string. In addition, the client ID and secret will be
 different depending on how the Okta password grant application is configured. An Okta response will
 look like:
@@ -96,9 +97,8 @@ If the user credentials are wrong:
     indicating that the file was accepted and will be processed.
 
 A curl post will look something like:
-```bash
-curl -X POST --header "Authorization: Bearer ${ACCESS_TOKEN}" -F file=@group.csv https://import.rdw.smarterbalanced.org/groups/imports
-```
+
+`curl -X POST --header "Authorization: Bearer ${ACCESS_TOKEN}" -F file=@group.csv https://import.rdw.smarterbalanced.org/groups/imports`
 
 This is a sample response from posting a group file:
 ```json
@@ -138,7 +138,9 @@ And an error example (the header line of the CSV file was corrupted):
   "creator": "user@example.com",
   "created": "2018-05-24T23:00:13.685351Z",
   "updated": "2018-05-24T23:00:13.693388Z",
-  "message": "Row: 0 Failure: Invalid headers. Headers must be in order: [group_name,school_natural_id,school_year,subject_code,student_ssid,group_user_login]\nRow: 0 Failure: File does not appear to be a valid CSV with a header row",
+  "message": "Row: 0 Failure: Invalid headers. Headers must be in order: 
+  [group_name,school_natural_id,school_year,subject_code,student_ssid,group_user_login]
+  Row: 0 Failure: File does not appear to be a valid CSV with a header row",
   "_links": {
     "self": {
       "href": "https://import.rdw.smarterbalanced.org/imports/34088"
