@@ -1,2 +1,4 @@
 #Ignore these directories
 /_site
+.DS_Store
+_deployment/.DS_Store
