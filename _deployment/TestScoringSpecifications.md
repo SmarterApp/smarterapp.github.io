@@ -1,6 +1,7 @@
 ---
 title: Smarter Balanced Scoring Specifications
 date: 2025-04-11
+docurl: [External Site](https://technicalreports.smarterbalanced.org/scoring_specs/_book/scoringspecs.html#calculating-achievement-levels)
 Status: Release
 version: 10
 ---
@@ -8,4 +9,4 @@ The Smarter Balanced Test Scoring Specifications define how item scores are comb
 
 Follow the link for the current information
 
-https://technicalreports.smarterbalanced.org/scoring_specs/_book/scoringspecs.html#calculating-achievement-levels
+[https://technicalreports.smarterbalanced.org/scoring_specs/_book/scoringspecs.html#calculating-achievement-levels](https://technicalreports.smarterbalanced.org/scoring_specs/_book/scoringspecs.html#calculating-achievement-levels)
