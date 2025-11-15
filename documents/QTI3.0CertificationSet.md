@@ -1,7 +1,7 @@
 ---
 title: QTI 3.0 Certification Set
-date: 2025-01-31
-version: 6.0
+date: 2025-11-14
+version: 8.0
 layout: document-wide
 ---
 
